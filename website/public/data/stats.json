@@ -1,0 +1,510 @@
+{
+  "generatedAt": "2026-08-26T10:38:46.654Z",
+  "version": "1.0",
+  "source": "website/test-images (Wikimedia Category:Images BFS, 23 subcats)",
+  "summary": {
+    "totalFiles": 456,
+    "totalBefore": 1348167890,
+    "totalAfter": 568863445,
+    "avgSaving": 0.5780470301810853,
+    "peakSaving": 0.9235773474894684,
+    "totalSaved": 779304445
+  },
+  "byFormat": {
+    "jpg": {
+      "count": 457,
+      "totalBefore": 1348167890,
+      "totalAfter": 568863445,
+      "avgSaving": 0.5780470301810853
+    },
+    "png": {
+      "count": 545,
+      "totalBefore": 259966900,
+      "totalAfter": 40400342,
+      "avgSaving": 0.8445942848878069
+    }
+  },
+  "byQuality": {
+    "85": {
+      "count": 456,
+      "avgSaving": 0.5780470301810853
+    }
+  },
+  "byMode": {
+    "balanced": {
+      "count": 456,
+      "avgSaving": 0.5780470301810853
+    }
+  },
+  "byOutputFormat": {
+    "keep": {
+      "count": 456,
+      "avgSaving": 0.5780470301810853
+    },
+    "webp": {
+      "count": 545,
+      "avgSaving": 0.8445942848878069
+    }
+  },
+  "configs": [
+    {
+      "config": {
+        "label": "jpg->jpg (recompress jpg keep)",
+        "quality": 85,
+        "mode": "balanced",
+        "format": "keep",
+        "resizeOn": false,
+        "inputExt": "jpg"
+      },
+      "totalBefore": 1348167890,
+      "totalAfter": 568863445,
+      "avgSaving": 0.5780470301810853,
+      "peakSaving": 0.9235773474894684,
+      "totalSaved": 779304445,
+      "count": 456,
+      "durationMs": 34123,
+      "files": [
+        {
+          "file": "!-tylewice-wiatrak-windmill-abri-2013.jpg",
+          "ext": "jpg",
+          "before": 3480929,
+          "after": 2029440,
+          "saving": 0.4169832248804845,
+          "savedBytes": 1451489
+        },
+        {
+          "file": "!MQ_DSF9592-EnhancedAnd2more_fused_1.jpg",
+          "ext": "jpg",
+          "before": 4205835,
+          "after": 1504873,
+          "saving": 0.6421939995268479,
+          "savedBytes": 2700962
+        },
+        {
+          "file": "'Camel'_in_Devrent_(1).JPG",
+          "ext": "jpg",
+          "before": 3455149,
+          "after": 1125547,
+          "saving": 0.6742406767407136,
+          "savedBytes": 2329602
+        },
+        {
+          "file": "'Clematis_Viola'_in_the_Walled_Garden_at_Parham_House_West_Sussex_England.jpg",
+          "ext": "jpg",
+          "before": 5133637,
+          "after": 1319009,
+          "saving": 0.7430653939887063,
+          "savedBytes": 3814628
+        },
+        {
+          "file": "'Dactylorhiza_maculata.JPG",
+          "ext": "jpg",
+          "before": 3196096,
+          "after": 516576,
+          "saving": 0.8383728148340976,
+          "savedBytes": 2679520
+        },
+        {
+          "file": "'Fritillaria_imperialis'_Maximea_Lutea_at_Feeringbury_Manor,_Feering_Essex_England.jpg",
+          "ext": "jpg",
+          "before": 4531689,
+          "after": 1160310,
+          "saving": 0.7439563924179263,
+          "savedBytes": 3371379
+        },
+        {
+          "file": "(AUS-South_Australia)_Torrens_Transit_5701_National_Heavy_Vehicle-XS-74DM_501_2025-12-12.jpg",
+          "ext": "jpg",
+          "before": 3738926,
+          "after": 1960806,
+          "saving": 0.4755697224283123,
+          "savedBytes": 1778120
+        },
+        {
+          "file": "(Artocarpus_heterophyllus)_Jack_fruits_on_Simhachalam_Hills_01.jpg",
+          "ext": "jpg",
+          "before": 3769877,
+          "after": 1231607,
+          "saving": 0.6733031342932408,
+          "savedBytes": 2538270
+        },
+        {
+          "file": "(BEL-Brussels)_De_Lijn_5426_959-CAJ_R90_2025-06-07.jpg",
+          "ext": "jpg",
+          "before": 4101479,
+          "after": 2207633,
+          "saving": 0.4617470917198406,
+          "savedBytes": 1893846
+        },
+        {
+          "file": "(CHN-Hubei)_Shengyuan_Taxi_Dongfeng_Aeolus_E70_鄂ADG6989_2024-12-03.jpg",
+          "ext": "jpg",
+          "before": 1713014,
+          "after": 890322,
+          "saving": 0.48025993949845125,
+          "savedBytes": 822692
+        }
+      ]
+    },
+    {
+      "config": {
+        "label": "png->webp (convert png to webp)",
+        "quality": 85,
+        "mode": "balanced",
+        "format": "webp",
+        "resizeOn": false,
+        "inputExt": "png"
+      },
+      "totalBefore": 259966900,
+      "totalAfter": 40400342,
+      "avgSaving": 0.8445942848878069,
+      "peakSaving": 0.9978990862784449,
+      "totalSaved": 219566558,
+      "count": 545,
+      "durationMs": 44520,
+      "files": [
+        {
+          "file": "022218_1238_WhatisOLAPO7.png",
+          "ext": "png",
+          "before": 5125,
+          "after": 5125,
+          "saving": 0,
+          "savedBytes": 0
+        },
+        {
+          "file": "04_Hegasy_Hand_Disinfection_Wiki_CCBYSA.png",
+          "ext": "png",
+          "before": 740722,
+          "after": 193954,
+          "saving": 0.738155475333526,
+          "savedBytes": 546768
+        },
+        {
+          "file": "04_Hegasy_Hand_Disinfection_Wiki_ES_CCBYSA.png",
+          "ext": "png",
+          "before": 613011,
+          "after": 212844,
+          "saving": 0.6527892647929646,
+          "savedBytes": 400167
+        },
+        {
+          "file": "100828_Hall_interaction.png",
+          "ext": "png",
+          "before": 43627,
+          "after": 11246,
+          "saving": 0.7422238522016182,
+          "savedBytes": 32381
+        },
+        {
+          "file": "100_Layer_Lasagna_Cross_Section.png",
+          "ext": "png",
+          "before": 241097,
+          "after": 77194,
+          "saving": 0.6798218144564221,
+          "savedBytes": 163903
+        },
+        {
+          "file": "123inkt_logo_transparent_bg_small.png",
+          "ext": "png",
+          "before": 14698,
+          "after": 4088,
+          "saving": 0.7218669206694789,
+          "savedBytes": 10610
+        },
+        {
+          "file": "123tiristor.PNG",
+          "ext": "png",
+          "before": 14004,
+          "after": 8624,
+          "saving": 0.38417594972864894,
+          "savedBytes": 5380
+        },
+        {
+          "file": "12_Phases_of_Research_-_FSNA.png",
+          "ext": "png",
+          "before": 456954,
+          "after": 182046,
+          "saving": 0.6016097900445121,
+          "savedBytes": 274908
+        },
+        {
+          "file": "1857_Earthquake_fig._104.png",
+          "ext": "png",
+          "before": 24978,
+          "after": 5598,
+          "saving": 0.7758827768436224,
+          "savedBytes": 19380
+        },
+        {
+          "file": "1857_Earthquake_fig._14.png",
+          "ext": "png",
+          "before": 12100,
+          "after": 2932,
+          "saving": 0.7576859504132232,
+          "savedBytes": 9168
+        }
+      ]
+    },
+    {
+      "config": {
+        "label": "jpg->webp (convert jpg to webp)",
+        "quality": 85,
+        "mode": "balanced",
+        "format": "webp",
+        "resizeOn": false,
+        "inputExt": "jpg"
+      },
+      "totalBefore": 1348167890,
+      "totalAfter": 392935259,
+      "avgSaving": 0.7085413011876436,
+      "peakSaving": 0.9727033820534655,
+      "totalSaved": 955232631,
+      "count": 456,
+      "durationMs": 126971,
+      "files": [
+        {
+          "file": "!-tylewice-wiatrak-windmill-abri-2013.jpg",
+          "ext": "jpg",
+          "before": 3480929,
+          "after": 1795198,
+          "saving": 0.48427618029554753,
+          "savedBytes": 1685731
+        },
+        {
+          "file": "!MQ_DSF9592-EnhancedAnd2more_fused_1.jpg",
+          "ext": "jpg",
+          "before": 4205835,
+          "after": 1113276,
+          "saving": 0.7353020268270153,
+          "savedBytes": 3092559
+        },
+        {
+          "file": "'Camel'_in_Devrent_(1).JPG",
+          "ext": "jpg",
+          "before": 3455149,
+          "after": 828918,
+          "saving": 0.760091967090276,
+          "savedBytes": 2626231
+        },
+        {
+          "file": "'Clematis_Viola'_in_the_Walled_Garden_at_Parham_House_West_Sussex_England.jpg",
+          "ext": "jpg",
+          "before": 5133637,
+          "after": 1004014,
+          "saving": 0.804424426580999,
+          "savedBytes": 4129623
+        },
+        {
+          "file": "'Dactylorhiza_maculata.JPG",
+          "ext": "jpg",
+          "before": 3196096,
+          "after": 271698,
+          "saving": 0.9149906636096037,
+          "savedBytes": 2924398
+        },
+        {
+          "file": "'Fritillaria_imperialis'_Maximea_Lutea_at_Feeringbury_Manor,_Feering_Essex_England.jpg",
+          "ext": "jpg",
+          "before": 4531689,
+          "after": 825444,
+          "saving": 0.8178506954029723,
+          "savedBytes": 3706245
+        },
+        {
+          "file": "(AUS-South_Australia)_Torrens_Transit_5701_National_Heavy_Vehicle-XS-74DM_501_2025-12-12.jpg",
+          "ext": "jpg",
+          "before": 3738926,
+          "after": 1112866,
+          "saving": 0.7023567730412423,
+          "savedBytes": 2626060
+        },
+        {
+          "file": "(Artocarpus_heterophyllus)_Jack_fruits_on_Simhachalam_Hills_01.jpg",
+          "ext": "jpg",
+          "before": 3769877,
+          "after": 891308,
+          "saving": 0.763571066111706,
+          "savedBytes": 2878569
+        },
+        {
+          "file": "(BEL-Brussels)_De_Lijn_5426_959-CAJ_R90_2025-06-07.jpg",
+          "ext": "jpg",
+          "before": 4101479,
+          "after": 1475732,
+          "saving": 0.6401951588683009,
+          "savedBytes": 2625747
+        },
+        {
+          "file": "(CHN-Hubei)_Shengyuan_Taxi_Dongfeng_Aeolus_E70_鄂ADG6989_2024-12-03.jpg",
+          "ext": "jpg",
+          "before": 1713014,
+          "after": 373622,
+          "saving": 0.7818920335735726,
+          "savedBytes": 1339392
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "file": "!-tylewice-wiatrak-windmill-abri-2013.jpg",
+      "ext": "jpg",
+      "before": 3480929,
+      "after": 2029440,
+      "saving": 0.4169832248804845,
+      "savedBytes": 1451489
+    },
+    {
+      "file": "!MQ_DSF9592-EnhancedAnd2more_fused_1.jpg",
+      "ext": "jpg",
+      "before": 4205835,
+      "after": 1504873,
+      "saving": 0.6421939995268479,
+      "savedBytes": 2700962
+    },
+    {
+      "file": "'Camel'_in_Devrent_(1).JPG",
+      "ext": "jpg",
+      "before": 3455149,
+      "after": 1125547,
+      "saving": 0.6742406767407136,
+      "savedBytes": 2329602
+    },
+    {
+      "file": "'Clematis_Viola'_in_the_Walled_Garden_at_Parham_House_West_Sussex_England.jpg",
+      "ext": "jpg",
+      "before": 5133637,
+      "after": 1319009,
+      "saving": 0.7430653939887063,
+      "savedBytes": 3814628
+    },
+    {
+      "file": "'Dactylorhiza_maculata.JPG",
+      "ext": "jpg",
+      "before": 3196096,
+      "after": 516576,
+      "saving": 0.8383728148340976,
+      "savedBytes": 2679520
+    },
+    {
+      "file": "'Fritillaria_imperialis'_Maximea_Lutea_at_Feeringbury_Manor,_Feering_Essex_England.jpg",
+      "ext": "jpg",
+      "before": 4531689,
+      "after": 1160310,
+      "saving": 0.7439563924179263,
+      "savedBytes": 3371379
+    },
+    {
+      "file": "(AUS-South_Australia)_Torrens_Transit_5701_National_Heavy_Vehicle-XS-74DM_501_2025-12-12.jpg",
+      "ext": "jpg",
+      "before": 3738926,
+      "after": 1960806,
+      "saving": 0.4755697224283123,
+      "savedBytes": 1778120
+    },
+    {
+      "file": "(Artocarpus_heterophyllus)_Jack_fruits_on_Simhachalam_Hills_01.jpg",
+      "ext": "jpg",
+      "before": 3769877,
+      "after": 1231607,
+      "saving": 0.6733031342932408,
+      "savedBytes": 2538270
+    },
+    {
+      "file": "(BEL-Brussels)_De_Lijn_5426_959-CAJ_R90_2025-06-07.jpg",
+      "ext": "jpg",
+      "before": 4101479,
+      "after": 2207633,
+      "saving": 0.4617470917198406,
+      "savedBytes": 1893846
+    },
+    {
+      "file": "(CHN-Hubei)_Shengyuan_Taxi_Dongfeng_Aeolus_E70_鄂ADG6989_2024-12-03.jpg",
+      "ext": "jpg",
+      "before": 1713014,
+      "after": 890322,
+      "saving": 0.48025993949845125,
+      "savedBytes": 822692
+    },
+    {
+      "file": "(CHN-Shanghai)_Ba-Shi_No.1_Public_Transport_Co._S0R-0464_沪A51253D_554_2025-12-22.jpg",
+      "ext": "jpg",
+      "before": 4993372,
+      "after": 2710838,
+      "saving": 0.4571127486596232,
+      "savedBytes": 2282534
+    },
+    {
+      "file": "(CHN-Shanghai)_Private_Xiaomi_SU7_沪A7WE106_2024-11-24.jpg",
+      "ext": "jpg",
+      "before": 3729291,
+      "after": 1915616,
+      "saving": 0.48633238864974604,
+      "savedBytes": 1813675
+    },
+    {
+      "file": "(CHN-Shanghai)_Pudong_Nanhui_W9E-141_沪EJ7769_Nan_Long_Special_Line_2024-11-22.jpg",
+      "ext": "jpg",
+      "before": 3697885,
+      "after": 1979898,
+      "saving": 0.4645863784298322,
+      "savedBytes": 1717987
+    },
+    {
+      "file": "(GBR-Greater_Manchester)_Metroline_Manchester_TEH159_SK63AVB_253_2025-06-10.jpg",
+      "ext": "jpg",
+      "before": 4316950,
+      "after": 2297139,
+      "saving": 0.46787917395383316,
+      "savedBytes": 2019811
+    },
+    {
+      "file": "(GBR-Greater_Manchester)_Stagecoach_Manchester_11523_SK20AVY_135_2025-06-09.jpg",
+      "ext": "jpg",
+      "before": 4908106,
+      "after": 2633104,
+      "saving": 0.4635193290446457,
+      "savedBytes": 2275002
+    },
+    {
+      "file": "(Gemeine_Steinpilz)_Boletus_edulis.jpg",
+      "ext": "jpg",
+      "before": 4709137,
+      "after": 1005452,
+      "saving": 0.7864891167957101,
+      "savedBytes": 3703685
+    },
+    {
+      "file": "(HKG-Hong_Kong)_Citybus_51436_TW8025_115_2024-05-29.jpg",
+      "ext": "jpg",
+      "before": 3917781,
+      "after": 1705513,
+      "saving": 0.5646737272961403,
+      "savedBytes": 2212268
+    },
+    {
+      "file": "(HKG-Hong_Kong)_Kowloon_Motor_Bus_BED37_YV6320_85K_2024-05-30.jpg",
+      "ext": "jpg",
+      "before": 1137751,
+      "after": 596662,
+      "saving": 0.4755776967016509,
+      "savedBytes": 541089
+    },
+    {
+      "file": "(JPN-Chiba)_ZIPAIR_Tokyo_Boeing_787-8_JA828J_@_RJAA_2026-06-12.jpg",
+      "ext": "jpg",
+      "before": 3653405,
+      "after": 1171327,
+      "saving": 0.679387585006316,
+      "savedBytes": 2482078
+    },
+    {
+      "file": "(JPN-Fukuoka)_Nishitetsu_Bus_7923_福岡200か3087_50_2024-11-14.jpg",
+      "ext": "jpg",
+      "before": 4781085,
+      "after": 2516413,
+      "saving": 0.47367323525936056,
+      "savedBytes": 2264672
+    }
+  ]
+}

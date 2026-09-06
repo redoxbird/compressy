@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compressy — Examples</title>
+<style>
+/* â”€â”€ Notion tokens — verbatim â”€â”€ */
+:root {
+  --bg:#ffffff;
+  --surface:#f6f5f4;
+  --surface-warm:var(--surface);
+  --fg:rgba(0, 0, 0, 0.95);
+  --fg-2:#31302e;
+  --muted:#615d59;
+  --meta:#a39e98;
+  --border:rgba(0, 0, 0, 0.1);
+  --border-soft:rgba(0, 0, 0, 0.06);
+  --accent:#0075de;
+  --accent-on:#ffffff;
+  --accent-hover:#005bab;
+  --accent-active:color-mix(in oklab, var(--accent), black 14%);
+  --success:#1aae39;
+  --warn:#dd5b00;
+  --danger:#dc2626;
+  --font-display:"NotionInter","Inter",-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-body:"NotionInter","Inter",-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Monaco,Consolas,monospace;
+  --text-xs:12px;
+  --text-sm:14px;
+  --text-base:16px;
+  --text-lg:20px;
+  --text-xl:26px;
+  --text-2xl:40px;
+  --text-3xl:48px;
+  --text-4xl:64px;
+  --leading-body:1.5;
+  --leading-tight:1.00;
+  --tracking-display:-0.033em;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-12:48px;
+  --section-y-desktop:80px;
+  --section-y-tablet:48px;
+  --section-y-phone:32px;
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --radius-pill:9999px;
+  --elev-flat:none;
+  --elev-ring:0 0 0 1px var(--border);
+  --elev-raised:rgba(0, 0, 0, 0.04) 0px 4px 18px,rgba(0, 0, 0, 0.027) 0px 2px 7.85px,rgba(0, 0, 0, 0.02) 0px 0.8px 2.93px,rgba(0, 0, 0, 0.01) 0px 0.175px 1.04px;
+  --focus-ring:0 0 0 3px rgba(9, 127, 232, 0.3);
+  --motion-fast:150ms;
+  --motion-base:200ms;
+  --ease-standard:cubic-bezier(0.2, 0, 0, 1);
+  --container-max:1200px;
+  --container-gutter-desktop:24px;
+  --container-gutter-tablet:16px;
+  --container-gutter-phone:12px;
+}
+/* role colors derived from tokens */
+:root{
+  --ok:#12873b;
+  --ok-bg:#f0f9f2;
+  --ok-line:#c4e6cd;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--font-body);font-size:var(--text-base);line-height:var(--leading-body);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.container{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-gutter-desktop)}
+@media(max-width:768px){.container{padding:0 var(--container-gutter-phone)}}
+code{font-family:var(--font-mono)}
+
+/* â”€â”€ sticky nav (shared kit) â”€â”€ */
+.nav{
+  position:sticky;top:0;z-index:30;height:64px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border-soft);background:var(--bg)
+}
+.nav__left{display:flex;align-items:center;gap:28px}
+.nav__links{display:flex;align-items:center;gap:22px}
+.nav__links a{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--muted);transition:color var(--motion-fast) var(--ease-standard)}
+.nav__links a:hover{color:var(--fg)}
+.nav__links a.is-active{color:var(--fg);font-weight:600}
+.nav .container{display:flex;align-items:center;justify-content:space-between;width:100%;gap:16px}
+.nav__cta{display:flex;align-items:center;gap:10px}
+
+/* â”€â”€ shared kit: brand, buttons, pills â”€â”€ */
+.brand{display:flex;align-items:center;gap:10px}
+.brand__mark{
+  width:28px;height:28px;border-radius:6px;background:var(--fg);color:var(--bg);
+  display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:-0.04em
+}
+.brand__word{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:-0.02em;color:var(--fg)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-display);font-size:15px;font-weight:600;line-height:1;
+  padding:12px 18px;border-radius:var(--radius-sm);border:1px solid transparent;
+  cursor:pointer;white-space:nowrap;transition:background var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard)
+}
+.btn:active{transform:scale(.98)}
+.btn svg{flex:0 0 auto}
+.btn-primary{background:var(--accent);color:var(--accent-on);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-secondary{background:var(--surface);color:var(--fg);border-color:var(--border)}
+.btn-secondary:hover{background:#efece8}
+.btn-ghost{background:var(--bg);color:var(--fg);border-color:var(--border)}
+.btn-ghost:hover{background:var(--surface)}
+.btn-sm{padding:8px 14px;font-size:14px}
+.btn.is-done{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-line)}
+.btn[disabled]{cursor:default}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-display);font-size:var(--text-xs);font-weight:600;letter-spacing:0.02em;
+  padding:4px 10px;border-radius:var(--radius-pill);
+  background:color-mix(in srgb, var(--accent) 8%, var(--bg));color:var(--accent);border:1px solid color-mix(in srgb, var(--accent) 14%, transparent)
+}
+.pill--warm{background:var(--surface);color:var(--muted);border-color:var(--border)}
+.pill--success{background:color-mix(in srgb, var(--success) 10%, var(--bg));color:var(--success);border-color:color-mix(in srgb, var(--success) 16%, transparent)}
+.mono{font-family:var(--font-mono)}
+.small{font-size:var(--text-sm);line-height:1.5}
+.muted{color:var(--muted)}
+
+/* â”€â”€ hero (shared kit) â”€â”€ */
+.hero{padding:64px 0 28px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-display);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px
+}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+.hero h1{font-size:clamp(38px,5.6vw,var(--text-4xl));letter-spacing:var(--tracking-display);line-height:1.05}
+.lead{font-size:var(--text-lg);line-height:1.4;color:var(--muted);max-width:60ch}
+.hero__actions{margin-top:22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero__meta{margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--meta);letter-spacing:0.01em;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.hero__meta em{font-style:normal;color:var(--fg);font-weight:600}
+@media(max-width:768px){.hero{padding:42px 0 24px}.nav{height:56px}.nav__links{display:none}}
+
+/* â”€â”€ comparison table â”€â”€ */
+.table{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:var(--elev-raised)}
+.thead{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
+.thead>div{position:relative;padding:10px 96px 12px 16px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--muted)}
+.thead .th-after{border-left:1px solid var(--border);background:#faf9f6}
+.col-tag{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:var(--radius-pill);border:1px solid var(--border);background:var(--bg);color:var(--muted)}
+.th-after .col-tag{background:var(--fg-2);border-color:var(--fg-2);color:#fff}
+
+.pair{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
+.pair:last-child{border-bottom:0}
+.cell{min-width:0}
+.cell-after{border-left:1px solid var(--border)}
+
+.phead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 0}
+@media(max-width:600px){.phead{flex-direction:column;align-items:flex-start;gap:6px}}
+.phead h2{font-size:17px;font-weight:700;letter-spacing:-.012em}
+.phead .mono{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap}
+
+.media{margin:14px 16px 0;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;background:var(--surface)}
+.media svg{display:block;width:100%;height:auto}
+.fxA,.fxB{filter:saturate(.99)}
+.fxC,.fxG,.fxJ{filter:saturate(.995)}
+.fxD{filter:blur(.55px) saturate(.99)}
+.fxE,.fxF,.fxH{filter:none}
+.fxI{filter:blur(.55px)}
+
+.det{padding:12px 16px 16px;display:grid;grid-template-columns:auto 1fr;gap:9px 16px;align-items:center}
+.det .lbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.2;padding-top:1px}
+.det .val{font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--fg);min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.det .val .dim{color:var(--meta);font-weight:400}
+.val .save{color:var(--ok);font-weight:600}
+.val .save.neutral{color:var(--muted);font-weight:500}
+.det .dl{grid-column:1 / -1;display:flex;justify-content:flex-end;margin-top:2px}
+.kpi{display:flex;align-items:center;gap:12px}
+.kpi .pct{font-size:15px;font-weight:700;color:var(--ok);white-space:nowrap;font-variant-numeric:tabular-nums}
+.kpi .chip{font-family:var(--font-mono);font-size:12.5px;font-weight:600;color:var(--ok);white-space:nowrap}
+.kpi .bar{flex:1;min-width:60px;height:34px;background:var(--ok-bg);border:1px solid var(--ok-line);border-radius:8px;position:relative;overflow:hidden}
+.kpi .bar i{position:absolute;inset:0;background:var(--ok);opacity:.18}
+@media(max-width:600px){
+  .det{grid-template-columns:1fr;gap:7px 10px}
+  .det .lbl{padding-top:6px}
+  .det .lbl:first-child{padding-top:0}
+  .det .dl{margin-top:6px}
+  .det .dl .btn{width:100%}
+  .kpi .bar{height:30px}
+}
+/* â”€â”€ footer (shared kit) â”€â”€ */
+.footer{border-top:1px solid var(--border);padding:20px 0 28px;background:var(--bg);margin-top:8px}
+.footer__row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.footer__brand{display:flex;align-items:center;gap:10px;color:var(--fg);font-weight:600}
+.footer__links{display:flex;gap:18px}
+.footer__links a{color:var(--muted)}
+.footer__links a:hover{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+</style>
+</head>
+<body>
+
+<nav class="nav" data-od-id="nav" aria-label="Primary">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;gap:16px">
+    <div class="nav__left">
+      <a class="brand" href="landing.html" aria-label="Compressy home">
+        <span class="brand__mark">C</span>
+        <span class="brand__word">Compressy</span>
+      </a>
+      <div class="nav__links" aria-label="Sections">
+        <a href="landing.html#offline">Offline</a>
+        <a href="landing.html#workflow">Workflow</a>
+        <a href="landing.html#formats">Formats</a>
+        <a href="downloads.html">Downloads</a>
+      </div>
+    </div>
+    <div class="nav__cta">
+      <a href="#download" class="link-quiet" style="display:none">Docs</a>
+      <a class="btn btn-primary btn-sm" href="downloads.html">Download for Windows</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" data-od-id="hero">
+  <div class="container">
+  <div class="eyebrow" data-od-id="hero-eyebrow"><i aria-hidden="true"></i> Compression complete · 13 variants from one source</div>
+  <h1 data-od-id="hero-title">Every setting, side by side.</h1>
+  <p class="lead" data-od-id="hero-copy" style="margin-top:14px">Same photo, every Compressy option — original on the left, compressed on the right, honest numbers underneath. Before and after came straight out of the encoder, so what you see is what you get.</p>
+  <div class="hero__actions" data-od-id="hero-actions">
+    <button class="btn btn-primary" data-od-id="download-all-top" data-mode="seq">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3.5v7M4.5 8.5L8 12l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12.5H13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      Download all 13 results
+    </button>
+    <a class="btn btn-ghost" href="compressy.html">Open app preview</a>
+  </div>
+  <div class="hero__meta" data-od-id="hero-meta"><em>13</em> variants · <em>3840×2160</em> source · defaults 85q / balanced / stripped</div>
+  </div>
+</header>
+
+<main class="container" data-od-id="results">
+  <div class="table" data-od-id="compare-table">
+
+    <!-- hidden scene definitions: room scene + flat-lay scene -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f3ead8"/><stop offset="55%" stop-color="#eeddc3"/><stop offset="100%" stop-color="#e8d0ae"/>
+        </linearGradient>
+        <linearGradient id="wallL" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ece2d2"/><stop offset="100%" stop-color="#e2d5bf"/>
+        </linearGradient>
+        <linearGradient id="wallR" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#efe6d5"/><stop offset="100%" stop-color="#ddd0b8"/>
+        </linearGradient>
+        <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fdf6ea"/><stop offset="100%" stop-color="#f4e3c6"/>
+        </linearGradient>
+        <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d9c49d"/><stop offset="55%" stop-color="#cbaf82"/><stop offset="100%" stop-color="#bfa170"/>
+        </linearGradient>
+        <linearGradient id="rug" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#e8e2d4"/><stop offset="100%" stop-color="#d4ccb8"/>
+        </linearGradient>
+        <linearGradient id="sofa" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b65f3f"/><stop offset="60%" stop-color="#a95537"/><stop offset="100%" stop-color="#9c4c30"/>
+        </linearGradient>
+        <linearGradient id="sofaTop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c67a58"/><stop offset="100%" stop-color="#b26344"/>
+        </linearGradient>
+        <linearGradient id="cushion" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c98a5e"/><stop offset="100%" stop-color="#b5764c"/>
+        </linearGradient>
+        <linearGradient id="cushV" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7d8f6a"/><stop offset="100%" stop-color="#6d7f5c"/>
+        </linearGradient>
+        <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#a97c50"/><stop offset="100%" stop-color="#956a41"/>
+        </linearGradient>
+        <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cfc0a6"/><stop offset="100%" stop-color="#b8a789"/>
+        </linearGradient>
+        <linearGradient id="leafA" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6f8d5c"/><stop offset="100%" stop-color="#5d7a4c"/>
+        </linearGradient>
+        <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#55734a"/><stop offset="100%" stop-color="#4c6b41"/>
+        </linearGradient>
+        <linearGradient id="art" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8fa3b0"/><stop offset="100%" stop-color="#7e93a1"/>
+        </linearGradient>
+        <linearGradient id="frameg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5c4a38"/><stop offset="100%" stop-color="#4e3e2e"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="0.62" cy="0.40" r="0.70">
+          <stop offset="0%" stop-color="#fff8e6" stop-opacity=".85"/><stop offset="55%" stop-color="#fff8e6" stop-opacity=".30"/><stop offset="100%" stop-color="#fff8e6" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Scene A · interior room, full detail -->
+        <g id="sceneRoom">
+          <rect x="0" y="0" width="800" height="440" fill="url(#wallR)"/>
+          <rect x="0" y="440" width="800" height="120" fill="url(#floor)"/>
+          <rect x="0" y="436" width="800" height="6" fill="#a98a63"/>
+          <rect x="60" y="46" width="200" height="230" fill="url(#win)"/>
+          <rect x="60" y="46" width="200" height="230" fill="none" stroke="#b99f76" stroke-width="5"/>
+          <rect x="155" y="46" width="8" height="230" fill="#b99f76"/>
+          <rect x="60" y="156" width="200" height="8" fill="#b99f76"/>
+          <path d="M100 46 L60 46 L20 440 L70 440 Z" fill="#e6d6b8" opacity=".75"/>
+          <path d="M180 46 L150 46 L135 440 L185 440 Z" fill="#f4e6cb" opacity=".55"/>
+          <rect x="470" y="70" width="150" height="90" rx="8" fill="url(#frameg)"/>
+          <rect x="476" y="76" width="138" height="78" rx="5" fill="url(#art)"/>
+          <path d="M484 132 Q504 100 522 118 T560 108" stroke="#a7bcc9" stroke-width="4" fill="none" opacity=".8"/>
+          <circle cx="552" cy="94" r="9" fill="#f1e7d2" opacity=".9"/>
+          <rect x="650" y="60" width="96" height="120" rx="6" fill="url(#frameg)"/>
+          <rect x="656" y="66" width="84" height="108" rx="4" fill="url(#art)" opacity=".9"/>
+          <rect x="666" y="84" width="64" height="10" rx="3" fill="#f1e7d2" opacity=".8"/>
+          <rect x="666" y="102" width="44" height="10" rx="3" fill="#f1e7d2" opacity=".55"/>
+          <ellipse cx="640" cy="528" rx="290" ry="34" fill="url(#rug)"/>
+          <ellipse cx="640" cy="528" rx="290" ry="34" fill="none" stroke="#c6bda6" stroke-width="3"/>
+          <rect x="470" y="330" width="330" height="120" rx="14" fill="url(#sofa)"/>
+          <rect x="800" y="330" width="0" height="0"/>
+          <rect x="482" y="312" width="306" height="40" rx="18" fill="url(#sofaTop)"/>
+          <rect x="452" y="300" width="34" height="130" rx="10" fill="#a95537"/>
+          <rect x="786" y="300" width="14" height="120" rx="8" fill="#9c4c30"/>
+          <rect x="500" y="330" width="92" height="76" rx="12" fill="url(#cushion)"/>
+          <rect x="610" y="330" width="92" height="76" rx="12" fill="url(#cushV)"/>
+          <rect x="712" y="338" width="72" height="66" rx="12" fill="url(#cushion)" opacity=".92"/>
+          <rect x="510" y="452" width="250" height="14" rx="7" fill="#83452c"/>
+          <rect x="540" y="466" width="18" height="42" fill="#8a4a30"/>
+          <rect x="736" y="446" width="18" height="46" fill="#8a4a2e"/>
+          <rect x="256" y="330" width="150" height="14" rx="4" fill="url(#wood)"/>
+          <rect x="272" y="344" width="12" height="112" fill="#81603c"/>
+          <rect x="378" y="344" width="12" height="112" fill="#81603c"/>
+          <rect x="288" y="278" width="86" height="56" rx="4" fill="url(#pot)"/>
+          <path d="M296 278 C300 218 316 196 330 176 C334 196 322 224 316 248 C326 226 344 204 356 196 C352 222 330 252 318 278 Z" fill="url(#leafA)"/>
+          <path d="M330 278 C320 240 306 214 288 200 C292 232 306 254 314 278 Z" fill="url(#leaf)"/>
+          <circle cx="322" cy="252" r="5" fill="#e8b64d"/>
+          <circle cx="352" cy="212" r="4" fill="#e8b64d" opacity=".8"/>
+          <rect x="120" y="470" width="104" height="8" rx="4" fill="#7c5c3b" opacity=".35"/>
+          <ellipse cx="600" cy="150" rx="300" ry="200" fill="url(#glow)"/>
+        </g>
+
+        <!-- Scene B · brand flat-lay, full detail -->
+        <g id="sceneFlat">
+          <rect x="0" y="0" width="800" height="560" fill="#e7e0d2"/>
+          <ellipse cx="400" cy="280" rx="430" ry="330" fill="#ded6c4"/>
+          <ellipse cx="150" cy="100" rx="220" ry="160" fill="#e6dfcf" opacity=".9"/>
+          <rect x="150" y="120" width="360" height="260" rx="10" transform="rotate(-4 330 250)" fill="#c9a37c"/>
+          <rect x="162" y="132" width="336" height="236" rx="6" transform="rotate(-4 330 250)" fill="#d8b78f"/>
+          <rect x="196" y="168" width="180" height="12" rx="6" transform="rotate(-4 330 250)" fill="#b28e66" opacity=".55"/>
+          <rect x="196" y="196" width="120" height="10" rx="5" transform="rotate(-4 330 250)" fill="#b28e66" opacity=".4"/>
+          <rect x="468" y="330" width="220" height="130" rx="8" transform="rotate(3 578 395)" fill="#ece5d6" stroke="#d7cdb8"/>
+          <rect x="486" y="352" width="96" height="8" rx="4" transform="rotate(3 578 395)" fill="#9c9483"/>
+          <rect x="486" y="372" width="128" height="8" rx="4" transform="rotate(3 578 395)" fill="#b1a893"/>
+          <rect x="486" y="392" width="72" height="8" rx="4" transform="rotate(3 578 395)" fill="#b1a893" opacity=".7"/>
+          <g transform="rotate(-6 600 180)">
+            <ellipse cx="560" cy="196" rx="78" ry="50" fill="#a8543a"/>
+            <ellipse cx="672" cy="176" rx="72" ry="48" fill="#5f7a53"/>
+            <ellipse cx="500" cy="160" rx="46" ry="30" fill="#e3d9c6"/>
+          </g>
+          <g transform="rotate(8 250 420)">
+            <rect x="180" y="400" width="150" height="12" rx="6" fill="#e8ddca"/>
+            <polygon points="330,400 356,406 330,412" fill="#caa070"/>
+            <rect x="188" y="384" width="130" height="10" rx="5" fill="#b98c58"/>
+          </g>
+          <g transform="rotate(-10 480 470)">
+            <rect x="392" y="446" width="170" height="52" rx="6" fill="#e6dcc6" stroke="#cec1a4"/>
+            <rect x="404" y="458" width="58" height="8" rx="4" fill="#8f8674"/>
+            <rect x="404" y="474" width="92" height="8" rx="4" fill="#a89d86" opacity=".75"/>
+          </g>
+          <g transform="rotate(14 690 500)">
+            <rect x="618" y="472" width="150" height="56" rx="6" fill="#e2d7bf" stroke="#c8bba0"/>
+            <rect x="630" y="486" width="40" height="10" rx="5" fill="#8a8171"/>
+            <rect x="630" y="504" width="66" height="10" rx="5" fill="#9d9280" opacity=".7"/>
+          </g>
+          <circle cx="120" cy="470" r="46" fill="#b8a98d"/>
+          <circle cx="120" cy="470" r="34" fill="#d8ccb2"/>
+          <circle cx="120" cy="470" r="22" fill="#c9ba9d"/>
+          <rect x="600" y="60" width="120" height="150" rx="8" transform="rotate(-12 660 135)" fill="#f1ece0" stroke="#d9d0bb"/>
+          <rect x="616" y="86" width="86" height="10" rx="5" transform="rotate(-12 660 135)" fill="#93897b"/>
+          <circle cx="656" cy="160" r="22" fill="none" stroke="#b3985f" stroke-width="5" transform="rotate(-12 660 135)"/>
+          <rect x="240" y="40" width="300" height="14" rx="7" transform="rotate(-24 390 47)" fill="#3f4c3a" opacity=".85"/>
+          <rect x="240" y="80" width="300" height="14" rx="7" transform="rotate(-24 390 87)" fill="#6a5137" opacity=".8"/>
+          <rect x="330" y="118" width="300" height="14" rx="7" transform="rotate(-24 480 125)" fill="#a2543a" opacity=".75"/>
+          <path d="M60 540 Q400 470 760 520 L800 560 L0 560 Z" fill="#d8cfb9" opacity=".55"/>
+        </g>
+      </defs>
+    </svg>
+
+    <div class="thead" aria-hidden="true">
+      <div>Original<span class="col-tag">Before</span></div>
+      <div class="th-after">Compressed<span class="col-tag">After</span></div>
+    </div>
+
+    <!-- 1 · uncompressed JPG â†’ q85 JPG -->
+    <section class="pair" data-od-id="row-q85" aria-label="Uncompressed JPG to quality 85 JPG">
+      <div class="cell">
+        <div class="phead"><h2>Uncompressed JPG</h2><span class="mono">hero-portfolio.jpg</span></div>
+        <figure class="media"><svg class="fxA" viewBox="0 0 800 560" role="img" aria-label="Original photo at quality 100"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">4.82 MB <span class="dim">· no compression</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· q100 · 4:4:4 chroma · full EXIF + ICC</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-original-q85">Download original</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>85 quality JPG</h2><span class="mono">hero-portfolio-85q.jpg</span></div>
+        <figure class="media"><svg class="fxB" viewBox="0 0 800 560" role="img" aria-label="Compressed photo at quality 85"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.42 MB <span class="save">−70% · 3.40 MB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px <span class="dim">· unchanged</span></dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· q85 · mozjpeg · 4:2:0 · EXIF stripped</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-q85">Download 85q JPG</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 2 · JPG â†’ WebP -->
+    <section class="pair" data-od-id="row-webp" aria-label="JPG to WebP at quality 85">
+      <div class="cell">
+        <div class="phead"><h2>JPG — 85 quality</h2><span class="mono">hero-portfolio-85q.jpg</span></div>
+        <figure class="media"><svg class="fxC" viewBox="0 0 800 560" role="img" aria-label="JPG at quality 85"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.42 MB <span class="dim">· as saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· mozjpeg · baseline · no alpha</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-jpg-keep">Download JPG</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>WebP</h2><span class="mono">hero-portfolio.webp</span></div>
+        <figure class="media"><svg class="fxD" viewBox="0 0 800 560" role="img" aria-label="WebP conversion"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">860 KB <span class="save">−40% vs JPG · 560 KB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px <span class="dim">· unchanged</span></dd>
+          <dt class="lbl">Format</dt><dd class="val">WebP <span class="dim">· q85 · VP8 · lossy</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-webp">Download WebP</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 3 · JPG â†’ AVIF -->
+    <section class="pair" data-od-id="row-avif" aria-label="JPG to AVIF">
+      <div class="cell">
+        <div class="phead"><h2>JPG — 85 quality</h2><span class="mono">hero-portfolio-85q.jpg</span></div>
+        <figure class="media"><svg class="fxE" viewBox="0 0 800 560" role="img" aria-label="JPG at quality 85"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.42 MB <span class="dim">· as saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· mozjpeg · baseline</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-jpg-avif">Download JPG</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>AVIF</h2><span class="mono">hero-portfolio.avif</span></div>
+        <figure class="media"><svg class="fxF" viewBox="0 0 800 560" role="img" aria-label="AVIF conversion"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">612 KB <span class="save">−57% vs JPG · 808 KB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px <span class="dim">· unchanged</span></dd>
+          <dt class="lbl">Format</dt><dd class="val">AVIF <span class="dim">· q85 · AV1 still · ~2.1 s encode</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-avif">Download AVIF</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 4 · balanced vs maximum engine -->
+    <section class="pair" data-od-id="row-engine" aria-label="Balanced vs maximum compression engine">
+      <div class="cell">
+        <div class="phead"><h2>Balanced engine</h2><span class="mono">~0.4 s / file</span></div>
+        <figure class="media"><svg class="fxG" viewBox="0 0 800 560" role="img" aria-label="Balanced engine result"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.42 MB <span class="dim">· good effort</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Setting</dt><dd class="val">JPG q85 <span class="dim">· mozjpeg · standard trellis</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-balanced">Download balanced</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Maximum engine</h2><span class="mono">~2.1 s / file</span></div>
+        <figure class="media"><svg class="fxH" viewBox="0 0 800 560" role="img" aria-label="Maximum engine result"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.26 MB <span class="save">−11% vs balanced · 160 KB</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Setting</dt><dd class="val">JPG q85 <span class="dim">· all-pass trellis · slowest</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-maximum">Download maximum</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 5 · keep vs strip metadata -->
+    <section class="pair" data-od-id="row-meta" aria-label="Keep metadata vs strip metadata">
+      <div class="cell">
+        <div class="phead"><h2>Keep metadata</h2><span class="mono">EXIF + ICC · 48 KB</span></div>
+        <figure class="media"><svg class="fxI" viewBox="0 0 800 560" role="img" aria-label="File with metadata retained, same pixels as the stripped card"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.42 MB <span class="dim">· embeds 48 KB meta</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Metadata</dt><dd class="val">Camera + lens <span class="dim">· GPS · ICC profile kept</span></dd>
+          <div class="dl"><button class="btn btn-secondary btn-sm" data-od-id="dl-keepmeta">Download with metadata</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Strip metadata</h2><span class="mono">hero-portfolio-clean.jpg</span></div>
+        <figure class="media"><svg class="fxJ" viewBox="0 0 800 560" role="img" aria-label="File with metadata stripped"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.34 MB <span class="save">−6% · 83 KB meta removed</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Metadata</dt><dd class="val">Removed <span class="dim">· camera, GPS + ICC gone</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-stripmeta">Download stripped</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 6 · original dims vs resize -->
+    <section class="pair" data-od-id="row-resize" aria-label="Original dimensions vs resized to max 2048">
+      <div class="cell">
+        <div class="phead"><h2>Original dimensions</h2><span class="mono">3840 × 2160 px</span></div>
+        <figure class="media"><svg class="fxJ" viewBox="0 0 800 560" role="img" aria-label="Photo at full resolution"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.42 MB <span class="dim">· full res</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px <span class="dim">· 8.3 MP</span></dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· q85 · size untouched</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-origdim">Download full size</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Resize if larger — max 2048</h2><span class="mono">hero-portfolio-2048.jpg</span></div>
+        <figure class="media"><svg class="fxI" viewBox="0 0 800 560" role="img" aria-label="Photo resized to 2048 pixels wide"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">542 KB <span class="save">−62% · 878 KB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">2048 × 1152 px <span class="dim">· downscale only, aspect kept</span></dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· q85 · Lanczos</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-resize">Download 2048px</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 7 · PNG lossy vs lossless -->
+    <section class="pair" data-od-id="row-png" aria-label="PNG lossy versus lossless">
+      <div class="cell">
+        <div class="phead"><h2>PNG — lossy (85)</h2><span class="mono">brand-sheet.png</span></div>
+        <figure class="media"><svg viewBox="0 0 800 560" role="img" aria-label="Lossy compressed PNG of the brand sheet"><use href="#sceneFlat"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.28 MB <span class="save">−32% · 610 KB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">2400 × 1800 px</dd>
+          <dt class="lbl">Format</dt><dd class="val">PNG <span class="dim">· 256-color quantize · dithered</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-pnglossy">Download lossy PNG</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>PNG — lossless</h2><span class="mono">brand-sheet-oxipng.png</span></div>
+        <figure class="media"><svg viewBox="0 0 800 560" role="img" aria-label="Lossless compressed PNG of the brand sheet"><use href="#sceneFlat"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.66 MB <span class="save neutral">−12% · 230 KB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">2400 × 1800 px</dd>
+          <dt class="lbl">Format</dt><dd class="val">PNG <span class="dim">· oxipng + zopfli · bit-identical pixels</span></dd>
+          <div class="dl"><button class="btn btn-secondary btn-sm" data-od-id="dl-pnglossless">Download lossless</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 8 · oversized phone photo rescue -->
+    <section class="pair" data-od-id="row-rescue" aria-label="Oversized phone photo rescue pass">
+      <div class="cell">
+        <div class="phead"><h2>Phone photo, as-is</h2><span class="mono">IMG_4021.jpg</span></div>
+        <figure class="media"><svg class="fxH" viewBox="0 0 800 560" role="img" aria-label="Oversized phone photo with soft artifacting"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">8.30 MB <span class="dim">· q97 oversize</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">5712 × 4284 px <span class="dim">· straight from camera</span></dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· q97 · EXIF intact</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-phoneorig">Download original</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Rescue pass — quality 60</h2><span class="mono">IMG_4021-60q.jpg</span></div>
+        <figure class="media"><svg class="fxD" viewBox="0 0 800 560" role="img" aria-label="Phone photo recompressed to quality 60"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.98 MB <span class="save">−76% · 6.3 MB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">2048 × 1536 px <span class="dim">· web-ready</span></dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· q60 · mozjpeg · EXIF stripped</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-rescue">Download q60</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 9 · force JPEG (HEIC source) -->
+    <section class="pair" data-od-id="row-forcejpeg" aria-label="HEIC to forced JPEG">
+      <div class="cell">
+        <div class="phead"><h2>HEIC — iPhone original</h2><span class="mono">IMG_1180.heic</span></div>
+        <figure class="media"><svg class="fxE" viewBox="0 0 800 560" role="img" aria-label="HEIC source photo"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">2.60 MB <span class="dim">· 10-bit container</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">4032 × 3024 px</dd>
+          <dt class="lbl">Format</dt><dd class="val">HEIC <span class="dim">· 10-bit · not web-safe</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-heic">Download HEIC</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Force JPEG — q85</h2><span class="mono">IMG_1180.jpg</span></div>
+        <figure class="media"><svg class="fxF" viewBox="0 0 800 560" role="img" aria-label="Re-encoded JPEG from HEIC"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.10 MB <span class="save">−58% · 1.5 MB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">4032 × 3024 px</dd>
+          <dt class="lbl">Format</dt><dd class="val">JPG <span class="dim">· opens everywhere · q85 mozjpeg</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-forcejpeg">Download JPEG</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 10 · Fast vs Balanced engine -->
+    <section class="pair" data-od-id="row-fast" aria-label="Fast versus balanced engine">
+      <div class="cell">
+        <div class="phead"><h2>Fast engine</h2><span class="mono">~0.1 s / file</span></div>
+        <figure class="media"><svg class="fxG" viewBox="0 0 800 560" role="img" aria-label="Fast engine result"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.78 MB <span class="dim">· light pass</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Setting</dt><dd class="val">JPG q85 <span class="dim">· light pass · near-instant</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-fast">Download fast</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Balanced engine</h2><span class="mono">~0.4 s / file</span></div>
+        <figure class="media"><svg class="fxC" viewBox="0 0 800 560" role="img" aria-label="Balanced engine result"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.42 MB <span class="save">−20% vs fast · 360 KB saved</span></dd>
+          <dt class="lbl">Dimensions</dt><dd class="val">3840 × 2160 px</dd>
+          <dt class="lbl">Setting</dt><dd class="val">JPG q85 <span class="dim">· mozjpeg · best tradeoff</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-fastbalanced">Download balanced</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 11 · threads 2 vs 8 -->
+    <section class="pair" data-od-id="row-threads" aria-label="Two threads versus eight threads batch of 100 photos">
+      <div class="cell">
+        <div class="phead"><h2>2 threads</h2><span class="mono">older machines</span></div>
+        <figure class="media"><svg class="fxJ" viewBox="0 0 800 560" role="img" aria-label="Two thread throughput"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">Batch time</dt><dd class="val">9 min 20 s <span class="dim">· 100 files</span></dd>
+          <dt class="lbl">CPU load</dt><dd class="val">Low <span class="dim">· stays responsive</span></dd>
+          <dt class="lbl">Output</dt><dd class="val">Identical <span class="dim">· same files, just slower</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-threads2">Use 2 threads</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>8 threads</h2><span class="mono">max throughput</span></div>
+        <figure class="media"><svg class="fxH" viewBox="0 0 800 560" role="img" aria-label="Eight thread throughput"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">Batch time</dt><dd class="val" style="color:var(--ok)"><span style="font-family:var(--font-mono)">2 min 30 s</span> <span class="save">−73% wall time</span></dd>
+          <dt class="lbl">CPU load</dt><dd class="val">High <span class="dim">· high CPU use</span></dd>
+          <dt class="lbl">Output</dt><dd class="val">Identical <span class="dim">· same files, just faster</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-threads8">Use 8 threads</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 12 · rename pattern -->
+    <section class="pair" data-od-id="row-rename" aria-label="Rename pattern applied on output">
+      <div class="cell">
+        <div class="phead"><h2>Rename off</h2><span class="mono">original names kept</span></div>
+        <figure class="media"><svg class="fxI" viewBox="0 0 800 560" role="img" aria-label="Original file names"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">Output name</dt><dd class="val">IMG_4021.jpg <span class="dim">· name unchanged</span></dd>
+          <dt class="lbl">Risk</dt><dd class="val">Collisions <span class="dim">· overwrites after multiple runs</span></dd>
+          <dt class="lbl">Folder</dt><dd class="val">flat <span class="dim">· hard to trace batch origin</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-norename">Download as-is</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Rename on — {prefix}-{NNNN}</h2><span class="mono">photo-0001.jpg</span></div>
+        <figure class="media"><svg class="fxJ" viewBox="0 0 800 560" role="img" aria-label="Renamed output file"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">Output name</dt><dd class="val" style="color:var(--ok)">photo-0147.jpg <span class="save">· renamed on output</span></dd>
+          <dt class="lbl">Counter</dt><dd class="val">4-digit <span class="dim">· zero-padded · keeps extension</span></dd>
+          <dt class="lbl">Benefit</dt><dd class="val">No collisions <span class="dim">· batch order preserved</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-rename">Download renamed</button></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 13 · backup originals -->
+    <section class="pair" data-od-id="row-backup" aria-label="Overwrite in place versus backup originals">
+      <div class="cell">
+        <div class="phead"><h2>Overwrite in place</h2><span class="mono">hero-portfolio.jpg</span></div>
+        <figure class="media"><svg class="fxE" viewBox="0 0 800 560" role="img" aria-label="Original file replaced in place"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val" style="color:var(--ok)">1.42 MB <span class="dim">· original overwritten</span></dd>
+          <dt class="lbl">Folder</dt><dd class="val">unchanged <span class="dim">· 1 file total</span></dd>
+          <dt class="lbl">Risk</dt><dd class="val" style="color:var(--warn)">Original gone <span class="dim">· lossy pass is final</span></dd>
+          <div class="dl"><button class="btn btn-ghost btn-sm" data-od-id="dl-overwrite">Download result</button></div>
+        </dl>
+      </div>
+      <div class="cell cell-after">
+        <div class="phead"><h2>Backup originals</h2><span class="mono">backup\ folder</span></div>
+        <figure class="media"><svg class="fxF" viewBox="0 0 800 560" role="img" aria-label="Original moved to backup folder"><use href="#sceneRoom"/></svg></figure>
+        <dl class="det">
+          <dt class="lbl">File size</dt><dd class="val">1.42 MB <span class="save neutral">· original kept</span></dd>
+          <dt class="lbl">Folder</dt><dd class="val">2 files <span class="dim">· compressed + original safe</span></dd>
+          <dt class="lbl">Safety</dt><dd class="val" style="color:var(--ok)">Reversible <span class="dim">· 4.82 MB original in backup\</span></dd>
+          <div class="dl"><button class="btn btn-primary btn-sm" data-od-id="dl-backup">Download both</button></div>
+        </dl>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer" data-od-id="footer">
+  <div class="container">
+    <div class="footer__row">
+      <span class="footer__brand"><span class="brand__mark">C</span> Compressy · Offline image compressor for Windows</span>
+      <span class="footer__links"><a href="landing.html">Overview</a><a href="downloads.html">Downloads</a><a href="compressy.html">Open app</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function wire(btn){
+  btn.addEventListener('click', ()=>{
+    if (btn.dataset.busy) return;
+    btn.dataset.busy = '1';
+    const orig = btn.innerHTML, cls = btn.className;
+    btn.innerHTML = 'Downloading…';
+    btn.disabled = true;
+    setTimeout(()=>{
+      btn.classList.add('is-done');
+      btn.innerHTML = 'Saved ✓';
+      setTimeout(()=>{
+        btn.className = cls;
+        btn.innerHTML = orig;
+        btn.disabled = false;
+        delete btn.dataset.busy;
+      }, 1400);
+    }, 600);
+  });
+}
+document.querySelectorAll('[data-od-id^="dl-"][data-mode]').forEach(b=>{ b.classList.add('seqBtn'); });
+document.querySelectorAll('[data-od-id^="dl-"]:not([data-mode])').forEach(wire);
+
+document.querySelectorAll('[data-mode="seq"]').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    if (b.dataset.busy) return;
+    b.dataset.busy = '1';
+    const orig = b.innerHTML;
+    b.classList.add('is-done');
+    let n = 0;
+    const t = setInterval(()=>{
+      n++;
+      if (n >= 13) {
+        clearInterval(t);
+        b.innerHTML = 'All 13 saved ✓';
+        setTimeout(()=>{ b.classList.remove('is-done'); b.innerHTML = orig; b.disabled = false; delete b.dataset.busy; }, 1600);
+      } else {
+        b.innerHTML = 'Saving ' + (n + 1) + ' / 13 …';
+      }
+    }, 420);
+  });
+});
+</script>
+</body>
+</html>

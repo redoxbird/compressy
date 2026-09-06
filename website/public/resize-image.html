@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Resize Image — Resize JPG, PNG, WebP Locally | Compressy</title>
+  <meta name="description" content="Resize images locally on Windows. Set max W×H, downscale only, keep aspect, batch folders — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Resize · Downscale only · Offline" title="Resize image<br>to any size">
+    <p slot="lead">Resize JPG, PNG, WebP, AVIF locally — set max width × height, keep aspect, batch a folder. No upload, no stretching.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#sizes">Common sizes →</e-button>
+    </span>
+    <span slot="meta">Max W×H · Keep aspect · Offline</span>
+    <e-proof value="1920×1080" label="example"></e-proof>
+    <e-proof value="Downscale only" label="no upscale" success></e-proof>
+    <e-proof value="Batch" label="folder"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Why resize" title="Oversized dimensions waste bytes.">
+    <p slot="lead">A 3840px photo displayed at 1920px carries 4× the pixels. Resizing before compressing saves the most.</p>
+    <e-stats variant="row">
+      <e-stat value="3840×2160" label="Before" note="4K photo"></e-stat>
+      <e-stat value="1920×1080" label="After" note="Downscale only"></e-stat>
+      <e-stat value="−75%" label="Pixels" note="4× fewer"></e-stat>
+      <e-stat value="57.8%" label="Avg saved" note="At quality 85 real vips"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section eyebrow="How resize works" title="Max W×H, keep aspect">
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Set max</h3>
+        <p slot="body">Enter max width × height — e.g. 1920×1080. Empty means no limit.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Keep aspect</h3>
+        <p slot="body">Smaller side scales proportionally. No stretching, no cropping.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Downscale only</h3>
+        <p slot="body">Smaller images are left alone. Only larger ones are scaled down.</p>
+      </e-card>
+    </e-cards>
+    <e-note center>Resize happens before compression — one pass, same file.</e-note>
+  </e-section>
+
+  <e-section warm id="sizes" eyebrow="Common sizes" title="Pick a max size">
+    <p slot="lead">Choose the display size you actually need — compress and resize together.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Use case</th><th>Max W×H</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>4K hero</td><td>3840×2160</td><td>Keep full</td></tr>
+          <tr><td>Blog / product</td><td>1920×1080</td><td>Standard</td></tr>
+          <tr><td>Thumbnail</td><td>800×600</td><td>Small</td></tr>
+          <tr><td>Social square</td><td>1080×1080</td><td>Instagram</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>1920×1080</h3><p slot="body">Blog / product. Set max W×H 1920×1080.</p></e-card>
+      <e-card><h3>1280×720</h3><p slot="body">HD. Set max W×H 1280×720.</p></e-card>
+      <e-card><h3>1080×1080</h3><p slot="body">Social square. Set max W×H 1080×1080.</p></e-card>
+      <e-card><h3>800×600</h3><p slot="body">Thumbnail. Set max W×H 800×600.</p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section eyebrow="Steps" title="Resize in three steps">
+    <e-steps variant="horizontal">
+      <e-step title="Select" label="01">Pick a folder or images. See dimensions per file.</e-step>
+      <e-step title="Set max" label="02">Enter max W×H, toggle resize on. Preview dimensions.</e-step>
+      <e-step title="Run" label="03">Resize + compress together. Backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Resize — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Will resizing stretch my image?</summary><p>No. Aspect is kept. The shorter side scales proportionally to fit within max W×H.</p></details>
+      <details><summary>Will small images be upscaled?</summary><p>No. Downscale only — smaller images are left at original size.</p></details>
+      <details><summary>Can I resize and compress together?</summary><p>Yes. Set max W×H and quality together — one pass, one file out.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All resizing is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Resize · Offline" meta="Downscale only · Keep aspect · Windows">
+    <h2>Ship the size you need.</h2>
+    <p slot="sub">Resize and compress together — locally, in one pass.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image/">Compress too →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

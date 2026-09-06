@@ -1,0 +1,46 @@
+<div class="releases" data-release-list>
+  {{#items}}
+  <article class="release{{#featured}} release--featured{{/featured}}{{^featured}} release--compact{{/featured}}" id="{{id}}" data-release data-tags="{{tags}}">
+    <div class="release__head{{#featured}} release__head--warm{{/featured}}">
+      <div>
+        <div class="release__title">
+          <span class="release__ver">{{versionTag}}</span>
+          {{{badges}}}
+        </div>
+        <div class="release__date">{{metaLine}}</div>
+      </div>
+      <span class="mono small muted release__sizes">{{sizeSummary}}</span>
+    </div>
+    <div class="release__body">
+      <div class="release__notes">
+        {{#showChangelogHeading}}<div class="release__h">Changelog</div>{{/showChangelogHeading}}
+        {{#noteGroups}}
+        <div class="note-group"><div class="note-group__label {{kind}}"><i></i> {{label}}</div><ul class="note-list">{{#notes}}<li>{{{.}}}</li>{{/notes}}</ul></div>
+        {{/noteGroups}}
+      </div>
+      <div class="release__assets">
+        <div class="release__h">Downloads</div>
+        <ul class="asset-list">
+          {{#assets}}
+          <li class="asset">
+            {{#showIcon}}<span class="asset__icon" aria-hidden="true">{{{icon}}}</span>{{/showIcon}}
+            <span class="asset__meta">
+              <span class="asset__name">{{name}}</span>
+              <span class="asset__sub"><b>{{sizeLabel}}</b> · {{typeLabel}}{{#shaShort}} · SHA-256: {{shaShort}}{{/shaShort}}</span>
+            </span>
+            <span class="asset__actions">
+              <a class="btn {{btnCls}} btn-xs" href="{{{url}}}" download>Download</a>
+              {{#showSha}}<a class="link-sha" href="#{{id}}" data-copy-sha="{{{shaShort}}}">Copy SHA</a>{{/showSha}}
+            </span>
+          </li>
+          {{/assets}}
+        </ul>
+      </div>
+    </div>
+    <div class="release__foot">
+      <span>Tag: <a href="#{{id}}">{{versionTag}}</a>{{#compareLabel}} · <a href="#{{id}}">{{compareLabel}}</a>{{/compareLabel}}</span>
+      <span class="mono">{{#footRequires}}{{footRequires}} · {{/footRequires}}SHA-256: {{footSha}}</span>
+    </div>
+  </article>
+  {{/items}}
+</div>

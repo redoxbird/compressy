@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Images Without Losing Quality — Offline | Compressy</title>
+  <meta name="description" content="Compress images without losing quality locally on Windows. Near-lossless 80–90, keep dimensions or downscale, batch folders — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Quality · Near-lossless" title="Compress without losing<br>visible quality">
+    <p slot="lead">Most image weight is invisible. Compress near-lossless 80–90 locally — keep looks, lose bytes, batch folders without upload.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#quality">Quality guide →</e-button>
+    </span>
+    <span slot="meta">Quality 80–90 · Near-lossless · Offline</span>
+    <e-proof value="57.8%" label="avg at 85" success></e-proof>
+    <e-proof value="92.4%" label="peak" success></e-proof>
+    <e-proof value="Offline" label="mode"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Why quality matters" title="Smaller.<br>Same as you see it.">
+    <p slot="lead">Quality 80–90 is visually lossless for most photos and graphics. Below 75 you save more, but you trade looks.</p>
+    <e-bento cols="2">
+      <e-cell eyebrow="Near-lossless" chip="Quality 80–90 · Balanced" dark>
+        <h3>Lose bytes, not looks.</h3>
+        <p>80–90 keeps visible quality while cutting 30–60% of bytes. Below 75 you save more but trade clarity — you pick the tradeoff per batch.</p>
+      </e-cell>
+      <e-cell eyebrow="Before → After">
+        <h3>Real savings at 85.</h3>
+        <p>Quality 85, balanced engine — the default.</p>
+        <e-example file="!-tylewice-wiatrak.jpg" before="3.3 MB" after="1.9 MB" save="−41.7%"></e-example>
+        <e-progress-line label="Quality 85 · Balanced" value="85" fill="85" caption="Visually lossless and 35–55% smaller."></e-progress-line>
+      </e-cell>
+    </e-bento>
+  </e-section>
+
+  <e-section id="quality" eyebrow="Quality guide" title="Pick your tradeoff">
+    <p slot="lead">Higher quality = more bytes. 80–90 is the sweet spot for visually lossless.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Quality</th><th>Look</th><th>Size vs original</th></tr></thead>
+        <tbody>
+          <tr><td>90</td><td>Near-lossless, archival</td><td>−25–40%</td></tr>
+          <tr><td>85</td><td>Visually lossless</td><td>−35–55%</td></tr>
+          <tr><td>80</td><td>Visually lossless</td><td>−45–65%</td></tr>
+          <tr><td>70</td><td>Good for web</td><td>−60–75%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>Try 85 first. If you need smaller, go 80 or 75 and compare side-by-side.</e-note>
+  </e-section>
+
+  <e-section warm eyebrow="Proof" title="Near-lossless savings">
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>!-tylewice-wiatrak.jpg Q85</td><td>3.3 MB</td><td>1.9 MB</td><td>−41.7% real</td></tr>
+          <tr><td>!MQ_DSF9592.jpg Q85</td><td>4.0 MB</td><td>1.4 MB</td><td>−64.2% real</td></tr>
+          <tr><td>'Camel'_in_Devrent.JPG Q85</td><td>3.3 MB</td><td>1.1 MB</td><td>−67.4% real</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section id="how" eyebrow="How it works" title="Pick → Compress → Keep quality.">
+    <p slot="lead">Three steps, all local.</p>
+    <e-steps variant="timeline">
+      <e-step title="Pick images" label="01">Drop a folder or files. Keep structure.</e-step>
+      <e-step title="Set quality" label="02">Choose 80–90 for near-lossless, keep dimensions.</e-step>
+      <e-step title="Save" label="03">Batch on all threads. Compare before/after side-by-side.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Related" title="Keep quality, go further">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress Image</h3><p slot="body">Any format. <a href="/compress-image/">Compress Image →</a></p></e-card>
+      <e-card><h3>Compress JPG</h3><p slot="body">Photos. <a href="/compress-jpg/">Compress JPG →</a></p></e-card>
+      <e-card><h3>Compress PNG</h3><p slot="body">Graphics. <a href="/compress-png/">Compress PNG →</a></p></e-card>
+      <e-card><h3>For websites</h3><p slot="body">Faster web. <a href="/compress-images-for-websites/">For websites →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Without losing quality — FAQ">
+    <e-faq variant="list">
+      <details><summary>Is lossless vs near-lossless different?</summary><p>Lossless keeps every byte — small savings. Near-lossless 80–90 throws invisible data — 40–60% smaller and still looks the same. For photos, near-lossless wins.</p></details>
+      <details><summary>What quality keeps looks?</summary><p>85 is visually lossless for most photos. 80 is still lossless to the eye for web. 90+ for archival where you keep more bytes.</p></details>
+      <details><summary>Can I re-compress already compressed images?</summary><p>Yes, but savings are smaller the second time. For best quality, compress from the original, not a prior export.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All compression is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Quality · Near-lossless" meta="Offline · No upload · Windows">
+    <h2>Smaller without looking worse.</h2>
+    <p slot="sub">Near-lossless 80–90 — you control quality, locally.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image/">Compress now →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

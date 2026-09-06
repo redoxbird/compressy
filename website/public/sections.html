@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Section library — Compressy for Windows</title>
+  <meta name="description" content="Every reusable section from the Compressy design system — grids, features, CTAs, splits, FAQs, process, tables, logos, stats, points and content — rendered with the website's classless elements.">
+</head>
+<body>
+
+  <e-hero pill="Design system · 44 patterns · classless" title="Every section,<br>one page.">
+    <p slot="lead">All reusable patterns from the <code>design/</code> library, rendered through the website's <code>&lt;e-*&gt;</code> elements. No <code>class</code> or <code>style</code> attributes in the source — structure via elements, styling in <code>public/css/site.css</code>.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="#grids">Browse grids</e-button>
+      <e-button variant="ghost" href="/downloads/">Downloads</e-button>
+    </span>
+    <span slot="meta">11 groups · 44 demos · 18 elements · variant-driven</span>
+    <e-proof value="18" label="elements"></e-proof>
+    <e-proof value="44" label="demos" success></e-proof>
+    <e-proof value="classless" label="authoring"></e-proof>
+    <e-proof value="worker" label="expansion"></e-proof>
+  </e-hero>
+  <e-gap size="lg"></e-gap>
+  
+
+  <e-section id="toc" warm eyebrow="Navigate" title="Jump to a group.">
+    <p slot="lead">Each group showcases four variants from one <code>design/*.html</code> file. Grids are mapped to discrete elements <code>e-grid-feature</code>, <code>e-grid-proof</code>, <code>e-grid-bento</code>, <code>e-grid-dense</code> that reuse the shared <code>e-cards</code>/<code>e-stats</code>/<code>e-bento</code> templates and mappers — single-source styling, distinct tags.</p>
+    <e-points variant="dots">
+      <li><strong><a href="#grids">Grids</a></strong> — grids.html · 01 feature, 02 proof, 03 bento, 04 dense</li>
+      <li><strong><a href="#features">Features</a></strong> — features.html · 01 icon+copy, 02 rows, 03 bento, 04 compact rules</li>
+      <li><strong><a href="#ctas">Call-to-actions</a></strong> — call-to-actions.html · 01 band, 02 split, 03 inline, 04 card grid</li>
+      <li><strong><a href="#splits">Splits</a></strong> — splits.html · 01 editor, 02 content+card, 03 alternating, 04 narrow+wide</li>
+      <li><strong><a href="#faqs">FAQs</a></strong> — faqs.html · 01 accordion, 02 cards, 03 list, 04 compact</li>
+      <li><strong><a href="#process">Process</a></strong> — process.html · 01 horizontal, 02 timeline, 03 numbered, 04 icon steps</li>
+      <li><strong><a href="#tables">Tables</a></strong> — table.html · 01 savings, 02 matrix, 03 changelog, 04 pricing</li>
+      <li><strong><a href="#logos">Logos</a></strong> — logos.html · 01 bar, 02 grid, 03 pills, 04 cluster</li>
+      <li><strong><a href="#stats">Stats</a></strong> — stats.html · 01 rules, 02 strip, 03 bento, 04 row</li>
+      <li><strong><a href="#points">Points</a></strong> — points.html · 01 checks, 02 cols, 03 numbered, 04 dots</li>
+      <li><strong><a href="#content">Content</a></strong> — content.html · 01 editorial, 02 docs, 03 explainer, 04 knowledge base</li>
+    </e-points>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- GRIDS — grids.html (4)                                       -->
+  <!-- ============================================================ -->
+  <e-section id="grids" eyebrow="Library · Grids — grids.html" title="Grids.">
+    <p slot="lead">Four reusable grid patterns — from proof metrics to dense capability tiles. Each demo now has a discrete element: <code>e-grid-feature</code> (cards icons), <code>e-grid-proof</code> (stats row), <code>e-grid-bento</code> (bento), <code>e-grid-dense</code> (cards dense) — thin wrappers over the shared templates.</p>
+
+    <e-demo-head num="01" title="Feature grid · 3-col with icon" meta='e-grid-feature · cards · 12px · warm'></e-demo-head>
+    <p>Icon, title and body. Warm-neutral card, 12px radius, whisper border — the default feature grid from <code>landing.html #offline</code>.</p>
+    <e-grid-feature cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M12 3 4 7v5c0 4.5 3 7.7 8 9 5-1.3 8-4.5 8-9V7L12 3Z"/><path d="M9 12 11 14 15 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Offline by design</h3>
+        <p slot="body">No uploads, no cloud queue. Your files never leave the disk.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Batch in seconds</h3>
+        <p slot="body">Select a folder and compress dozens at once — no per-file upload.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 7h6"/><path d="M14 7h6"/><circle cx="12" cy="7" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M10 17H4"/><path d="M20 17h-4"/><circle cx="12" cy="17" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Quality you control</h3>
+        <p slot="body">Quality 85 by default. Tweak engine, format and size caps.</p>
+      </e-card>
+    </e-grid-feature>
+
+    <e-demo-head num="02" title="Proof grid · 4-col stats" meta='e-grid-proof · mono · tabular-nums'></e-demo-head>
+    <p>Mono label, tabular-nums value, muted note — the proof row from <code>grids.html grid-02</code>.</p>
+    <e-grid-proof>
+      <e-stat value="57.8%" label="Avg saved" note="Peak 92.4% — 456 JPGs real vips"></e-stat>
+      <e-stat value="84.5%" label="png→webp avg" note="545 PNGs 247.9→40.4 MB"></e-stat>
+      <e-stat value="70.9%" label="jpg→webp avg" note="456 JPGs 1285.7→373.3 MB"></e-stat>
+      <e-stat value="4" label="Formats" note="JPG · PNG · WebP · AVIF"></e-stat>
+    </e-grid-proof>
+
+    <e-demo-head num="03" title="Bento · mixed spans" meta='e-grid-bento · 2×2 · 12px · layered'></e-demo-head>
+    <p>Featured dark cell plus two small tiles and three bottom tiles. Uses <code>e-grid-bento</code> + <code>e-cell</code> with <code>span</code> and <code>dark</code> — mirrors <code>grids.html grid-03</code> and <code>landing.html #principles</code>.</p>
+    <e-grid-bento cols="2">
+      <e-cell eyebrow="Featured" chip="Quality 85 · Balanced · Keep original" dark><h3>Compress without compromise.</h3><p>Quality slider 40–95 with balanced, fast and maximum engines. Keep format or transcode to WebP / AVIF.</p></e-cell>
+      <e-cell eyebrow="Before → After"><h3>3.3 MB → 1.9 MB</h3><p><span>−41.7% · −1.4 MB</span> — !-tylewice-wiatrak.jpg real vips.</p><e-progress-line label="Savings" value="41.7" fill="42"></e-progress-line></e-cell>
+    </e-grid-bento>
+    <e-grid-dense cols="3">
+      <e-card><h3>JPG — mozjpeg</h3><p slot="body">Photographs and exports. Balanced by default.</p></e-card>
+      <e-card><h3>PNG — oxipng</h3><p slot="body">Screenshots and transparency. Lossless toggle.</p></e-card>
+      <e-card><h3>WebP · AVIF — modern</h3><p slot="body">Smaller web delivery. Convert in the same pass.</p></e-card>
+    </e-grid-dense>
+
+    <e-demo-head num="04" title="Dense capabilities · 6 compact" meta='e-grid-dense · 12px · mono meta'></e-demo-head>
+    <p>Six small mono-meta cards — the dense grid from <code>grids.html grid-04</code>. Rendered as compact <code>e-card</code> tiles.</p>
+    <e-grid-dense cols="3">
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 12 10 17 19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Select</h3><p slot="body">Pick files or a whole folder</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 12 10 17 19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Strip</h3><p slot="body">Remove EXIF / ICC if you want</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 12 10 17 19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Resize</h3><p slot="body">Max W × H, downscale only</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 12 10 17 19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Rename</h3><p slot="body">{prefix}-{NNNN}.{ext}</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 12 10 17 19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Backup</h3><p slot="body">Originals to /backup</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 12 10 17 19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Skip</h3><p slot="body">Filter by type — skip what you don't need</p></e-card>
+    </e-grid-dense>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- FEATURES — features.html (4)                                 -->
+  <!-- ============================================================ -->
+  <e-section id="features" warm eyebrow="Library · Features — features.html" title="Features.">
+    <p slot="lead">Four feature compositions — from icon grids to bento and compact rules. All reuse <code>e-cards</code> and <code>e-bento</code> variants.</p>
+
+    <e-demo-head num="01" title="Icon + copy · 3-col warm alt" meta='e-cards variant="icons" cols="3" · warm alt · 12px'></e-demo-head>
+    <p>Warm-section variant of the feature grid — same element, different surrounding <code>e-section warm</code>.</p>
+    <e-cards variant="icons" cols="3">
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><h3>Built for the formats you actually use.</h3><p slot="body">JPEG, PNG, WebP, AVIF and more — with control over how aggressively each is compressed.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3.5" y="4" width="9" height="8" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M6 7h4M6 9h3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>Lossless where it matters</h3><p slot="body">Toggle lossless for PNG / WebP when bit-exact is required.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3l5 2.5v4c0 2.5-1.7 4.3-5 5.2-3.3-0.9-5-2.7-5-5.2v-4L8 3Z" stroke="currentColor" stroke-width="1.2"/><path d="M6 8.2L7.6 9.8 10 6.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Offline. Always.</h3><p slot="body">No account, no cloud, no upload step.</p></e-card>
+    </e-cards>
+
+    <e-demo-head num="02" title="Feature rows · icon left, copy right" meta='e-cards variant="rows" · list · hairline dividers'></e-demo-head>
+    <p>Icon left, copy right, hairline dividers — the rules list from <code>features.html feat-02</code>.</p>
+    <e-cards variant="rows">
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v5M5.5 6.5L8 3 10.5 6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><h3>Fast by design</h3><p slot="body">No upload or download step between you and your files. Your computer does the work.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="7" r="2.2" stroke="currentColor" stroke-width="1.25"/><path d="M4.5 12a3.5 3.5 0 0 1 7 0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><h3>Private by default</h3><p slot="body">Images never leave your computer. Local processing, no cloud required.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="4" width="10" height="8" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9.2h4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>Folder or single file</h3><p slot="body">Work through a whole folder or cherry-pick images — checkboxes for what you compress.</p></e-card>
+    </e-cards>
+
+    <e-demo-head num="03" title="Bento · dark feature + two small" meta='e-bento cols="2" · layered'></e-demo-head>
+    <p>Dark featured cell with light companions — the bento from <code>features.html feat-03</code>.</p>
+    <e-bento cols="2">
+      <e-cell eyebrow="Local · Offline" chip="No cloud · No account" dark><h3>Your images never leave your computer.</h3><p>No uploads. No cloud processing. No accounts. Local only.</p></e-cell>
+      <e-cell eyebrow="Smaller. Same workflow."><h3>Select → Compress → Done.</h3><p>Like any Windows utility. Example</p><e-example file="!-tylewice-wiatrak.jpg" before="3.3 MB" after="1.9 MB" save="−41.7%"></e-example></e-cell>
+    </e-bento>
+
+    <e-demo-head num="04" title="Compact · 4-up with top rule" meta='e-cards variant="rules" cols="4" · mono eyebrow'></e-demo-head>
+    <p>Mono eyebrow, top rule, compact type — the 4-up grid from <code>features.html feat-04</code>.</p>
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Select</h3><p slot="body">Pick files or a folder. Filter by type, sort by size or date.</p></e-card>
+      <e-card><h3>Quality</h3><p slot="body">Quality, engine, format, resize caps — all in one panel.</p></e-card>
+      <e-card><h3>Batch</h3><p slot="body">Batch with concurrency. Backups to /backup when overwriting.</p></e-card>
+      <e-card><h3>Stay local</h3><p slot="body">No upload, no dashboard, no subscription.</p></e-card>
+    </e-cards>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- CTAs — call-to-actions.html (4)                              -->
+  <!-- ============================================================ -->
+  <e-section id="ctas" eyebrow="Library · CTAs — call-to-actions.html" title="Call-to-actions.">
+    <p slot="lead">Four CTA patterns — centered band, split card, minimal row and two-up. Each maps to one <code>e-cta</code> variant.</p>
+
+    <e-demo-head num="01" title="Centered band" meta='e-cta variant="band" · warm · pill meta'></e-demo-head>
+    <p>Centered pill, headline, sub and meta — the band from <code>call-to-actions.html cta-01</code>. Rendered inline here; in production it is a standalone band section.</p>
+    <e-cta variant="band" pill="Free · Offline · No account" meta="Offline · Windows · No account required">
+      <h2>Compress images locally.<br>Keep your files private.</h2>
+      <p slot="sub">A small Windows utility for making images smaller — without uploading them anywhere.</p>
+      <span slot="actions">
+        <e-button variant="primary" href="/download">Download for Windows</e-button>
+        <e-button variant="ghost" href="/">View formats</e-button>
+      </span>
+    </e-cta>
+
+    <e-demo-head num="02" title="Split CTA · copy + card" meta='e-cta variant="split" · card · 12px'></e-demo-head>
+    <p>Copy left, actions card right — the split from <code>cta-02</code>.</p>
+    <e-cta variant="split" pill="Get started">
+      <h2>Ready to shrink<br>your next folder?</h2>
+      <p slot="sub">Select a folder, pick your quality, and compress — all on-device.</p>
+      <span slot="actions">
+        <e-button variant="primary" href="/download">Download for Windows — v1.4.0</e-button>
+        <e-note center>18.2 MB · Portable .zip also available · View changelog</e-note>
+      </span>
+    </e-cta>
+
+    <e-demo-head num="03" title="Minimal inline · text + button" meta='e-cta variant="inline" · border row'></e-demo-head>
+    <p>Text plus button on a bordered surface — the inline row from <code>cta-03</code>.</p>
+    <e-cta variant="inline">
+      <h2>A small tool that stays out of your way.</h2>
+      <p slot="sub">No dashboard. No subscription. No unnecessary settings.</p>
+      <span slot="actions"><e-button variant="primary" size="sm" href="/download">Download</e-button></span>
+    </e-cta>
+
+    <e-demo-head num="04" title="Card grid · two CTAs 2-col" meta='e-cta variant="cards" · 2-col · ghost + primary'></e-demo-head>
+    <p>Two-up cards, ghost + primary — the grid from <code>cta-04</code>. Inner cards are <code>e-card</code> + <code>e-button</code>.</p>
+    <e-cta variant="cards">
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="2.5" width="10" height="11" rx="1.6" stroke="currentColor" stroke-width="1.25"/><path d="M6 6h4M6 8.2h4M6 10.4h2.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>Download the installer</h3><p slot="body">Setup-1.4.0.exe · Signed · 18.2 MB</p><p><e-button variant="primary" size="sm" href="/download">Download .exe</e-button></p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 4.5A1.5 1.5 0 0 1 5 3h3.2l1.3 1.3H11A1.5 1.5 0 0 1 12.5 6v5.5A1.5 1.5 0 0 1 11 13H5A1.5 1.5 0 0 1 3.5 11.5V4.5Z" stroke="currentColor" stroke-width="1.2"/><path d="M5 6h5.5M5 8.5h5.5M5 11h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>Try the portable build</h3><p slot="body">Portable-1.4.0.zip · No install · 16.8 MB</p><p><e-button variant="ghost" size="sm" href="/download">Download .zip</e-button></p></e-card>
+    </e-cta>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- SPLITS — splits.html (4)                                     -->
+  <!-- ============================================================ -->
+  <e-section id="splits" warm eyebrow="Library · Splits — splits.html" title="Splits.">
+    <p slot="lead">Four split patterns — editor, content+card, alternating and narrow/wide. All reuse <code>e-split</code> with <code>slot="list|card|media|copy"</code>.</p>
+
+    <e-demo-head num="01" title="Editor split · copy left, preview right" meta='e-split variant="editor" · 1fr 1fr'></e-demo-head>
+    <p>Workflow copy with mono steps and a preview card — the editor split from <code>splits.html split-01</code>.</p>
+    <e-split variant="editor">
+      <div slot="copy">
+        <h3>Smaller images. Same workflow.</h3>
+        <p>Designed to feel like a normal Windows utility — not another upload site.</p>
+        <e-points variant="dots">
+          <li><strong>Select</strong> Pick files or a whole folder</li>
+          <li><strong>Compress</strong> Quality, engine, output format</li>
+          <li><strong>Done</strong> Backups to /backup · Export CSV</li>
+        </e-points>
+      </div>
+      <div slot="media">
+        <h3>Preview — Source files</h3>
+        <p>Folder with type, size and dimensions. Checkboxes for what you compress.</p>
+        <e-example file="!-tylewice-wiatrak.jpg" before="3.3 MB" after="1.9 MB" save="−41.7%"></e-example>
+        <e-example file="!MQ_DSF9592.jpg" before="4.0 MB" after="1.4 MB" save="−64.2%"></e-example>
+        <e-note>Quality 85 · Balanced · Keep format · 4 threads</e-note>
+      </div>
+    </e-split>
+
+    <e-demo-head num="02" title="Content + card · principle + example" meta='e-split variant="content-card" · 1fr 360px'></e-demo-head>
+    <p>Principle prose with a supporting card — the content+card from <code>splits.html split-02</code>.</p>
+    <e-split variant="content-card">
+      <div slot="copy">
+        <h3>Private by default.</h3>
+        <p>Your images are yours. Compressy doesn't need an internet connection — and your files don't need to pass through someone else's server.</p>
+        <e-pill tone="default">Offline · Windows</e-pill>
+        <p>No upload or download step between you and your files. Your computer does the work.</p>
+      </div>
+      <div slot="card">
+        <h3>Ready when you are.</h3>
+        <p>Install once. Use offline. Resize, rename and strip metadata in the same pass.</p>
+        <e-example file="04_Hegasy_Hand.png" before="721 KB" after="189 KB" save="−73.8%"></e-example>
+        <e-button variant="primary" href="/download">Download Compressy</e-button>
+        <e-note center>Free for Windows.</e-note>
+      </div>
+    </e-split>
+
+    <e-demo-head num="03" title="Alternating · image left / text right" meta='e-split variant="alternating" · 1fr 1fr'></e-demo-head>
+    <p>Media left (grid preview) and text right — the alternating split from <code>splits.html split-03</code>.</p>
+    <e-split variant="alternating">
+      <div slot="media">
+        <e-cards cols="2">
+          <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="1.2" stroke="currentColor" stroke-width="1.1"/><path d="M3 11l2.6-2.6 1.6 1.6 1.2-1.2 4.6 4.6" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>Preview — Source files</h3><p slot="body">Grid of 4 images · 2.4 MB · 2400×1600 each — image-01.jpg through image-04.jpg</p></e-card>
+          <e-card><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="4" width="10" height="8" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>Sort &amp; filter</h3><p slot="body">By type, size, date or name. Search by filename. 48/52 split — preview left, text right.</p></e-card>
+        </e-cards>
+      </div>
+      <div slot="copy">
+        <h3>Browse without uploading.</h3>
+        <p>Folder panel shows size, type, dimensions with checkboxes for what you compress. Preview original and result side by side.</p>
+        <e-points variant="checks">
+          <li>Filter by type, sort by size</li>
+          <li>Search by name</li>
+          <li>2 / 4 / 8 threads — header stats stay live</li>
+        </e-points>
+      </div>
+    </e-split>
+
+    <e-demo-head num="04" title="Narrow + wide · neg list + stay card" meta='e-split variant="narrow" · 1.1 / .9'></e-demo-head>
+    <p>Negative list plus stay card — the narrow+wide from <code>splits.html split-04</code> and <code>landing.html #download</code>.</p>
+    <e-split variant="narrow">
+      <ul slot="list">
+        <li><strong>No account.</strong> <span>— open and compress.</span></li>
+        <li><strong>No dashboard.</strong> <span>— one window, two panes.</span></li>
+        <li><strong>No subscription.</strong> <span>— free for Windows.</span></li>
+        <li><strong>No unnecessary settings.</strong> <span>— quality, engine, output, done.</span></li>
+      </ul>
+      <div slot="card">
+        <h3>Ready when you are.</h3>
+        <p>Install once. Use offline. Resize, rename and strip metadata in the same pass — then export a CSV of what you saved.</p>
+        <e-example file="!-tylewice-wiatrak.jpg" before="3.3 MB" after="1.9 MB" save="−41.7%"></e-example>
+        <e-button variant="primary" href="/download">Download Compressy</e-button>
+        <e-note center>Free for Windows.</e-note>
+      </div>
+    </e-split>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- FAQs — faqs.html (4)                                         -->
+  <!-- ============================================================ -->
+  <e-section id="faqs" eyebrow="Library · FAQs — faqs.html" title="FAQs.">
+    <p slot="lead">Four FAQ patterns — accordion, two-column cards, numbered dividers and compact rules. All use <code>e-faq</code> and emit <code>FAQPage</code> JSON-LD.</p>
+
+    <e-demo-head num="01" title="Accordion · single column details" meta='e-faq variant="accordion" · details · warm cards'></e-demo-head>
+    <e-faq variant="accordion">
+      <details><summary>Does Compressy upload my images?</summary><p>No. Everything runs locally on your PC. Files stay in your folder — no upload, no queue, no progress bar tied to the internet.</p></details>
+      <details><summary>Which formats are supported?</summary><p>JPEG via mozjpeg, PNG via oxipng, WebP and AVIF. Keep original or transcode in the same batch. Resize and rename in the same pass.</p></details>
+      <details><summary>Can I overwrite originals safely?</summary><p>Yes. When “Overwrite” is on, originals go to a <code>backup/</code> folder next to your images before anything is replaced.</p></details>
+      <details><summary>How fast is it?</summary><p>About 456 JPGs in 34s and 545 PNG→WebP in 44s on a mid-range Windows PC at Quality 85 · Balanced — real vips. Concurrency 2 / 4 / 8.</p></details>
+    </e-faq>
+
+    <e-demo-head num="02" title="Two-column · Q&amp;A cards 2-col" meta='e-faq variant="cards" · 2-col · 12px'></e-demo-head>
+    <e-faq variant="cards">
+      <details><summary>Do I need an account?</summary><p>No. Open the app and select a folder. That is the whole setup. No sign-up, no dashboard, no subscription.</p></details>
+      <details><summary>What does Quality 85 mean?</summary><p>You control it. Quality 85 by default — slide down for size, up for fidelity. Balanced, fast and maximum engines.</p></details>
+      <details><summary>How does batch work?</summary><p>Batch with concurrency. The progress bar and header stats stay live while your PC compresses.</p></details>
+      <details><summary>Where do backups go?</summary><p>Originals go to a <code>backup/</code> folder next to each file when overwriting. Export a CSV of savings.</p></details>
+    </e-faq>
+
+    <e-demo-head num="03" title="List · numbered with dividers" meta='e-faq variant="list" · hairline'></e-demo-head>
+    <e-faq variant="list">
+      <details><summary>How do I verify a download?</summary><p>Each release lists a SHA-256. Run <code>certutil -hashfile Compressy-setup.exe SHA256</code> in PowerShell and compare.</p></details>
+      <details><summary>Does it need internet?</summary><p>No. Compressy compresses without internet after install. Your images never leave your computer.</p></details>
+      <details><summary>Can I keep PNG lossless?</summary><p>Yes — toggle lossless for PNG / WebP. Keeps the file bit-exact while still stripping metadata.</p></details>
+      <details><summary>Which Windows versions?</summary><p>Windows 10 1809 or later, 64-bit. No WebView2, no runtime to install. Signed installer.</p></details>
+    </e-faq>
+
+    <e-demo-head num="04" title="Compact · inline Q / muted A" meta='e-faq variant="compact" · mono eyebrows'></e-demo-head>
+    <e-faq variant="compact">
+      <details><summary>No cloud?</summary><p>No uploads. No cloud queue. Files stay on disk.</p></details>
+      <details><summary>No account?</summary><p>No sign-up, no dashboard. Open and select a folder.</p></details>
+      <details><summary>No waiting?</summary><p>No upload or download step. Your PC does the work — large folders don't stall behind a server queue.</p></details>
+    </e-faq>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- PROCESS — process.html (4)                                   -->
+  <!-- ============================================================ -->
+  <e-section id="process" warm eyebrow="Library · Process — process.html" title="Process.">
+    <p slot="lead">Four process patterns — horizontal steps, vertical timeline, numbered rules and icon cards. All share <code>e-steps</code> with <code>howto="…"</code> opt-in for <code>HowTo</code> JSON-LD.</p>
+
+    <e-demo-head num="01" title="Horizontal · Select → Compress → Done" meta='e-steps variant="horizontal" · 3-step · pills'></e-demo-head>
+    <e-steps variant="horizontal" footnote="Select → Compress → Done. Like any Windows utility.">
+      <e-step title="Select" label="01">Choose a folder or select images. The file list shows size, type and dimensions — with checkboxes for exactly what you want to compress.</e-step>
+      <e-step title="Compress" label="02">Set quality, engine and output format. Run it locally — 2, 4 or 8 threads — and watch per-file savings appear on the right.</e-step>
+      <e-step title="Done." label="03">Export a CSV, open the folder, or overwrite in place with backups to a backup folder. No upload step in between.</e-step>
+    </e-steps>
+
+    <e-demo-head num="02" title="Vertical timeline · line + nodes" meta='e-steps variant="timeline" · mono steps'></e-demo-head>
+    <e-steps variant="timeline" howto="Compress images with Compressy">
+      <e-step title="Drop a folder in." label="01">The file list appears with type, size and dimensions. Folder · Filter · Sort</e-step>
+      <e-step title="Set quality and engine." label="02">Quality 40–95, balanced / fast / maximum, keep format or transcode to WebP / AVIF, max W×H and rename pattern — one panel. Quality 85 · Balanced</e-step>
+      <e-step title="Batch locally with concurrency." label="03">Progress and header stats stay live. Originals go to /backup when overwriting. Export a CSV of what you saved. 456 files real vips</e-step>
+      <e-step title="Keep total savings." label="04">Header shows folder size, total saved and avg. Backups to /backup, open folder when done.</e-step>
+    </e-steps>
+
+    <e-demo-head num="03" title="Numbered cards · 4-up top rule" meta='e-steps variant="numbered" · top rule · warm'></e-demo-head>
+    <e-steps variant="numbered">
+      <e-step title="Select">Pick files or a whole folder.</e-step>
+      <e-step title="Tune">Quality, engine, format, caps.</e-step>
+      <e-step title="Batch">Batch locally, backups safe.</e-step>
+      <e-step title="Export">CSV, open folder, done.</e-step>
+    </e-steps>
+
+    <e-demo-head num="04" title="Icon steps · copy + meta 3-col" meta='e-steps variant="icons" · 3-col · 12px'></e-demo-head>
+    <e-steps variant="icons">
+      <e-step title="Source" label="01" meta="Folder · Browse · Rescan">Select a folder. Browse or rescan. The list fills with type-tinted previews.</e-step>
+      <e-step title="Settings" label="02" meta="Quality 85 · Balanced · Keep original">Quality 85, balanced engine, keep-original. Resize off, backups to folder.</e-step>
+      <e-step title="Output" label="03" meta="57.8% avg · 456 files">Compressed files mark inline — size delta, bar and saved %. Avg 57.8% real.</e-step>
+    </e-steps>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- TABLES — table.html (4)                                      -->
+  <!-- ============================================================ -->
+  <e-section id="tables" eyebrow="Library · Tables — table.html" title="Tables.">
+    <p slot="lead">Four table patterns — savings, capability matrix, changelog and pricing. Authored as a real <code>&lt;table&gt;</code> inside <code>e-table</code>; variant handles mono, alignment and divisors.</p>
+
+    <e-demo-head num="01" title="File savings · mono table" meta='e-table variant="savings" · before → after'></e-demo-head>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>!-tylewice-wiatrak.jpg</td><td>3.3 MB</td><td>1.9 MB</td><td>−41.7% real</td></tr>
+          <tr><td>100_Hall_interaction.png → WebP</td><td>42.6 KB</td><td>11.0 KB</td><td>−74.2% real</td></tr>
+          <tr><td>123inkt_logo.png → WebP</td><td>14.4 KB</td><td>4.0 KB</td><td>−72.2% real</td></tr>
+          <tr><td>04_Hegasy_Hand.png → WebP</td><td>721 KB</td><td>189 KB</td><td>−73.8% real</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+
+    <e-demo-head num="02" title="Capability matrix · check / dash" meta='e-table variant="matrix" · warm · 12px'></e-demo-head>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Capability</th><th>Compressy</th><th>Online tool</th></tr></thead>
+        <tbody>
+          <tr><td>Works offline</td><td>✓</td><td>—</td></tr>
+          <tr><td>No upload required</td><td>✓</td><td>—</td></tr>
+          <tr><td>Batch a whole folder</td><td>✓</td><td>—</td></tr>
+          <tr><td>Keeps backups to /backup</td><td>✓</td><td>—</td></tr>
+          <tr><td>No account</td><td>✓</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+
+    <e-demo-head num="03" title="Changelog · version table mono" meta='e-table variant="changelog" · mono · pills'></e-demo-head>
+    <e-table variant="changelog">
+      <table>
+        <thead><tr><th>Version</th><th>Date</th><th>Highlights</th><th>Download</th></tr></thead>
+        <tbody>
+          <tr><td>v1.4.0</td><td>Latest · 2 Dec 2024</td><td>Auto-rename, Max W×H</td><td>Setup · Zip</td></tr>
+          <tr><td>v1.3.2</td><td>18 Nov 2024</td><td>Settings polish</td><td>Setup · Zip</td></tr>
+          <tr><td>v1.0.0</td><td>14 Sep 2024</td><td>Initial release</td><td>Setup · Zip</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+
+    <e-demo-head num="04" title="Pricing · simple tiers" meta='e-table variant="pricing" · one accent · warm'></e-demo-head>
+    <e-table variant="pricing">
+      <table>
+        <thead><tr><th>Tier</th><th>Price</th><th>Includes</th></tr></thead>
+        <tbody>
+          <tr><td>Free</td><td>₹0</td><td>For everyone · No account · Offline · Windows 10+</td></tr>
+          <tr><td>Portable</td><td>₹0</td><td>No install · Zip · USB-friendly · Same engine</td></tr>
+          <tr><td>Source</td><td>—</td><td>Build it · Same tokens, same app — compressy.html</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- LOGOS — logos.html (4)                                       -->
+  <!-- ============================================================ -->
+  <e-section id="logos" warm eyebrow="Library · Logos — logos.html" title="Logos.">
+    <p slot="lead">Four logo patterns — trust bar, card grid, integration strip and centered cluster. Muted, warm, whisper borders — logos stay secondary.</p>
+
+    <e-demo-head num="01" title="Trust bar · inline" meta='e-logos variant="bar" · mono eyebrow'></e-demo-head>
+    <e-logos variant="bar" caption="Built for Windows · Works where your files live">
+      <span>Windows</span>
+      <span>Explorer</span>
+      <span>NTFS</span>
+      <span>mozjpeg</span>
+      <span>oxipng</span>
+      <span>WebP</span>
+    </e-logos>
+
+    <e-demo-head num="02" title="Logo grid · 3×2 cards" meta='e-logos variant="grid" · 12px · warm'></e-demo-head>
+    <e-logos variant="grid">
+      <span>JPG — mozjpeg</span>
+      <span>PNG — oxipng</span>
+      <span>WebP — modern</span>
+      <span>AVIF — next-gen</span>
+      <span>Windows 10+</span>
+      <span>Offline</span>
+    </e-logos>
+
+    <e-demo-head num="03" title="Integration strip · pill row" meta='e-logos variant="pills" · mono · 9999'></e-demo-head>
+    <e-logos variant="pills">
+      <span>JPG</span>
+      <span>PNG</span>
+      <span>WebP</span>
+      <span>AVIF</span>
+      <span>Folder</span>
+      <span>Backup</span>
+    </e-logos>
+
+    <e-demo-head num="04" title="Centered cluster · 4 logos + caption" meta='e-logos variant="cluster" · warm · centered'></e-demo-head>
+    <e-logos variant="cluster" caption="Private by default. No cloud required.">
+      <span>Local</span>
+      <span>Offline</span>
+      <span>Signed</span>
+      <span>Free</span>
+    </e-logos>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- STATS — stats.html (4)                                       -->
+  <!-- ============================================================ -->
+  <e-section id="stats" eyebrow="Library · Stats — stats.html" title="Stats.">
+    <p slot="lead">Four stat patterns — hero rules, proof strip, bento and metric row. Tabular-nums, mono labels, whisper borders.</p>
+
+    <e-demo-head num="01" title="Hero stats · 3-up with rule" meta='e-stats variant="rules" · display · tabular-nums'></e-demo-head>
+    <e-stats variant="rules">
+      <e-stat value="57.8%" label="Avg saved" note="Peak 92.4% — 456 JPGs real vips"></e-stat>
+      <e-stat value="84.5%" label="png→webp avg" note="545 PNGs"></e-stat>
+      <e-stat value="0" label="Uploads" note="Files never leave your computer"></e-stat>
+    </e-stats>
+
+    <e-demo-head num="02" title="Proof strip · inline mono warm" meta='e-stats variant="strip" · warm · dot separators'></e-demo-head>
+    <p>Inline pill with dot separators — the warm proof strip from <code>stats.html stats-02</code> and <code>e-hero</code> proof.</p>
+    <e-stats variant="strip">
+      <e-stat value="57.8%" label="avg saved" success></e-stat>
+      <e-stat value="84.5%" label="png→webp avg" success></e-stat>
+      <e-stat value="70.9%" label="jpg→webp avg" success></e-stat>
+    </e-stats>
+
+    <e-demo-head num="03" title="Bento stats · dark + two small" meta='e-stats variant="bento" · layered'></e-demo-head>
+    <e-stats variant="bento">
+      <e-stat value="57.8%" label="Avg saved" note="Peak 92.4% — 456 JPGs" bar="58"></e-stat>
+      <e-stat value="84.5%" label="png→webp avg" note="545 PNGs 247.9→40.4 MB" bar="84"></e-stat>
+      <e-stat value="70.9%" label="jpg→webp avg" note="456 JPGs" bar="71"></e-stat>
+    </e-stats>
+
+    <e-demo-head num="04" title="Metric row · bordered" meta='e-stats variant="row" · tabular-nums'></e-demo-head>
+    <e-stats variant="row">
+      <e-stat value="1285.7 MB" label="Before" note="456 JPGs"></e-stat>
+      <e-stat value="542.5 MB" label="After" note="57.8% avg"></e-stat>
+      <e-stat value="57.8%" label="Avg" note="Peak 92.4% real"></e-stat>
+      <e-stat value="4" label="Formats" note="JPG PNG WebP AVIF"></e-stat>
+    </e-stats>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- POINTS — points.html (4)                                     -->
+  <!-- ============================================================ -->
+  <e-section id="points" warm eyebrow="Library · Points — points.html" title="Points.">
+    <p slot="lead">Four point patterns — check lists, two-column rules, numbered dividers and dot bullets. Warm neutrals, whisper borders, one accent.</p>
+
+    <e-demo-head num="01" title="Check list · icon + copy card" meta='e-points variant="checks" · card · hairline'></e-demo-head>
+    <e-points variant="checks">
+      <li><strong>Your images never leave your computer.</strong> No uploads · No cloud processing · No accounts</li>
+      <li><strong>No cloud processing.</strong> Compression runs on your machine — not on someone else's server.</li>
+      <li><strong>No accounts.</strong> No sign-in, no dashboard, no email wall between you and a smaller file.</li>
+    </e-points>
+
+    <e-demo-head num="02" title="Two-column · top rule warm" meta='e-points variant="cols" · warm · 2-col'></e-demo-head>
+    <e-points variant="cols">
+      <li><strong>Offline</strong> Your images never leave your computer. ✓ No uploads ✓ No cloud processing ✓ No accounts</li>
+      <li><strong>Workflow</strong> Smaller images. Same workflow. → Select a folder → Compress locally → Done</li>
+    </e-points>
+
+    <e-demo-head num="03" title="Numbered · mono + divider" meta='e-points variant="numbered" · hairline'></e-demo-head>
+    <e-points variant="numbered">
+      <li><strong>Free. Offline. Built for Windows.</strong> No account, no cloud, no waiting for a server.</li>
+      <li><strong>Quality when you need it.</strong> Quality 85 by default — slide for size or fidelity.</li>
+      <li><strong>Faster by staying local.</strong> Your computer does the work. No upload or download step.</li>
+      <li><strong>Private by default.</strong> Local processing. No cloud required.</li>
+    </e-points>
+
+    <e-demo-head num="04" title="Dot list · minimal mono eyebrows" meta='e-points variant="dots" · mono eyebrows · 3-col'></e-demo-head>
+    <e-points variant="dots">
+      <li><strong>No account</strong> No sign-up, no dashboard. Open and select a folder.</li>
+      <li><strong>No cloud</strong> No uploads. No cloud queue. Files stay on disk.</li>
+      <li><strong>No waiting</strong> No upload or download step. Your PC does the work.</li>
+    </e-points>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- ============================================================ -->
+  <!-- CONTENT — content.html (4)                                   -->
+  <!-- ============================================================ -->
+  <e-section id="content" eyebrow="Library · Content — content.html" title="Content.">
+    <p slot="lead">Four content-heavy patterns for docs, guides and long-form pages — dense type, readable hierarchy and real code blocks. Primary element is <code>e-content variant="editorial"</code>; the other three are compositions of <code>e-content</code> + <code>e-stats</code> / <code>e-table</code> / <code>e-points</code> / <code>e-faq</code>.</p>
+
+    <e-demo-head num="01" title="Editorial · long-form guide" meta='e-content variant="editorial" · 720px · 65ch · warm'></e-demo-head>
+    <e-content variant="editorial" eyebrow="Guide · 6 min read">
+      <p slot="lead">Most image weight is invisible — duplicate metadata, oversized dimensions and a quality setting left at 95. Compressy fixes all three locally, in one pass.</p>
+      <p>Most portfolios ship with images at 2× the displayed size and a quality setting left at 95. Dropping to Quality 85 with the balanced engine removes weight the eye won't miss, while <code>Max W × H</code> trims dimensions that never render.</p>
+      <h3>What actually saves the most</h3>
+      <p>Quality is the biggest dial. 85 is the default because it keeps text sharp while cutting photographs by ~26%. For screenshots with large flat areas, the lossless toggle keeps PNG bit-exact while still stripping metadata.</p>
+      <h3>When to change the defaults</h3>
+      <p>Leave <code>Keep original</code> on for archival work — WebP / AVIF as output makes sense when you control the delivery format. Turn <code>Overwrite → backup folder</code> on early — originals land in <code>/backup</code> next to each file before anything is replaced.</p>
+      <e-points variant="dots">
+        <li><strong>Scan first</strong> Drop a folder and note the header stats: folder size, avg saved preview and file count.</li>
+        <li><strong>Slide quality</strong> 40–95, balanced / fast / maximum. Peak −41% on large photos at Quality 80.</li>
+        <li><strong>Check dimensions</strong> Max W × H downscales without upscaling — keep aspect, off by default.</li>
+      </e-points>
+    </e-content>
+
+    <e-demo-head num="02" title="Docs · sidebar + TOC" meta='e-content variant="docs" · 240px TOC'></e-demo-head>
+    <e-content variant="docs" eyebrow="Docs · Quick start">
+      <div slot="toc">
+        <a href="#">Quick start</a>
+        <a href="#">Quality &amp; engine</a>
+        <a href="#">Output format</a>
+        <a href="#">Max width × height</a>
+        <a href="#">Auto-rename</a>
+      </div>
+      <h2>Quick start — Select, set, compress</h2>
+      <p>On this page: Quick start · Quality &amp; engine · Output format · Max width × height · Auto-rename · Backup &amp; safety · CLI flags — the sticky TOC from <code>content.html content-02</code>. The docs pattern is a narrow prose column with mono callouts and a 240px TOC.</p>
+      <pre><code>C:\Portfolio&gt; compressy --quality 85 --engine balanced --keep-original C:\Pictures\Portfolio-2024
+456 JPGs · 1285.7 MB → 542.5 MB · 57.8% · 34s</code></pre>
+      <e-points variant="checks">
+        <li><strong>Quality &amp; engine</strong> — the two dials that matter. 85 · balanced is the default; fast trades a point for speed.</li>
+        <li><strong>Output format</strong> — keep original or convert the whole batch to WebP / AVIF.</li>
+        <li><strong>Max W × H</strong> — downscale only, keep aspect. Off by default.</li>
+      </e-points>
+      <e-note>Tip: leave <code>Auto-rename {prefix}-{NNNN}</code> off until you have confirmed the savings on a sample folder.</e-note>
+    </e-content>
+
+    <e-demo-head num="03" title="Explainer · dense comparison  + <code>e-stats</code> + <code>e-table</code>" meta='e-content variant="explainer" · stats + table · warm'></e-demo-head>
+    <e-content variant="explainer" eyebrow="Deep dive · Why local beats cloud">
+      <p slot="lead">Cloud compressors add an upload, a queue and a download. Compressy removes all three. The comparison below is measured on 456 JPGs (1285.7 MB) on a mid-range Windows PC and a 20 Mbps connection.</p>
+      <p>What to tell your team: if you ship images to the web, the win is not a trick — it is removing pixels and quality the user never sees. Compressy trims both in one pass and shows per-file savings so you can prove it before you ship.</p>
+    </e-content>
+
+    <e-demo-head num="04" title="Knowledge base · dense index  + <code>e-faq</code> / <code>e-points</code>" meta='e-content variant="kb" · search · groups · 65ch'></e-demo-head>
+    <e-content variant="kb" eyebrow="Knowledge base">
+      <p slot="lead">Twelve guides, one search. No video you have to watch — just text you can scan, copy and keep. The dense index from <code>content.html content-04</code> is a 720px column with grouped links and a search bar.</p>
+    </e-content>
+  </e-section>
+  <e-gap size="lg"></e-gap>
+  
+
+  <!-- Hero and mock are not in the 10 section files but are reusable elements; include a brief showcase -->
+  <e-section id="hero-mock" warm eyebrow="Library · Hero &amp; Mock — landing.html" title="Hero and app mock.">
+    <p slot="lead">The landing hero (<code>e-hero</code>) and the light Primer app mock (<code>e-mock</code>) are standalone elements used together on <code>/</code>. Included here for completeness.</p>
+    <e-hero pill="Free · Offline · Built for Windows" title="Offline Image Compressor<br>For Windows">
+      <p slot="lead">Compressy is a fast, offline image compressor for Windows. Shrink images without uploading them to a server, creating an account, or giving your files to a cloud service.</p>
+      <span slot="actions">
+        <e-button variant="primary" href="/download">Download for Windows</e-button>
+        <e-button variant="ghost" href="#grids">Browse library</e-button>
+      </span>
+      <span slot="meta">Free. Offline. Built for Windows. — No account required.</span>
+      <e-proof value="57.8%" label="avg saved" success></e-proof>
+      <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+      <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+    </e-hero>
+    <e-mock path="C:\Users\Alex\Pictures\Portfolio-2024" count="12" selected="4" saved="57.8% avg saved" note-left="Quality 85 · Balanced · Keep format — 456 JPGs real vips" out-note-left="Avg 57.8% · Peak 92.4% — 1285.7→542.5 MB" caption="Preview — real vips numbers in one window.">
+      <mock-src check name="!-tylewice-wiatrak.jpg" ext="jpg" size="3.3 MB"></mock-src>
+      <mock-src check name="brand-sheet.png" ext="png" size="1.9 MB"></mock-src>
+      <mock-src name="team-photo-2024.jpg" ext="jpg" size="5.1 MB"></mock-src>
+      <mock-src check name="case-study-cover.jpg" ext="jpg" size="2.8 MB"></mock-src>
+      <mock-out name="!-tylewice-wiatrak.jpg" ext="jpg" dims="3480929 → 2029440" save="−41.7% · −1451 KB"></mock-out>
+      <mock-out name="04_Hegasy_Hand.png" ext="png" dims="721 KB → 189 KB" save="−73.8% · −532 KB"></mock-out>
+      <mock-out name="case-study-cover.jpg" ext="jpg" dims="3200×1800" save="−22% · −611 KB"></mock-out>
+    </e-mock>
+    <e-note center>Hero proof uses <code>e-proof value / label / success</code>; mock uses <code>mock-src / mock-out</code> data tags.</e-note>
+    <e-demo-head num="02" title="App mock · full window chrome" meta='e-mock variant="app" · toolbar + grid'></e-demo-head>
+    <e-mock variant="app" path="C:\Users\Alex\Pictures\Portfolio-2024" count="12" selected="4" saved="57.8% avg saved" caption="App chrome — toolbar, grid view, statusbar.">
+      <mock-src check name="!-tylewice-wiatrak.jpg" ext="jpg" size="3.3 MB"></mock-src>
+      <mock-src check name="brand-sheet.png" ext="png" size="1.9 MB"></mock-src>
+      <mock-src name="team-photo-2024.jpg" ext="jpg" size="5.1 MB"></mock-src>
+      <mock-src check name="case-study-cover.jpg" ext="jpg" size="2.8 MB"></mock-src>
+      <mock-out name="!-tylewice-wiatrak.jpg" ext="jpg" dims="3480929 → 2029440" save="−41.7% · −1451 KB"></mock-out>
+      <mock-out name="04_Hegasy_Hand.png" ext="png" dims="721 KB → 189 KB" save="−73.8% · −532 KB"></mock-out>
+      <mock-out name="case-study-cover.jpg" ext="jpg" dims="3200×1800" save="−22% · −611 KB"></mock-out>
+    </e-mock>
+    <e-note center>App variant uses <code>variant="app"</code> — full window chrome with toolbar/grid/search.</e-note>
+  
+
+  <e-cta variant="band" pill="Section library" meta="Offline · Windows · No account required · 18 elements · 44 demos">
+    <h2>Ship a page by composing elements.</h2>
+    <p slot="sub">Copy a demo from this library, swap the copy, keep the structure. All styling lives in <code>site.css</code>; all interactivity in <code>app.js</code>.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/">Back to overview</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

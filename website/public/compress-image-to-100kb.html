@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Image to 100KB — Hit 100KB Locally | Compressy</title>
+  <meta name="description" content="Compress image to 100KB locally on Windows. Try quality, resize, and WebP/AVIF to hit 100KB — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Target size · 100KB · Offline" title="Compress image<br>to 100KB">
+    <p slot="lead">Need 100KB for web or email? Try locally with quality, resize, and WebP/AVIF. No upload, exact size depends on content.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#how-100kb">How to hit 100KB →</e-button>
+    </span>
+    <span slot="meta">Target 100KB · Local attempt · Windows</span>
+    <e-proof value="100KB" label="target"></e-proof>
+    <e-proof value="No upload" label="local" success></e-proof>
+    <e-proof value="Quality + Resize" label="controls"></e-proof>
+  </e-hero>
+
+  <e-note center>Target 100KB — try locally, exact size depends on content and dimensions. See <a href="/benchmarks/">benchmarks</a> for real savings at 85.</e-note>
+
+  <e-section warm id="how-100kb" eyebrow="How to hit 100KB" title="Three controls for 100KB">
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Source</th><th>At 85</th><th>To hit 100KB</th></tr></thead>
+        <tbody>
+          <tr><td>Icon 512×512 PNG</td><td>~45 KB</td><td>Already under</td></tr>
+          <tr><td>Photo 1920×1080 JPG</td><td>~850 KB</td><td>Needs 75 + 1280px + WebP</td></tr>
+          <tr><td>Screenshot PNG</td><td>~1.2 MB</td><td>Needs WebP + 80</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section eyebrow="Estimates" title="Can you hit 100KB?">
+    <e-progress-line label="Quality for 100KB" value="80" fill="55" caption="Try 80, then lower or resize if still over."></e-progress-line>
+    <e-progress-line label="Quality 75" value="75" fill="50" caption="Needs 75 + 1280px + WebP"></e-progress-line>
+  </e-section>
+
+  <e-section eyebrow="Steps" title="Try to hit 100KB">
+    <e-steps variant="timeline">
+      <e-step title="Select" label="01">Pick image or folder. See size.</e-step>
+      <e-step title="Set target" label="02">Quality ~80, Max 1280, WebP. Preview.</e-step>
+      <e-step title="Check" label="03">If over 100KB, lower quality or dimensions. Backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Options">
+    <e-points variant="numbered">
+      <li><strong>Quality ~75-80</strong> Try 80 first, then 75. Preview per file.</li>
+      <li><strong>Resize</strong> 800–1280px wide for 100KB. Downscale only.</li>
+      <li><strong>WebP/AVIF</strong> Smaller at 100KB. Convert batch to WebP.</li>
+      <li>100KB is a sweet spot for web thumbnails — combine quality, dimensions, and format.</li>
+    </e-points>
+  </e-section>
+
+  <e-section eyebrow="Other targets" title="Nearby sizes">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>50KB</h3><p slot="body">Smaller. <a href="/compress-image-to-50kb/">50KB →</a></p></e-card>
+      <e-card><h3>200KB</h3><p slot="body">More headroom. <a href="/compress-image-to-200kb/">200KB →</a></p></e-card>
+      <e-card><h3>500KB</h3><p slot="body">Portfolio. <a href="/compress-image-to-500kb/">500KB →</a></p></e-card>
+      <e-card><h3>1MB</h3><p slot="body">High quality. <a href="/compress-image-to-1mb/">1MB →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="100KB — FAQ">
+    <e-faq variant="compact">
+      <details><summary>Can you guarantee 100KB?</summary><p>No. Depends on dimensions and content. Try combinations locally and preview before saving.</p></details>
+      <details><summary>What hits 100KB most often?</summary><p>1280px, WebP, quality 75–80. For avatars, 512px WebP at 80 is often under.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="split" pill="Target 100KB" meta="Offline · Windows">
+    <h2>Try to hit 100KB locally.</h2>
+    <p slot="sub">Quality, resize, and WebP — try until it hits.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image-to-50kb/">Try 50KB →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Images for Email — Under 24KB | Compressy</title>
+  <meta name="description" content="Compress images for email locally on Windows. Shrink attachments below 24KB for Gmail, batch a folder, export WebP — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Email · 24KB · Offline" title="Compress for email<br>smaller attachments">
+    <p slot="lead">Email clients reject large images. Shrink attachments below the 24KB Gmail cap, batch a folder, export WebP — no upload service, your images stay on your PC.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#format">Best format →</e-button>
+    </span>
+    <span slot="meta">Email · Attachment limit · Offline</span>
+    <e-proof value="24KB" label="Gmail cap"></e-proof>
+    <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+    <e-proof value="Offline" label="mode"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Why email" title="Large images.<br>Failed attachments.">
+    <p slot="lead">Gmail and Outlook cap file sizes — a single photo can block your whole email. Shrink images first, send anything.</p>
+    <e-cards variant="rows">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Hit 24KB</h3>
+        <p slot="body">The Gmail attachment cap — quality + resize to land under it.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Export WebP</h3>
+        <p slot="body">Smaller at same quality — best for product shots and screenshots.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5L3 5v3.2c0 3 2 5.1 5 6.3 3-1.2 5-3.3 5-6.3V5L8 2.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><path d="M6 8l1.6 1.6L10.2 6.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Batch a folder</h3>
+        <p slot="body">Compress every attachment at once, then attach the small files.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section eyebrow="Proof" title="Email savings">
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>Conversion</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>JPG → WebP</td><td>2.4 MB</td><td>1.6 MB</td><td>−32%</td></tr>
+          <tr><td>PNG → WebP</td><td>1.9 MB</td><td>540 KB</td><td>−71%</td></tr>
+          <tr><td>Photo at 800px</td><td>540 KB</td><td>42 KB</td><td>−92%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section eyebrow="Rules">
+    <e-points variant="numbered">
+      <li><strong>Hit 24KB</strong> The Gmail attachment cap — quality + resize to land under it.</li>
+      <li><strong>Export WebP</strong> Smaller at same quality — best for product shots and screenshots.</li>
+      <li><strong>Batch a folder</strong> Compress every attachment at once, then attach the small files.</li>
+      <li><strong>For the strictest cap</strong> resize to 800px + WebP at 75 — often under 24KB.</li>
+    </e-points>
+  </e-section>
+
+  <e-section id="how" eyebrow="How it works" title="Shrink → Attach → Send.">
+    <p slot="lead">Three steps, all local.</p>
+    <e-steps variant="timeline">
+      <e-step title="Select images" label="01">Drop the folder with attachments — photos, screenshots, logos.</e-step>
+      <e-step title="Compress" label="02">Resize 800px, WebP at 75, strip metadata. Preview per file.</e-step>
+      <e-step title="Attach" label="03">Attach the small files — no cap, no bounce.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Related" title="More for email">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress to 50KB</h3><p slot="body">Tight cap. <a href="/compress-image-to-50kb/">50KB →</a></p></e-card>
+      <e-card><h3>Compress to 100KB</h3><p slot="body">Target size. <a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>Resize Image</h3><p slot="body">Dimensions. <a href="/resize-image/">Resize →</a></p></e-card>
+      <e-card><h3>JPG to WebP</h3><p slot="body">For photos. <a href="/jpg-to-webp/">JPG to WebP →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Email — FAQ">
+    <e-faq variant="compact">
+      <details><summary>What is the email image limit?</summary><p>Gmail caps attachments around 24KB per inline image, Outlook 20MB total. Shrink inline images well under the cap; Compressy shows the size before you attach.</p></details>
+      <details><summary>Will WebP work in email?</summary><p>Most modern clients render WebP, but keep JPG for maximum compatibility. Compressy exports both so you can pick per audience.</p></details>
+      <details><summary>Can I batch all my attachments?</summary><p>Yes. Drop the folder — Compressy compresses every image and shows per-file savings before you attach.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All compression is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="inline" pill="Email · 24KB" meta="Offline · No upload · Windows">
+    <h2>Email-ready images. Your PC does the shrink.</h2>
+    <p slot="sub">For email — small attachments without the cloud.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image-to-50kb/">Try 50KB →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

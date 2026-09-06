@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Image to 1MB — Hit 1MB Locally | Compressy</title>
+  <meta name="description" content="Compress image to 1MB locally on Windows. Keep high quality at 1MB, try quality 85-90, WebP optional — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Target size · 1MB · Offline" title="Compress image<br>to 1MB">
+    <p slot="lead">1MB keeps high quality — often just Quality 85, no resize or conversion needed. Try locally.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#how-1mb">How to hit 1MB →</e-button>
+    </span>
+    <span slot="meta">Target 1MB · High fidelity · Local</span>
+    <e-proof value="1MB" label="target"></e-proof>
+    <e-proof value="Quality 85-90" label="range" success></e-proof>
+    <e-proof value="No upload" label="local"></e-proof>
+  </e-hero>
+
+  <e-section warm id="how-1mb" eyebrow="How to hit 1MB" title="1MB is easy">
+    <p slot="lead">Most photos under 3000px at Quality 85 are already under 1MB. Higher quality is fine.</p>
+    <e-stats variant="row">
+      <e-stat value="~3.4 MB" label="Before" note="3840×2160 JPG at 85"></e-stat>
+      <e-stat value="1MB" label="After" note="Target size"></e-stat>
+      <e-stat value="~850 KB" label="Avg" note="1920×1080 JPG at 85"></e-stat>
+      <e-stat value="0" label="Uploads" note="No upload · local"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section eyebrow="What to expect" title="Can you hit 1MB?">
+    <e-table variant="pricing">
+      <table>
+        <thead><tr><th>Tier</th><th>At 85</th><th>To hit 1MB</th></tr></thead>
+        <tbody>
+          <tr><td>Photo 1920×1080 JPG</td><td>~850 KB</td><td>Already under</td></tr>
+          <tr><td>Photo 3840×2160 JPG</td><td>~3.4 MB</td><td>90 or resize 1920</td></tr>
+          <tr><td>DSLR 6000×4000</td><td>~5.1 MB</td><td>85 + resize 1920 + WebP</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section eyebrow="Steps" title="Try to hit 1MB">
+    <e-steps variant="horizontal" footnote="Select → Set → Check. Try locally.">
+      <e-step title="Select" label="01">Pick image. See size.</e-step>
+      <e-step title="Set" label="02">Quality 85-90, keep format. Preview.</e-step>
+      <e-step title="Check" label="03">If over, 85 or WebP. Backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Options" title="Keep it simple">
+    <e-points variant="checks">
+      <li><strong>Quality 85-90</strong> Try 85, then 90 for fidelity. Preview per file.</li>
+      <li><strong>Keep format</strong> No need to convert for 1MB. Keep original.</li>
+      <li><strong>Stay local</strong> No upload. Your images stay on disk.</li>
+    </e-points>
+  </e-section>
+
+  <e-section eyebrow="Other targets" title="Nearby sizes">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>500KB</h3><p slot="body"><a href="/compress-image-to-500kb/">500KB →</a></p></e-card>
+      <e-card><h3>200KB</h3><p slot="body"><a href="/compress-image-to-200kb/">200KB →</a></p></e-card>
+      <e-card><h3>100KB</h3><p slot="body"><a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>50KB</h3><p slot="body"><a href="/compress-image-to-50kb/">50KB →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="1MB — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Can you guarantee 1MB?</summary><p>No, but most photos hit it at 85. Try locally.</p></details>
+      <details><summary>What about large DSLR?</summary><p>6000px at 85 may be over 1MB — resize to 1920 or use WebP.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. Local.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Target 1MB" meta="Offline · Windows">
+    <h2>Try to hit 1MB locally.</h2>
+    <p slot="sub">High quality, local.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image-to-500kb/">Try 500KB →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

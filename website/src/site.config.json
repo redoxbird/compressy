@@ -1,0 +1,35 @@
+{
+  "url": "https://compressy.app",
+  "brand": {
+    "name": "Compressy",
+    "tagline": "Offline image compressor for Windows"
+  },
+  "version": "1.4.2",
+  "data": [
+    "releases",
+    "stats"
+  ],
+  "downloads": {
+    "assetsBase": "https://assets.compressy.app",
+    "exePattern": "{version}/Compressy-setup.exe"
+  },
+  "nav": [
+    {
+      "label": "Downloads",
+      "href": "/downloads/"
+    },
+    {
+      "label": "Examples",
+      "href": "/examples/"
+    },
+    {
+      "label": "Benchmarks",
+      "href": "/benchmarks/"
+    }
+  ],
+  "seo": {
+    "defaultOgImage": "/og/default.png",
+    "twitter": "@compressy",
+    "locale": "en_US"
+  }
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Image Optimizer — Optimize Images for Web | Compressy</title>
+  <meta name="description" content="Optimize images for web locally on Windows. Shrink JPG, PNG, WebP, AVIF, improve page speed and Core Web Vitals — no upload, batch folders offline.">
+</head>
+<body>
+
+  <e-hero pill="Web performance · Offline" title="Optimize images<br>for the web">
+    <p slot="lead">Image optimizer for Windows — shrink and prepare images for faster websites. Better Core Web Vitals, smaller payloads, no upload.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#perf">Why it matters →</e-button>
+    </span>
+    <span slot="meta">Web · Core Web Vitals · Offline</span>
+    <e-proof value="57.8%" label="avg saved" success></e-proof>
+    <e-proof value="LCP ↓" label="faster" success></e-proof>
+    <e-proof value="No upload" label="local"></e-proof>
+  </e-hero>
+
+  <e-section id="perf" warm eyebrow="Why optimize" title="Images are your largest payload.">
+    <p slot="lead">Unoptimized images hurt LCP and bandwidth. Optimizing locally gives you control before you deploy.</p>
+    <e-stats variant="bento">
+      <e-stat value="57.8%" label="Avg saved" note="Real vips 456 JPGs 1285.7→542.5 MB peak 92.4%" bar="58"></e-stat>
+      <e-stat value="LCP ↓" label="Page speed" note="Smaller images = faster first paint"></e-stat>
+      <e-stat value="0" label="Uploads" note="Optimized locally"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section eyebrow="What optimizer does" title="More than compression">
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Compress</h3>
+        <p slot="body">Quality 40–95, engines balanced/fast/maximum. Preview per file.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Resize</h3>
+        <p slot="body">Max W×H, downscale only. Ship 1920×1080, not 3840×2160.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Convert</h3>
+        <p slot="body">Keep original or output WebP/AVIF — smaller at same quality.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="For web" title="Ship next-gen formats">
+    <p slot="lead">WebP for compatibility, AVIF for maximum density. Convert the batch where it helps.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Use case</th><th>Recommended</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Photos</td><td>WebP at 80–85</td><td>Small, universal</td></tr>
+          <tr><td>Icons/UI</td><td>PNG lossless or WebP</td><td>Keep alpha/sharp edges</td></tr>
+          <tr><td>Hero images</td><td>AVIF at 75–80</td><td>Smallest delivery</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-points variant="dots">
+      <li><strong>Keep quality control</strong> — 85 balanced default, preview per file</li>
+      <li><strong>Batch a site folder</strong> — filter, sort, 2/4/8 threads, backups to /backup</li>
+      <li><strong>Offline</strong> — no upload, your source images stay local</li>
+    </e-points>
+  </e-section>
+
+  <e-section eyebrow="Workflow" title="Optimize in three steps">
+    <e-steps variant="horizontal">
+      <e-step title="Select" label="01">Pick your site’s image folder. Filter by JPG/PNG/WebP.</e-step>
+      <e-step title="Optimize" label="02">Set quality, resize caps, output format. See savings per file.</e-step>
+      <e-step title="Ship" label="03">Export smaller files, same names. Deploy faster payload.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section warm eyebrow="Related" title="Next for optimization">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress Image</h3><p slot="body">Generic tool. <a href="/compress-image/">Compress Image →</a></p></e-card>
+      <e-card><h3>Reduce size</h3><p slot="body">File-size focus. <a href="/reduce-image-size/">Reduce size →</a></p></e-card>
+      <e-card><h3>Benchmarks</h3><p slot="body">Real measured numbers. <a href="/benchmarks/">Benchmarks →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section eyebrow="FAQ" title="Image optimizer — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Is this the same as compressing?</summary><p>Yes — optimizer = compress + resize + convert. One batch, all three where they help.</p></details>
+      <details><summary>Will it improve Core Web Vitals?</summary><p>Smaller images improve LCP and bandwidth. Pair with proper dimensions and modern formats for the biggest win.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. Optimize locally. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Image optimizer" meta="Offline · Web · Windows">
+    <h2>Ship faster images. Keep control.</h2>
+    <p slot="sub">Optimize locally — quality, resize, and format in one batch.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image/">Compress any image →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

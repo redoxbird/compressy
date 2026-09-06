@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "compressy-site",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-08-01",
+  "kv_namespaces": [
+    { "binding": "CACHE", "id": "4ac1e1ab348a4a999d47e16cddf9f620" }
+  ],
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "none",
+    "html_handling": "none",
+    "run_worker_first": ["/", "/404.html", "/*.html"],
+    "exclude": ["test-images"]
+  },
+  "rules": [
+    { "type": "Text", "globs": ["src/**/*.html"], "fallthrough": true }
+  ]
+}

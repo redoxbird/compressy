@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Image to 50KB — Hit 50KB Locally | Compressy</title>
+  <meta name="description" content="Compress image to 50KB locally on Windows. Try to hit 50KB with quality, resize, and format control — no upload, your images stay on your PC. Exact size depends on content.">
+</head>
+<body>
+
+  <e-hero pill="Target size · 50KB · Offline" title="Compress image<br>to 50KB">
+    <p slot="lead">Need to hit 50KB — avatar, icon, email? Try locally with quality, resize, and WebP/AVIF. No upload, no account. Exact 50KB depends on image content.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#how-50kb">How to hit 50KB →</e-button>
+    </span>
+    <span slot="meta">Target 50KB · Local attempt · Windows</span>
+    <e-proof value="50KB" label="target"></e-proof>
+    <e-proof value="No upload" label="local" success></e-proof>
+    <e-proof value="Quality + Resize + Format" label="controls"></e-proof>
+  </e-hero>
+
+  <e-section warm id="how-50kb" eyebrow="How to hit 50KB" title="Three controls to get to 50KB">
+    <p slot="lead">50KB is small — you’ll need to combine quality, dimensions, and format. Compressy lets you try all three locally.</p>
+    <e-points variant="checks">
+      <li><strong>Lower quality</strong> Try 70–80 for 50KB. Preview per file — see if it holds.</li>
+      <li><strong>Resize</strong> Max W×H for 50KB is often 512–800px for avatars. Downscale only.</li>
+      <li><strong>Use WebP/AVIF</strong> Smallest at 50KB. Convert the batch to WebP/AVIF in one pass.</li>
+    </e-points>
+    <e-note center>Exact 50KB depends on dimensions and content — a detailed photo needs more compression than a simple icon.</e-note>
+  </e-section>
+
+  <e-section eyebrow="What to expect" title="Can you hit 50KB?">
+    <e-stats variant="strip">
+      <e-stat value="70–80" label="quality" success></e-stat>
+      <e-stat value="512–800px" label="max W×H" success></e-stat>
+      <e-stat value="WebP/AVIF" label="best format" success></e-stat>
+    </e-stats>
+    <e-progress-line label="Quality for 50KB" value="75" fill="44" caption="Try 75, then lower or resize if still over."></e-progress-line>
+  </e-section>
+
+  <e-section eyebrow="Targets" title="To hit 50KB">
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>Source</th><th>At Quality 85</th><th>To hit 50KB</th></tr></thead>
+        <tbody>
+          <tr><td>Icon 512×512 PNG</td><td>~90 KB → ~45 KB</td><td>Often possible</td></tr>
+          <tr><td>Avatar 800×800 JPG</td><td>~180 KB → ~85 KB</td><td>Needs 70–75 + WebP</td></tr>
+          <tr><td>Photo 1920×1080 JPG</td><td>~1.2 MB → ~850 KB</td><td>Needs resize to 512px + 70 + WebP/AVIF</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section warm eyebrow="Steps" title="Try to hit 50KB locally">
+    <e-steps variant="numbered">
+      <e-step title="Select">Pick the image or folder. See size and dimensions.</e-step>
+      <e-step title="Set target">Quality ~75, Max W×H 512–800, output WebP/AVIF. Preview per file.</e-step>
+      <e-step title="Check">If still over 50KB, lower quality or dimensions and re-run. Backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Other targets" title="Nearby target sizes">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>100KB</h3><p slot="body">More headroom. <a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>200KB</h3><p slot="body">Blog images. <a href="/compress-image-to-200kb/">200KB →</a></p></e-card>
+      <e-card><h3>500KB</h3><p slot="body">Portfolio. <a href="/compress-image-to-500kb/">500KB →</a></p></e-card>
+      <e-card><h3>1MB</h3><p slot="body">High quality. <a href="/compress-image-to-1mb/">1MB →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="50KB — FAQ">
+    <e-faq variant="list">
+      <details><summary>Can you guarantee exactly 50KB?</summary><p>No. The smallest possible size depends on dimensions, format, and content. Compressy lets you try combinations locally and preview the result before saving. If 50KB is required, try lower quality, smaller dimensions, or WebP/AVIF.</p></details>
+      <details><summary>What settings hit 50KB most often?</summary><p>For avatars/icons: 512×512, WebP/AVIF, quality 70–75. For photos at 50KB, you’ll likely need both resize and WebP/AVIF.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All attempts are local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Target 50KB" meta="Offline · No upload · Windows">
+    <h2>Try to hit 50KB where it lives — on your PC.</h2>
+    <p slot="sub">Quality, resize, and format — try combinations locally, keep the one that hits.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image-to-100kb/">Try 100KB →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

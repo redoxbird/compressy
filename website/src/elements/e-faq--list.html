@@ -1,0 +1,3 @@
+<div class="faq faq--list">
+  {{#items}}{{#accordion}}<details class="faq__item"><summary><span class="faq__q">{{q}}</span><span class="faq__marker" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></summary><div class="faq__a">{{{a}}}</div></details>{{/accordion}}{{^accordion}}{{#num}}<div class="faq__item"><span class="faq__num">{{num}}</span><div class="faq__body"><div class="faq__q">{{q}}</div><div class="faq__a">{{{a}}}</div></div></div>{{/num}}{{^num}}<div class="faq__item"><div class="faq__q">{{q}}</div><div class="faq__a">{{{a}}}</div></div>{{/num}}{{/accordion}}{{/items}}
+</div>

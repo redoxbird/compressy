@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Image to 500KB — Hit 500KB Locally | Compressy</title>
+  <meta name="description" content="Compress image to 500KB locally on Windows. Keep high quality, try quality, resize, WebP — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Target size · 500KB · Offline" title="Compress image<br>to 500KB">
+    <p slot="lead">500KB keeps high quality for portfolios and prints — often Quality 85 + WebP is enough, no resize needed.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#how-500kb">How to hit 500KB →</e-button>
+    </span>
+    <span slot="meta">Target 500KB · High quality · Local</span>
+    <e-proof value="500KB" label="target"></e-proof>
+    <e-proof value="Quality 85" label="often" success></e-proof>
+    <e-proof value="No upload" label="local"></e-proof>
+  </e-hero>
+
+  <e-section warm id="how-500kb" eyebrow="How to hit 500KB" title="500KB is forgiving">
+    <p slot="lead">Most 1920px photos at Quality 85 are already near 500KB. WebP gives headroom.</p>
+    <e-cards variant="rows">
+      <e-card><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><h3>Quality 85</h3><p slot="body">Try 85 first. Often enough for 500KB.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>WebP optional</h3><p slot="body">Keep JPG or convert to WebP for smaller.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><h3>Resize only if big</h3><p slot="body">3840px → 1920px halves size. Off unless needed.</p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section eyebrow="What to expect" title="Can you hit 500KB?">
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>Source</th><th>At 85</th><th>To hit 500KB</th></tr></thead>
+        <tbody>
+          <tr><td>Photo 1920×1080 JPG</td><td>~850 KB</td><td>80 or WebP</td></tr>
+          <tr><td>Photo 3840×2160 JPG</td><td>~3.4 MB</td><td>1920 + 85</td></tr>
+          <tr><td>Screenshot PNG</td><td>~1.3 MB</td><td>WebP 85</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section eyebrow="Steps" title="Try to hit 500KB">
+    <e-steps variant="icons">
+      <e-step title="Select" label="01">Pick image. See size.</e-step>
+      <e-step title="Set" label="02">Quality 85, WebP if needed. Preview.</e-step>
+      <e-step title="Check" label="03">If over, 80 or resize 1920. Backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Options" title="Quality 85, WebP, or resize">
+    <e-points variant="cols">
+      <li><strong>Quality 85</strong> Try 85 first. Often enough for 500KB.</li>
+      <li><strong>WebP optional</strong> Keep JPG or convert to WebP for smaller.</li>
+      <li><strong>Resize only if big</strong> 3840px → 1920px halves size. Off unless needed.</li>
+    </e-points>
+  </e-section>
+
+  <e-section eyebrow="Other targets" title="Nearby sizes">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>200KB</h3><p slot="body"><a href="/compress-image-to-200kb/">200KB →</a></p></e-card>
+      <e-card><h3>1MB</h3><p slot="body"><a href="/compress-image-to-1mb/">1MB →</a></p></e-card>
+      <e-card><h3>100KB</h3><p slot="body"><a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>50KB</h3><p slot="body"><a href="/compress-image-to-50kb/">50KB →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="500KB — FAQ">
+    <e-faq variant="cards">
+      <details><summary>Can you guarantee 500KB?</summary><p>No. Try combinations locally.</p></details>
+      <details><summary>What hits 500KB?</summary><p>1920px, quality 85, WebP often enough. For 3840px, resize to 1920.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. Local.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="inline">
+    <h2>Try to hit 500KB locally.</h2>
+    <p slot="sub">High quality, local preview.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image-to-200kb/">Try 200KB →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

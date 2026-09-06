@@ -1,0 +1,10 @@
+{{#isSection}}<section class="section{{#warm}} section--warm{{/warm}}{{#tight}} section--tight{{/tight}}"{{{idAttr}}}>
+  <div class="container">
+    {{#hasHead}}<div class="section__head">
+      {{#eyebrow}}<div class="eyebrow"><i></i> {{eyebrow}}</div>{{/eyebrow}}
+      {{#titleHtml}}<h2>{{{titleHtml}}}</h2>{{/titleHtml}}
+      {{#leadHtml}}<p class="lead">{{{leadHtml}}}</p>{{/leadHtml}}
+    </div>
+    {{/hasHead}}{{{inner}}}
+  </div>
+</section>{{/isSection}}

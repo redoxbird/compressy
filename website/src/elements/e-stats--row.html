@@ -1,0 +1,8 @@
+<div class="stats stats--row">
+  {{#items}}<div class="stat">
+    <div class="stat__value">{{value}}</div>
+    <div class="stat__label">{{label}}</div>
+    {{#note}}<p class="stat__note">{{note}}</p>{{/note}}
+    {{#bar}}{{#barPct}}<div class="stat__bar"><i style="width:{{barPct}}%"></i></div>{{/barPct}}{{/bar}}
+  </div>{{/items}}
+</div>

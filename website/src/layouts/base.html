@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{meta.title}}</title>
+<meta name="description" content="{{meta.description}}">
+<link rel="canonical" href="{{{meta.canonical}}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{site.brand.name}}">
+<meta property="og:title" content="{{meta.title}}">
+<meta property="og:description" content="{{meta.description}}">
+<meta property="og:url" content="{{{meta.canonical}}}">
+<meta property="og:image" content="{{{meta.ogImage}}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{meta.title}}">
+<meta name="twitter:description" content="{{meta.description}}">
+<meta name="twitter:image" content="{{{meta.ogImage}}}">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/app.js" defer></script>
+<script defer src="/vendor/htmx.min.js"></script>
+<script defer src="/vendor/alpine.min.js"></script>
+</head>
+<body>
+
+<nav class="nav" data-od-id="nav" aria-label="Primary" x-data="nav">
+  <div class="container nav__inner">
+    <div class="nav__left">
+      <a class="brand" href="/" aria-label="{{site.brand.name}} home">
+        <span class="brand__mark"><img src="/icon.png" alt="" width="28" height="28"></span>
+        <span class="brand__word">{{site.brand.name}}</span>
+      </a>
+      <div class="nav__links" :class="open ? 'nav__links is-open' : 'nav__links'" aria-label="Sections">
+        {{#navItems}}<a href="{{{href}}}"{{#active}} class="is-active" aria-current="page"{{/active}} x-on:click="close()">{{label}}</a>{{/navItems}}
+      </div>
+    </div>
+    <div class="nav__cta">
+      <a class="btn btn-primary btn-sm" href="/download">Download for Windows</a>
+      <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" x-on:click="toggle()">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+{{{body}}}
+
+<footer class="footer" data-od-id="footer">
+  <div class="container">
+    <div class="footer__row">
+      <span class="footer__brand"><span class="brand__mark"><img src="/icon.png" alt="" width="22" height="22"></span> {{site.brand.name}} · {{site.brand.tagline}}</span>
+      <span class="footer__links"><a href="/#offline">Privacy</a><a href="/#formats">Formats</a><a href="/sitemap.xml">Sitemap</a></span>
+    </div>
+  </div>
+</footer>
+
+{{#jsonld}}
+<script type="application/ld+json">{{{.}}}</script>
+{{/jsonld}}
+
+</body>
+</html>

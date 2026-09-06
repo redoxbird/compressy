@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Images for Amazon — Meet Listing Rules | Compressy</title>
+  <meta name="description" content="Compress Amazon product images locally on Windows. Shrink below 10MP and 10MB, batch folders, keep EXIF — no upload, your listings stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Amazon · Listing · Offline" title="Compress for Amazon<br>meet listing rules">
+    <p slot="lead">Amazon requires product images under 10MB and 1600px minimum. Shrink your listing photos locally to fit the rules — no upload service, your images stay on your PC.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#format">Best format →</e-button>
+    </span>
+    <span slot="meta">Amazon · Product images · Offline</span>
+    <e-proof value="10MB" label="listing cap"></e-proof>
+    <e-proof value="1600px" label="min long edge"></e-proof>
+    <e-proof value="Offline" label="mode"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Why Amazon" title="Oversized photos.<br>Rejected listings.">
+    <p slot="lead">Amazon rejects listings over 10MB or under 1600px. Compress to fit the rules — every listing photo, one folder.</p>
+    <e-points variant="checks">
+      <li><strong>Resize to rule</strong> Max 1600px long edge, downscale only, keep aspect — off by default.</li>
+      <li><strong>Keep quality 85</strong> Near-lossless for product shots, under 10MB even for 16MP files.</li>
+      <li><strong>Keep original</strong> Backups to /backup, or export WebP for extra small.</li>
+    </e-points>
+  </e-section>
+
+  <e-section id="format" eyebrow="Compare" title="Pick format for Amazon">
+    <p slot="lead">Amazon accepts most formats; JPG is the safe listing default.</p>
+    <e-table variant="pricing">
+      <table>
+        <thead><tr><th>Format</th><th>Size</th><th>Amazon</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>JPG</td><td>Baseline</td><td>Accepted</td><td>Default product image</td></tr>
+          <tr><td>PNG</td><td>Larger</td><td>Accepted</td><td>Transparent/thumbnail</td></tr>
+          <tr><td>WebP</td><td>25–35% smaller</td><td>Not standard</td><td>Internal backup</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>Compress to JPG 85 + max 1600px to satisfy the listing cap while keeping zoom detail.</e-note>
+  </e-section>
+
+  <e-section warm eyebrow="Proof" title="Amazon savings">
+    <e-stats variant="row">
+      <e-stat value="−75%" label="JPG → 1600px" note="3.3 MB → 820 KB"></e-stat>
+      <e-stat value="−32%" label="JPG → WebP" note="2.4 MB → 1.6 MB"></e-stat>
+      <e-stat value="−71%" label="PNG → WebP" note="1.9 MB → 540 KB"></e-stat>
+      <e-stat value="10MB" label="listing cap" note="1600px min long edge · Offline mode"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section id="how" eyebrow="How it works" title="Resize → Compress → Upload.">
+    <p slot="lead">Three steps, all local.</p>
+    <e-steps variant="numbered">
+      <e-step title="Select listing photos">Drop the folder — hero, gallery, infographics.</e-step>
+      <e-step title="Set 1600px · 85">Max 1600px long edge, quality 85, keep EXIF for detail.</e-step>
+      <e-step title="Upload">Push to Seller Central — within cap, no rejections.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Related" title="More for Amazon">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Resize Image</h3><p slot="body">Dimensions. <a href="/resize-image/">Resize →</a></p></e-card>
+      <e-card><h3>Compress to 1MB</h3><p slot="body">Tight cap. <a href="/compress-image-to-1mb/">1MB →</a></p></e-card>
+      <e-card><h3>JPG to WebP</h3><p slot="body">Backup format. <a href="/jpg-to-webp/">JPG to WebP →</a></p></e-card>
+      <e-card><h3>Without losing quality</h3><p slot="body">Keep looks. <a href="/compress-images-without-losing-quality/">Quality →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Amazon — FAQ">
+    <e-faq variant="cards">
+      <details><summary>What are Amazon's image rules?</summary><p>Product main image must be at least 1600px on the long edge and under 10MB. Compressy resizes to 1600px max and shows size before you upload.</p></details>
+      <details><summary>Can I batch my whole listing?</summary><p>Yes. Drop the listing folder — Compressy compresses every image and backs up originals to /backup.</p></details>
+      <details><summary>What if I keep EXIF?</summary><p>Keep EXIF for product detail; strip it only if you want metadata gone. Compressy set both options per folder.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All compression is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="split" pill="Amazon · Listing" meta="Offline · No upload · Windows">
+    <h2>Listing-ready images. Your PC does the resize.</h2>
+    <p slot="sub">For Amazon — meet the rules without the cloud.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/resize-image/">Resize instead →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

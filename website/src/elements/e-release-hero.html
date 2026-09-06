@@ -1,0 +1,31 @@
+<header class="dl-hero">
+  <div class="container">
+    <div class="dl-hero__grid">
+      <div>
+        {{#eyebrow}}<div class="eyebrow"><i></i> {{eyebrow}}</div>{{/eyebrow}}
+        <h1>{{{titleHtml}}}</h1>
+        {{#leadHtml}}<p class="lead dl-hero__lead">{{{leadHtml}}}</p>{{/leadHtml}}
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="/download"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3.5v7M4.5 8.5L8 12l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12.5H13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Download {{latestTag}} for Windows</a>
+          {{{actions}}}
+        </div>
+        <div class="hero__meta">
+          <span><em>{{latestTag}}</em> · {{latestDate}}</span>
+          <span>Windows 10 / 11 · 64-bit</span>
+          <span>Signed · Offline</span>
+        </div>
+      </div>
+      <div class="dl-hero__card">
+        <div class="dl-hero__card-label"><span>Jump to version</span><span class="mono dl-hero__count">{{countLabel}}</span></div>
+        <p class="small muted">Changelog is newest → oldest. Click a version to jump.</p>
+        <div class="jump" aria-label="Version shortcuts">
+          {{#jumpItems}}<a href="#{{id}}">{{tag}}</a>{{/jumpItems}}
+        </div>
+        <div class="small muted dl-hero__card-note">
+          <span class="pill pill--success dl-hero__latest">● Latest</span>
+          <span>SHA-256 on every file · <a class="link-sha" href="#requirements">System requirements</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Reduce Image Size — Shrink Images Without Losing Quality | Compressy</title>
+  <meta name="description" content="Reduce image file size locally on Windows. Shrink JPG, PNG, WebP, AVIF in bulk — control quality, resize, keep metadata control. No upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Reduce size · Keep quality · Offline" title="Reduce image size<br>without guessing">
+    <p slot="lead">Shrink any image’s file size locally — pick a target, see per-file savings, keep the quality you choose. No upload, no account.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#savings">See savings →</e-button>
+    </span>
+    <span slot="meta">JPG · PNG · WebP · AVIF · Offline</span>
+    <e-proof value="57.8%" label="avg saved" success></e-proof>
+    <e-proof value="85" label="quality" success></e-proof>
+    <e-proof value="No upload" label="local"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Why size matters" title="Smaller files = faster everywhere.">
+    <p slot="lead">Image size drives page speed, upload time, and storage. Reducing file size locally gives you control without the cloud.</p>
+    <e-stats variant="row">
+      <e-stat value="1285.7 MB" label="Before" note="456 JPGs real vips"></e-stat>
+      <e-stat value="542.5 MB" label="After" note="57.8% avg, 92.4% peak"></e-stat>
+      <e-stat value="84.5%" label="Best file" note="PNG → WebP 84.5% real"></e-stat>
+      <e-stat value="0" label="Uploads" note="Stayed local"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section eyebrow="How to reduce" title="Three ways to make files smaller">
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Lower quality smartly</h3>
+        <p slot="body">Quality 40–95, balanced/fast/maximum. 85 is the sweet spot — preview per file.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Resize dimensions</h3>
+        <p slot="body">Max W×H, downscale only, keep aspect. Off when you don’t need it.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Change format</h3>
+        <p slot="body">Keep original or convert the batch to WebP/AVIF — smaller at same quality.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm id="savings" eyebrow="Proof" title="File size savings">
+    <p slot="lead">Same 12-image portfolio, Quality 85 balanced.</p>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>!-tylewice-wiatrak.jpg</td><td>3.3 MB</td><td>1.9 MB</td><td>−41.7% real</td></tr>
+          <tr><td>04_Hegasy_Hand.png → WebP</td><td>721 KB</td><td>189 KB</td><td>−73.8% real</td></tr>
+          <tr><td>!MQ_DSF9592.jpg</td><td>4.0 MB</td><td>1.4 MB</td><td>−64.2% real</td></tr>
+          <tr><td>100_Hall_interaction.png → WebP</td><td>42.6 KB</td><td>11.0 KB</td><td>−74.2% real</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-progress-line label="Quality 85" value="85" fill="68" caption="Lower to 80 for ~30% savings, raise to 90 for fidelity."></e-progress-line>
+  </e-section>
+
+  <e-section eyebrow="Workflow" title="Reduce in bulk">
+    <e-steps variant="horizontal">
+      <e-step title="Select" label="01">Pick a folder or files. Filter by JPG/PNG/WebP/AVIF.</e-step>
+      <e-step title="Set target" label="02">Quality, engine, resize, output format — preview per file.</e-step>
+      <e-step title="Shrink" label="03">Batch locally on 2/4/8 threads. Backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section warm eyebrow="Target sizes" title="Need a specific file size?">
+    <p slot="lead">If you need to hit 50KB, 100KB, 200KB, 500KB or 1MB, use the target-size pages — same tool, size-aware guidance.</p>
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>50KB</h3><p slot="body">Small avatars, icons. <a href="/compress-image-to-50kb/">50KB →</a></p></e-card>
+      <e-card><h3>100KB</h3><p slot="body">Web thumbnails. <a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>200KB</h3><p slot="body">Blog images. <a href="/compress-image-to-200kb/">200KB →</a></p></e-card>
+      <e-card><h3>500KB</h3><p slot="body">Portfolio. <a href="/compress-image-to-500kb/">500KB →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section eyebrow="FAQ" title="Reduce image size — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>How much can I reduce image size?</summary><p>Typically 20–40% at Quality 85 balanced, more if you lower quality, resize, or convert to WebP/AVIF. Per-file preview shows it before you save.</p></details>
+      <details><summary>Will reducing size reduce quality?</summary><p>You control it. Lower quality = smaller file, higher = more fidelity. Preview the trade-off per file.</p></details>
+      <details><summary>Can I reduce a whole folder?</summary><p>Yes. Select a folder, filter by type, batch on 2/4/8 threads. No upload.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All reduction is local. Your images never leave your disk.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Reduce size" meta="Offline · No upload · Windows">
+    <h2>Make images smaller where they are.</h2>
+    <p slot="sub">Reduce file size locally — quality, resize, and format in one pass.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image/">Compress any image →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

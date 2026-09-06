@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Photo Compressor — Compress Photos Without Losing Quality | Compressy</title>
+  <meta name="description" content="Compress photos locally on Windows. Keep EXIF control, batch JPEG folders, quality 40–95. No upload — your photos never leave your PC.">
+</head>
+<body>
+
+  <e-hero pill="Photos · JPG · Offline" title="Compress photos<br>keep the moment">
+    <p slot="lead">For photographers and portfolios — shrink JPEG photos at quality you choose. Keep metadata or strip it, batch a folder, stay offline.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#photos">See photo savings →</e-button>
+    </span>
+    <span slot="meta">Photos · Portfolios · Offline</span>
+    <e-proof value="4.1 MB" label="DSLR photo"></e-proof>
+    <e-proof value="57.8%" label="avg saved" success></e-proof>
+    <e-proof value="No upload" label="local"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="For photos" title="Quality 85 looks like 95.<br>Files don’t.">
+    <p slot="lead">DSLR and phone photos ship at quality 90–95. 85 is visually the same, ~25–30% smaller.</p>
+    <e-stats variant="row">
+      <e-stat value="3.3 MB" label="Before" note="!-tylewice-wiatrak.jpg real"></e-stat>
+      <e-stat value="1.9 MB" label="After" note="−41.7% real vips"></e-stat>
+      <e-stat value="57.8%" label="Avg saved" note="Real vips 456 JPGs 57.8% peak 92.4%"></e-stat>
+      <e-stat value="0" label="Uploads" note="Stayed local"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section eyebrow="Photo workflow" title="Built for photo folders">
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="1.2" stroke="currentColor" stroke-width="1.1"/><path d="M3 11l2.6-2.6 1.6 1.6 1.2-1.2 4.6 4.6" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Keep metadata or not</h3>
+        <p slot="body">Strip EXIF/ICC for web, or keep it for archive. You choose per batch.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Resize for web</h3>
+        <p slot="body">Max W×H, downscale only. Ship 1920px, not 6000px.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5L3 5v3.2c0 3 2 5.1 5 6.3 3-1.2 5-3.3 5-6.3V5L8 2.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><path d="M6 8l1.6 1.6L10.2 6.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Private</h3>
+        <p slot="body">Your photos never leave your disk. No cloud, no account.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm id="photos" eyebrow="Proof" title="Photo savings">
+    <p slot="lead">Portfolio photos, Quality 85 balanced.</p>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>!-tylewice-wiatrak.jpg</td><td>3.3 MB</td><td>1.9 MB</td><td>−41.7% real</td></tr>
+          <tr><td>!MQ_DSF9592.jpg</td><td>4.0 MB</td><td>1.4 MB</td><td>−64.2% real</td></tr>
+          <tr><td>'Camel'_in_Devrent.JPG</td><td>3.3 MB</td><td>1.1 MB</td><td>−67.4% real</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-progress-line label="Quality" value="85" fill="68" caption="85 balanced default · 80 smaller · 90 fidelity"></e-progress-line>
+  </e-section>
+
+  <e-section eyebrow="Related" title="More for photos">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress to 200KB</h3><p slot="body">Target size. <a href="/compress-image-to-200kb/">200KB →</a></p></e-card>
+      <e-card><h3>Resize</h3><p slot="body">Dimensions. <a href="/resize-image/">Resize image →</a></p></e-card>
+      <e-card><h3>Reduce size</h3><p slot="body">Bulk workflow. <a href="/reduce-image-size/">Reduce size →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Photo compressor — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Will my photos lose quality?</summary><p>You control it. Quality 85 is visually near-lossless for most photos. Preview per-file before you save.</p></details>
+      <details><summary>Can I keep EXIF?</summary><p>Yes. Keep or strip EXIF/ICC per batch. For web, strip; for archive, keep.</p></details>
+      <details><summary>Can I do a whole shoot at once?</summary><p>Yes. Select the shoot folder, filter to JPG/JPEG, batch on 2/4/8 threads. Backups to <code>/backup</code>.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All photo compression is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Photos · JPG" meta="Offline · Windows · Free">
+    <h2>Smaller photos. Same memories.</h2>
+    <p slot="sub">Compress a shoot locally — quality, resize, and backups in one pass.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-jpg/">Compress JPG →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

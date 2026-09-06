@@ -1,0 +1,28 @@
+# ── Build output ─────────────────────────────────────────────
+dist/
+desktop-app/dist/
+
+# ── Runtime data (app-created) ───────────────────────────────
+# Compressy writes settings/window geometry to the user's app-data
+# dir, not the repo — but keep any stray local copies ignored.
+*.tmp
+
+# ── Deno / npm caches ────────────────────────────────────────
+node_modules/
+desktop-app/node_modules/
+deno.lock
+
+# ── Editor / OS ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+Thumbs.db
+.DS_Store
+
+# ── Logs ─────────────────────────────────────────────────────
+*.log
+
+cache
+.env
+.playwright-cli

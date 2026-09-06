@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Image — Free, Private, Offline | Compressy</title>
+  <meta name="description" content="Compress any image — JPG, PNG, WebP, AVIF — locally on your Windows PC. No upload, no account, no waiting. Shrink images in bulk, keep quality control.">
+</head>
+<body>
+
+  <e-hero pill="Free · Offline · No upload" title="Compress any image<br>in seconds">
+    <p slot="lead">Compress JPG, PNG, WebP and AVIF locally on your Windows PC. Drop a folder, pick quality 40–95, and shrink images in bulk — no upload, no account, no waiting for a server.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#how-it-works">How it works</e-button>
+    </span>
+    <span slot="meta">Windows 10/11 · 64-bit · Offline · Free</span>
+    <e-proof value="57.8%" label="avg saved" success></e-proof>
+    <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+    <e-proof value="456 files" label="real vips at 85"></e-proof>
+  </e-hero>
+
+  <e-mock path="C:\Users\Alex\Pictures\Portfolio-2024" count="12" selected="4" saved="57.8% avg saved" note-left="Quality 85 · Balanced · Keep format — 456 JPGs real vips" out-note-left="Avg 57.8% · Peak 92.4% — 1285.7→542.5 MB" caption="Compress any format — JPG, PNG, WebP, AVIF — in one window">
+    <mock-src check name="!-tylewice-wiatrak.jpg" ext="jpg" size="3.3 MB"></mock-src>
+    <mock-src check name="04_Hegasy_Hand.png" ext="png" size="721 KB"></mock-src>
+    <mock-src name="team-photo-2024.jpg" ext="jpg" size="5.1 MB"></mock-src>
+    <mock-src check name="album-cover.webp" ext="webp" size="1.8 MB"></mock-src>
+    <mock-out name="!-tylewice-wiatrak.jpg" ext="jpg" dims="3480929 → 2029440" save="−41.7% · −1451 KB"></mock-out>
+    <mock-out name="04_Hegasy_Hand.png" ext="png" dims="721 KB → 189 KB" save="−73.8% · −532 KB"></mock-out>
+    <mock-out name="!MQ_DSF9592.jpg" ext="jpg" dims="4205835 → 1504873" save="−64.2% · −2700 KB"></mock-out>
+  </e-mock>
+
+  <e-section id="why" warm eyebrow="Why compress" title="Smaller images.<br>Same quality you choose.">
+    <p slot="lead">Most image weight is invisible — oversized dimensions, metadata, and quality left at 95. Compressy fixes all three locally.</p>
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5L3 5v3.2c0 3 2 5.1 5 6.3 3-1.2 5-3.3 5-6.3V5L8 2.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><path d="M6 8l1.6 1.6L10.2 6.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Any format</h3>
+        <p slot="body">JPG, PNG, WebP, AVIF — keep original or transcode in the same batch. No separate tool per format.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Quality you control</h3>
+        <p slot="body">Quality 40–95, balanced / fast / maximum. Preview per-file savings before you overwrite.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3.5v5M5.5 7L8 3.5 10.5 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 11.5H13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Stay offline</h3>
+        <p slot="body">Files never leave your disk. No queue, no upload, no account — your PC does the work.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section id="how-it-works" eyebrow="How it works" title="Select → Compress → Done.">
+    <p slot="lead">A familiar Windows workflow — not another upload site.</p>
+    <e-steps variant="horizontal" footnote="Backups to /backup when overwriting · Export CSV">
+      <e-step title="Select" label="01">Choose a folder or individual images. Filter by type, sort by size, search by name.</e-step>
+      <e-step title="Set quality" label="02">Pick quality, engine, output format, resize caps. See live estimates per file.</e-step>
+      <e-step title="Compress" label="03">Run locally on 2/4/8 threads. Watch per-file savings and open the folder when done.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section warm eyebrow="Proof" title="Measured on a real portfolio">
+    <p slot="lead">456 JPGs · 1285.7 MB → 542.5 MB · avg 57.8% at Quality 85 balanced, mid-range Windows PC.</p>
+    <e-stats variant="row">
+      <e-stat value="1285.7 MB" label="Before" note="456 JPGs real vips"></e-stat>
+      <e-stat value="542.5 MB" label="After" note="57.8% avg, 92.4% peak"></e-stat>
+      <e-stat value="57.8%" label="Avg saved" note="Peak 92.4% real"></e-stat>
+      <e-stat value="0" label="Uploads" note="Files stayed local"></e-stat>
+    </e-stats>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>!-tylewice-wiatrak.jpg</td><td>3.3 MB</td><td>1.9 MB</td><td>−41.7% real</td></tr>
+          <tr><td>04_Hegasy_Hand.png → WebP</td><td>721 KB</td><td>189 KB</td><td>−73.8% real</td></tr>
+          <tr><td>!MQ_DSF9592.jpg → WebP</td><td>4.0 MB</td><td>1.1 MB</td><td>−73.5% real</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section eyebrow="Related" title="More ways to compress">
+    <p slot="lead">Pick the intent that matches your task — Compressy handles it the same way, locally.</p>
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress JPG</h3><p slot="body">Photos and exports via mozjpeg. <a href="/compress-jpg/">Compress JPG →</a></p></e-card>
+      <e-card><h3>Compress PNG</h3><p slot="body">Screenshots with transparency via oxipng. <a href="/compress-png/">Compress PNG →</a></p></e-card>
+      <e-card><h3>Resize image</h3><p slot="body">Max W×H, downscale only, keep aspect. <a href="/resize-image/">Resize image →</a></p></e-card>
+      <e-card><h3>Reduce size</h3><p slot="body">File-size focus, bulk. <a href="/reduce-image-size/">Reduce size →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Compress image — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Do I need to upload my images?</summary><p>No. Everything runs locally. Your files never leave your computer.</p></details>
+      <details><summary>Which formats can I compress?</summary><p>JPG, PNG, WebP, AVIF — keep original or convert the whole batch. Resize and rename in the same pass.</p></details>
+      <details><summary>Will quality suffer?</summary><p>You control it. Quality 85 is the default — lower for smaller files, higher for fidelity. Per-file preview shows the trade-off.</p></details>
+      <details><summary>Can I do a whole folder at once?</summary><p>Yes. Select a folder, filter by type, and batch on 2/4/8 threads. Originals go to <code>/backup</code> if you overwrite.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Compressy" meta="Offline · Windows · Free">
+    <h2>Compress any image without uploading.</h2>
+    <p slot="sub">Install once, use offline. Your files stay where they belong — on your PC.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-jpg/">Try JPG first →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

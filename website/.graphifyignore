@@ -1,0 +1,47 @@
+# ── Dependencies ────────────────────────────────────────────
+node_modules/
+
+# ── Build output ────────────────────────────────────────────
+dist/
+.wrangler/
+
+# ── Binary example assets (image corpus, no code signal) ────
+public/examples/*.jpg
+public/examples/*.jpeg
+public/examples/*.png
+public/examples/*.webp
+public/examples/*.avif
+public/examples/*.heic
+
+# ── Minified third-party JS ─────────────────────────────────
+public/vendor/
+
+# ── Landing pages: templated content, no logic (logic lives in src/elements) ──
+public/*.html
+
+# ── Data JSON (runtime data, not code) ──────────────────────
+public/data/*.json
+
+# ── Dev / one-off scripts (benchmark methodology, not runtime logic) ──
+scripts/
+
+# ── Boilerplate config (dependency lists / compiler flags) ──
+package.json
+tsconfig.json
+
+# ── VCS / asset noise ───────────────────────────────────────
+.gitignore
+.graphifyignore
+*.gitkeep
+favicon.ico
+sitemap.xml
+icon.png
+
+# ── Playwright / test artifacts ─────────────────────────────
+.playwright-cli/
+.tmp/
+
+# ── Generated data caches ───────────────────────────────────
+bun.lock
+*.tmp
+cache/

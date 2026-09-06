@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-08-29T13:57:04.500Z",
+  "images": [
+    {
+      "name": "windmill-abri.jpg",
+      "ext": "jpg",
+      "before": 3480929,
+      "after": 2029440,
+      "saving": 0.4169832248804845,
+      "source_dim": "3456\u00d72304",
+      "avif": {
+        "name": "windmill-abri.jpg",
+        "out": "C:/projects/compressy/public/examples/windmill-abri-compressed.avif",
+        "before": 3480929,
+        "after": 2046142,
+        "saving": 0.4121850804770795,
+        "savedPct": 41,
+        "format": "avif",
+        "w": 3456,
+        "h": 2304,
+        "resized": false
+      }
+    },
+    {
+      "name": "portrait-vandyck.png",
+      "ext": "png",
+      "before": 2503604,
+      "after": 135080,
+      "saving": 0.946045780402971,
+      "source_dim": "1332\u00d71924",
+      "webp": {
+        "name": "portrait-vandyck.png",
+        "out": "C:/projects/compressy/public/examples/portrait-vandyck-compressed.webp",
+        "before": 2503604,
+        "after": 135080,
+        "saving": 0.946045780402971,
+        "savedPct": 95,
+        "format": "webp",
+        "w": 1332,
+        "h": 1924,
+        "resized": false
+      }
+    }
+  ],
+  "configs": [
+    {
+      "label": "JPG \u2192 JPG (q85)",
+      "files": [
+        {
+          "name": "windmill-abri.jpg",
+          "out": "/examples/windmill-abri-compressed.jpg",
+          "before": 3480929,
+          "after": 2029440,
+          "saving": 0.4169832248804845,
+          "savedPct": 42,
+          "format": "jpg",
+          "w": 3456,
+          "h": 2304,
+          "resized": false
+        }
+      ],
+      "count": 1
+    },
+    {
+      "label": "JPG \u2192 AVIF (q85)",
+      "files": [
+        {
+          "name": "windmill-abri.jpg",
+          "out": "/examples/windmill-abri-compressed.avif",
+          "before": 3480929,
+          "after": 2046142,
+          "saving": 0.4121850804770795,
+          "savedPct": 41,
+          "format": "avif",
+          "w": 3456,
+          "h": 2304,
+          "resized": false
+        }
+      ],
+      "count": 1
+    },
+    {
+      "label": "PNG \u2192 WebP (q85)",
+      "files": [
+        {
+          "name": "portrait-vandyck.png",
+          "out": "/examples/portrait-vandyck-compressed.webp",
+          "before": 2503604,
+          "after": 135080,
+          "saving": 0.946045780402971,
+          "savedPct": 95,
+          "format": "webp",
+          "w": 1332,
+          "h": 1924,
+          "resized": false
+        }
+      ],
+      "count": 1
+    },
+    {
+      "label": "PNG \u2192 AVIF (q85)",
+      "files": [
+        {
+          "name": "portrait-vandyck.png",
+          "out": "/examples/portrait-vandyck-compressed.avif",
+          "before": 2503604,
+          "after": 227060,
+          "saving": 0.9093067433987164,
+          "savedPct": 91,
+          "format": "avif",
+          "w": 1332,
+          "h": 1924,
+          "resized": false
+        }
+      ],
+      "count": 1
+    }
+  ]
+}

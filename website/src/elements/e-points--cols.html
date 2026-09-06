@@ -1,0 +1,6 @@
+<div class="points points--cols">
+  {{#items}}<div class="point">
+    <span class="point__mark" aria-hidden="true">{{mark}}</span>
+    <span class="point__body">{{#body}}{{{body}}}{{/body}}{{^body}}<strong>{{title}}</strong>{{#text}} <span>{{text}}</span>{{/text}}{{/body}}</span>
+  </div>{{/items}}
+</div>

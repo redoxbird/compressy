@@ -1,0 +1,30 @@
+<div class="mock mock--app">
+  <div class="mock__bar">
+    <span class="mock__bar-left"><span class="brand__mark mock__mark">C</span> {{title}}</span>
+    <span class="mock__dots"><i></i><i></i><i></i></span>
+  </div>
+  <div class="mock__path">
+    <span class="mock__path-field">{{path}}</span>
+    <span class="pill mock__files-pill">{{count}} files</span>
+    <span class="mock__path-actions"><span class="btn btn-ghost btn-sm">Browse…</span><span class="btn btn-sm mock__primary-chip">Compress selected →</span></span>
+  </div>
+  <div class="mock__split">
+    <div class="mock__pane">
+      <div class="mock__pane-head"><h4>Source files</h4><span class="mock__count">{{srcCount}} selected</span></div>
+      <div class="mock__list">
+        {{#src}}<div class="mock__row"><span class="mock__check{{#checked}} on{{/checked}}">✓</span><span class="mock__icon {{extCls}}">{{ext}}</span><span class="mock__name">{{name}}</span><span class="mock__metric">{{size}}</span></div>{{/src}}
+      </div>
+      <div class="mock__note"><span>{{noteLeft}}</span><strong>{{noteRight}}</strong></div>
+    </div>
+    <div class="mock__pane">
+      <div class="mock__pane-head"><h4>Compressed</h4><span class="mock__count mock__saved">{{savedLabel}}</span></div>
+      <div class="mock__list">
+        {{#out}}<div class="mock__row"><span class="mock__icon {{extCls}}">{{ext}}</span><span class="mock__cell"><span class="mock__name">{{name}}</span><span class="mock__sub">{{dims}}</span></span><span class="mock__save">{{save}}</span></div>{{/out}}
+      </div>
+      <div class="mock__note"><span>{{outNoteLeft}}</span><span class="mono muted">{{outNoteRight}}</span></div>
+    </div>
+  </div>
+  <div class="mock__app-toolbar"><span class="mock__toolbar-search">Search</span><span class="mock__toolbar-filter">Filter</span><span class="mock__toolbar-sort">Sort</span></div>
+  <div class="mock__app-grid"><div class="mock__grid-item">Grid view 5-col</div></div>
+  {{#caption}}<div class="small muted" style="text-align:center;margin-top:10px">{{caption}}</div>{{/caption}}
+</div>

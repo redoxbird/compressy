@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Image to 200KB — Hit 200KB Locally | Compressy</title>
+  <meta name="description" content="Compress image to 200KB locally on Windows. Try quality, resize, and WebP/AVIF — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Target size · 200KB · Offline" title="Compress image<br>to 200KB">
+    <p slot="lead">200KB is ideal for blog and product images — big enough for quality, small enough for speed. Try locally.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#how-200kb">How to hit 200KB →</e-button>
+    </span>
+    <span slot="meta">Target 200KB · Local attempt</span>
+    <e-proof value="200KB" label="target"></e-proof>
+    <e-proof value="No upload" label="local" success></e-proof>
+    <e-proof value="Quality + Resize" label="controls"></e-proof>
+  </e-hero>
+
+  <e-section warm id="how-200kb" eyebrow="How to hit 200KB" title="Controls for 200KB">
+    <p slot="lead">200KB gives more headroom than 100KB — often Quality 80–85 + WebP is enough.</p>
+    <e-cards variant="icons" cols="3">
+      <e-card><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><h3>Quality 80–85</h3><p slot="body">Try 85 first. Drop to 80 if still over. Preview per file.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><h3>Resize 1920px</h3><p slot="body">Max 1920×1080 for 200KB. Downscale only.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><h3>WebP</h3><p slot="body">Smaller at same quality. Convert batch.</p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section id="what-200kb" eyebrow="What to expect" title="Can you hit 200KB?">
+    <e-content variant="docs" eyebrow="Guide · 200KB">
+      <h2>What 200KB means</h2>
+      <p slot="lead">200KB is typical for blog headers — 1280px WebP at 80 often hits it. Try quality, resize, and format locally.</p>
+      <div slot="toc">
+        <a href="#what-200kb">What 200KB means</a>
+        <a href="#matrix">Source → target table</a>
+        <a href="#steps">Try to hit 200KB</a>
+      </div>
+      <p>Use the table below to pick a starting point. Photos at 1920px often need WebP + 80, screenshots need WebP alone, 4K heroes need resize.</p>
+    </e-content>
+    <div id="matrix"><e-table variant="matrix">
+      <table>
+        <thead><tr><th>Source</th><th>At 85</th><th>To hit 200KB</th></tr></thead>
+        <tbody>
+          <tr><td>Photo 1920×1080 JPG</td><td>~850 KB</td><td>80 + WebP often enough</td></tr>
+          <tr><td>Screenshot PNG</td><td>~1.2 MB</td><td>WebP + 85</td></tr>
+          <tr><td>Hero 3840×2160</td><td>~3.4 MB</td><td>Resize 1920 + 85 + WebP</td></tr>
+        </tbody>
+      </table>
+    </e-table></div>
+  </e-section>
+
+  <e-section id="steps" warm eyebrow="Steps" title="Try to hit 200KB">
+    <e-steps variant="horizontal">
+      <e-step title="Select" label="01">Pick image. See size.</e-step>
+      <e-step title="Set" label="02">Quality 85, 1920px, WebP. Preview.</e-step>
+      <e-step title="Check" label="03">If over, lower to 80 or 75. Backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Other targets" title="Nearby sizes">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>100KB</h3><p slot="body"><a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>500KB</h3><p slot="body"><a href="/compress-image-to-500kb/">500KB →</a></p></e-card>
+      <e-card><h3>50KB</h3><p slot="body"><a href="/compress-image-to-50kb/">50KB →</a></p></e-card>
+      <e-card><h3>1MB</h3><p slot="body"><a href="/compress-image-to-1mb/">1MB →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="200KB — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Can you guarantee 200KB?</summary><p>No. Depends on dimensions. Try combinations locally.</p></details>
+      <details><summary>What most often hits 200KB?</summary><p>1920px, WebP, quality 80–85 for photos.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. Local, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Target 200KB" meta="Offline · Windows">
+    <h2>Try to hit 200KB locally.</h2>
+    <p slot="sub">Quality, resize, WebP — preview per file.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image-to-100kb/">Try 100KB →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<header class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      {{#pill}}<span class="pill hero__pill">{{pill}}</span>{{/pill}}
+      <h1>{{{title}}}</h1>
+      {{#lead}}<p class="lead hero__lead">{{{lead}}}</p>{{/lead}}
+      {{#actions}}<div class="hero__actions">{{{actions}}}</div>{{/actions}}
+      {{#meta}}<div class="hero__meta">{{meta}}</div>{{/meta}}
+      {{#proofItems.length}}<div class="hero__proof" aria-label="Proof points">{{#proofItems}}<span><em class="{{toneCls}}">{{value}}</em> {{label}}</span><i class="dot"></i>{{/proofItems}}</div>{{/proofItems.length}}
+      {{^proofItems.length}}{{#proof}}<div class="hero__proof" aria-label="Proof points">{{{proof}}}</div>{{/proof}}{{/proofItems.length}}
+    </div>
+  </div>
+</header>

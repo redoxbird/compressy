@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Examples — Real Compression Results | Compressy</title>
+  <meta name="description" content="Real before/after compression on a JPG and a PNG from Wikimedia Commons — JPG, WebP, AVIF and resize results straight from the vips encoder. Download originals and results.">
+</head>
+<body>
+
+  <e-hero pill="Examples · Real vips · JPG + PNG" title="Every format,<br>side by side.">
+    <p slot="lead">One JPG and one PNG, each through the real compressor — before on the left, after on the right, honest numbers underneath. Before and after came straight out of the encoder, so what you see is what you get.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#results">See the results →</e-button>
+    </span>
+    <span slot="meta">2 sources · JPG · PNG · resize · defaults 85q / balanced / stripped</span>
+    <e-proof value="2" label="sources" success></e-proof>
+    <e-proof value="94.6%" label="png→webp avg" success></e-proof>
+    <e-proof value="Real vips" label="encoder"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Settings" title="Each format, every option.">
+    <p slot="lead">The JPG and PNG through the real compressor — keep format, convert to WebP/AVIF, or resize. Each is a real download.</p>
+    <e-comparison before-label="Original" after-label="Compressed">
+      <e-compare-item>
+        <e-compare-cell title="JPG — original" mono="windmill-abri.jpg">
+          <img slot="media" src="/examples/windmill-abri.jpg" alt="Original windmill photo" loading="lazy">
+          <e-compare-det label="File size">3.4 MB <span>· no compression</span></e-compare-det>
+          <e-compare-det label="Dimensions">3456 × 2304 px</e-compare-det>
+          <e-compare-det label="Format">JPG <span>· q100</span></e-compare-det>
+          <e-button variant="ghost" href="/examples/windmill-abri.jpg">Download original</e-button>
+        </e-compare-cell>
+        <e-compare-cell title="JPG — q85" mono="windmill-abri-compressed.jpg">
+          <img slot="media" src="/examples/windmill-abri-compressed.jpg" alt="Compressed windmill photo at quality 85" loading="lazy">
+          <e-compare-det label="File size">2.0 MB <span>· as saved</span></e-compare-det>
+          <e-compare-det label="Dimensions">3456 × 2304 px <span>· unchanged</span></e-compare-det>
+          <e-compare-det label="Format">JPG <span>· q85 · mozjpeg</span></e-compare-det>
+          <e-compare-result save="−41.7% · 1.45 MB saved"></e-compare-result>
+          <e-button variant="primary" href="/examples/windmill-abri-compressed.jpg">Download 85q JPG</e-button>
+        </e-compare-cell>
+      </e-compare-item>
+      <e-compare-item>
+        <e-compare-cell title="JPG — original" mono="windmill-abri.jpg">
+          <img slot="media" src="/examples/windmill-abri.jpg" alt="Original windmill photo before resize" loading="lazy">
+          <e-compare-det label="File size">3.4 MB <span>· full res</span></e-compare-det>
+          <e-compare-det label="Dimensions">3456 × 2304 px <span>· 7.96 MP</span></e-compare-det>
+          <e-compare-det label="Format">JPG <span>· q100</span></e-compare-det>
+          <e-button variant="ghost" href="/examples/windmill-abri.jpg">Download full size</e-button>
+        </e-compare-cell>
+        <e-compare-cell title="Resize → 1200px" mono="windmill-abri-1200.jpg">
+          <img slot="media" src="/examples/windmill-abri-1200.jpg" alt="Windmill photo resized to 1200 pixels wide" loading="lazy">
+          <e-compare-det label="File size">229 KB <span>· downscaled</span></e-compare-det>
+          <e-compare-det label="Dimensions">1200 × 800 px <span>· aspect kept</span></e-compare-det>
+          <e-compare-det label="Format">JPG <span>· q85 · Lanczos</span></e-compare-det>
+          <e-compare-result save="−93.3% · 3.17 MB saved"></e-compare-result>
+          <e-button variant="primary" href="/examples/windmill-abri-1200.jpg">Download 1200px</e-button>
+        </e-compare-cell>
+      </e-compare-item>
+      <e-compare-item>
+        <e-compare-cell title="JPG — q85" mono="windmill-abri-compressed.jpg">
+          <img slot="media" src="/examples/windmill-abri-compressed.jpg" alt="Windmill JPG at quality 85" loading="lazy">
+          <e-compare-det label="File size">2.0 MB <span>· as saved</span></e-compare-det>
+          <e-compare-det label="Dimensions">3456 × 2304 px</e-compare-det>
+          <e-compare-det label="Format">JPG <span>· mozjpeg · baseline</span></e-compare-det>
+          <e-button variant="ghost" href="/examples/windmill-abri-compressed.jpg">Download JPG</e-button>
+        </e-compare-cell>
+        <e-compare-cell title="AVIF — q85" mono="windmill-abri-compressed.avif">
+          <img slot="media" src="/examples/windmill-abri-compressed.avif" alt="Windmill converted to AVIF" loading="lazy">
+          <e-compare-det label="File size">2.0 MB <span>· as saved</span></e-compare-det>
+          <e-compare-det label="Dimensions">3456 × 2304 px <span>· unchanged</span></e-compare-det>
+          <e-compare-det label="Format">AVIF <span>· q85 · AV1</span></e-compare-det>
+          <e-compare-result save="−41.2% vs JPG"></e-compare-result>
+          <e-button variant="primary" href="/examples/windmill-abri-compressed.avif">Download AVIF</e-button>
+        </e-compare-cell>
+      </e-compare-item>
+      <e-compare-item>
+        <e-compare-cell title="PNG — original" mono="portrait-vandyck.png">
+          <img slot="media" src="/examples/portrait-vandyck.png" alt="Original Van Dyck portrait PNG" loading="lazy">
+          <e-compare-det label="File size">2.4 MB <span>· no compression</span></e-compare-det>
+          <e-compare-det label="Dimensions">1332 × 1924 px</e-compare-det>
+          <e-compare-det label="Format">PNG <span>· 4-band RGBA</span></e-compare-det>
+          <e-button variant="ghost" href="/examples/portrait-vandyck.png">Download original</e-button>
+        </e-compare-cell>
+        <e-compare-cell title="WebP — q85" mono="portrait-vandyck-compressed.webp">
+          <img slot="media" src="/examples/portrait-vandyck-compressed.webp" alt="Van Dyck portrait converted to WebP" loading="lazy">
+          <e-compare-det label="File size">135 KB <span>· as saved</span></e-compare-det>
+          <e-compare-det label="Dimensions">1332 × 1924 px <span>· unchanged</span></e-compare-det>
+          <e-compare-det label="Format">WebP <span>· q85 · VP8</span></e-compare-det>
+          <e-compare-result save="−94.6% · 2.27 MB saved"></e-compare-result>
+          <e-button variant="primary" href="/examples/portrait-vandyck-compressed.webp">Download WebP</e-button>
+        </e-compare-cell>
+      </e-compare-item>
+      <e-compare-item>
+        <e-compare-cell title="PNG — original" mono="portrait-vandyck.png">
+          <img slot="media" src="/examples/portrait-vandyck.png" alt="Original Van Dyck portrait PNG" loading="lazy">
+          <e-compare-det label="File size">2.4 MB <span>· no compression</span></e-compare-det>
+          <e-compare-det label="Dimensions">1332 × 1924 px</e-compare-det>
+          <e-compare-det label="Format">PNG <span>· 4-band RGBA</span></e-compare-det>
+          <e-button variant="ghost" href="/examples/portrait-vandyck.png">Download original</e-button>
+        </e-compare-cell>
+        <e-compare-cell title="AVIF — q85" mono="portrait-vandyck-compressed.avif">
+          <img slot="media" src="/examples/portrait-vandyck-compressed.avif" alt="Van Dyck portrait converted to AVIF" loading="lazy">
+          <e-compare-det label="File size">222 KB <span>· as saved</span></e-compare-det>
+          <e-compare-det label="Dimensions">1332 × 1924 px <span>· unchanged</span></e-compare-det>
+          <e-compare-det label="Format">AVIF <span>· q85 · AV1</span></e-compare-det>
+          <e-compare-result save="−90.9% · 2.18 MB saved"></e-compare-result>
+          <e-button variant="primary" href="/examples/portrait-vandyck-compressed.avif">Download AVIF</e-button>
+        </e-compare-cell>
+      </e-compare-item>
+    </e-comparison>
+    <e-note center>PNGs with flat color compress far more than photos — WebP/AVIF shine on scans and screenshots. Resize is the biggest lever of all.</e-note>
+  </e-section>
+
+  <e-section warm eyebrow="The proof" title="Real engine, real numbers.">
+    <p slot="lead">One photo (JPG) and one painting scan (PNG) from Wikimedia Commons, compressed with the actual vips engine at Quality 85 · balanced · metadata stripped. Nothing estimated, nothing hardcoded.</p>
+    <e-stats variant="row">
+      <e-stat value="3456×2304" label="JPG source" note="Windmill Abri · 3.4 MB"></e-stat>
+      <e-stat value="1332×1924" label="PNG source" note="Van Dyck portrait · 2.4 MB"></e-stat>
+      <e-stat value="94.6%" label="png→webp avg" note="peak on this scan"></e-stat>
+      <e-stat value="93.3%" label="jpg resize max" note="3456 → 1200px"></e-stat>
+    </e-stats>
+    <e-note center>Wikimedia Commons · real vips 8.18.5 · 4 threads</e-note>
+  </e-section>
+
+  <e-section id="results" eyebrow="Before → After" title="2 sources, honest results.">
+    <p slot="lead">Every file's before and after, straight from the encoder. Download the original or the compressed result from <code>public/examples/</code>.</p>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>Source</th><th>Dimensions</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>Windmill Abri (JPG)</td><td>3456×2304</td><td>3.4 MB</td><td>2.0 MB</td><td>−41.7%</td></tr>
+          <tr><td>Windmill Abri (JPG · resize)</td><td>1200×800</td><td>3.4 MB</td><td>229 KB</td><td>−93.3%</td></tr>
+          <tr><td>Van Dyck Portrait (PNG)</td><td>1332×1924</td><td>2.4 MB</td><td>135 KB</td><td>−94.6%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section eyebrow="Download" title="Grab the real files.">
+    <p slot="lead">Originals and every result live in <code>public/examples/</code> — read them, compare, or reuse.</p>
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>JPG original</h3><p slot="body">3456×2304 · 3.4 MB. <a href="/examples/windmill-abri.jpg">Download →</a></p></e-card>
+      <e-card><h3>JPG 85q</h3><p slot="body">2.0 MB · −41.7%. <a href="/examples/windmill-abri-compressed.jpg">Download →</a></p></e-card>
+      <e-card><h3>JPG 1200px</h3><p slot="body">229 KB · −93.3%. <a href="/examples/windmill-abri-1200.jpg">Download →</a></p></e-card>
+      <e-card><h3>JPG → AVIF</h3><p slot="body">2.0 MB · −41.2%. <a href="/examples/windmill-abri-compressed.avif">Download →</a></p></e-card>
+      <e-card><h3>PNG original</h3><p slot="body">1332×1924 · 2.4 MB. <a href="/examples/portrait-vandyck.png">Download →</a></p></e-card>
+      <e-card><h3>PNG → WebP</h3><p slot="body">135 KB · −94.6%. <a href="/examples/portrait-vandyck-compressed.webp">Download →</a></p></e-card>
+      <e-card><h3>PNG → AVIF</h3><p slot="body">222 KB · −90.9%. <a href="/examples/portrait-vandyck-compressed.avif">Download →</a></p></e-card>
+      <e-card><h3>Any image</h3><p slot="body">Get the app. <a href="/download">Download Compressy →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="Methods" title="How these were measured.">
+    <p slot="lead">Reproduce it yourself — originals and script are in the repo.</p>
+    <e-points variant="checks">
+      <li><strong>2 sources</strong> — a JPG photo and a PNG painting scan from Wikimedia Commons.</li>
+      <li><strong>Quality 85 · balanced · strip metadata</strong> — the app defaults.</li>
+      <li><strong>4 threads</strong> — numbers are per-file, not per-batch averages.</li>
+    </e-points>
+  </e-section>
+
+  <e-section eyebrow="Related" title="More to explore">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Benchmarks</h3><p slot="body">1002 images, real engines. <a href="/benchmarks/">Benchmarks →</a></p></e-card>
+      <e-card><h3>Compress Image</h3><p slot="body">Any format. <a href="/compress-image/">Compress →</a></p></e-card>
+      <e-card><h3>PNG to WebP</h3><p slot="body">Smallest for scans. <a href="/png-to-webp/">PNG to WebP →</a></p></e-card>
+      <e-card><h3>Resize image</h3><p slot="body">Downscale only. <a href="/resize-image/">Resize →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-cta variant="band" pill="Examples · Real results" meta="Offline · Windows · Free">
+    <h2>See it yourself. Compress locally.</h2>
+    <p slot="sub">The same engine, on your own images — no upload.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image/">Compress an image →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

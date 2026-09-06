@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Images for Instagram — Sharper Feed | Compressy</title>
+  <meta name="description" content="Compress Instagram images locally on Windows. Shrink to 1080px, batch a folder, export JPG/WebP — no upload, your feed stays on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Instagram · Feed · Offline" title="Compress for Instagram<br>sharper feed">
+    <p slot="lead">Instagram compresses uploads to 1080px. Upload at that size for the sharpest feed — shrink your photos locally, batch a folder, no upload service.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#format">Best format →</e-button>
+    </span>
+    <span slot="meta">Instagram · 1080px · Offline</span>
+    <e-proof value="1080px" label="feed cap"></e-proof>
+    <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+    <e-proof value="Offline" label="mode"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Instagram sizes" title="Instagram savings">
+    <e-stats variant="strip">
+      <e-stat value="1080px" label="feed cap" success></e-stat>
+      <e-stat value="5MB" label="upload cap" success></e-stat>
+      <e-stat value="70.9%" label="jpg→webp avg" success></e-stat>
+      <e-stat value="84.5%" label="png→webp avg" success></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section eyebrow="Why" title="Oversized images.<br>Blurred uploads.">
+    <p slot="lead">Instagram re-encodes anything above 1080px, so a 4000px photo uploads soft. Upload at 1080px for the sharpest feed.</p>
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Resize to 1080px</h3>
+        <p slot="body">Long edge 1080px — Instagram's sweet spot, sharp on every device.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Quality 80–85</h3>
+        <p slot="body">Near-lossless for photos, faster upload, same crisp feed.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Batch stories/Reels</h3>
+        <p slot="body">Compress a whole shoot — posts, stories, carousel — before upload.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section id="format" eyebrow="Format" title="Pick format for Instagram">
+    <p slot="lead">Instagram re-encodes to JPG/WebP; size at source is what matters.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Format</th><th>Size</th><th>Instagram</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>JPG</td><td>Baseline</td><td>Re-encoded</td><td>Default photo</td></tr>
+          <tr><td>WebP</td><td>25–35% smaller</td><td>Converted</td><td>Fast upload</td></tr>
+          <tr><td>PNG</td><td>Larger</td><td>Re-encoded</td><td>Graphics</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>Upload a 1080px JPG at 85 — Instagram re-encodes once, keeping it sharp.</e-note>
+  </e-section>
+
+  <e-section eyebrow="Options" title="Quality 80–85, 1080px, or WebP">
+    <e-points variant="numbered">
+      <li><strong>Quality 80–85</strong> Near-lossless for photos, faster upload, same crisp feed.</li>
+      <li><strong>Resize to 1080px</strong> Long edge 1080px — Instagram's sweet spot, sharp on every device.</li>
+      <li><strong>Keep JPG or WebP</strong> Instagram re-encodes to JPG/WebP; size at source is what matters.</li>
+      <li><strong>Batch stories/Reels</strong> Compress a whole shoot — posts, stories, carousel — before upload.</li>
+    </e-points>
+  </e-section>
+
+  <e-section eyebrow="Related" title="More for Instagram">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Resize Image</h3><p slot="body">Dimensions. <a href="/resize-image/">Resize →</a></p></e-card>
+      <e-card><h3>Compress to 100KB</h3><p slot="body">Tight cap. <a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>JPG to WebP</h3><p slot="body">For photos. <a href="/jpg-to-webp/">JPG to WebP →</a></p></e-card>
+      <e-card><h3>Compress Image</h3><p slot="body">Any format. <a href="/compress-image/">Compress Image →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Instagram — FAQ">
+    <e-faq variant="compact">
+      <details><summary>What size should I upload to Instagram?</summary><p>1080px on the long edge. Anything bigger gets re-encoded (and softened); Compressy resizes to 1080px before upload.</p></details>
+      <details><summary>Will this make my feed sharper?</summary><p>Yes. Uploading at 1080px instead of 4000px avoids Instagram's downscale blur — your feed stays crisp on phones and tablets.</p></details>
+      <details><summary>Can I batch a whole shoot?</summary><p>Yes. Drop the folder — posts, stories and carousel images all compress together, backups to /backup.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All compression is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="cards" pill="Instagram · Feed" meta="Offline · No upload · Windows">
+    <e-card>
+      <h3>Crisper Instagram. Your PC does the resize.</h3>
+      <p slot="body">For Instagram — sharp feed without the cloud.</p>
+      <p><e-button variant="primary" size="sm" href="/download">Download for Windows</e-button></p>
+    </e-card>
+    <e-card>
+      <h3>Resize instead</h3>
+      <p slot="body">Offline · No upload · Windows</p>
+      <p><e-button variant="ghost" size="sm" href="/resize-image/">Resize instead →</e-button></p>
+    </e-card>
+  </e-cta>
+
+</body>
+</html>

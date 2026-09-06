@@ -1,0 +1,6 @@
+<article class="card{{#isFormat}} card--format{{/isFormat}}">
+  {{^isFormat}}{{#icon}}<div class="card__icon" aria-hidden="true">{{{icon}}}</div>{{/icon}}{{/isFormat}}
+  {{#isFormat}}<div class="card__top"><span class="format-badge{{#badgeCls}} {{badgeCls}}{{/badgeCls}}">{{badge}}</span><span class="card__hint">{{hint}}</span></div>{{/isFormat}}
+  {{#title}}<h3>{{{title}}}</h3>{{/title}}
+  <p>{{{body}}}</p>
+</article>

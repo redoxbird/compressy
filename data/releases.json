@@ -1,0 +1,74 @@
+[
+  {
+    "version": "1.1.0",
+    "versionTag": "v1.1.0",
+    "date": "28 August 2026",
+    "displayDate": "28 August 2026",
+    "title": "Compressy v1.1.0",
+    "channel": "stable",
+    "kind": "stable",
+    "latest": true,
+    "tags": [
+      "added"
+    ],
+    "notes": {
+      "added": [
+        "Release v1.1.0"
+      ],
+      "improved": [],
+      "fixed": []
+    },
+    "summary": "Release v1.1.0",
+    "assets": [
+      {
+        "name": "Compressy-setup.exe",
+        "file": "Compressy-setup.exe",
+        "key": "compressy/1.1.0/Compressy-setup.exe",
+        "url": "https://assets.redoxbird.com/compressy/1.1.0/Compressy-setup.exe",
+        "size": 162563998,
+        "sizeLabel": "155.0 MB",
+        "sha256": "6611f950f1700f018b79441ac7b1cafaa4003a72420167402c6095dca4d9cb8d",
+        "shaShort": "6611f950f170",
+        "type": "installer",
+        "contentType": "application/vnd.microsoft.portable-executable"
+      }
+    ],
+    "assetsBase": "https://assets.redoxbird.com/compressy/1.1.0"
+  },
+  {
+    "version": "1.0.0",
+    "versionTag": "v1.0.0",
+    "date": "23 August 2026",
+    "displayDate": "23 August 2026",
+    "title": "Compressy v1.0.0",
+    "channel": "stable",
+    "kind": "stable",
+    "latest": false,
+    "tags": [
+      "added"
+    ],
+    "notes": {
+      "added": [
+        "Release v1.0.0"
+      ],
+      "improved": [],
+      "fixed": []
+    },
+    "summary": "Release v1.0.0",
+    "assets": [
+      {
+        "name": "Compressy-setup.exe",
+        "file": "Compressy-setup.exe",
+        "key": "compressy/1.0.0/Compressy-setup.exe",
+        "url": "https://assets.redoxbird.com/compressy/1.0.0/Compressy-setup.exe",
+        "size": 162529664,
+        "sizeLabel": "155.0 MB",
+        "sha256": "939a75f8ecfd8f2e566e95d4ca973136829801f1d73a805d3ee1cedea77e204c",
+        "shaShort": "939a75f8ecfd",
+        "type": "installer",
+        "contentType": "application/vnd.microsoft.portable-executable"
+      }
+    ],
+    "assetsBase": "https://assets.redoxbird.com/compressy/1.0.0"
+  }
+]

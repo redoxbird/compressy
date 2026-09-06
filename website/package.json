@@ -1,0 +1,21 @@
+{
+  "name": "@compressy/website",
+  "version": "1.4.2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bunx wrangler dev",
+    "test": "bun test",
+    "upload": "bunx wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4",
+    "linkedom": "^0.18",
+    "mustache": "^4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4",
+    "@types/bun": "^1",
+    "wrangler": "^4"
+  }
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Benchmarks — Real Compression Results | Compressy</title>
+  <meta name="description" content="Real benchmarks from 1002 Wikimedia images: JPG 57.8% avg, PNG→WebP 84.5%, JPG→WebP 70.9% at quality 85 balanced, locally with vips. No upload, reproducible.">
+</head>
+<body>
+
+  <e-hero pill="Benchmarks · 1002 images · Real vips" title="Real numbers.<br>No placeholders.">
+    <p slot="lead">1002 JPG and PNG images from Wikimedia Commons (Category:Images BFS, 23 subcats, PNG-first 400 + 5MB cap) compressed locally with vips at quality 85 balanced. No upload, no dry heuristic — real `heifsave`/`jpegsave`/`webpsave`.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#methodology">Methodology →</e-button>
+    </span>
+    <span slot="meta">Generated 2026-08-26 · 1002 files · 1.6GB · 1 failed file excluded</span>
+    <e-proof value="57.8%" label="jpg→jpg avg" success></e-proof>
+    <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+    <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+    <e-proof value="1.6GB" label="dataset"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Summary" title="Overall — jpg→jpg keep at 85">
+    <p slot="lead">Primary config: recompress JPG keep at quality 85 balanced (456 JPG files, 1285.7 MB → 542.5 MB).</p>
+    <e-stats variant="bento">
+      <e-stat value="57.8%" label="Avg saved" note="Peak 92.4% · 779.3 MB saved" bar="58"></e-stat>
+      <e-stat value="1285.7 MB" label="Before" note="456 JPG files"></e-stat>
+      <e-stat value="542.5 MB" label="After" note="1 failed file excluded"></e-stat>
+    </e-stats>
+    <e-progress-line label="Avg saving" value="57.8%" fill="58" caption="57.8% avg at quality 85 keep — real vips, not dry estimate."></e-progress-line>
+  </e-section>
+
+  <e-section eyebrow="By format" title="JPG vs PNG">
+    <p slot="lead">Same quality, different source. PNG converts to WebP for maximum.</p>
+    <e-stats variant="row">
+      <e-stat value="57.8%" label="JPG → JPG" note="457 JPG · keep · 1285.7 MB"></e-stat>
+      <e-stat value="84.5%" label="PNG → WebP" note="545 PNG · to webp · 247.9 MB → 40.4 MB"></e-stat>
+      <e-stat value="70.9%" label="JPG → WebP" note="457 JPG · to webp · 70.9% avg"></e-stat>
+      <e-stat value="5MB" label="Cap" note="Files >5MB excluded"></e-stat>
+    </e-stats>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Input → Output</th><th>Files</th><th>Avg</th><th>Peak</th></tr></thead>
+        <tbody>
+          <tr><td>jpg → jpg (keep 85)</td><td>456</td><td>57.8%</td><td>92.4%</td></tr>
+          <tr><td>png → webp (85)</td><td>545</td><td>84.5%</td><td>99.8%</td></tr>
+          <tr><td>jpg → webp (85)</td><td>456</td><td>70.9%</td><td>97.3%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section warm eyebrow="Configs" title="Three representative configs">
+    <p slot="lead">Three configs, each filtered by input extension. The full 8-config matrix (quality × engine × output) is available in <code>stats.json</code>.</p>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>Label</th><th>Input</th><th>Output</th><th>Files</th><th align="right">Avg</th></tr></thead>
+        <tbody>
+          <tr><td>jpg→jpg</td><td>jpg</td><td>keep</td><td>456</td><td>57.8%</td></tr>
+          <tr><td>png→webp</td><td>png</td><td>webp</td><td>545</td><td>84.5%</td></tr>
+          <tr><td>jpg→webp</td><td>jpg</td><td>webp</td><td>456</td><td>70.9%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>Per config: files filtered by input extension, averages from successful files only, per-format aggregates from the full file list.</e-note>
+  </e-section>
+
+  <e-section id="methodology" eyebrow="Methodology" title="How it was measured">
+    <p slot="lead">Reproducible on your own machine — same app, same engine, no cloud.</p>
+    <e-bento cols="2">
+      <e-cell eyebrow="Dataset" chip="Wikimedia · 23 categories"><h3>1002 images · 1.6GB</h3><p>1002 public-domain images from Wikimedia Commons (23 categories, PNG-first sample, 5MB per-file cap). 545 PNG / 457 JPG, avg 1.6MB per file. One unreadable file excluded.</p></e-cell>
+      <e-cell eyebrow="Engine" chip="vips · mozjpeg · libwebp"><h3>Real engine runs, not estimates</h3><p>Every number comes from a real compression run through the same engines the Windows app uses — mozjpeg for JPG, libwebp for WebP — at 4 threads, quality 85, balanced.</p></e-cell>
+    </e-bento>
+    <e-points variant="checks">
+      <li><strong>Real files, real sizes</strong> — before/after measured on disk per file, averages from successful runs only.</li>
+      <li><strong>Per-config filtering</strong> — each config counts only files matching its input format, so JPG and PNG results never mix.</li>
+      <li><strong>Metadata stripped</strong> — savings include EXIF/ICC removal, same as the app default.</li>
+      <li><strong>Failed files excluded</strong> — one unreadable source skipped, never counted as a saving.</li>
+    </e-points>
+    <e-note center>Source: 1002 Wikimedia test images, measured 2026-08-26. Raw per-file data in <code>data/stats.json</code>.</e-note>
+  </e-section>
+
+  <e-section warm eyebrow="Samples" title="Before → After">
+    <p slot="lead">Samples from the measured run (full per-file data in <code>stats.json</code>).</p>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>!-tylewice-wiatrak…jpg</td><td>3.4 MB</td><td>2.0 MB</td><td>41.7%</td></tr>
+          <tr><td>123inkt_logo…png</td><td>15 KB</td><td>3 KB</td><td>80%</td></tr>
+          <tr><td>Android_15_Logo.png</td><td>568 KB</td><td>89 KB</td><td>84.3%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>Full per-file results live in <code>data/stats.json</code>.</e-note>
+  </e-section>
+
+  <e-section eyebrow="FAQ" title="Benchmarks — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Why only 3 configs?</summary><p>These three cover the common paths: JPG recompression, PNG→WebP conversion, and JPG→WebP conversion, all at quality 85 balanced. The app supports the full matrix — quality 40–95, three engines, keep or convert output.</p></details>
+      <details><summary>Why is png→webp 84.5% vs jpg→jpg 57.8%?</summary><p>PNG is largely uncompressed source, so converting to WebP shrinks it dramatically. JPG recompression at the same quality still saves ~58% thanks to mozjpeg plus metadata stripping.</p></details>
+      <details><summary>Can I reproduce these numbers?</summary><p>Yes. Download the app, point it at your own folder, quality 85 balanced — you should see savings in the same ballpark. Your images never leave your PC.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Benchmarks" meta="Real engine · 1002 images · 3 configs">
+    <h2>Numbers you can reproduce.</h2>
+    <p slot="sub">1002 real images, real compression engines, per-format results, failed files excluded.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image/">Try it →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

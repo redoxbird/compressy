@@ -1,0 +1,16 @@
+<div class="compare__cell{{#after}} compare__cell--after{{/after}}">
+  <div class="compare__phead">
+    <h2>{{{title}}}</h2>
+    {{#mono}}<span class="compare__mono">{{mono}}</span>{{/mono}}
+  </div>
+  {{#media}}<figure class="compare__media">{{{media}}}</figure>{{/media}}
+  {{#rows.length}}
+  <dl class="compare__det">
+    {{#rows}}<dt class="compare__lbl">{{label}}</dt><dd class="compare__val">{{{value}}}<span class="compare__dim">{{{dim}}}</span></dd>{{/rows}}
+    <div class="compare__dl">
+      {{#save}}<span class="compare__save">{{save}}</span>{{/save}}
+      {{{actions}}}
+    </div>
+  </dl>
+  {{/rows.length}}
+</div>

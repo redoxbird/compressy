@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress PNG — Shrink PNG Without Losing Transparency | Compressy</title>
+  <meta name="description" content="Compress PNG images locally on Windows. oxipng engine, lossless toggle, keep transparency. Batch PNG folders offline — no upload, your PNGs stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="PNG · oxipng · Lossless toggle" title="Compress PNG<br>keep transparency<br>when you need it">
+    <p slot="lead">Shrink PNG screenshots and UI graphics locally. oxipng with optional lossless — strip metadata, keep alpha, batch a folder offline.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#lossless">Lossless vs lossy →</e-button>
+    </span>
+    <span slot="meta">PNG · oxipng · Transparency · Offline</span>
+    <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+    <e-proof value="99.8%" label="peak" success></e-proof>
+    <e-proof value="545 files" label="png → webp at 85"></e-proof>
+  </e-hero>
+
+  <e-section warm id="lossless" eyebrow="Lossless" title="Two modes for PNG">
+    <p slot="lead">Screenshots and UI need different handling than photos. Choose per batch.</p>
+    <e-points variant="checks">
+      <li><strong>Lossless</strong> — Bit-exact, alpha preserved. Strips metadata and recompresses structure. No quality slider needed.</li>
+      <li><strong>Lossy + keep alpha</strong> — When size matters most, allow lossy PNG/WebP conversion while keeping transparency where possible.</li>
+      <li><strong>Convert to WebP</strong> — Smallest for web. Transcode the batch to WebP in one pass — see <a href="/compress-webp/">Compress WebP</a>.</li>
+    </e-points>
+  </e-section>
+
+  <e-section eyebrow="Proof" title="Measured on 545 PNGs — real vips">
+    <p slot="lead">545 PNGs from Wikimedia Commons, convert PNG → WebP at quality 85 balanced — real vips. 247.9 MB → 40.4 MB avg 84.5% peak 99.8%.</p>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>04_Hegasy_Hand.png</td><td>721 KB</td><td>189 KB WebP</td><td>−73.8%</td></tr>
+          <tr><td>100_Hall_interaction.png</td><td>42.6 KB</td><td>11.0 KB WebP</td><td>−74.2%</td></tr>
+          <tr><td>123inkt_logo.png</td><td>14.4 KB</td><td>4.0 KB WebP</td><td>−72.2%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>84.5% avg, 99.8% peak on 545 files — real vips, not dry estimate.</e-note>
+  </e-section>
+
+  <e-section eyebrow="Best format" title="Smallest for web">
+    <e-stats variant="bento">
+      <e-stat value="84.5%" label="png→webp avg" note="247.9 MB → 40.4 MB"></e-stat>
+      <e-stat value="99.8%" label="peak" note="On 545 files"></e-stat>
+      <e-stat value="545 files" label="png → webp at 85"></e-stat>
+      <e-stat value="Bit-exact" label="transparency" note="Alpha preserved"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section warm eyebrow="How it works" title="PNG in three steps">
+    <e-steps variant="horizontal">
+      <e-step title="Select PNGs" label="01">Choose a folder, filter to PNG. Check what you want.</e-step>
+      <e-step title="Choose mode" label="02">Lossless toggle, or allow conversion. Preview per file.</e-step>
+      <e-step title="Batch" label="03">Run locally, backups to <code>/backup</code>.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Related" title="Next for PNG">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress WebP</h3><p slot="body">Smallest for web. <a href="/compress-webp/">Compress WebP →</a></p></e-card>
+      <e-card><h3>Compress to 100KB</h3><p slot="body">Hit a size target. <a href="/compress-image-to-100kb/">100KB →</a></p></e-card>
+      <e-card><h3>Compress Image</h3><p slot="body">Bulk workflow. <a href="/compress-image/">Compress any image →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="PNG — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Will transparency be preserved?</summary><p>Yes. Lossless keeps alpha bit-exact. Lossy/WebP keeps alpha where the target format supports it.</p></details>
+      <details><summary>Is PNG compression lossless by default?</summary><p>Toggle on → lossless (metadata only). Toggle off → allows more aggressive shrinking and optional WebP conversion.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All PNG processing is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="PNG · oxipng" meta="Offline · Transparency · Windows">
+    <h2>Make PNGs smaller. Keep what matters.</h2>
+    <p slot="sub">Lossless when you need it, smaller when you don’t — all offline.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-webp/">Compress WebP →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

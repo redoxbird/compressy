@@ -1,0 +1,6 @@
+<div class="progress-line" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{fill}}" aria-label="{{ariaLabel}}">
+  {{#label}}<span class="progress-line__label">{{label}}</span>{{/label}}
+  <span class="progress-line__track" aria-hidden="true"><i class="progress-line__fill" style="width:{{fill}}%"></i></span>
+  <span class="progress-line__value">{{value}}</span>
+  {{#caption}}<span class="small muted">{{{caption}}}</span>{{/caption}}
+</div>

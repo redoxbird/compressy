@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compressy — Compress images. Keep them on your PC.</title>
+<style>
+/* ── Notion tokens — verbatim ── */
+:root {
+  --bg:           #ffffff;
+  --surface:      #f6f5f4;
+  --surface-warm: var(--surface);
+  --fg:   rgba(0, 0, 0, 0.95);
+  --fg-2: #31302e;
+  --muted: #615d59;
+  --meta:  #a39e98;
+  --border:      rgba(0, 0, 0, 0.1);
+  --border-soft: rgba(0, 0, 0, 0.06);
+  --accent:        #0075de;
+  --accent-on:     #ffffff;
+  --accent-hover:  #005bab;
+  --accent-active: color-mix(in oklab, var(--accent), black 14%);
+  --success: #1aae39;
+  --warn:    #dd5b00;
+  --danger:  #dc2626;
+  --font-display: "NotionInter", "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-body:    "NotionInter", "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-lg:   20px;
+  --text-xl:   26px;
+  --text-2xl:  40px;
+  --text-3xl:  48px;
+  --text-4xl:  64px;
+  --leading-body:     1.5;
+  --leading-tight:    1.00;
+  --tracking-display: -0.033em;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --section-y-desktop: 80px;
+  --section-y-tablet:  48px;
+  --section-y-phone:   32px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-pill: 9999px;
+  --elev-flat:   none;
+  --elev-ring:   0 0 0 1px var(--border);
+  --elev-raised:
+    rgba(0, 0, 0, 0.04) 0px 4px 18px,
+    rgba(0, 0, 0, 0.027) 0px 2px 7.85px,
+    rgba(0, 0, 0, 0.02) 0px 0.8px 2.93px,
+    rgba(0, 0, 0, 0.01) 0px 0.175px 1.04px;
+  --focus-ring: 0 0 0 3px rgba(9, 127, 232, 0.3);
+  --motion-fast:   150ms;
+  --motion-base:   200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --container-max:            1200px;
+  --container-gutter-desktop: 24px;
+  --container-gutter-tablet:  16px;
+  --container-gutter-phone:   12px;
+}
+</style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  font-size:var(--text-base);
+  line-height:var(--leading-body);
+  color:var(--fg);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:color-mix(in srgb, var(--accent) 16%, transparent)}
+:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+
+/* container & sections */
+.container{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-gutter-desktop)}
+.section{padding:var(--section-y-desktop) 0;border-top:1px solid var(--border-soft)}
+.section--warm{background:var(--surface);border-top:1px solid var(--border-soft)}
+.section__head{max-width:720px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-display);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px
+}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:var(--leading-tight);color:var(--fg);text-wrap:balance}
+h1{font-size:clamp(40px,6vw,var(--text-4xl));letter-spacing:var(--tracking-display)}
+h2{font-size:clamp(32px,4.2vw,var(--text-3xl));letter-spacing:-0.025em}
+h3{font-size:var(--text-xl);letter-spacing:-0.02em;line-height:1.3}
+.lead{font-size:var(--text-lg);line-height:1.4;color:var(--muted);max-width:58ch;font-weight:400}
+.muted{color:var(--muted)}
+.mono{font-family:var(--font-mono)}
+.small{font-size:var(--text-sm);line-height:1.5}
+
+/* nav — Notion: clean, not sticky */
+.nav{
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border-soft);background:var(--bg)
+}
+.nav__left{display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand__mark{
+  width:28px;height:28px;border-radius:6px;background:var(--fg);color:var(--bg);
+  display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:-0.04em
+}
+.brand__word{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:-0.02em;color:var(--fg)}
+.nav__links{display:flex;align-items:center;gap:22px}
+.nav__links a{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--muted);transition:color var(--motion-fast) var(--ease-standard)}
+.nav__links a:hover{color:var(--fg)}
+.nav__cta{display:flex;align-items:center;gap:10px}
+.link-quiet{font-size:14px;font-weight:500;color:var(--muted)}
+.link-quiet:hover{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+
+/* buttons — Notion Blue 4px */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-display);font-size:15px;font-weight:600;line-height:1;
+  padding:12px 18px;border-radius:var(--radius-sm);border:1px solid transparent;
+  cursor:pointer;white-space:nowrap;transition:background var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard)
+}
+.btn:active{transform:scale(0.98)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--accent);color:var(--accent-on);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-primary:active{background:var(--accent-active)}
+.btn-ghost{background:var(--bg);color:var(--fg);border-color:var(--border)}
+.btn-ghost:hover{background:var(--surface);border-color:var(--border)}
+.btn-sm{padding:8px 14px;font-size:14px}
+.btn svg{flex:0 0 auto}
+
+/* pill badge — Notion tinted blue */
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-display);font-size:var(--text-xs);font-weight:600;letter-spacing:0.02em;
+  padding:4px 10px;border-radius:var(--radius-pill);
+  background:color-mix(in srgb, var(--accent) 8%, var(--bg));color:var(--accent);border:1px solid color-mix(in srgb, var(--accent) 14%, transparent)
+}
+
+/* hero */
+.hero{padding:72px 0 32px;text-align:center}
+.hero__inner{max-width:880px;margin:0 auto}
+.hero h1 span{color:var(--muted);font-weight:700}
+.hero .lead{margin:18px auto 0}
+.hero__actions{margin-top:28px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.hero__meta{margin-top:14px;font-size:13px;color:var(--meta);letter-spacing:0.01em}
+.hero__proof{
+  margin-top:18px;display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+  font-family:var(--font-mono);font-size:12px;color:var(--muted)
+}
+.hero__proof em{font-style:normal;color:var(--fg);font-weight:600}
+.dot{width:3px;height:3px;border-radius:50%;background:var(--border);display:inline-block}
+
+/* mock — light Primer app inside warm landing */
+.mock-wrap{margin-top:36px;padding:0 0 10px}
+.mock{
+  max-width:980px;margin:0 auto;
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+  box-shadow:var(--elev-raised);overflow:hidden;text-align:left
+}
+.mock__bar{
+  height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;
+  background:var(--surface);border-bottom:1px solid var(--border)
+}
+.mock__bar-left{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;color:var(--muted);font-weight:600;letter-spacing:0.04em}
+.mock__dots{display:flex;gap:6px}
+.mock__dots i{width:10px;height:10px;border-radius:50%;border:1px solid var(--border);background:var(--bg);display:block}
+.mock__path{
+  display:flex;align-items:center;gap:8px;padding:12px;border-bottom:1px solid var(--border-soft);background:var(--bg);flex-wrap:wrap
+}
+.mock__path-field{
+  flex:1;min-width:180px;display:flex;align-items:center;gap:8px;
+  border:1px solid var(--border);border-radius:var(--radius-md);padding:7px 10px;background:var(--bg);
+  font-family:var(--font-mono);font-size:12px;color:var(--fg);overflow:hidden;white-space:nowrap;text-overflow:ellipsis
+}
+.mock__split{display:grid;grid-template-columns:1.05fr .95fr;min-height:260px}
+.mock__pane{padding:0;border-right:1px solid var(--border-soft)}
+.mock__pane:last-child{border-right:0}
+.mock__pane-head{
+  display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--surface);border-bottom:1px solid var(--border-soft)
+}
+.mock__pane-head h4{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+.mock__count{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--border);padding:2px 7px;border-radius:var(--radius-pill)}
+.mock__list{padding:4px 0}
+.mock__row{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid color-mix(in srgb, var(--border) 55%, transparent)}
+.mock__row:last-child{border-bottom:0}
+.mock__icon{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.04em;color:var(--accent-on);flex:0 0 auto}
+.mock__icon.jpg{background:var(--accent)}
+.mock__icon.png{background:color-mix(in srgb, var(--accent) 55%, #7c3aed 0%) 0 0 / 0 0; background:var(--fg-2)}
+.mock__name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mock__sub{font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+.mock__check{width:14px;height:14px;border-radius:3px;border:1px solid var(--border);display:grid;place-items:center;flex:0 0 auto;font-size:10px}
+.mock__check.on{background:var(--accent);border-color:var(--accent);color:var(--accent-on)}
+.mock__metric{margin-left:auto;text-align:right;font-family:var(--font-mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.mock__save{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.02em;color:var(--success);background:color-mix(in srgb, var(--success) 10%, white);border:1px solid color-mix(in srgb, var(--success) 18%, transparent);padding:2px 7px;border-radius:var(--radius-pill);white-space:nowrap}
+.mock__note{padding:10px 12px;border-top:1px solid var(--border-soft);background:var(--surface);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.mock__note strong{color:var(--fg);font-weight:600}
+
+/* four cards */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.card{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 20px 20px;box-shadow:var(--elev-raised)
+}
+.card__icon{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;color:var(--fg);margin-bottom:14px}
+.card__icon svg{width:18px;height:18px}
+.card h3{font-size:15px;margin-bottom:8px}
+.card p{font-size:14px;line-height:1.5;color:var(--muted)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.step{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 20px;position:relative;box-shadow:var(--elev-raised)
+}
+.step__head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.step__num{width:28px;height:28px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-family:var(--font-display);font-size:12px;font-weight:700}
+.step__label{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+.step__title{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:-0.02em}
+.step__body{font-size:14px;color:var(--muted);line-height:1.5;margin-top:8px}
+.step__arrow{display:none}
+@media (min-width:860px){
+  .step{overflow:visible}
+  .step:not(:last-child)::after{
+    content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);
+    width:28px;height:28px;border-radius:50%;background:var(--bg);border:1px solid var(--border);
+    display:grid;place-items:center;font-size:13px;color:var(--muted);line-height:1;
+    box-shadow:var(--elev-raised);z-index:1
+  }
+}
+
+/* formats */
+.format-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.format{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--elev-raised);display:flex;flex-direction:column;gap:10px
+}
+.format__top{display:flex;align-items:center;justify-content:space-between}
+.format__type{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-on);background:var(--fg);padding:4px 8px;border-radius:var(--radius-pill)}
+.format__type.png{background:var(--fg-2)}
+.format__type.webp{background:var(--success)}
+.format__type.avif{background:var(--warn)}
+.format__hint{font-family:var(--font-mono);font-size:11px;color:var(--meta)}
+.format p{font-size:13px;line-height:1.5;color:var(--muted)}
+.quality-row{
+  margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 14px
+}
+.quality-row__label{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+.quality-row__track{flex:1;min-width:160px;height:6px;background:var(--surface);border:1px solid var(--border);border-radius:9999px;overflow:hidden;position:relative}
+.quality-row__fill{position:absolute;left:0;top:0;bottom:0;width:68%;background:var(--accent)}
+.quality-row__val{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--fg);background:var(--surface);border:1px solid var(--border);padding:3px 8px;border-radius:var(--radius-pill)}
+
+/* principles side-by-side */
+.principles{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px}
+.principle{padding:24px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg);box-shadow:var(--elev-raised)}
+.principle h3{margin-bottom:10px}
+.principle p{font-size:15px;line-height:1.6;color:var(--muted)}
+.principle__tag{margin-top:16px;display:inline-flex;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:4px 8px;border-radius:var(--radius-pill)}
+
+/* stay-out list */
+.stay-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start;margin-top:28px}
+.neg-list{list-style:none;display:grid;gap:0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg);box-shadow:var(--elev-raised)}
+.neg-list li{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border-soft);font-size:15px;color:var(--fg)}
+.neg-list li:last-child{border-bottom:0}
+.neg-list li s{width:22px;height:22px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;flex:0 0 auto;color:var(--meta);font-size:12px;text-decoration:none}
+.neg-list li span{color:var(--muted)}
+.neg-list li strong{color:var(--fg)}
+.stay-card{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--elev-raised)
+}
+.stay-card h3{margin-bottom:8px}
+.stay-card p{font-size:14px;color:var(--muted);line-height:1.6}
+.example-row{
+  margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;
+  font-family:var(--font-mono);font-size:12px
+}
+.example-row b{color:var(--fg)}
+.example-row .save{color:var(--success);font-weight:700}
+
+/* final CTA band */
+.cta-band{
+  padding:64px 0;border-top:1px solid var(--border-soft);background:var(--bg);text-align:center
+}
+.cta-band h2{max-width:720px;margin:0 auto}
+.cta-band p{max-width:520px;margin:14px auto 0;color:var(--muted);font-size:16px;line-height:1.5}
+.cta-band__actions{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.cta-band__meta{margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--meta);letter-spacing:0.04em}
+
+/* footer */
+.footer{border-top:1px solid var(--border);padding:20px 0 28px;background:var(--bg)}
+.footer__row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.footer__brand{display:flex;align-items:center;gap:10px;color:var(--fg);font-weight:600}
+.footer__links{display:flex;gap:18px}
+.footer__links a{color:var(--muted)}
+.footer__links a:hover{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(14px);
+  background:var(--fg);color:var(--bg);font-size:13px;font-weight:500;padding:10px 14px;border-radius:var(--radius-pill);
+  box-shadow:0 8px 24px rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard);z-index:50
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* responsive */
+@media (max-width:1080px){
+  .grid-4{grid-template-columns:1fr 1fr}
+  .format-strip{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .nav__links{display:none}
+  .mock__split{grid-template-columns:1fr}
+  .mock__pane{border-right:0;border-bottom:1px solid var(--border-soft)}
+  .mock__pane:last-child{border-bottom:0}
+  .steps{grid-template-columns:1fr}
+  .principles{grid-template-columns:1fr}
+  .stay-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .container{padding:0 var(--container-gutter-phone)}
+  .section{padding:var(--section-y-phone) 0}
+  .hero{padding:48px 0 24px}
+  .grid-4{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}
+  .nav{height:56px}
+  .hero__proof{font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" data-od-id="nav" aria-label="Primary">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;gap:16px">
+    <div class="nav__left">
+      <a class="brand" href="#" aria-label="Compressy home">
+        <span class="brand__mark">C</span>
+        <span class="brand__word">Compressy</span>
+      </a>
+      <div class="nav__links" aria-label="Sections">
+        <a href="#offline">Offline</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#formats">Formats</a>
+        <a href="downloads.html">Downloads</a>
+      </div>
+    </div>
+    <div class="nav__cta">
+      <a href="#download" class="link-quiet" style="display:none">Docs</a>
+      <a class="btn btn-primary btn-sm" href="downloads.html">Download for Windows</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" data-od-id="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="pill" style="margin-bottom:16px">Free · Offline · Built for Windows</span>
+      <h1>Offline Image Compressor<br>For Windows</h1>
+      <p class="lead">Compressy is a fast, offline image compressor for Windows. Shrink images without uploading them to a server, creating an account, or giving your files to a cloud service.</p>
+      <div class="hero__actions">
+        <a class="btn btn-primary" href="downloads.html">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3.5v7M4.5 8.5L8 12l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12.5H13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Download for Windows
+        </a>
+        <a class="btn btn-ghost" href="compressy.html">Open app preview</a>
+      </div>
+      <div class="hero__meta">Free. Offline. Built for Windows. — No account required.</div>
+      <div class="hero__proof" aria-label="Proof points">
+        <span><em>18.4 MB</em> folder</span><i class="dot"></i>
+        <span><em>—4.2 MB</em> saved</span><i class="dot"></i>
+        <span><em>12</em> images</span><i class="dot"></i>
+        <span><em>1,000</em> images in <em>5 min</em></span><i class="dot"></i>
+        <span>mozjpeg · oxipng</span>
+      </div>
+    </div>
+
+    <!-- App mock — faithful to compressy.html chrome -->
+    <div class="mock-wrap" aria-hidden="true">
+      <div class="mock">
+        <div class="mock__bar">
+          <span class="mock__bar-left"><span class="brand__mark" style="width:20px;height:20px;font-size:11px;border-radius:5px">C</span> Compressy — Image Optimizer</span>
+          <span class="mock__dots"><i></i><i></i><i></i></span>
+        </div>
+        <div class="mock__path">
+          <span class="mock__path-field">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="color:var(--muted);flex:0 0 auto"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H6l1.2 1.2c.2.2.45.3.7.3H12.5A1.5 1.5 0 0 1 14 7v4.5A1.5 1.5 0 0 1 12.5 13h-9A1.5 1.5 0 0 1 2 11.5V5.5Z" stroke="currentColor" stroke-width="1.2"/><path d="M2 6.5h12" stroke="currentColor" stroke-width="1.2"/></svg>
+            C:\Users\Alex\Pictures\Portfolio-2024
+          </span>
+          <span class="pill" style="background:var(--surface);border-color:var(--border);color:var(--muted)">12 files</span>
+          <span style="margin-left:auto;display:flex;gap:8px">
+            <span class="btn btn-ghost btn-sm" style="pointer-events:none">Browse…</span>
+            <span class="btn btn-ghost btn-sm" style="pointer-events:none;background:var(--accent);color:var(--accent-on);border-color:var(--accent)">Compress selected →</span>
+          </span>
+        </div>
+        <div class="mock__split">
+          <div class="mock__pane">
+            <div class="mock__pane-head"><h4>Source files</h4><span class="mock__count">4 selected</span></div>
+            <div class="mock__list">
+              <div class="mock__row"><span class="mock__check on">✓</span><span class="mock__icon jpg">JPG</span><span class="mock__name">hero-portfolio.jpg</span><span class="mock__metric">3.4 MB</span></div>
+              <div class="mock__row"><span class="mock__check on">✓</span><span class="mock__icon png">PNG</span><span class="mock__name">brand-sheet.png</span><span class="mock__metric">1.9 MB</span></div>
+              <div class="mock__row"><span class="mock__check"></span><span class="mock__icon jpg">JPG</span><span class="mock__name">team-photo-2024.jpg</span><span class="mock__metric">5.1 MB</span></div>
+              <div class="mock__row"><span class="mock__check on">✓</span><span class="mock__icon jpg">JPG</span><span class="mock__name">case-study-cover.jpg</span><span class="mock__metric">2.8 MB</span></div>
+            </div>
+            <div class="mock__note"><span>Quality 85 · Balanced · Keep format</span><strong>4 threads</strong></div>
+          </div>
+          <div class="mock__pane">
+            <div class="mock__pane-head"><h4>Compressed</h4><span class="mock__count" style="background:var(--accent);color:var(--accent-on);border-color:var(--accent)">—4.2 MB saved</span></div>
+            <div class="mock__list">
+              <div class="mock__row"><span class="mock__icon jpg">JPG</span><span style="min-width:0;flex:1"><span class="mock__name">hero-portfolio.jpg</span><span class="mock__sub">3840×2160 → 1920×1080</span></span><span class="mock__save">−27% · −904 KB</span></div>
+              <div class="mock__row"><span class="mock__icon png">PNG</span><span style="min-width:0;flex:1"><span class="mock__name">brand-sheet.png</span><span class="mock__sub">2400×1600</span></span><span class="mock__save">−31% · −586 KB</span></div>
+              <div class="mock__row"><span class="mock__icon jpg">JPG</span><span style="min-width:0;flex:1"><span class="mock__name">case-study-cover.jpg</span><span class="mock__sub">3200×1800</span></span><span class="mock__save">−22% · −611 KB</span></div>
+            </div>
+            <div class="mock__note"><span>Avg. −26% · Peak −31%</span><span class="mono" style="color:var(--muted)">Export CSV · Open folder</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="small muted" style="text-align:center;margin-top:10px">Preview of the Windows app — folder, settings, and per-file savings in one window.</div>
+    </div>
+  </div>
+</header>
+
+<!-- Your images never leave -->
+<section class="section section--warm" id="offline" data-od-id="section-offline">
+  <div class="container">
+    <div class="section__head">
+      <div class="eyebrow"><i></i> Local-first</div>
+      <h2>Your images never leave your computer.</h2>
+      <p class="lead" style="margin-top:14px">Compressy does the work locally on your PC. Just select your images, compress them, and keep going.</p>
+    </div>
+    <div class="grid-4">
+      <article class="card" data-od-id="offline-card-1">
+        <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M8 3.5v5M5.5 7L8 3.5 10.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 11.5H13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h3>No uploads.</h3>
+        <p>Files stay in your folder. There is no queue, no progress bar tied to the internet.</p>
+      </article>
+      <article class="card" data-od-id="offline-card-2">
+        <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 10.5a3 3 0 0 1 3-3h4a2.5 2.5 0 0 1 0 5H4" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 5.5v4M6.5 7.5L8 5.5 9.5 7.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg></div>
+        <h3>No cloud processing.</h3>
+        <p>Compression runs on your machine — mozjpeg, oxipng — not on someone else's server.</p>
+      </article>
+      <article class="card" data-od-id="offline-card-3">
+        <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="2.2" stroke="currentColor" stroke-width="1.35"/><path d="M4.5 12.5a3.5 3.5 0 0 1 7 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M11.5 5l1.2-1M11.5 7l1.2 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <h3>No accounts.</h3>
+        <p>No sign-in, no dashboard, no email wall between you and a smaller file.</p>
+      </article>
+      <article class="card" data-od-id="offline-card-4">
+        <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2V8l1.8 1.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h3>No waiting for a server.</h3>
+        <p>Start, finish, and export in the same window. Your computer does the work.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Smaller images. Same workflow. -->
+<section class="section" id="workflow" data-od-id="section-workflow">
+  <div class="container">
+    <div class="section__head">
+      <div class="eyebrow"><i></i> Windows-native</div>
+      <h2>Smaller images.<br>Same workflow.</h2>
+      <p class="lead" style="margin-top:14px">Compressy is designed to make compression feel like a normal Windows utility — not another website you have to upload files to. Compress individual images or work through a whole folder without sending anything over the internet.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-od-id="step-select">
+        <div class="step__head"><span class="step__num">1</span><span class="step__label">Step one</span></div>
+        <div class="step__title">Select</div>
+        <p class="step__body">Choose a folder or select images in. The file list shows size, type, and dimensions — with checkboxes for exactly what you want to compress.</p>
+      </div>
+      <div class="step" data-od-id="step-compress">
+        <div class="step__head"><span class="step__num">2</span><span class="step__label">Step two</span></div>
+        <div class="step__title">Compress</div>
+        <p class="step__body">Set quality, engine, and output format. Run it locally — 2, 4, or 8 threads — and watch per-file savings appear on the right.</p>
+      </div>
+      <div class="step" data-od-id="step-done">
+        <div class="step__head"><span class="step__num">3</span><span class="step__label">Step three</span></div>
+        <div class="step__title">Done.</div>
+        <p class="step__body">Export a CSV, open the folder, or overwrite in place with backups to a <code>backup</code> folder. No upload step in between.</p>
+      </div>
+    </div>
+    <div class="small muted" style="margin-top:14px;text-align:center">Select → Compress → Done.</div>
+  </div>
+</section>
+
+<!-- Built for the formats -->
+<section class="section section--warm" id="formats" data-od-id="section-formats">
+  <div class="container">
+    <div class="section__head">
+      <div class="eyebrow"><i></i> Formats</div>
+      <h2>Built for the formats you actually use.</h2>
+      <p class="lead" style="margin-top:14px">JPEG, PNG, WebP, AVIF and more. Compressy handles common image formats while giving you control over how aggressively your images are compressed.</p>
+    </div>
+    <div class="format-strip">
+      <div class="format" data-od-id="format-jpeg">
+        <div class="format__top"><span class="format__type">JPG</span><span class="format__hint">mozjpeg</span></div>
+        <p>Photographs and exports. Quality slider 40–95 with balanced, fast, and maximum engines.</p>
+      </div>
+      <div class="format" data-od-id="format-png">
+        <div class="format__top"><span class="format__type png">PNG</span><span class="format__hint">oxipng</span></div>
+        <p>Screenshots, UI, and transparency. Lossless toggle keeps PNG/WebP bit-exact when you need it.</p>
+      </div>
+      <div class="format" data-od-id="format-webp">
+        <div class="format__top"><span class="format__type webp">WEBP</span><span class="format__hint">modern</span></div>
+        <p>Smaller web delivery. Keep original or convert — WebP as output for the whole batch.</p>
+      </div>
+      <div class="format" data-od-id="format-avif">
+        <div class="format__top"><span class="format__type avif">AVIF</span><span class="format__hint">next-gen</span></div>
+        <p>Maximum density when size matters most. AVIF output without leaving the app.</p>
+      </div>
+    </div>
+    <div class="quality-row" aria-label="Quality control preview">
+      <span class="quality-row__label">Quality</span>
+      <span class="quality-row__track" aria-hidden="true"><i class="quality-row__fill"></i></span>
+      <span class="quality-row__val">85</span>
+      <span class="small muted">Quality when you need it. Smaller files when you don't.</span>
+    </div>
+  </div>
+</section>
+
+<!-- Fast + Private — paired principles -->
+<section class="section" data-od-id="section-principles">
+  <div class="container">
+    <div class="principles">
+      <div class="principle" data-od-id="principle-fast">
+        <div class="eyebrow" style="margin-bottom:10px"><i></i> Fast by design</div>
+        <h3>Compression happens directly on your machine.</h3>
+        <p>There is no upload or download step between you and your files. Your computer does the work — so large folders don't stall behind a server queue.</p>
+        <span class="principle__tag">No transfer · Threads 2 / 4 / 8</span>
+      </div>
+      <div class="principle" data-od-id="principle-private">
+        <div class="eyebrow" style="margin-bottom:10px"><i></i> Private by default</div>
+        <h3>Your images are yours.</h3>
+        <p>Compressy doesn't need an internet connection to compress, and your files don't need to pass through someone else's server.</p>
+        <span class="principle__tag">Local processing · No cloud required</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Small tool that stays out of your way -->
+<section class="section section--warm" id="download" data-od-id="section-stay">
+  <div class="container">
+    <div class="section__head">
+      <div class="eyebrow"><i></i> Minimal</div>
+      <h2>A small tool that stays out of your way.</h2>
+      <p class="lead" style="margin-top:14px">No account. No dashboard. No subscription. No unnecessary settings. Just a focused Windows app for making images smaller.</p>
+    </div>
+    <div class="stay-grid">
+      <ul class="neg-list" aria-label="What Compressy doesn't do">
+        <li><s>×</s> <strong>No account.</strong> <span>— open and compress.</span></li>
+        <li><s>×</s> <strong>No dashboard.</strong> <span>— one window, two panes.</span></li>
+        <li><s>×</s> <strong>No subscription.</strong> <span>— free for Windows.</span></li>
+        <li><s>×</s> <strong>No unnecessary settings.</strong> <span>— quality, engine, output, done.</span></li>
+      </ul>
+      <div class="stay-card" data-od-id="stay-cta-card">
+        <h3>Ready when you are.</h3>
+        <p>Install once. Use offline. Resize, rename, and strip metadata in the same pass — then export a CSV of what you saved.</p>
+        <div class="example-row">
+          <span><b>hero-portfolio.jpg</b> 3.4 MB → 2.5 MB</span>
+          <span class="save">−27%</span>
+        </div>
+        <a class="btn btn-primary" style="width:100%;margin-top:16px" href="downloads.html">Download Compressy</a>
+        <div class="small muted" style="text-align:center;margin-top:8px">Free for Windows.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final band -->
+<section class="cta-band" data-od-id="cta-band">
+  <div class="container">
+    <div class="pill" style="margin-bottom:16px">Compressy</div>
+    <h2>Compress images locally.<br>Keep your files private.</h2>
+    <div class="cta-band__actions">
+      <a class="btn btn-primary" href="downloads.html">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3.5v7M4.5 8.5L8 12l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12.5H13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Download for Windows
+      </a>
+    </div>
+    <div class="cta-band__meta">Offline · Windows · No account required</div>
+  </div>
+</section>
+
+<footer class="footer" data-od-id="footer">
+  <div class="container">
+    <div class="footer__row">
+      <span class="footer__brand"><span class="brand__mark">C</span> Compressy · Offline image compressor for Windows</span>
+      <span class="footer__links"><a href="compressy.html">Open app</a><a href="#offline">Privacy</a><a href="#formats">Formats</a></span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

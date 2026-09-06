@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compressy — Offline Image Compressor for Windows</title>
+  <meta name="description" content="Compressy is a fast, offline image compressor for Windows. Shrink JPG, PNG, WebP and AVIF folders locally — no uploads, no account.">
+</head>
+<body>
+
+  <e-hero pill="Free · Offline · Built for Windows"
+          title="Offline Image Compressor<br>For Windows">
+    <p slot="lead">Compressy is a fast, offline image compressor for Windows. Shrink images without uploading them to a server, creating an account, or giving your files to a cloud service.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#workflow">See how it works</e-button>
+    </span>
+    <span slot="meta">Free. Offline. Built for Windows. — No account required.</span>
+    <e-proof value="57.8%" label="avg saved" success></e-proof>
+    <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+    <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+  </e-hero>
+
+  <e-mock path="C:\Users\Alex\Pictures\Portfolio-2024"
+          count="12" selected="4" saved="−4.2 MB saved"
+          note-left="Quality 85 · Balanced · Keep format"
+          out-note-left="Avg 57.8% · Peak 92.4% — 1285.7→542.5 MB"
+          caption="Preview of the Windows app — folder, settings, and per-file savings in one window.">
+    <mock-src check name="!-tylewice-wiatrak.jpg" ext="jpg" size="3.3 MB"></mock-src>
+    <mock-src check name="04_Hegasy_Hand.png" ext="png" size="721 KB"></mock-src>
+    <mock-src name="team-photo-2024.jpg" ext="jpg" size="5.1 MB"></mock-src>
+    <mock-src check name="case-study-cover.jpg" ext="jpg" size="2.8 MB"></mock-src>
+    <mock-out name="!-tylewice-wiatrak.jpg" ext="jpg" dims="3480929 → 2029440" save="−41.7% · −1451 KB"></mock-out>
+    <mock-out name="04_Hegasy_Hand.png" ext="png" dims="721 KB → 189 KB" save="−73.8% · −532 KB"></mock-out>
+    <mock-out name="'Camel'_in_Devrent.JPG" ext="jpg" dims="3455149 → 1125547" save="−67.4% · −2329 KB"></mock-out>
+  </e-mock>
+
+  <e-section id="offline" warm eyebrow="Local-first"
+             title="Your images never leave your computer.">
+    <p slot="lead">Compressy does the work locally on your PC. Just select your images, compress them, and keep going.</p>
+    <e-cards variant="icons" cols="4">
+      <e-card><svg viewBox="0 0 16 16" fill="none"><path d="M8 3.5v5M5.5 7L8 3.5 10.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 11.5H13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><h3>No uploads.</h3><p slot="body">Files stay in your folder. There is no queue, no progress bar tied to the internet.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none"><path d="M3 10.5a3 3 0 0 1 3-3h4a2.5 2.5 0 0 1 0 5H4" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 5.5v4M6.5 7.5L8 5.5 9.5 7.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg><h3>No cloud processing.</h3><p slot="body">Compression runs on your machine — not on someone else's server.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="2.2" stroke="currentColor" stroke-width="1.35"/><path d="M4.5 12.5a3.5 3.5 0 0 1 7 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M11.5 5l1.2-1M11.5 7l1.2 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><h3>No accounts.</h3><p slot="body">No sign-in, no dashboard, no email wall between you and a smaller file.</p></e-card>
+      <e-card><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2V8l1.8 1.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><h3>No waiting for a server.</h3><p slot="body">Start, finish, and export in the same window. Your computer does the work.</p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section id="workflow" eyebrow="Windows-native"
+             title="Smaller images.<br>Same workflow.">
+    <p slot="lead">Compressy is designed to make compression feel like a normal Windows utility — not another website you have to upload files to. Compress individual images or work through a whole folder without sending anything over the internet.</p>
+    <e-steps variant="horizontal"
+             footnote="Select → Compress → Done.">
+      <e-step title="Select">Choose a folder or select images. The file list shows size, type, and dimensions — with checkboxes for exactly what you want to compress.</e-step>
+      <e-step title="Compress">Set quality, engine, and output format. Run it locally — 2, 4, or 8 threads — and watch per-file savings appear on the right.</e-step>
+      <e-step title="Done.">Export a CSV, open the folder, or overwrite in place with backups to a backup folder. No upload step in between.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section id="formats" warm eyebrow="Formats"
+             title="Built for the formats you actually use.">
+    <p slot="lead">JPEG, PNG, WebP, AVIF and more. Compressy handles common image formats while giving you control over how aggressively your images are compressed.</p>
+    <e-cards cols="4">
+      <e-card type="format" badge="JPG" hint="mozjpeg"><p slot="body">Photographs and exports. Quality slider 40–95 with balanced, fast, and maximum engines.</p></e-card>
+      <e-card type="format" badge="PNG" hint="oxipng"><p slot="body">Screenshots, UI, and transparency. Lossless toggle keeps PNG/WebP bit-exact when you need it.</p></e-card>
+      <e-card type="format" badge="WEBP" hint="modern"><p slot="body">Smaller web delivery. Keep original or convert — WebP as output for the whole batch.</p></e-card>
+      <e-card type="format" badge="AVIF" hint="next-gen"><p slot="body">Maximum density when size matters most. AVIF output without leaving the app.</p></e-card>
+    </e-cards>
+    <e-progress-line label="Quality" value="85" fill="68" caption="Quality when you need it. Smaller files when you don't."></e-progress-line>
+  </e-section>
+
+  <e-section eyebrow="Fast & private">
+    <e-bento cols="2">
+      <e-cell eyebrow="Fast by design" chip="No transfer · Threads 2 / 4 / 8"><h3>Compression happens directly on your machine.</h3><p>There is no upload or download step between you and your files. Your computer does the work — so large folders don't stall behind a server queue.</p></e-cell>
+      <e-cell eyebrow="Private by default" chip="Local processing · No cloud required"><h3>Your images are yours.</h3><p>Compressy doesn't need an internet connection to compress, and your files don't need to pass through someone else's server.</p></e-cell>
+    </e-bento>
+  </e-section>
+
+  <e-section id="download" warm eyebrow="Minimal"
+             title="A small tool that stays out of your way.">
+    <p slot="lead">No account. No dashboard. No subscription. No unnecessary settings. Just a focused Windows app for making images smaller.</p>
+    <e-split variant="narrow">
+      <ul slot="list" aria-label="What Compressy doesn't do">
+        <li><strong>No account.</strong> <span>— open and compress.</span></li>
+        <li><strong>No dashboard.</strong> <span>— one window, two panes.</span></li>
+        <li><strong>No subscription.</strong> <span>— free for Windows.</span></li>
+        <li><strong>No unnecessary settings.</strong> <span>— quality, engine, output, done.</span></li>
+      </ul>
+      <div slot="card">
+        <h3>Ready when you are.</h3>
+        <p>Install once. Use offline. Resize, rename, and strip metadata in the same pass — then export a CSV of what you saved.</p>
+        <e-example file="!-tylewice-wiatrak.jpg" before="3.3 MB" after="1.9 MB" save="−41.7%"></e-example>
+        <e-button variant="primary" href="/download">Download Compressy</e-button>
+        <e-note center>Free for Windows.</e-note>
+      </div>
+    </e-split>
+  </e-section>
+
+  <e-cta variant="band" pill="Compressy"
+         meta="Offline · Windows · No account required">
+    <h2>Compress images locally.<br>Keep your files private.</h2>
+    <span slot="actions"><e-button variant="primary" href="/download">Download for Windows</e-button></span>
+  </e-cta>
+
+</body>
+</html>

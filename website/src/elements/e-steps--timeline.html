@@ -1,0 +1,13 @@
+<div class="steps steps--timeline">
+  {{#items}}<div class="step">
+    <div class="step__head">
+      {{#icon}}<span class="step__icon" aria-hidden="true">{{{icon}}}</span>{{/icon}}
+      {{^icon}}{{#num}}<span class="step__num">{{num}}</span>{{/num}}{{/icon}}
+      {{#label}}<span class="step__label">{{label}}</span>{{/label}}
+    </div>
+    <div class="step__title">{{{title}}}</div>
+    <p class="step__body">{{{body}}}</p>
+    {{#meta}}<span class="step__meta">{{meta}}</span>{{/meta}}
+  </div>{{/items}}
+</div>
+{{#footnote}}<div class="small muted steps__footnote">{{footnote}}</div>{{/footnote}}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress Images for Websites — Faster Web | Compressy</title>
+  <meta name="description" content="Compress images for websites locally on Windows. Shrink for faster load, Core Web Vitals, batch folders — no upload, your images stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Web · Performance" title="Compress for websites<br>faster load">
+    <p slot="lead">Images are the heaviest part of the web. Shrink for faster LCP, batch folders locally — no upload, your images stay on your PC.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#format">Best format →</e-button>
+    </span>
+    <span slot="meta">Web · Core Web Vitals · Offline</span>
+    <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+    <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+    <e-proof value="Offline" label="mode"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Why web" title="Fast pages.<br>Same images, less bytes.">
+    <p slot="lead">Larger images block rendering. Shrink for web without visible loss, keep responsive sizes.</p>
+    <e-grid-feature cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Faster LCP</h3>
+        <p slot="body">Smaller images load faster — better Largest Contentful Paint and Core Web Vitals.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Responsive</h3>
+        <p slot="body">Keep originals, export WebP/AVIF + downscaled sizes for srcset.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5L3 5v3.2c0 3 2 5.1 5 6.3 3-1.2 5-3.3 5-6.3V5L8 2.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><path d="M6 8l1.6 1.6L10.2 6.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Offline</h3>
+        <p slot="body">No upload. Your site images never leave your disk. Batch on all threads.</p>
+      </e-card>
+    </e-grid-feature>
+  </e-section>
+
+  <e-section id="format" eyebrow="Capability" title="Pick format for web">
+    <p slot="lead">JPG for photos, WebP for modern, AVIF for smallest. One batch can output all three.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Format</th><th>Size</th><th>Support</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>JPG</td><td>Baseline</td><td>Universal</td><td>Photos, fallback</td></tr>
+          <tr><td>WebP</td><td>25–35% smaller than JPG</td><td>Universal modern</td><td>Web default</td></tr>
+          <tr><td>AVIF</td><td>30–50% smaller than JPG</td><td>Modern</td><td>Smallest delivery</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>Deliver WebP with JPG fallback; add AVIF when you chase smallest. Compressy does all three offline.</e-note>
+  </e-section>
+
+  <e-section eyebrow="Proof" title="Web savings">
+    <e-stats variant="bento">
+      <e-stat value="−32%" label="JPG → WebP" note="2.4 MB → 1.6 MB" bar="32"></e-stat>
+      <e-stat value="−71%" label="PNG → WebP" note="1.9 MB → 540 KB" bar="71"></e-stat>
+      <e-stat value="−50%" label="JPG → AVIF" note="2.4 MB → 1.2 MB" bar="50"></e-stat>
+    </e-stats>
+  </e-section>
+
+  <e-section id="how" eyebrow="How it works" title="Select site images → Compress → Deploy.">
+    <p slot="lead">Three steps, all local.</p>
+    <e-steps variant="icons">
+      <e-step title="Select images">Drop your site folder — images, assets, uploads.</e-step>
+      <e-step title="Compress">Choose WebP/AVIF, quality 75–85, keep or downscale.</e-step>
+      <e-step title="Deploy">Replace in place or export to dist — faster LCP.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section eyebrow="Related" title="More for web">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress Image</h3><p slot="body">Any format. <a href="/compress-image/">Compress Image →</a></p></e-card>
+      <e-card><h3>Image Optimizer</h3><p slot="body">All-in-one. <a href="/image-optimizer/">Image Optimizer →</a></p></e-card>
+      <e-card><h3>JPG to WebP</h3><p slot="body">For photos. <a href="/jpg-to-webp/">JPG to WebP →</a></p></e-card>
+      <e-card><h3>Without losing quality</h3><p slot="body">Keep looks. <a href="/compress-images-without-losing-quality/">Quality →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="For websites — FAQ">
+    <e-faq variant="list">
+      <details><summary>WebP vs AVIF for web?</summary><p>WebP is the safe default — universal modern and 30% smaller than JPG. AVIF is 50% smaller but slower to encode; use for hero images where bytes matter most.</p></details>
+      <details><summary>Will this help Core Web Vitals?</summary><p>Yes. Smaller images improve LCP and reduce layout shift when you keep dimensions. Compress before upload, keep responsive sizes.</p></details>
+      <details><summary>Can I batch a whole site?</summary><p>Yes. Drop the site folder, Compressy finds images in subfolders, keeps structure, writes WebP/AVIF alongside.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All compression is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Web · Performance" meta="Offline · No upload · Windows">
+    <h2>Faster sites. Your PC does the shrink.</h2>
+    <p slot="sub">For websites — faster load without the cloud.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-image/">Compress now →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

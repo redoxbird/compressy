@@ -1,0 +1,107 @@
+{
+  "C:\\projects\\compressy\\desktop-app\\bindings.ts": {
+    "mtime": 1787137382.4512956,
+    "ast_hash": "e5948e8c4ea654b9604ccff7898d8237",
+    "semantic_hash": "e5948e8c4ea654b9604ccff7898d8237"
+  },
+  "C:\\projects\\compressy\\desktop-app\\clean.ts": {
+    "mtime": 1786875269.3759465,
+    "ast_hash": "27f0bb7a84f71e6af064bd3adc8801da",
+    "semantic_hash": "27f0bb7a84f71e6af064bd3adc8801da"
+  },
+  "C:\\projects\\compressy\\desktop-app\\compressor.ts": {
+    "mtime": 1787048682.3341067,
+    "ast_hash": "cda91a4b453df93c721b27ad68f33fdf",
+    "semantic_hash": "cda91a4b453df93c721b27ad68f33fdf"
+  },
+  "C:\\projects\\compressy\\desktop-app\\image-header.ts": {
+    "mtime": 1786888550.4848132,
+    "ast_hash": "fc8d31f7b47441b7e3926b50153ee68a",
+    "semantic_hash": "fc8d31f7b47441b7e3926b50153ee68a"
+  },
+  "C:\\projects\\compressy\\desktop-app\\main.ts": {
+    "mtime": 1787144811.460298,
+    "ast_hash": "a9208785f9048a11778dd127a0497309",
+    "semantic_hash": "a9208785f9048a11778dd127a0497309"
+  },
+  "C:\\projects\\compressy\\desktop-app\\scanner.ts": {
+    "mtime": 1787049994.0420215,
+    "ast_hash": "998ad673027358f698eab0c3d4222b77",
+    "semantic_hash": "998ad673027358f698eab0c3d4222b77"
+  },
+  "C:\\projects\\compressy\\desktop-app\\scripts\\make-icon.ts": {
+    "mtime": 1787405773.5325003,
+    "ast_hash": "2fd9d0b733c132bf13ad82b6244129a0",
+    "semantic_hash": "2fd9d0b733c132bf13ad82b6244129a0"
+  },
+  "C:\\projects\\compressy\\desktop-app\\scripts\\vendor-vips.ts": {
+    "mtime": 1786883540.999327,
+    "ast_hash": "d16918e1e4d0b6564c06c5808060ea3e",
+    "semantic_hash": "d16918e1e4d0b6564c06c5808060ea3e"
+  },
+  "C:\\projects\\compressy\\desktop-app\\settings.ts": {
+    "mtime": 1787057305.848382,
+    "ast_hash": "ec9dd592801256a19a86514b1e61b152",
+    "semantic_hash": "ec9dd592801256a19a86514b1e61b152"
+  },
+  "C:\\projects\\compressy\\desktop-app\\static\\app.js": {
+    "mtime": 1787486424.691491,
+    "ast_hash": "b01af55963857985953c26cdaee3731c",
+    "semantic_hash": "b01af55963857985953c26cdaee3731c"
+  },
+  "C:\\projects\\compressy\\desktop-app\\static\\templates.js": {
+    "mtime": 1787135363.3156657,
+    "ast_hash": "ac7fb9c9d210d5d8091184b93019eac1",
+    "semantic_hash": "ac7fb9c9d210d5d8091184b93019eac1"
+  },
+  "C:\\projects\\compressy\\desktop-app\\tests\\compressor_test.ts": {
+    "mtime": 1787143922.772065,
+    "ast_hash": "f45a26cca83781bdf80809fbbf435db5",
+    "semantic_hash": "f45a26cca83781bdf80809fbbf435db5"
+  },
+  "C:\\projects\\compressy\\desktop-app\\tests\\helpers.ts": {
+    "mtime": 1786883755.6784935,
+    "ast_hash": "18094ae036c0234531721f46cff907dd",
+    "semantic_hash": "18094ae036c0234531721f46cff907dd"
+  },
+  "C:\\projects\\compressy\\desktop-app\\tests\\scanner_test.ts": {
+    "mtime": 1787048694.9801607,
+    "ast_hash": "1ad866b6b001ece00495f5fd0d65736c",
+    "semantic_hash": "1ad866b6b001ece00495f5fd0d65736c"
+  },
+  "C:\\projects\\compressy\\desktop-app\\tests\\settings_test.ts": {
+    "mtime": 1786811940.259265,
+    "ast_hash": "9db0de8f0d3ade22580aa68ade72aae1",
+    "semantic_hash": "9db0de8f0d3ade22580aa68ade72aae1"
+  },
+  "C:\\projects\\compressy\\desktop-app\\types.ts": {
+    "mtime": 1787048620.8879507,
+    "ast_hash": "f87ba8720ac81a6cbe301510def93c0b",
+    "semantic_hash": "f87ba8720ac81a6cbe301510def93c0b"
+  },
+  "C:\\projects\\compressy\\desktop-app\\version.ts": {
+    "mtime": 1787912175.2762113,
+    "ast_hash": "82005d7df7bec09a21e754b5a69a16a0",
+    "semantic_hash": "82005d7df7bec09a21e754b5a69a16a0"
+  },
+  "C:\\projects\\compressy\\desktop-app\\vips.ts": {
+    "mtime": 1787401345.369384,
+    "ast_hash": "780e6ff485e7ca669b8495b0a45acf60",
+    "semantic_hash": "780e6ff485e7ca669b8495b0a45acf60"
+  },
+  "C:\\projects\\compressy\\desktop-app\\worker.ts": {
+    "mtime": 1787659991.227175,
+    "ast_hash": "342f764d493b4ce33dce6fad8937ea60",
+    "semantic_hash": "342f764d493b4ce33dce6fad8937ea60"
+  },
+  "C:\\projects\\compressy\\desktop-app\\static\\index.html": {
+    "mtime": 1787486379.6602795,
+    "ast_hash": "e918a02ea160bf5c70c9bb109c249225",
+    "semantic_hash": "e918a02ea160bf5c70c9bb109c249225"
+  },
+  "C:\\projects\\compressy\\desktop-app\\deno.json": {
+    "mtime": 1787490635.666934,
+    "ast_hash": "48ba53d4545a462e6cf8850948e6a846",
+    "semantic_hash": "48ba53d4545a462e6cf8850948e6a846"
+  }
+}

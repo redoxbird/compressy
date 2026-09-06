@@ -1,0 +1,22 @@
+# ── Build output ────────────────────────────────────────────
+dist/
+
+# ── Vendored binaries (native libvips ~42M) ────────────────
+vendor/vips/
+
+# ── Minified third-party JS (noise for a knowledge graph) ──
+static/vendor/
+
+# ── Dev/build scripts (single-purpose, no domain signal) ───
+scripts/
+
+# ── Generated graphify output / caches ─────────────────────
+graphify-out/
+.graphify_python
+
+# ── Runtime / temp ─────────────────────────────────────────
+.tmp/
+*.tmp
+
+# ── Lockfile (single-line hash, no signal) ─────────────────
+deno.lock

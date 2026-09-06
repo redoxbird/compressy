@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress AVIF — Shrink AVIF Images Locally | Compressy</title>
+  <meta name="description" content="Compress AVIF images offline on Windows. Keep AVIF or convert JPG/PNG/WebP to AVIF, control quality 40–95, batch folders locally — no upload, your AVIFs stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="AVIF · Next-gen · Offline" title="Compress AVIF<br>maximum density">
+    <p slot="lead">AVIF is the smallest delivery format — smaller than WebP at the same quality, with HDR and 10-bit. Re-compress AVIF or convert anything to AVIF locally.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#tradeoff">AVIF vs WebP →</e-button>
+    </span>
+    <span slot="meta">AVIF · Next-gen web · Offline</span>
+    <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+    <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+    <e-proof value="HDR · 10-bit" label="avif capable"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="Why AVIF" title="Smallest files.<br>Slowest to encode — once.">
+    <p slot="lead">AVIF saves ~20–30% over WebP, ~50% over JPG at the same visual quality. Encode is slower, but you do it once locally.</p>
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Maximum density</h3>
+        <p slot="body">Smallest for web and app delivery. 10-bit, HDR, alpha — one format for all.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Convert anything</h3>
+        <p slot="body">JPG/PNG/WebP → AVIF in one batch. Keep AVIF as AVIF, or bring everything along.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5L3 5v3.2c0 3 2 5.1 5 6.3 3-1.2 5-3.3 5-6.3V5L8 2.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><path d="M6 8l1.6 1.6L10.2 6.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Offline</h3>
+        <p slot="body">No upload. Your AVIFs never leave your disk. Encode with all threads.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section id="tradeoff" eyebrow="Tradeoff" title="AVIF vs WebP">
+    <p slot="lead">AVIF is smaller, WebP is faster and more compatible. Pick per batch.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Metric</th><th>AVIF</th><th>WebP</th></tr></thead>
+        <tbody>
+          <tr><td>Size at same quality</td><td>Smallest</td><td>Smaller than JPG</td></tr>
+          <tr><td>Encode speed</td><td>Slower</td><td>Faster</td></tr>
+          <tr><td>Browser support</td><td>Modern</td><td>Universal modern</td></tr>
+          <tr><td>HDR / 10-bit</td><td>Yes</td><td>No</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>Use WebP for speed/compatibility, AVIF for maximum density. Compressy does both offline.</e-note>
+  </e-section>
+
+  <e-section warm eyebrow="Proof" title="Measured WebP — AVIF not in this run">
+    <p slot="lead">This benchmark run covered jpg→jpg, png→webp, jpg→webp at quality 85 balanced (456-545 files). AVIF was not re-measured in this run — WebP real numbers are the baseline; AVIF delivers 15–25% smaller than WebP at same quality per literature, at slower encode.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Conversion</th><th>Files</th><th>Avg saved</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>jpg → jpg keep 85</td><td>456</td><td>57.8% (peak 92.4%)</td><td>1285.7→542.5 MB real vips</td></tr>
+          <tr><td>png → webp 85</td><td>545</td><td>84.5% (peak 99.8%)</td><td>247.9→40.4 MB</td></tr>
+          <tr><td>jpg → webp 85</td><td>456</td><td>70.9% (peak 97.3%)</td><td>1285.7→373.3 MB</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-note center>AVIF not re-benchmarked here — expect 15–25% smaller than WebP at same quality. See <a href="/benchmarks/">/benchmarks/</a> for methodology.</e-note>
+  </e-section>
+
+  <e-section eyebrow="Related" title="Next for AVIF">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress WebP</h3><p slot="body">Faster encode. <a href="/compress-webp/">Compress WebP →</a></p></e-card>
+      <e-card><h3>Compress JPG</h3><p slot="body">Convert photos. <a href="/compress-jpg/">Compress JPG →</a></p></e-card>
+      <e-card><h3>Compress PNG</h3><p slot="body">Convert screenshots. <a href="/compress-png/">Compress PNG →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="AVIF — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Is AVIF worth the slower encode?</summary><p>For delivery, yes — 20–30% smaller than WebP. You encode once locally, serve the smaller file forever. Batch on 4/8 threads to hide the cost.</p></details>
+      <details><summary>Can I convert JPG/PNG to AVIF?</summary><p>Yes. Set output to AVIF and convert the whole batch in one pass. Alpha and HDR preserved where supported.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All AVIF processing is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="AVIF · Next-gen" meta="Offline · No upload · Windows">
+    <h2>Smallest files. Your PC does the encode.</h2>
+    <p slot="sub">Convert or re-compress AVIF offline — maximum density without the cloud.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-webp/">Compare WebP →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>

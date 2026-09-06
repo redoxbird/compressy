@@ -1,0 +1,11 @@
+<div class="dtable dtable--savings{{#foot.length}} dtable--with-foot{{/foot.length}}" style="--cols:{{colCount}}">
+  <div class="dtable__head">
+    {{#cols}}<span class="{{alignCls}}">{{{text}}}</span>{{/cols}}
+  </div>
+  {{#rows}}<div class="dtable__row">
+    {{#cells}}<span class="{{alignCls}}{{#mono}} mono{{/mono}}">{{{text}}}</span>{{/cells}}
+  </div>{{/rows}}
+  {{#foot.length}}<div class="dtable__foot">
+    {{#foot}}<span class="{{alignCls}}{{#mono}} mono{{/mono}}">{{{text}}}</span>{{/foot}}
+  </div>{{/foot.length}}
+</div>

@@ -1,0 +1,6 @@
+# Global: element/layout .html templates load as strings everywhere in Bun
+# (mirrors wrangler's Text rules used at deploy).
+preload = ["./test/text-preload.ts"]
+
+[test]
+preload = ["./test/text-preload.ts"]

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Compress WebP — Shrink WebP Images Locally | Compressy</title>
+  <meta name="description" content="Compress WebP images offline on Windows. Keep WebP or convert from JPG/PNG, control quality 40–95, batch folders locally — no upload, your WebPs stay on your PC.">
+</head>
+<body>
+
+  <e-hero pill="WebP · Modern · Offline" title="Compress WebP<br>for the web">
+    <p slot="lead">WebP already smaller than JPG/PNG — make it smaller locally. Re-compress WebP, or convert JPG/PNG to WebP in the same batch.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#convert">Convert to WebP →</e-button>
+    </span>
+    <span slot="meta">WebP · Modern web · Offline</span>
+    <e-proof value="84.5%" label="png→webp avg" success></e-proof>
+    <e-proof value="70.9%" label="jpg→webp avg" success></e-proof>
+    <e-proof value="545 files" label="png → webp at 85"></e-proof>
+  </e-hero>
+
+  <e-section warm eyebrow="WebP" title="Why WebP still wins">
+    <p slot="lead">WebP is the practical delivery format for most sites — smaller than JPG at the same visual quality, with alpha.</p>
+    <e-cards variant="icons" cols="3">
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M5 7h6M5 9h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <h3>Re-compress WebP</h3>
+        <p slot="body">Quality 40–95, keep WebP. Strip metadata, trim overhead, keep alpha.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5L3 5v3.2c0 3 2 5.1 5 6.3 3-1.2 5-3.3 5-6.3V5L8 2.5Z" stroke="currentColor" stroke-width="1.25"/><path d="M6 8l1.6 1.6L10.2 6.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Convert to WebP</h3>
+        <p slot="body">JPG/PNG → WebP in one batch. Smaller than re-compressing as JPG.</p>
+      </e-card>
+      <e-card>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.25"/><path d="M8 6v3l1.6 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Offline</h3>
+        <p slot="body">No upload. Your WebPs never leave your disk.</p>
+      </e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section id="convert" eyebrow="Convert" title="Anything → WebP">
+    <p slot="lead">One batch, one output. Keep WebP as WebP, or bring JPG/PNG along.</p>
+    <e-table variant="matrix">
+      <table>
+        <thead><tr><th>Input</th><th>Keep WebP</th><th>Convert to WebP</th></tr></thead>
+        <tbody>
+          <tr><td>WebP</td><td>✓ Re-compress</td><td>—</td></tr>
+          <tr><td>JPG</td><td>—</td><td>✓ Smaller than JPG</td></tr>
+          <tr><td>PNG</td><td>—</td><td>✓ Alpha kept</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+    <e-points variant="dots">
+      <li><strong>Quality 85 by default</strong> — slide for size vs fidelity, per-file preview</li>
+      <li><strong>Batch a folder</strong> — filter by type, sort by size, 2/4/8 threads</li>
+      <li><strong>Keep originals</strong> — backups to <code>/backup</code> if you overwrite</li>
+    </e-points>
+  </e-section>
+
+  <e-section warm eyebrow="Proof" title="WebP from PNG — real vips">
+    <p slot="lead">PNG → WebP at quality 85 balanced — 545 PNGs, 247.9 MB → 40.4 MB avg 84.5% peak 99.8% real vips. JPG → WebP avg 70.9% on 456 files.</p>
+    <e-table variant="savings">
+      <table>
+        <thead><tr><th>File</th><th>Before</th><th>After</th><th align="right">Saved</th></tr></thead>
+        <tbody>
+          <tr><td>04_Hegasy_Hand.png → WebP</td><td>721 KB</td><td>189 KB</td><td>−73.8%</td></tr>
+          <tr><td>!MQ_DSF9592.jpg → WebP</td><td>4.0 MB</td><td>1.1 MB WebP</td><td>−73.5%</td></tr>
+          <tr><td>'Camel'_in_Devrent.JPG → WebP</td><td>3.3 MB</td><td>811 KB WebP</td><td>−76.0%</td></tr>
+        </tbody>
+      </table>
+    </e-table>
+  </e-section>
+
+  <e-section eyebrow="Related" title="Next for WebP">
+    <e-cards variant="rules" cols="4">
+      <e-card><h3>Compress JPG</h3><p slot="body">Convert photos. <a href="/compress-jpg/">Compress JPG →</a></p></e-card>
+      <e-card><h3>Compress PNG</h3><p slot="body">Convert screenshots. <a href="/compress-png/">Compress PNG →</a></p></e-card>
+      <e-card><h3>Compress AVIF</h3><p slot="body">Smaller still. <a href="/compress-avif/">Compress AVIF →</a></p></e-card>
+      <e-card><h3>Reduce size</h3><p slot="body">Bulk workflow. <a href="/reduce-image-size/">Reduce size →</a></p></e-card>
+    </e-cards>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="WebP — FAQ">
+    <e-faq variant="accordion">
+      <details><summary>Can I keep WebP as WebP?</summary><p>Yes. Keep original WebP and just re-compress at your chosen quality.</p></details>
+      <details><summary>Should I convert JPG/PNG to WebP?</summary><p>If you control delivery, yes — WebP is smaller at the same visual quality. Do it in the same batch.</p></details>
+      <details><summary>Do I need to upload?</summary><p>No. All WebP processing is local. No upload, no account.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="WebP · Modern" meta="Offline · No upload · Windows">
+    <h2>Ship WebP smaller. Keep it local.</h2>
+    <p slot="sub">Re-compress or convert to WebP — all offline, all in one pass.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/compress-jpg/">Compress JPG →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>
