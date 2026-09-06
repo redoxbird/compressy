@@ -154,6 +154,4 @@ Issues and pull requests are welcome. For anything non-trivial, open an issue fi
 
 ## License
 
-<!-- TODO: pick a license (e.g. MIT) and add a LICENSE file to the repo root. -->
-
-No license has been added yet — until one lands, treat the code as all rights reserved and open an issue if you'd like to reuse it.
+[MIT](LICENSE) — free for personal and commercial use.
