@@ -1,4 +1,4 @@
-import { join } from "std/path";
+import { dirname, join, resolve } from "std/path";
 import { spawn } from "node:child_process";
 import { z } from "zod";
 import { APP_VERSION } from "./version.ts";
@@ -6,7 +6,9 @@ import {
   AppSettingsSchema,
   CompressRequestSchema,
   DesktopWindow,
+  DirEntry,
   FileResultSchema,
+  ListDirResult,
 } from "./types.ts";
 import { loadSettings, saveSettings } from "./settings.ts";
 import { scanFolder } from "./scanner.ts";
@@ -61,6 +63,98 @@ async function pickFolderWin32(): Promise<string | null> {
 
 function todayStamp(): string {
   return new Date().toISOString().slice(0, 10);
+}
+
+// ── Folder browser backend (design v3 in-app picker) ───────────────────────
+// Error-tolerant: unreadable paths return an empty listing with `error` set,
+// never a throw — the dialog renders "This folder is empty." instead.
+
+function listDrives(): string[] {
+  if (Deno.build.os !== "windows") {
+    const home = Deno.env.get("HOME") ?? Deno.env.get("USERPROFILE") ?? "/";
+    return [home];
+  }
+  const drives: string[] = [];
+  for (let c = 67; c <= 90; c++) { // C: .. Z:
+    const root = `${String.fromCharCode(c)}:\\`;
+    try {
+      const st = Deno.statSync(root);
+      if (st.isDirectory) drives.push(root);
+    } catch {
+      // absent drive — skip
+    }
+  }
+  return drives.length ? drives : ["C:\\"];
+}
+
+function quickPlaces(): { label: string; path: string }[] {
+  const home = Deno.env.get("USERPROFILE") ??
+    Deno.env.get("HOME") ??
+    "C:\\";
+  const sep = home.includes("\\") ? "\\" : "/";
+  const out: { label: string; path: string }[] = [];
+  for (const name of ["Desktop", "Downloads", "Documents", "Pictures"]) {
+    const p = home.replace(/[\\/]+$/, "") + sep + name;
+    try {
+      if (Deno.statSync(p).isDirectory) out.push({ label: name, path: p });
+    } catch {
+      // missing — skip
+    }
+  }
+  return out;
+}
+
+function listDir(dir: string): ListDirResult {
+  let abs: string;
+  try {
+    abs = resolve(dir);
+  } catch (e) {
+    return { path: dir, parent: null, entries: [], error: e instanceof Error ? e.message : String(e) };
+  }
+  let stat: Deno.FileInfo;
+  try {
+    stat = Deno.statSync(abs);
+  } catch (e) {
+    return { path: abs, parent: null, entries: [], error: e instanceof Error ? e.message : String(e) };
+  }
+  if (!stat.isDirectory) {
+    return { path: abs, parent: dirname(abs), entries: [], error: "Not a folder" };
+  }
+  const parent = dirname(abs);
+  let raw: Deno.DirEntry[];
+  try {
+    raw = [...Deno.readDirSync(abs)];
+  } catch (e) {
+    return { path: abs, parent: parent === abs ? null : parent, entries: [], error: e instanceof Error ? e.message : String(e) };
+  }
+  const entries: DirEntry[] = raw
+    .filter((e) => e.isDirectory)
+    .map((e) => ({ name: e.name, path: join(abs, e.name) }))
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }));
+  return { path: abs, parent: parent === abs ? null : parent, entries };
+}
+
+function openPath(path: string): void {
+  if (Deno.build.os === "windows") {
+    spawn("cmd", ["/c", "start", "", path], { windowsHide: true });
+  } else if (Deno.build.os === "darwin") {
+    spawn("open", [path]);
+  } else {
+    spawn("xdg-open", [path]);
+  }
+}
+
+function revealPath(path: string): void {
+  if (Deno.build.os === "windows") {
+    spawn("explorer", ["/select,", path]);
+  } else {
+    try {
+      if (Deno.statSync(path).isDirectory) openPath(path);
+      else openPath(dirname(path));
+    } catch {
+      openPath(dirname(path));
+    }
+  }
 }
 
 async function exportCsv(folder: string, results: z.infer<typeof FileResultSchema>[]): Promise<{ path: string }> {
@@ -120,5 +214,21 @@ export function registerBindings(win: DesktopWindow): void {
 
   win.bind("openFolder", (path: unknown) => {
     openInExplorer(z.string().min(1).parse(path));
+  });
+
+  win.bind("listDrives", () => listDrives());
+
+  win.bind("quickPlaces", () => quickPlaces());
+
+  win.bind("listDir", (dir: unknown) => {
+    return listDir(z.string().min(1).parse(dir));
+  });
+
+  win.bind("openFile", (path: unknown) => {
+    openPath(z.string().min(1).parse(path));
+  });
+
+  win.bind("revealPath", (path: unknown) => {
+    revealPath(z.string().min(1).parse(path));
   });
 }

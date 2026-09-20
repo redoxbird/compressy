@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,131 +9,13 @@
 <body>
 <div class="window" role="application" aria-label="Compressy window" x-data="workspace" @keydown.enter="rescan">
 
-  <!-- Folder + Settings -->
-  <div class="panel" data-od-id="folder-panel" :class="settingsOpen ? 'is-open' : ''">
-    <div class="panel-header">
-      <h2><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="2.5" width="12" height="11" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M5 5.8h7M5 10.2h7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="7.2" cy="5.8" r="1.4" fill="var(--bg)" stroke="currentColor" stroke-width="1.2"/><circle cx="8.8" cy="10.2" r="1.4" fill="var(--bg)" stroke="currentColor" stroke-width="1.2"/></svg>Source &amp; Settings</h2>
-      <div class="panel-head-right">
-        <span class="hint" id="hintPath">Choose a folder to scan for JPG, PNG, WebP, AVIF</span>
-        <button type="button" class="panel-toggle" id="settingsToggle" aria-expanded="false" aria-controls="settingsBands" data-od-id="settings-toggle" @click="toggleSettings">
-          <span id="footLabel">More settings</span>
-          <svg class="chev" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="folder-row">
-      <div class="path-wrap">
-        <svg class="path-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H6l1.2 1.2c.2.2.45.3.7.3H12.5A1.5 1.5 0 0 1 14 7v4.5A1.5 1.5 0 0 1 12.5 13h-9A1.5 1.5 0 0 1 2 11.5V5.5Z" stroke="currentColor" stroke-width="1.2"/><path d="M2 6.5h12" stroke="currentColor" stroke-width="1.2"/></svg>
-        <input class="path-input" id="pathInput" x-model="folder" placeholder="Paste a folder path or use Browse…" spellcheck="false" aria-label="Folder path" @keydown.enter="rescan">
-        <span class="pill" id="pathPill">0 files</span>
-      </div>
-      <button class="btn btn-default" id="browseBtn" data-od-id="browse-btn" @click="browse">Browse…</button>
-      <button class="btn btn-blue" id="rescanBtn" data-od-id="rescan-btn" @click="rescan">Rescan</button>
-    </div>
-
-    <div class="settings" data-od-id="settings-grid">
-      <!-- Quality (range) — with detail -->
-      <div data-od-id="setting-quality-cell">
-        <label class="field-label" for="quality">Quality</label>
-        <div class="range-row">
-          <input type="range" id="quality" min="40" max="95" value="85" data-od-id="setting-quality" @input="onQualityInput">
-          <span class="range-val" id="qVal">85</span>
-        </div>
-        <div class="quality-meta">
-          <div class="seg-detail" id="qualityDetail"><strong>High quality · 85</strong> · Visually lossless · larger files</div>
-        </div>
-      </div>
-      <!-- Output (segmented) -->
-      <div data-od-id="setting-output-cell">
-        <div class="field-label" id="formatLabel">Output Format</div>
-        <div class="seg" role="group" aria-labelledby="formatLabel" data-seg="format" data-od-id="setting-format">
-          <button type="button" data-value="keep" class="is-active" aria-pressed="true" @click="setSeg('format','keep')">Keep</button>
-          <button type="button" data-value="webp" aria-pressed="false" @click="setSeg('format','webp')">WebP</button>
-          <button type="button" data-value="avif" aria-pressed="false" @click="setSeg('format','avif')">AVIF</button>
-          <button type="button" data-value="jpeg" aria-pressed="false" @click="setSeg('format','jpeg')">JPEG</button>
-        </div>
-        <div class="seg-detail" id="formatDetail"><strong>Keep original</strong> · No transcoding · fastest, keeps file type</div>
-      </div>
-      <!-- Engine (segmented) -->
-      <div data-od-id="setting-engine-cell">
-        <div class="field-label" id="modeLabel">Processing Engine</div>
-        <div class="seg" role="group" aria-labelledby="modeLabel" data-seg="mode" data-od-id="setting-engine">
-          <button type="button" data-value="balanced" class="is-active" aria-pressed="true" @click="setSeg('mode','balanced')">Balanced</button>
-          <button type="button" data-value="max" aria-pressed="false" @click="setSeg('mode','max')">Maximum</button>
-          <button type="button" data-value="fast" aria-pressed="false" @click="setSeg('mode','fast')">Fast</button>
-        </div>
-        <div class="seg-detail" id="modeDetail"><strong>Balanced</strong> · mozjpeg + oxipng · best size / speed tradeoff</div>
-      </div>
-      <!-- Concurrency (segmented) -->
-      <div data-od-id="setting-concurrency-cell">
-        <div class="field-label" id="threadsLabel">Max Threads</div>
-        <div class="seg" role="group" aria-labelledby="threadsLabel" data-seg="threads" data-od-id="setting-concurrency">
-          <button type="button" data-value="2" aria-pressed="false" @click="setSeg('threads','2')">2</button>
-          <button type="button" data-value="4" class="is-active" aria-pressed="true" @click="setSeg('threads','4')">4</button>
-          <button type="button" data-value="8" aria-pressed="false" @click="setSeg('threads','8')">8</button>
-        </div>
-        <div class="seg-detail" id="threadsDetail"><strong>4 threads</strong> · Recommended for most desktops</div>
-      </div>
-    </div>
-
-    <div class="settings-bands" data-od-id="settings-bands" id="settingsBands">
-      <!-- Options — paired 2×2 grid -->
-      <div class="band" data-od-id="options-row">
-        <div class="band-cap">Options</div>
-        <div class="band-body">
-          <div class="options-grid">
-            <label class="check"><input type="checkbox" id="lossless" @change="onSettingChange"><span>Lossless<span class="subtle-mono"> · PNG / WebP</span></span></label>
-            <label class="check"><input type="checkbox" id="stripMeta" checked @change="onSettingChange"><span>Strip metadata<span class="subtle-mono"> · EXIF / ICC</span></span></label>
-            <label class="check"><input type="checkbox" id="overwrite" checked @change="onSettingChange"><span>Overwrite originals<span class="subtle-mono"> · backup folder</span></span></label>
-            <label class="check"><input type="checkbox" id="skipSmall" @change="onSettingChange"><span>Skip files<span class="subtle-mono"> · &lt; 50 KB</span></span></label>
-          </div>
-        </div>
-      </div>
-      <!-- Resize — toggle + paired W×H fields on one row, hint below -->
-      <div class="band" data-od-id="resize-strip" id="bandResize">
-        <div class="band-cap">Resize</div>
-        <div class="band-body">
-          <div class="band-row">
-            <label class="check" for="enableResize"><input type="checkbox" id="enableResize" @change="onSettingChange"> Resize if larger<span class="subtle-mono"> · keep aspect</span></label>
-            <div class="band-fields" id="resizeFields">
-              <label class="mini-field" for="maxW"><span>Max width</span><span class="dim-input"><input class="number" id="maxW" type="number" placeholder="—" min="1" max="16000" step="10" inputmode="numeric" aria-label="Maximum width" @change="onSettingChange"><span class="unit">px</span></span></label>
-              <span class="dim-sep" aria-hidden="true">×</span>
-              <label class="mini-field" for="maxH"><span>Max height</span><span class="dim-input"><input class="number" id="maxH" type="number" placeholder="—" min="1" max="16000" step="10" inputmode="numeric" aria-label="Maximum height" @change="onSettingChange"><span class="unit">px</span></span></label>
-            </div>
-          </div>
-          <span class="band-hint">Empty = no limit · downscale only</span>
-        </div>
-      </div>
-      <!-- Rename — toggle + prefix + live pattern on one row, hint below -->
-      <div class="band is-disabled" data-od-id="rename-strip" id="bandRename">
-        <div class="band-cap">Rename</div>
-        <div class="band-body">
-          <div class="band-row">
-            <label class="check" for="enableRename"><input type="checkbox" id="enableRename" @change="onSettingChange"> Auto-rename outputs</label>
-            <div class="band-fields rename-field" id="renameFields">
-              <label class="mini-field" for="renamePrefix"><span>Prefix</span><input class="text" id="renamePrefix" type="text" placeholder="photo" maxlength="24" spellcheck="false" aria-label="Rename prefix" @input="onRenameInput"></label>
-              <span class="rename-meta"><code class="rename-pattern" id="renamePattern">{prefix}-{NNNN}.{ext}</code><span class="rename-example" id="renameExample">photo-0001.jpg</span></span>
-            </div>
-          </div>
-          <span class="band-hint">4-digit counter · zero-padded · keeps extension</span>
-        </div>
-      </div>
-    </div>
-    <button type="button" class="panel-foot" id="settingsFoot" aria-expanded="false" aria-controls="settingsBands" data-od-id="settings-foot" @click="toggleSettings">
-      <span class="foot-dot" aria-hidden="true"></span>
-      <span id="footLabelFoot">More settings</span>
-      <svg class="chev" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-
-  <!-- Main — full-width single pane -->
+  <!-- Card 1 — Folder + files: select folder > scan > select files -->
   <div class="main" data-od-id="main-layout">
-    <!-- Source files — inline compressed state -->
-    <section class="card" data-od-id="source-card" aria-label="Source files" :class="viewMode === 'grid' ? 'view-grid' : ''">
+    <section class="card" data-od-id="source-card" aria-label="Source folder and files" :class="viewMode === 'grid' ? 'view-grid' : ''">
       <div class="card-head">
         <h3>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2.5" width="12" height="11" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M5 6.5h6M5 9h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          Source files
+          Select folder &amp; files
         </h3>
         <div class="head-stats">
           <span class="hstat" data-od-id="stat-folder"><span class="hstat-label">Folder size</span><span class="hstat-value" id="statSize">— <small></small></span></span>
@@ -142,13 +24,23 @@
           <span class="count" id="selCount">0 selected</span>
         </div>
       </div>
+      <div class="folder-row" data-od-id="folder-row">
+        <div class="path-wrap" id="pathWrap">
+          <svg class="path-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H6l1.2 1.2c.2.2.45.3.7.3H12.5A1.5 1.5 0 0 1 14 7v4.5A1.5 1.5 0 0 1 12.5 13h-9A1.5 1.5 0 0 1 2 11.5V5.5Z" stroke="currentColor" stroke-width="1.2"/><path d="M2 6.5h12" stroke="currentColor" stroke-width="1.2"/></svg>
+          <nav class="crumbs" id="crumbBar" aria-label="Current folder"></nav>
+          <input class="path-input" id="pathInput" x-model="folder" placeholder="Paste a folder path or use Browse…" spellcheck="false" aria-label="Folder path" @keydown="onPathKey($event)">
+          <button type="button" class="mini-edit" id="pathEditBtn" title="Edit folder path" aria-label="Edit folder path" data-od-id="path-edit-btn" @click="togglePathEdit"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.2 2.3l2.5 2.5-8.5 8.5-2.7.2.2-2.7 8.5-8.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></button>
+        </div>
+        <button class="btn btn-default" id="browseBtn" data-od-id="browse-btn" @click="browse">Choose Folder</button>
+        <button class="btn btn-default btn-icon" id="rescanBtn" data-od-id="rescan-btn" title="Rescan folder" aria-label="Rescan folder" @click="rescan"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8a6 6 0 1 1-6-6c1.68 0 3.29.67 4.49 1.83L14 5.33" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v3.33h-3.33" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
       <div class="progress-wrap" id="progressWrap" style="display:none">
         <div class="progress-top"><span id="progLabel">Compressing…</span><span style="display:flex;gap:8px;align-items:center"><span id="progPct">0%</span><button class="btn btn-sm btn-ghost" id="cancelBtn" @click="cancel">Cancel</button></span></div>
         <div class="bar" id="progTrack" role="progressbar" aria-label="Compression progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progBar"></i></div>
       </div>
       <div class="toolbar">
         <label class="select-all-label" data-od-id="select-all"><input type="checkbox" id="selectAll" @change="toggleAll"> Select all</label>
-        <div class="search"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.2" stroke="currentColor" stroke-width="1.3"/><path d="M10.2 10.2L13 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><input id="searchInput" placeholder="Filter by name…" aria-label="Filter by name" data-od-id="search-input" x-model="filterSearch" @input="renderFiles"></div>
+        <div class="search"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.2" stroke="currentColor" stroke-width="1.3"/><path d="M10.2 10.2L13 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><input id="searchInput" placeholder="Search files…" aria-label="Search files" data-od-id="search-input" x-model="filterSearch" @input="renderFiles"></div>
         <select class="filter" id="typeFilter" aria-label="Filter by type" data-od-id="type-filter" x-model="filterType" @change="renderFiles"><option value="all">All types</option><option value="jpg">JPG</option><option value="png">PNG</option><option value="webp">WebP</option><option value="avif">AVIF</option></select>
         <select class="filter" id="sortBy" aria-label="Sort by" data-od-id="sort-by" x-model="sortBy" @change="renderFiles"><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="size-desc">Size ↓</option><option value="size-asc">Size ↑</option><option value="mtime-desc">Newest first</option><option value="mtime-asc">Oldest first</option><option value="type">Type</option></select>
         <div class="view-toggle" data-od-id="view-toggle" role="group" aria-label="View layout">
@@ -160,20 +52,140 @@
       <div class="row-head" aria-hidden="true"><span></span><span></span><span>File</span><span class="th-right">Size</span><span class="th-right">Dims</span></div>
       <div class="list" id="fileList" data-od-id="file-list" :class="viewMode === 'grid' ? 'grid' : ''"></div>
       <div class="footer-actions">
-        <span class="left" id="leftFoot">0 files · 0 KB · —</span>
+        <span class="left"><span id="leftFoot">0 files · 0 KB · —</span> · <span id="statusSave" aria-live="polite" class="footer-saved">Saved 0 KB total</span></span>
         <div class="right">
           <span class="compress-summary" id="compressSummary"></span>
           <button class="btn btn-sm btn-default" id="openFolderBtn" data-od-id="open-folder-btn" @click="openFolder">Open folder</button>
           <button class="btn btn-sm btn-ghost" id="invertBtn" data-od-id="invert-btn" @click="invertSelection">Invert</button>
-          <button class="btn btn-primary" id="compressBtn" data-od-id="compress-cta" @click="compress">Compress selected →</button>
         </div>
       </div>
     </section>
   </div>
 
+  <!-- Card 2 — Settings + compress: adjust settings > compress -->
+  <div class="panel settings-panel" data-od-id="settings-panel" :class="settingsOpen ? 'is-open' : ''">
+    <div class="compress-bar" data-od-id="compress-bar">
+      <div class="cb-left">
+        <div class="cb-quality" data-od-id="setting-quality-cell">
+          <label for="quality">Quality</label>
+          <input type="range" id="quality" min="40" max="95" value="85" data-od-id="setting-quality" @input="onQualityInput">
+          <span class="range-val" id="qVal">85</span>
+        </div>
+        <div class="seg seg-sm" role="group" aria-label="Output format" data-seg="format" data-od-id="setting-format">
+          <button type="button" data-value="keep" class="is-active" aria-pressed="true" title="Keep original: no transcoding · fastest, keeps file type" @click="setSeg('format','keep')">Keep</button>
+          <button type="button" data-value="webp" aria-pressed="false" title="WebP: smaller than JPEG · wide browser support" @click="setSeg('format','webp')">WebP</button>
+          <button type="button" data-value="avif" aria-pressed="false" title="AVIF: smallest files · slower encode, best savings" @click="setSeg('format','avif')">AVIF</button>
+          <button type="button" data-value="jpeg" aria-pressed="false" title="Force JPEG: re-encode all as JPEG · widest compatibility" @click="setSeg('format','jpeg')">JPEG</button>
+        </div>
+        <button type="button" class="panel-toggle" id="settingsFoot" aria-expanded="false" aria-controls="settingsBands" data-od-id="settings-toggle" @click="toggleSettings">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4.5h12M2 11.5h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="6" cy="4.5" r="1.8" fill="var(--bg)" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="11.5" r="1.8" fill="var(--bg)" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span id="footLabel">Advanced settings</span>
+          <svg class="chev" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="cb-right">
+        <button class="btn btn-sm btn-default" id="deleteSelBtn" data-od-id="delete-selected-btn" @click="deleteSelected">Delete selected</button>
+        <button class="btn btn-primary" id="compressBtn" data-od-id="compress-cta" @click="compress">Compress selected →</button>
+      </div>
+    </div>
+    <div class="settings-bands" data-od-id="settings-bands" id="settingsBands">
+      <div class="adv-grid">
+        <div class="adv-group" data-od-id="engine-group">
+          <div class="field-label" id="modeLabel">Processing engine</div>
+          <div class="seg" role="group" aria-labelledby="modeLabel" data-seg="mode" data-od-id="setting-engine">
+            <button type="button" data-value="balanced" class="is-active" aria-pressed="true" @click="setSeg('mode','balanced')">Balanced</button>
+            <button type="button" data-value="max" aria-pressed="false" @click="setSeg('mode','max')">Maximum</button>
+            <button type="button" data-value="fast" aria-pressed="false" @click="setSeg('mode','fast')">Fast</button>
+          </div>
+          <div class="seg-detail" id="modeDetail"><strong>Balanced</strong> · best size / speed tradeoff</div>
+        </div>
+        <div class="adv-group" data-od-id="threads-group">
+          <div class="field-label" id="threadsLabel">Max threads</div>
+          <div class="seg" role="group" aria-labelledby="threadsLabel" data-seg="threads" data-od-id="setting-concurrency">
+            <button type="button" data-value="2" aria-pressed="false" @click="setSeg('threads','2')">2</button>
+            <button type="button" data-value="4" class="is-active" aria-pressed="true" @click="setSeg('threads','4')">4</button>
+            <button type="button" data-value="8" aria-pressed="false" @click="setSeg('threads','8')">8</button>
+          </div>
+          <div class="seg-detail" id="threadsDetail"><strong>4 threads</strong> · Recommended for most desktops</div>
+        </div>
+      </div>
+      <div class="adv-group" data-od-id="options-group">
+        <div class="field-label">Options</div>
+        <div class="options-inline">
+          <label class="check"><input type="checkbox" id="lossless" @change="onSettingChange"><span>Lossless<span class="subtle-mono"> · PNG / WebP</span></span></label>
+          <label class="check"><input type="checkbox" id="stripMeta" checked @change="onSettingChange"><span>Strip metadata<span class="subtle-mono"> · EXIF / ICC</span></span></label>
+          <label class="check"><input type="checkbox" id="overwrite" checked @change="onSettingChange"><span>Overwrite originals<span class="subtle-mono"> · backup folder</span></span></label>
+          <label class="check"><input type="checkbox" id="skipSmall" @change="onSettingChange"><span>Skip files<span class="subtle-mono"> · &lt; 50 KB</span></span></label>
+        </div>
+      </div>
+      <div class="adv-grid">
+        <div class="adv-group" data-od-id="resize-group" id="bandResize">
+          <div class="field-label">Resize</div>
+          <label class="check" for="enableResize"><input type="checkbox" id="enableResize" @change="onSettingChange"> Downscale if larger than</label>
+          <div class="band-fields" id="resizeFields">
+            <label class="mini-field" for="maxW"><span>Max width</span><span class="dim-input"><input class="number" id="maxW" type="number" placeholder="—" min="1" max="16000" step="10" inputmode="numeric" aria-label="Maximum width" @change="onSettingChange"><span class="unit">px</span></span></label>
+            <span class="dim-sep" aria-hidden="true">×</span>
+            <label class="mini-field" for="maxH"><span>Max height</span><span class="dim-input"><input class="number" id="maxH" type="number" placeholder="—" min="1" max="16000" step="10" inputmode="numeric" aria-label="Maximum height" @change="onSettingChange"><span class="unit">px</span></span></label>
+          </div>
+          <span class="band-hint">Empty = no limit · keeps aspect ratio</span>
+        </div>
+        <div class="adv-group is-disabled" data-od-id="rename-group" id="bandRename">
+          <div class="field-label">Rename</div>
+          <label class="check" for="enableRename"><input type="checkbox" id="enableRename" @change="onSettingChange"> Auto-rename outputs</label>
+          <div class="band-fields rename-field" id="renameFields">
+            <label class="mini-field" for="renamePrefix"><span>Prefix</span><input class="text" id="renamePrefix" type="text" placeholder="photo" maxlength="24" spellcheck="false" aria-label="Rename prefix" @input="onRenameInput"></label>
+            <span class="rename-meta"><code class="rename-pattern" id="renamePattern">{prefix}-{NNNN}.{ext}</code><span class="rename-example" id="renameExample">photo-0001.jpg</span></span>
+          </div>
+          <span class="band-hint">4-digit counter · zero-padded · keeps extension</span>
+        </div>
+      </div>
+      <div class="adv-group" data-od-id="quality-group">
+        <div class="field-label">Quality detail</div>
+        <div class="seg-detail" id="qualityDetail"><strong>High quality · 85</strong> · Visually lossless · larger files</div>
+      </div>
+      <div class="adv-group" data-od-id="format-group">
+        <div class="field-label">Output detail</div>
+        <div class="seg-detail" id="formatDetail"><strong>Keep original</strong> · No transcoding · fastest, keeps file type</div>
+      </div>
+    </div>
+  </div>
+
   <div class="statusbar" data-od-id="statusbar">
-    <span class="statusbar-left"><b>Compressy</b> · vips 8.18 · <span id="versionBadge">v— · —</span> · <span id="statusText" role="status" aria-live="polite">Ready</span></span>
-    <span class="statusbar-right"><span id="statusSave" aria-live="polite">Saved 0 KB total</span></span>
+    <span class="statusbar-left"><span class="statusbar-info"><b>Compressy</b> · vips 8.18 · <span id="versionBadge">v— · —</span> · <span id="statusText" role="status" aria-live="polite">Ready</span></span></span>
+    <span class="statusbar-right"><span id="statusSave" aria-live="polite">Saved 0 KB total</span><span class="theme-toggle" id="themeToggle" role="group" aria-label="Theme" data-od-id="theme-toggle"><button type="button" data-value="light" class="is-active" aria-pressed="true" title="Light" @click="setTheme('light')"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg> Light</button><button type="button" data-value="dark" aria-pressed="false" title="Dark" @click="setTheme('dark')"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13.6A5.6 5.6 0 0 1 8 2.4a5.6 5.6 0 0 0 0 11.2Z" fill="currentColor"/></svg> Dark</button><button type="button" data-value="auto" aria-pressed="false" title="Auto" @click="setTheme('auto')"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.2" stroke="currentColor" stroke-width="1.2"/><path d="M8 2.8A5.2 5.2 0 0 1 13.2 8H8V2.8Z" fill="currentColor"/></svg> Auto</button></span></span>
+  </div>
+</div>
+
+<!-- File context menu — Open / Reveal / Compress / Copy path / Delete -->
+<div class="ctx-menu" id="ctxMenu" role="menu" aria-label="File actions" hidden>
+  <button type="button" role="menuitem" data-act="open" data-od-id="ctx-open">Open</button>
+  <button type="button" role="menuitem" data-act="reveal" data-od-id="ctx-reveal">Reveal in Explorer</button>
+  <button type="button" role="menuitem" data-act="compress" data-od-id="ctx-compress">Compress</button>
+  <button type="button" role="menuitem" data-act="copy" data-od-id="ctx-copy">Copy path</button>
+  <div class="ctx-sep" aria-hidden="true"></div>
+  <button type="button" role="menuitem" data-act="delete" data-od-id="ctx-delete" class="danger">Delete</button>
+</div>
+
+<!-- Folder browser — Windows-style picker, opened by Choose Folder -->
+<div class="fb-overlay" id="fbOverlay" hidden>
+  <div class="fb-dialog" role="dialog" aria-modal="true" aria-labelledby="fbTitle" data-od-id="folder-browser">
+    <div class="fb-titlebar">
+      <span id="fbTitle">Select Folder</span>
+      <button type="button" class="fb-close" id="fbClose" aria-label="Close dialog" data-od-id="fb-close"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="fb-toolbar">
+      <div class="fb-crumbs" id="fbCrumbs" aria-label="Address bar"></div>
+    </div>
+    <div class="fb-body">
+      <nav class="fb-nav" id="fbNav" aria-label="Quick locations" data-od-id="fb-nav"></nav>
+      <div class="fb-list" id="fbList" role="listbox" aria-label="Folders" tabindex="0" data-od-id="fb-list"></div>
+    </div>
+    <div class="fb-footer">
+      <div class="fb-actions">
+        <button type="button" class="btn btn-default" id="fbCancel" data-od-id="fb-cancel">Cancel</button>
+        <button type="button" class="btn btn-blue" id="fbSelect" data-od-id="fb-confirm">Select Folder</button>
+      </div>
+    </div>
   </div>
 </div>
 
