@@ -47,6 +47,35 @@
         "source_file": "C:/projects/compressy/desktop-app/scanner.ts"
       },
       {
+        "id": "settings_sync_flow",
+        "label": "Settings Sync Flow (UI to Backend)",
+        "nodes": [
+          "appjs_settings_state",
+          "appjs_default_settings",
+          "appjs_persist_settings",
+          "worker_compress_options"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.7,
+        "source_file": "C:/projects/compressy/desktop-app/static/app.js"
+      },
+      {
+        "id": "single_file_compression_pipeline",
+        "label": "Single-File Compression Pipeline",
+        "nodes": [
+          "worker_compress_one",
+          "worker_encode_args",
+          "worker_vips_save_op",
+          "worker_target_format",
+          "worker_output_path_for"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "C:/projects/compressy/desktop-app/worker.ts"
+      },
+      {
         "id": "app_window_shell",
         "label": "App Window Shell",
         "nodes": [
@@ -58,36 +87,7 @@
         "relation": "form",
         "confidence": "EXTRACTED",
         "confidence_score": 1.0,
-        "source_file": "static/index.html"
-      },
-      {
-        "id": "single_file_compression_pipeline",
-        "label": "Single-File Compression Pipeline",
-        "nodes": [
-          "worker_compressone",
-          "worker_encodeargs",
-          "worker_vipssaveop",
-          "worker_targetformat",
-          "worker_outputpathfor"
-        ],
-        "relation": "participate_in",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "worker.ts"
-      },
-      {
-        "id": "settings_sync_flow",
-        "label": "Settings Sync Flow (UI to Backend)",
-        "nodes": [
-          "appjs_settings_state",
-          "appjs_default_settings",
-          "static_app_persistsettingsdebounced",
-          "worker_compress_options"
-        ],
-        "relation": "participate_in",
-        "confidence": "INFERRED",
-        "confidence_score": 0.7,
-        "source_file": "static/app.js"
+        "source_file": "C:/projects/compressy/desktop-app/static/index.html"
       }
     ]
   },
@@ -99,7 +99,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "bindings",
-      "community": 0,
+      "community": 3,
       "norm_label": "bindings.ts"
     },
     {
@@ -109,7 +109,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "bindings_openinexplorer",
-      "community": 0,
+      "community": 3,
       "norm_label": "openinexplorer()"
     },
     {
@@ -119,7 +119,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "bindings_pickfolderwin32",
-      "community": 0,
+      "community": 3,
       "norm_label": "pickfolderwin32()"
     },
     {
@@ -129,7 +129,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "bindings_todaystamp",
-      "community": 0,
+      "community": 3,
       "norm_label": "todaystamp()"
     },
     {
@@ -139,7 +139,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "bindings_exportcsv",
-      "community": 0,
+      "community": 3,
       "norm_label": "exportcsv()"
     },
     {
@@ -149,7 +149,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "bindings_registerbindings",
-      "community": 0,
+      "community": 3,
       "norm_label": "registerbindings()"
     },
     {
@@ -159,7 +159,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clean",
-      "community": 10,
+      "community": 9,
       "norm_label": "clean.ts"
     },
     {
@@ -169,7 +169,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "clean_dist",
-      "community": 10,
+      "community": 9,
       "norm_label": "dist"
     },
     {
@@ -179,7 +179,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "compressor",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressor.ts"
     },
     {
@@ -189,7 +189,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "compressor_resetcancel",
-      "community": 0,
+      "community": 2,
       "norm_label": "resetcancel()"
     },
     {
@@ -199,7 +199,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "compressor_requestcancel",
-      "community": 0,
+      "community": 2,
       "norm_label": "requestcancel()"
     },
     {
@@ -209,7 +209,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "compressor_iscancelrequested",
-      "community": 0,
+      "community": 2,
       "norm_label": "iscancelrequested()"
     },
     {
@@ -219,7 +219,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "compressor_compressfiles",
-      "community": 0,
+      "community": 3,
       "norm_label": "compressfiles()"
     },
     {
@@ -229,7 +229,7 @@
       "source_location": "L120",
       "_origin": "ast",
       "id": "compressor_targetformatfallback",
-      "community": 0,
+      "community": 3,
       "norm_label": "targetformatfallback()"
     },
     {
@@ -239,7 +239,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "compressor_getprogress",
-      "community": 0,
+      "community": 2,
       "norm_label": "getprogress()"
     },
     {
@@ -249,7 +249,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "compressor_currentprogress",
-      "community": 0,
+      "community": 2,
       "norm_label": "currentprogress()"
     },
     {
@@ -259,7 +259,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "deno",
-      "community": 3,
+      "community": 5,
       "norm_label": "deno.json"
     },
     {
@@ -269,7 +269,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "deno_name",
-      "community": 3,
+      "community": 5,
       "norm_label": "name"
     },
     {
@@ -279,7 +279,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "deno_version",
-      "community": 3,
+      "community": 5,
       "norm_label": "version"
     },
     {
@@ -289,7 +289,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "deno_exports",
-      "community": 3,
+      "community": 5,
       "norm_label": "exports"
     },
     {
@@ -299,7 +299,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "deno_imports",
-      "community": 3,
+      "community": 5,
       "norm_label": "imports"
     },
     {
@@ -309,7 +309,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "deno_imports_zod",
-      "community": 3,
+      "community": 5,
       "norm_label": "zod"
     },
     {
@@ -319,7 +319,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "deno_imports_std_path",
-      "community": 3,
+      "community": 5,
       "norm_label": "std/path"
     },
     {
@@ -329,7 +329,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "deno_tasks",
-      "community": 3,
+      "community": 5,
       "norm_label": "tasks"
     },
     {
@@ -339,7 +339,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "deno_tasks_dev",
-      "community": 3,
+      "community": 5,
       "norm_label": "dev"
     },
     {
@@ -349,7 +349,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "deno_tasks_build",
-      "community": 3,
+      "community": 5,
       "norm_label": "build"
     },
     {
@@ -359,7 +359,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "deno_tasks_clean",
-      "community": 3,
+      "community": 5,
       "norm_label": "clean"
     },
     {
@@ -369,7 +369,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "deno_tasks_make_icon",
-      "community": 3,
+      "community": 5,
       "norm_label": "make-icon"
     },
     {
@@ -379,7 +379,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "deno_tasks_vendor_vips",
-      "community": 3,
+      "community": 5,
       "norm_label": "vendor:vips"
     },
     {
@@ -389,7 +389,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "deno_tasks_build_dir",
-      "community": 3,
+      "community": 5,
       "norm_label": "build:dir"
     },
     {
@@ -399,7 +399,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "deno_tasks_build_msi",
-      "community": 3,
+      "community": 5,
       "norm_label": "build:msi"
     },
     {
@@ -409,7 +409,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "deno_tasks_build_installer",
-      "community": 3,
+      "community": 5,
       "norm_label": "build:installer"
     },
     {
@@ -419,7 +419,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "deno_tasks_test",
-      "community": 3,
+      "community": 5,
       "norm_label": "test"
     },
     {
@@ -429,7 +429,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "deno_tasks_release",
-      "community": 3,
+      "community": 5,
       "norm_label": "release"
     },
     {
@@ -439,7 +439,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "deno_desktop",
-      "community": 3,
+      "community": 5,
       "norm_label": "desktop"
     },
     {
@@ -449,7 +449,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "deno_desktop_app",
-      "community": 3,
+      "community": 5,
       "norm_label": "app"
     },
     {
@@ -459,7 +459,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "deno_app_name",
-      "community": 3,
+      "community": 5,
       "norm_label": "name"
     },
     {
@@ -469,7 +469,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "deno_app_identifier",
-      "community": 3,
+      "community": 5,
       "norm_label": "identifier"
     },
     {
@@ -479,7 +479,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "deno_app_icons",
-      "community": 3,
+      "community": 5,
       "norm_label": "icons"
     },
     {
@@ -489,7 +489,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "deno_icons_windows",
-      "community": 3,
+      "community": 5,
       "norm_label": "windows"
     },
     {
@@ -499,7 +499,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "deno_desktop_backend",
-      "community": 3,
+      "community": 5,
       "norm_label": "backend"
     },
     {
@@ -509,7 +509,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "deno_desktop_output",
-      "community": 3,
+      "community": 5,
       "norm_label": "output"
     },
     {
@@ -519,7 +519,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "deno_output_windows",
-      "community": 3,
+      "community": 5,
       "norm_label": "windows"
     },
     {
@@ -529,7 +529,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "image_header",
-      "community": 5,
+      "community": 4,
       "norm_label": "image-header.ts"
     },
     {
@@ -539,7 +539,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "image_header_be16",
-      "community": 5,
+      "community": 4,
       "norm_label": "be16()"
     },
     {
@@ -549,7 +549,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "image_header_be32",
-      "community": 5,
+      "community": 4,
       "norm_label": "be32()"
     },
     {
@@ -559,7 +559,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "image_header_parsejpeg",
-      "community": 5,
+      "community": 4,
       "norm_label": "parsejpeg()"
     },
     {
@@ -569,7 +569,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "image_header_parsepng",
-      "community": 5,
+      "community": 4,
       "norm_label": "parsepng()"
     },
     {
@@ -579,7 +579,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "image_header_parsewebp",
-      "community": 5,
+      "community": 4,
       "norm_label": "parsewebp()"
     },
     {
@@ -589,7 +589,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "image_header_parseavif",
-      "community": 5,
+      "community": 4,
       "norm_label": "parseavif()"
     },
     {
@@ -599,7 +599,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "image_header_imagedimsfromheader",
-      "community": 5,
+      "community": 4,
       "norm_label": "imagedimsfromheader()"
     },
     {
@@ -609,7 +609,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main",
-      "community": 2,
+      "community": 6,
       "norm_label": "main.ts"
     },
     {
@@ -619,7 +619,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "main_mime",
-      "community": 2,
+      "community": 6,
       "norm_label": "mime"
     },
     {
@@ -629,7 +629,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "main_thumbcachedir",
-      "community": 2,
+      "community": 6,
       "norm_label": "thumbcachedir"
     },
     {
@@ -639,7 +639,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "main_thumbkey",
-      "community": 2,
+      "community": 6,
       "norm_label": "thumbkey()"
     },
     {
@@ -649,7 +649,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "main_thumbpathfor",
-      "community": 2,
+      "community": 6,
       "norm_label": "thumbpathfor()"
     },
     {
@@ -659,7 +659,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "main_resolveweb",
-      "community": 2,
+      "community": 6,
       "norm_label": "resolveweb()"
     },
     {
@@ -669,7 +669,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "main_web",
-      "community": 2,
+      "community": 6,
       "norm_label": "web"
     },
     {
@@ -679,7 +679,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "main_desktop",
-      "community": 2,
+      "community": 6,
       "norm_label": "desktop"
     },
     {
@@ -689,7 +689,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "main_respond",
-      "community": 2,
+      "community": 6,
       "norm_label": "respond()"
     },
     {
@@ -699,7 +699,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "main_servestatic",
-      "community": 2,
+      "community": 6,
       "norm_label": "servestatic()"
     },
     {
@@ -709,7 +709,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "main_setupwindow",
-      "community": 2,
+      "community": 6,
       "norm_label": "setupwindow()"
     },
     {
@@ -719,7 +719,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scanner",
-      "community": 0,
+      "community": 4,
       "norm_label": "scanner.ts"
     },
     {
@@ -729,7 +729,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "scanner_supported_exts",
-      "community": 0,
+      "community": 4,
       "norm_label": "supported_exts"
     },
     {
@@ -739,7 +739,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "scanner_extof",
-      "community": 7,
+      "community": 4,
       "norm_label": "extof()"
     },
     {
@@ -749,7 +749,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "scanner_imagemeta",
-      "community": 7,
+      "community": 4,
       "norm_label": "imagemeta()"
     },
     {
@@ -759,7 +759,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "scanner_scanfolder",
-      "community": 0,
+      "community": 4,
       "norm_label": "scanfolder()"
     },
     {
@@ -769,7 +769,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "settings",
-      "community": 2,
+      "community": 6,
       "norm_label": "settings.ts"
     },
     {
@@ -779,7 +779,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "settings_default_settings",
-      "community": 2,
+      "community": 6,
       "norm_label": "default_settings"
     },
     {
@@ -789,7 +789,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "settings_windowgeometryschema",
-      "community": 2,
+      "community": 6,
       "norm_label": "windowgeometryschema"
     },
     {
@@ -799,7 +799,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "settings_windowgeometry",
-      "community": 7,
+      "community": 3,
       "norm_label": "windowgeometry"
     },
     {
@@ -809,7 +809,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "settings_appdatadir",
-      "community": 2,
+      "community": 6,
       "norm_label": "appdatadir()"
     },
     {
@@ -819,7 +819,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "settings_settingspath",
-      "community": 2,
+      "community": 6,
       "norm_label": "settingspath()"
     },
     {
@@ -829,7 +829,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "settings_windowpath",
-      "community": 2,
+      "community": 6,
       "norm_label": "windowpath()"
     },
     {
@@ -839,7 +839,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "settings_writejsonatomic",
-      "community": 2,
+      "community": 6,
       "norm_label": "writejsonatomic()"
     },
     {
@@ -849,7 +849,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "settings_readjson",
-      "community": 2,
+      "community": 6,
       "norm_label": "readjson()"
     },
     {
@@ -859,7 +859,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "settings_loadsettings",
-      "community": 2,
+      "community": 6,
       "norm_label": "loadsettings()"
     },
     {
@@ -869,7 +869,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "settings_savesettings",
-      "community": 2,
+      "community": 6,
       "norm_label": "savesettings()"
     },
     {
@@ -879,7 +879,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "settings_loadwindowgeometry",
-      "community": 2,
+      "community": 6,
       "norm_label": "loadwindowgeometry()"
     },
     {
@@ -889,7 +889,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "settings_savewindowgeometry",
-      "community": 2,
+      "community": 6,
       "norm_label": "savewindowgeometry()"
     },
     {
@@ -1289,7 +1289,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "static_templates",
-      "community": 15,
+      "community": 14,
       "norm_label": "templates.js"
     },
     {
@@ -1299,7 +1299,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_compressor_test",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressor_test.ts"
     },
     {
@@ -1309,7 +1309,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_compressor_test_basereq",
-      "community": 0,
+      "community": 2,
       "norm_label": "basereq()"
     },
     {
@@ -1319,7 +1319,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_helpers",
-      "community": 6,
+      "community": 7,
       "norm_label": "helpers.ts"
     },
     {
@@ -1329,7 +1329,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "tests_helpers_testformat",
-      "community": 6,
+      "community": 7,
       "norm_label": "testformat"
     },
     {
@@ -1339,7 +1339,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_helpers_writeppm",
-      "community": 6,
+      "community": 7,
       "norm_label": "writeppm()"
     },
     {
@@ -1349,7 +1349,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "tests_helpers_makeimage",
-      "community": 6,
+      "community": 7,
       "norm_label": "makeimage()"
     },
     {
@@ -1359,7 +1359,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "tests_helpers_imagedims",
-      "community": 0,
+      "community": 2,
       "norm_label": "imagedims()"
     },
     {
@@ -1369,7 +1369,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "tests_helpers_readbytes",
-      "community": 6,
+      "community": 7,
       "norm_label": "readbytes()"
     },
     {
@@ -1379,7 +1379,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_scanner_test",
-      "community": 6,
+      "community": 7,
       "norm_label": "scanner_test.ts"
     },
     {
@@ -1389,7 +1389,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_settings_test",
-      "community": 2,
+      "community": 6,
       "norm_label": "settings_test.ts"
     },
     {
@@ -1399,7 +1399,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "tests_settings_test_tmpbase",
-      "community": 2,
+      "community": 6,
       "norm_label": "tmpbase()"
     },
     {
@@ -1409,7 +1409,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "tests_settings_test_seedsettings",
-      "community": 2,
+      "community": 6,
       "norm_label": "seedsettings()"
     },
     {
@@ -1419,7 +1419,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "types",
-      "community": 0,
+      "community": 2,
       "norm_label": "types.ts"
     },
     {
@@ -1429,7 +1429,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "types_extschema",
-      "community": 0,
+      "community": 2,
       "norm_label": "extschema"
     },
     {
@@ -1439,7 +1439,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "types_imageext",
-      "community": 0,
+      "community": 4,
       "norm_label": "imageext"
     },
     {
@@ -1449,7 +1449,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "types_fileentryschema",
-      "community": 0,
+      "community": 2,
       "norm_label": "fileentryschema"
     },
     {
@@ -1459,7 +1459,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "types_fileentry",
-      "community": 0,
+      "community": 4,
       "norm_label": "fileentry"
     },
     {
@@ -1469,7 +1469,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "types_scanresultschema",
-      "community": 0,
+      "community": 2,
       "norm_label": "scanresultschema"
     },
     {
@@ -1479,7 +1479,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "types_scanresult",
-      "community": 0,
+      "community": 4,
       "norm_label": "scanresult"
     },
     {
@@ -1489,7 +1489,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "types_compressfileinputschema",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressfileinputschema"
     },
     {
@@ -1499,7 +1499,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "types_compressfileinput",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressfileinput"
     },
     {
@@ -1509,7 +1509,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "types_compressrequestschema",
-      "community": 0,
+      "community": 3,
       "norm_label": "compressrequestschema"
     },
     {
@@ -1519,7 +1519,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "types_compressrequest",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressrequest"
     },
     {
@@ -1529,7 +1529,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "types_compressoptions",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressoptions"
     },
     {
@@ -1539,7 +1539,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "types_workerjob",
-      "community": 0,
+      "community": 2,
       "norm_label": "workerjob"
     },
     {
@@ -1549,7 +1549,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "types_fileresultschema",
-      "community": 0,
+      "community": 3,
       "norm_label": "fileresultschema"
     },
     {
@@ -1559,7 +1559,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "types_fileresult",
-      "community": 0,
+      "community": 2,
       "norm_label": "fileresult"
     },
     {
@@ -1569,7 +1569,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "types_compressresultschema",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressresultschema"
     },
     {
@@ -1579,7 +1579,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "types_compressresult",
-      "community": 0,
+      "community": 2,
       "norm_label": "compressresult"
     },
     {
@@ -1589,7 +1589,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "types_progressstateschema",
-      "community": 0,
+      "community": 2,
       "norm_label": "progressstateschema"
     },
     {
@@ -1599,7 +1599,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "types_progressstate",
-      "community": 0,
+      "community": 2,
       "norm_label": "progressstate"
     },
     {
@@ -1609,7 +1609,7 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "types_appsettingsschema",
-      "community": 2,
+      "community": 6,
       "norm_label": "appsettingsschema"
     },
     {
@@ -1619,7 +1619,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "types_appsettings",
-      "community": 0,
+      "community": 2,
       "norm_label": "appsettings"
     },
     {
@@ -1629,7 +1629,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "types_desktopwindow",
-      "community": 9,
+      "community": 3,
       "norm_label": "desktopwindow"
     },
     {
@@ -1639,7 +1639,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "types_desktopwindow_bind",
-      "community": 9,
+      "community": 3,
       "norm_label": ".bind()"
     },
     {
@@ -1649,7 +1649,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "types_desktopwindow_addeventlistener",
-      "community": 9,
+      "community": 3,
       "norm_label": ".addeventlistener()"
     },
     {
@@ -1659,7 +1659,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "types_desktopwindow_settitle",
-      "community": 9,
+      "community": 3,
       "norm_label": ".settitle()"
     },
     {
@@ -1669,7 +1669,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "types_desktopwindow_setsize",
-      "community": 9,
+      "community": 3,
       "norm_label": ".setsize()"
     },
     {
@@ -1679,7 +1679,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "types_desktopwindow_getsize",
-      "community": 9,
+      "community": 3,
       "norm_label": ".getsize()"
     },
     {
@@ -1689,7 +1689,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "types_desktopwindow_getposition",
-      "community": 9,
+      "community": 3,
       "norm_label": ".getposition()"
     },
     {
@@ -1699,7 +1699,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "types_desktopwindow_close",
-      "community": 9,
+      "community": 3,
       "norm_label": ".close()"
     },
     {
@@ -1709,7 +1709,7 @@
       "source_location": "L134",
       "_origin": "ast",
       "id": "types_bindings",
-      "community": 8,
+      "community": 4,
       "norm_label": "bindings"
     },
     {
@@ -1719,7 +1719,7 @@
       "source_location": "L135",
       "_origin": "ast",
       "id": "types_bindings_getversion",
-      "community": 8,
+      "community": 4,
       "norm_label": ".getversion()"
     },
     {
@@ -1729,7 +1729,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "types_bindings_loadsettings",
-      "community": 8,
+      "community": 4,
       "norm_label": ".loadsettings()"
     },
     {
@@ -1739,7 +1739,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "types_bindings_savesettings",
-      "community": 8,
+      "community": 4,
       "norm_label": ".savesettings()"
     },
     {
@@ -1749,7 +1749,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "types_bindings_scan",
-      "community": 8,
+      "community": 4,
       "norm_label": ".scan()"
     },
     {
@@ -1759,7 +1759,7 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "types_bindings_compress",
-      "community": 8,
+      "community": 4,
       "norm_label": ".compress()"
     },
     {
@@ -1769,7 +1769,7 @@
       "source_location": "L140",
       "_origin": "ast",
       "id": "types_bindings_getprogress",
-      "community": 8,
+      "community": 4,
       "norm_label": ".getprogress()"
     },
     {
@@ -1779,7 +1779,7 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "types_bindings_cancelcompress",
-      "community": 8,
+      "community": 4,
       "norm_label": ".cancelcompress()"
     },
     {
@@ -1789,7 +1789,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "types_bindings_exportcsv",
-      "community": 8,
+      "community": 4,
       "norm_label": ".exportcsv()"
     },
     {
@@ -1799,7 +1799,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "types_bindings_openfolder",
-      "community": 8,
+      "community": 4,
       "norm_label": ".openfolder()"
     },
     {
@@ -1809,7 +1809,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "version",
-      "community": 2,
+      "community": 3,
       "norm_label": "version.ts"
     },
     {
@@ -1819,7 +1819,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "vips",
-      "community": 6,
+      "community": 7,
       "norm_label": "vips.ts"
     },
     {
@@ -1829,7 +1829,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "vips_appdatadir",
-      "community": 6,
+      "community": 7,
       "norm_label": "appdatadir()"
     },
     {
@@ -1839,7 +1839,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "vips_ensurerealfile",
-      "community": 6,
+      "community": 7,
       "norm_label": "ensurerealfile()"
     },
     {
@@ -1849,7 +1849,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "vips_vipsbin",
-      "community": 6,
+      "community": 7,
       "norm_label": "vipsbin()"
     },
     {
@@ -1859,7 +1859,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "vips_vipsheaderbin",
-      "community": 6,
+      "community": 7,
       "norm_label": "vipsheaderbin()"
     },
     {
@@ -1869,7 +1869,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "vips_vipsthumbnailbin",
-      "community": 6,
+      "community": 7,
       "norm_label": "vipsthumbnailbin()"
     },
     {
@@ -1879,7 +1879,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "vips_vipsresult",
-      "community": 6,
+      "community": 7,
       "norm_label": "vipsresult"
     },
     {
@@ -1889,7 +1889,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "vips_runvips",
-      "community": 6,
+      "community": 2,
       "norm_label": "runvips()"
     },
     {
@@ -1899,7 +1899,7 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "vips_runvipssync",
-      "community": 6,
+      "community": 7,
       "norm_label": "runvipssync()"
     },
     {
@@ -1909,7 +1909,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "vips_runheadersync",
-      "community": 6,
+      "community": 7,
       "norm_label": "runheadersync()"
     },
     {
@@ -1919,7 +1919,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "vips_runthumbnail",
-      "community": 6,
+      "community": 2,
       "norm_label": "runthumbnail()"
     },
     {
@@ -1929,7 +1929,7 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "vips_runbin",
-      "community": 6,
+      "community": 2,
       "norm_label": "runbin()"
     },
     {
@@ -1939,7 +1939,7 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "vips_runbinsync",
-      "community": 6,
+      "community": 7,
       "norm_label": "runbinsync()"
     },
     {
@@ -1949,7 +1949,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "vips_rationale_57",
-      "community": 6,
+      "community": 7,
       "norm_label": "note: import.meta-relative paths (vfs in compiled binaries) are not"
     },
     {
@@ -1959,7 +1959,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worker",
-      "community": 5,
+      "community": 2,
       "norm_label": "worker.ts"
     },
     {
@@ -1969,7 +1969,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "worker_vipssaveop",
-      "community": 5,
+      "community": 2,
       "norm_label": "vipssaveop()"
     },
     {
@@ -1979,7 +1979,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "worker_encodeargs",
-      "community": 5,
+      "community": 2,
       "norm_label": "encodeargs()"
     },
     {
@@ -1989,7 +1989,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "worker_targetformat",
-      "community": 5,
+      "community": 2,
       "norm_label": "targetformat()"
     },
     {
@@ -1999,7 +1999,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "worker_outputpathfor",
-      "community": 5,
+      "community": 2,
       "norm_label": "outputpathfor()"
     },
     {
@@ -2009,7 +2009,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "worker_runvipschecked",
-      "community": 5,
+      "community": 2,
       "norm_label": "runvipschecked()"
     },
     {
@@ -2019,7 +2019,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "worker_compressone",
-      "community": 5,
+      "community": 2,
       "norm_label": "compressone()"
     },
     {
@@ -2033,7 +2033,7 @@
       "contributor": null,
       "rationale": "The webview's <input type=file> cannot reveal absolute paths (Chromium strips them) and Deno desktop has no native picker API yet, so a hidden PowerShell subprocess shells out to FolderBrowserDialog. Non-Windows returns null (path field only).",
       "id": "bindings_pickfolder",
-      "community": 0,
+      "community": 3,
       "norm_label": "windows folder picker"
     },
     {
@@ -2046,7 +2046,7 @@
       "author": null,
       "contributor": null,
       "id": "clean_script",
-      "community": 12,
+      "community": 11,
       "norm_label": "dist clean script"
     },
     {
@@ -2059,8 +2059,60 @@
       "author": null,
       "contributor": null,
       "id": "compressor_cancelflag",
-      "community": 0,
+      "community": 3,
       "norm_label": "compression cancellation flag"
+    },
+    {
+      "label": "Deno Desktop Config (CEF backend)",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
+      "source_location": "\"desktop\" key",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "denojson_desktop_config",
+      "community": 0,
+      "norm_label": "deno desktop config (cef backend)"
+    },
+    {
+      "label": "Deno Tasks (dev/build/test/release)",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
+      "source_location": "\"tasks\" key",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "denojson_tasks",
+      "community": 0,
+      "norm_label": "deno tasks (dev/build/test/release)"
+    },
+    {
+      "label": "Import Map (zod, std/path)",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
+      "source_location": "\"imports\" key",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "denojson_imports",
+      "community": 8,
+      "norm_label": "import map (zod, std/path)"
+    },
+    {
+      "label": "App Identity (name/identifier/icons)",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
+      "source_location": "\"desktop.app\" key",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "denojson_app_identity",
+      "community": 0,
+      "norm_label": "app identity (name/identifier/icons)"
     },
     {
       "label": "Pure-Deno Image Header Parser",
@@ -2072,7 +2124,7 @@
       "author": null,
       "contributor": null,
       "id": "imageheader_parser",
-      "community": 11,
+      "community": 10,
       "norm_label": "pure-deno image header parser"
     },
     {
@@ -2085,7 +2137,7 @@
       "author": null,
       "contributor": null,
       "id": "rationale_pureheader",
-      "community": 11,
+      "community": 10,
       "norm_label": "pure-deno header parser rationale"
     },
     {
@@ -2099,7 +2151,7 @@
       "contributor": null,
       "rationale": "Static assets resolve from the real static/ folder in dev but from the embedded VFS relative to import.meta.url in a compiled binary; probe candidates at startup and pick the first containing index.html. Deno.BrowserWindow is exposed at runtime by deno desktop but not in the public type lib, so a structural cast mirrors the official denidian example; plain deno run (browser dev) skips the window.",
       "id": "main_serverentry",
-      "community": 7,
+      "community": 3,
       "norm_label": "http server entry & window setup"
     },
     {
@@ -2113,7 +2165,7 @@
       "contributor": null,
       "rationale": "vipsthumbnail renders a 512px WebP per file (3.5x the ~148px grid card width - sharp at HiDPI and future larger layouts), cached in the app-data dir keyed by path+size+thumb-size hash. FNV-1a 32-bit hash is stable with no crypto dependency; thumb size in the key invalidates stale caches when resolution changes. The webview <img> lazy-loads via /thumb?path=... and the browser cache handles repeat views within a session.",
       "id": "main_thumbnailcache",
-      "community": 7,
+      "community": 3,
       "norm_label": "thumbnail cache"
     },
     {
@@ -2127,7 +2179,7 @@
       "contributor": null,
       "rationale": "Reading image dimensions from the header in pure Deno (image-header.ts) avoids subprocess spawns entirely: no console window flash, works in the compiled binary where subprocess exes may be virtual, and costs 0 subprocesses for output dims.",
       "id": "pattern_headeronly_metadata",
-      "community": 7,
+      "community": 4,
       "norm_label": "pure-deno header parsing pattern"
     },
     {
@@ -2141,7 +2193,7 @@
       "contributor": null,
       "rationale": "Missing/corrupt/out-of-schema JSON falls back to defaults; a partial object is tolerated and merged over the fallback. Writes are atomic via tmp file + rename.",
       "id": "settings_loadsave",
-      "community": 7,
+      "community": 3,
       "norm_label": "settings persistence"
     },
     {
@@ -2154,8 +2206,437 @@
       "author": null,
       "contributor": null,
       "id": "settings_defaults",
-      "community": 7,
+      "community": 3,
       "norm_label": "default settings constant"
+    },
+    {
+      "label": "workspace Alpine Component",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "Alpine.data(\"workspace\")",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_workspace",
+      "community": 0,
+      "norm_label": "workspace alpine component"
+    },
+    {
+      "label": "bindings Backend API",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "bindings.* calls throughout",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_bindings",
+      "community": 0,
+      "norm_label": "bindings backend api"
+    },
+    {
+      "label": "DEFAULT_SETTINGS",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "line 22",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_default_settings",
+      "community": 0,
+      "norm_label": "default_settings"
+    },
+    {
+      "label": "SEG_DETAILS",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "line 40",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_seg_details",
+      "community": 0,
+      "norm_label": "seg_details"
+    },
+    {
+      "label": "AppSettings State",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "settings state field",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_settings_state",
+      "community": 8,
+      "norm_label": "appsettings state"
+    },
+    {
+      "label": "resultsByPath Map",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "resultsByPath state field",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_results_by_path",
+      "community": 8,
+      "norm_label": "resultsbypath map"
+    },
+    {
+      "label": "ProgressState",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "progress state field",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_progress_state",
+      "community": 0,
+      "norm_label": "progressstate"
+    },
+    {
+      "label": "CompressyTemplates",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "line 3 (window.CompressyTemplates)",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_templates",
+      "community": 0,
+      "norm_label": "compressytemplates"
+    },
+    {
+      "label": "init()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "init method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_init",
+      "community": 0,
+      "norm_label": "init()"
+    },
+    {
+      "label": "syncSettingsToDom()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSettingsToDom method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_sync_settings_to_dom",
+      "community": 0,
+      "norm_label": "syncsettingstodom()"
+    },
+    {
+      "label": "readSettingsFromDom()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "readSettingsFromDom method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_read_settings_from_dom",
+      "community": 0,
+      "norm_label": "readsettingsfromdom()"
+    },
+    {
+      "label": "persistSettingsDebounced()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "persistSettingsDebounced method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_persist_settings",
+      "community": 0,
+      "norm_label": "persistsettingsdebounced()"
+    },
+    {
+      "label": "resetSettings()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "resetSettings method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_reset_settings",
+      "community": 0,
+      "norm_label": "resetsettings()"
+    },
+    {
+      "label": "syncSegUI()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSegUI method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_sync_seg_ui",
+      "community": 0,
+      "norm_label": "syncsegui()"
+    },
+    {
+      "label": "syncQualityDetail()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncQualityDetail method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_sync_quality_detail",
+      "community": 0,
+      "norm_label": "syncqualitydetail()"
+    },
+    {
+      "label": "browse()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "browse method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_browse",
+      "community": 0,
+      "norm_label": "browse()"
+    },
+    {
+      "label": "rescan()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "rescan method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_rescan",
+      "community": 0,
+      "norm_label": "rescan()"
+    },
+    {
+      "label": "visibleFiles()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "visibleFiles method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_visible_files",
+      "community": 0,
+      "norm_label": "visiblefiles()"
+    },
+    {
+      "label": "renderFiles()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "renderFiles method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_render_files",
+      "community": 0,
+      "norm_label": "renderfiles()"
+    },
+    {
+      "label": "syncSelection()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSelection method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_sync_selection",
+      "community": 0,
+      "norm_label": "syncselection()"
+    },
+    {
+      "label": "compress()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_compress",
+      "community": 0,
+      "norm_label": "compress()"
+    },
+    {
+      "label": "_pollProgress()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "_pollProgress method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_poll_progress",
+      "community": 0,
+      "norm_label": "_pollprogress()"
+    },
+    {
+      "label": "renderProgress()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "renderProgress method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_render_progress",
+      "community": 0,
+      "norm_label": "renderprogress()"
+    },
+    {
+      "label": "cancel()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "cancel method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_cancel",
+      "community": 0,
+      "norm_label": "cancel()"
+    },
+    {
+      "label": "openFolder()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "openFolder method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_open_folder",
+      "community": 0,
+      "norm_label": "openfolder()"
+    },
+    {
+      "label": "updateCompressedSummary()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "updateCompressedSummary method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_update_compressed_summary",
+      "community": 0,
+      "norm_label": "updatecompressedsummary()"
+    },
+    {
+      "label": "versionBadge()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "versionBadge method",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_version_badge",
+      "community": 0,
+      "norm_label": "versionbadge()"
+    },
+    {
+      "label": "DenoOs()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "DenoOs function",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_deno_os",
+      "community": 0,
+      "norm_label": "denoos()"
+    },
+    {
+      "label": "qualityDetailText()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "qualityDetailText function",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_quality_detail_text",
+      "community": 0,
+      "norm_label": "qualitydetailtext()"
+    },
+    {
+      "label": "fmtBytes()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "fmtBytes function",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_fmt_bytes",
+      "community": 0,
+      "norm_label": "fmtbytes()"
+    },
+    {
+      "label": "sleep()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "sleep function",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_sleep",
+      "community": 0,
+      "norm_label": "sleep()"
+    },
+    {
+      "label": "extUpper()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "extUpper function",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_ext_upper",
+      "community": 0,
+      "norm_label": "extupper()"
+    },
+    {
+      "label": "numOrNull()",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "numOrNull function",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "appjs_num_or_null",
+      "community": 0,
+      "norm_label": "numornull()"
     },
     {
       "label": "Handlebars File Row & Grid Card Templates",
@@ -2167,7 +2648,7 @@
       "author": null,
       "contributor": null,
       "id": "templates_handlebars",
-      "community": 7,
+      "community": 3,
       "norm_label": "handlebars file row & grid card templates"
     },
     {
@@ -2180,7 +2661,7 @@
       "author": null,
       "contributor": null,
       "id": "compresstest_suite",
-      "community": 0,
+      "community": 3,
       "norm_label": "compressor test suite"
     },
     {
@@ -2193,7 +2674,7 @@
       "author": null,
       "contributor": null,
       "id": "helpers_fixtures",
-      "community": 13,
+      "community": 12,
       "norm_label": "test image fixture helpers"
     },
     {
@@ -2206,7 +2687,7 @@
       "author": null,
       "contributor": null,
       "id": "scannertest_suite",
-      "community": 0,
+      "community": 4,
       "norm_label": "scanner test suite"
     },
     {
@@ -2219,7 +2700,7 @@
       "author": null,
       "contributor": null,
       "id": "settingstest_suite",
-      "community": 14,
+      "community": 13,
       "norm_label": "settings tests"
     },
     {
@@ -2232,7 +2713,7 @@
       "author": null,
       "contributor": null,
       "id": "types_zodschemas",
-      "community": 0,
+      "community": 3,
       "norm_label": "zod contract schemas"
     },
     {
@@ -2245,8 +2726,34 @@
       "author": null,
       "contributor": null,
       "id": "types_bindingscontract",
-      "community": 0,
+      "community": 3,
       "norm_label": "webview binding contract"
+    },
+    {
+      "label": "APP_NAME",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/version.ts",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "version_app_name",
+      "community": 0,
+      "norm_label": "app_name"
+    },
+    {
+      "label": "APP_VERSION",
+      "file_type": "code",
+      "source_file": "C:/projects/compressy/desktop-app/version.ts",
+      "source_location": "line 2",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "version_app_version",
+      "community": 0,
+      "norm_label": "app_version"
     },
     {
       "label": "vips Binary Resolution & VFS Materialization",
@@ -2259,7 +2766,7 @@
       "contributor": null,
       "rationale": "In a compiled binary, --include'd files live in an embedded VFS that is virtual and not spawnable by Deno.Command; binaries are materialized to a real app-data location once, then spawned from there. In dev the project dir is used directly (no copy needed). import.meta-relative paths are NOT returnable - statSync succeeds on the VFS but the OS cannot spawn from it.",
       "id": "vips_binresolution",
-      "community": 6,
+      "community": 2,
       "norm_label": "vips binary resolution & vfs materialization"
     },
     {
@@ -2273,450 +2780,333 @@
       "contributor": null,
       "rationale": "Compiled binaries bundle --include'd files in a virtual filesystem that statSync succeeds on but the OS cannot spawn from; any spawnable binary must first be copied to a real app-data path. The same dev-vs-VFS duality drives static asset resolution in main.ts.",
       "id": "pattern_vfs_materialization",
-      "community": 7,
+      "community": 4,
       "norm_label": "embedded vfs binary materialization pattern"
     },
     {
-      "label": "Alpine Workspace Component",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 8 (x-data=\"workspace\")",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_workspace_component",
-      "community": 4,
-      "norm_label": "alpine workspace component"
-    },
-    {
-      "label": "Folder & Settings Panel",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 10",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_folder_settings_panel",
-      "community": 4,
-      "norm_label": "folder & settings panel"
-    },
-    {
-      "label": "Settings Grid (Quality/Format/Engine/Threads)",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 33",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_settings_grid",
-      "community": 4,
-      "norm_label": "settings grid (quality/format/engine/threads)"
-    },
-    {
-      "label": "Settings Bands (Options/Resize/Rename)",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 66",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_settings_bands",
-      "community": 4,
-      "norm_label": "settings bands (options/resize/rename)"
-    },
-    {
-      "label": "Source Files Card",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 88",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_source_card",
-      "community": 4,
-      "norm_label": "source files card"
-    },
-    {
-      "label": "Compression Progress Bar",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 108",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_progress_bar",
-      "community": 4,
-      "norm_label": "compression progress bar"
-    },
-    {
-      "label": "File Toolbar (Search/Filter/Sort/View)",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 111",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_toolbar",
-      "community": 4,
-      "norm_label": "file toolbar (search/filter/sort/view)"
-    },
-    {
-      "label": "Status Bar",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 151",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_statusbar",
-      "community": 4,
-      "norm_label": "status bar"
-    },
-    {
-      "label": "Handlebars Vendor Script",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 156",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_handlebars",
-      "community": 4,
-      "norm_label": "handlebars vendor script"
-    },
-    {
-      "label": "htmx Vendor Script",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 157",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_htmx",
-      "community": 1,
-      "norm_label": "htmx vendor script"
-    },
-    {
-      "label": "templates.js Script",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 158",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_templates_script",
-      "community": 4,
-      "norm_label": "templates.js script"
-    },
-    {
-      "label": "app.js Script",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 159",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_app_script",
-      "community": 4,
-      "norm_label": "app.js script"
-    },
-    {
-      "label": "Alpine.js Vendor Script",
-      "file_type": "document",
-      "source_file": "static/index.html",
-      "source_location": "line 160",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "indexhtml_alpine",
-      "community": 4,
-      "norm_label": "alpine.js vendor script"
-    },
-    {
-      "label": "workspace Alpine Component",
+      "label": "compressOne()",
       "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "Alpine.data(\"workspace\")",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "compressOne function",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "appjs_workspace",
-      "community": 4,
-      "norm_label": "workspace alpine component"
+      "id": "worker_compress_one",
+      "community": 8,
+      "norm_label": "compressone()"
     },
     {
-      "label": "bindings Backend API",
+      "label": "encodeArgs()",
       "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "bindings.* calls throughout",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "encodeArgs function",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "appjs_bindings",
-      "community": 1,
-      "norm_label": "bindings backend api"
+      "id": "worker_encode_args",
+      "community": 8,
+      "norm_label": "encodeargs()"
     },
     {
-      "label": "DEFAULT_SETTINGS",
+      "label": "vipsSaveOp()",
       "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "line 22",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "vipsSaveOp function",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "appjs_default_settings",
-      "community": 4,
-      "norm_label": "default_settings"
+      "id": "worker_vips_save_op",
+      "community": 8,
+      "norm_label": "vipssaveop()"
     },
     {
-      "label": "SEG_DETAILS",
+      "label": "targetFormat()",
       "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "line 40",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "targetFormat function",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "appjs_seg_details",
-      "community": 4,
-      "norm_label": "seg_details"
+      "id": "worker_target_format",
+      "community": 8,
+      "norm_label": "targetformat()"
     },
     {
-      "label": "AppSettings State",
+      "label": "outputPathFor()",
       "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "settings state field",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "outputPathFor function",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "appjs_settings_state",
-      "community": 1,
-      "norm_label": "appsettings state"
+      "id": "worker_output_path_for",
+      "community": 8,
+      "norm_label": "outputpathfor()"
     },
     {
-      "label": "resultsByPath Map",
+      "label": "runVipsChecked()",
       "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "resultsByPath state field",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "runVipsChecked function",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "appjs_results_by_path",
-      "community": 4,
-      "norm_label": "resultsbypath map"
-    },
-    {
-      "label": "ProgressState",
-      "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "progress state field",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "appjs_progress_state",
-      "community": 4,
-      "norm_label": "progressstate"
-    },
-    {
-      "label": "CompressyTemplates",
-      "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "line 3 (window.CompressyTemplates)",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "appjs_templates",
-      "community": 4,
-      "norm_label": "compressytemplates"
-    },
-    {
-      "label": "sleep()",
-      "file_type": "code",
-      "source_file": "static/app.js",
-      "source_location": "sleep function",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "appjs_sleep",
-      "community": 1,
-      "norm_label": "sleep()"
+      "id": "worker_run_vips_checked",
+      "community": 8,
+      "norm_label": "runvipschecked()"
     },
     {
       "label": "CompressOptions",
       "file_type": "code",
-      "source_file": "worker.ts",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
       "source_location": "imported from ./types.ts",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "worker_compress_options",
-      "community": 5,
+      "community": 8,
       "norm_label": "compressoptions"
     },
     {
       "label": "FileResult",
       "file_type": "code",
-      "source_file": "worker.ts",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
       "source_location": "imported from ./types.ts",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "worker_file_result",
-      "community": 4,
+      "community": 8,
       "norm_label": "fileresult"
     },
     {
       "label": "Spawn-Minimizing vips Pipeline",
       "file_type": "rationale",
-      "source_file": "worker.ts",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
       "source_location": "line 52 comment (~600ms vips startup)",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "worker_vips_pipeline",
-      "community": 5,
+      "community": 8,
       "norm_label": "spawn-minimizing vips pipeline"
     },
     {
       "label": "Backup Folder Mechanism",
       "file_type": "rationale",
-      "source_file": "worker.ts",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
       "source_location": "overwrite branch in compressOne",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "worker_backup_folder",
-      "community": 5,
+      "community": 8,
       "norm_label": "backup folder mechanism"
     },
     {
       "label": "Auto-Rename Pattern ({prefix}-{NNNN}.{ext})",
       "file_type": "rationale",
-      "source_file": "worker.ts",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
       "source_location": "outputPathFor rename branch",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "worker_auto_rename",
-      "community": 5,
+      "community": 8,
       "norm_label": "auto-rename pattern ({prefix}-{nnnn}.{ext})"
     },
     {
       "label": "Header-Parser Output Dims",
       "file_type": "rationale",
-      "source_file": "worker.ts",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
       "source_location": "line 55 comment (0 subprocesses)",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "worker_header_parser_dims",
-      "community": 5,
+      "community": 8,
       "norm_label": "header-parser output dims"
     },
     {
-      "label": "APP_NAME",
-      "file_type": "code",
-      "source_file": "version.ts",
-      "source_location": "line 1",
+      "label": "Alpine Workspace Component",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 8 (x-data=\"workspace\")",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "version_app_name",
-      "community": 4,
-      "norm_label": "app_name"
+      "id": "indexhtml_workspace_component",
+      "community": 0,
+      "norm_label": "alpine workspace component"
     },
     {
-      "label": "APP_VERSION",
-      "file_type": "code",
-      "source_file": "version.ts",
-      "source_location": "line 2",
+      "label": "Folder & Settings Panel",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 10",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "version_app_version",
-      "community": 4,
-      "norm_label": "app_version"
+      "id": "indexhtml_folder_settings_panel",
+      "community": 0,
+      "norm_label": "folder & settings panel"
     },
     {
-      "label": "Deno Desktop Config (CEF backend)",
-      "file_type": "code",
-      "source_file": "deno.json",
-      "source_location": "\"desktop\" key",
+      "label": "Settings Grid (Quality/Format/Engine/Threads)",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 33",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "denojson_desktop_config",
-      "community": 4,
-      "norm_label": "deno desktop config (cef backend)"
+      "id": "indexhtml_settings_grid",
+      "community": 0,
+      "norm_label": "settings grid (quality/format/engine/threads)"
     },
     {
-      "label": "Deno Tasks (dev/build/test/release)",
-      "file_type": "code",
-      "source_file": "deno.json",
-      "source_location": "\"tasks\" key",
+      "label": "Settings Bands (Options/Resize/Rename)",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 66",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "denojson_tasks",
-      "community": 4,
-      "norm_label": "deno tasks (dev/build/test/release)"
+      "id": "indexhtml_settings_bands",
+      "community": 0,
+      "norm_label": "settings bands (options/resize/rename)"
     },
     {
-      "label": "Import Map (zod, std/path)",
-      "file_type": "code",
-      "source_file": "deno.json",
-      "source_location": "\"imports\" key",
+      "label": "Source Files Card",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 88",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "denojson_imports",
-      "community": 5,
-      "norm_label": "import map (zod, std/path)"
+      "id": "indexhtml_source_card",
+      "community": 0,
+      "norm_label": "source files card"
     },
     {
-      "label": "App Identity (name/identifier/icons)",
-      "file_type": "code",
-      "source_file": "deno.json",
-      "source_location": "\"desktop.app\" key",
+      "label": "Compression Progress Bar",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 108",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "denojson_app_identity",
-      "community": 4,
-      "norm_label": "app identity (name/identifier/icons)"
+      "id": "indexhtml_progress_bar",
+      "community": 0,
+      "norm_label": "compression progress bar"
+    },
+    {
+      "label": "File Toolbar (Search/Filter/Sort/View)",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 111",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "indexhtml_toolbar",
+      "community": 0,
+      "norm_label": "file toolbar (search/filter/sort/view)"
+    },
+    {
+      "label": "Status Bar",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 151",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "indexhtml_statusbar",
+      "community": 0,
+      "norm_label": "status bar"
+    },
+    {
+      "label": "Handlebars Vendor Script",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 156",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "indexhtml_handlebars",
+      "community": 0,
+      "norm_label": "handlebars vendor script"
+    },
+    {
+      "label": "htmx Vendor Script",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 157",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "indexhtml_htmx",
+      "community": 0,
+      "norm_label": "htmx vendor script"
+    },
+    {
+      "label": "templates.js Script",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 158",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "indexhtml_templates_script",
+      "community": 0,
+      "norm_label": "templates.js script"
+    },
+    {
+      "label": "app.js Script",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 159",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "indexhtml_app_script",
+      "community": 0,
+      "norm_label": "app.js script"
+    },
+    {
+      "label": "Alpine.js Vendor Script",
+      "file_type": "document",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 160",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "indexhtml_alpine",
+      "community": 0,
+      "norm_label": "alpine.js vendor script"
     }
   ],
   "links": [
@@ -5450,40 +5840,6 @@
     },
     {
       "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L424",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_syncselection",
-      "target": "static_app_fmtbytes"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L556",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_updatecompressedsummary",
-      "target": "static_app_fmtbytes"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "renderFiles/syncSelection",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "static_app_fmtbytes"
-    },
-    {
-      "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "static/app.js",
@@ -5508,13 +5864,27 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
-      "source_location": "renderFiles",
+      "source_location": "L424",
       "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "static_app_extupper"
+      "_origin": "ast",
+      "source": "static_app_syncselection",
+      "target": "static_app_fmtbytes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L556",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_updatecompressedsummary",
+      "target": "static_app_fmtbytes",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -5530,105 +5900,27 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L141",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_readsettingsfromdom",
-      "target": "static_app_numornull"
+      "target": "static_app_numornull",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "readSettingsFromDom",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "static_app_numornull"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L203",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_syncqualitydetail",
-      "target": "static_app_qualitydetailtext"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "syncQualityDetail",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "static_app_qualitydetailtext"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "loadSettings/getVersion",
-      "weight": 1.0,
-      "source": "static_app_init",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L105",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_init",
-      "target": "static_app_renderfiles"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L104",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_init",
-      "target": "static_app_rescan"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L102",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_init",
-      "target": "static_app_syncsettingstodom"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L103",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_init",
-      "target": "static_app_versionbadge"
+      "target": "static_app_qualitydetailtext",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -5644,39 +5936,63 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
+      "source_file": "static/app.js",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_init",
+      "target": "static_app_renderfiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_init",
+      "target": "static_app_rescan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_init",
+      "target": "static_app_syncsettingstodom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L103",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_init",
+      "target": "static_app_versionbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "source_file": "static/app.js",
       "source_location": "L186",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_resetsettings",
-      "target": "static_app_syncsettingstodom"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L114",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_syncsettingstodom",
-      "target": "static_app_syncqualitydetail"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L115",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_syncsettingstodom",
-      "target": "static_app_syncsegui"
+      "target": "static_app_syncsettingstodom",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -5692,27 +6008,27 @@
     },
     {
       "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L454",
-      "weight": 1.0,
       "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L114",
+      "weight": 1.0,
       "_origin": "ast",
-      "source": "static_app_compress",
-      "target": "static_app_readsettingsfromdom"
+      "source": "static_app_syncsettingstodom",
+      "target": "static_app_syncqualitydetail",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L151",
-      "weight": 1.0,
       "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L115",
+      "weight": 1.0,
       "_origin": "ast",
-      "source": "static_app_persistsettingsdebounced",
-      "target": "static_app_readsettingsfromdom"
+      "source": "static_app_syncsettingstodom",
+      "target": "static_app_syncsegui",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -5723,6 +6039,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "static_app_browse",
+      "target": "static_app_readsettingsfromdom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L454",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_compress",
       "target": "static_app_readsettingsfromdom",
       "confidence_score": 1.0
     },
@@ -5755,34 +6083,24 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "static/app.js",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_persistsettingsdebounced",
+      "target": "static_app_readsettingsfromdom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
       "source_location": "L279",
       "weight": 1.0,
       "_origin": "ast",
       "source": "static_app_rescan",
       "target": "static_app_readsettingsfromdom",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "saveSettings",
-      "weight": 1.0,
-      "source": "static_app_persistsettingsdebounced",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L188",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_resetsettings",
-      "target": "static_app_persistsettingsdebounced"
     },
     {
       "relation": "calls",
@@ -5805,6 +6123,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "static_app_onsettingchange",
+      "target": "static_app_persistsettingsdebounced",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L188",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_resetsettings",
       "target": "static_app_persistsettingsdebounced",
       "confidence_score": 1.0
     },
@@ -5894,37 +6224,27 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L257",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_browse",
-      "target": "static_app_resetsettings"
+      "target": "static_app_resetsettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L276",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_rescan",
-      "target": "static_app_resetsettings"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "resetSettings",
-      "weight": 1.0,
-      "source": "static_app_resetsettings",
-      "target": "appjs_default_settings"
+      "target": "static_app_resetsettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -5949,16 +6269,6 @@
       "source": "static_app_syncsegui",
       "target": "static_app_syncqualitydetail",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "syncSegUI",
-      "weight": 1.0,
-      "source": "static_app_syncsegui",
-      "target": "appjs_seg_details"
     },
     {
       "relation": "calls",
@@ -5986,59 +6296,27 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "pickFolder",
-      "weight": 1.0,
-      "source": "static_app_browse",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L260",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_browse",
-      "target": "static_app_rescan"
+      "target": "static_app_rescan",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "scan",
-      "weight": 1.0,
-      "source": "static_app_rescan",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L277",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_rescan",
-      "target": "static_app_renderfiles"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "L352",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "source": "static_app_renderfiles",
-      "target": "static_app_visiblefiles"
+      "target": "static_app_renderfiles",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -6061,6 +6339,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "static_app_invertselection",
+      "target": "static_app_visiblefiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "static/app.js",
+      "source_location": "L352",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "static_app_renderfiles",
       "target": "static_app_visiblefiles",
       "confidence_score": 1.0
     },
@@ -6138,61 +6428,51 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L494",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_compress",
-      "target": "static_app_renderfiles"
+      "target": "static_app_renderfiles",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L409",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_renderfiles",
-      "target": "static_app_syncselection"
+      "target": "static_app_syncselection",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "T.fileEmpty/gridCard/fileRow",
-      "weight": 1.0,
-      "source": "static_app_renderfiles",
-      "target": "appjs_templates"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L410",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_renderfiles",
-      "target": "static_app_updatecompressedsummary"
+      "target": "static_app_updatecompressedsummary",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L506",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_compress",
-      "target": "static_app_syncselection"
+      "target": "static_app_syncselection",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -6208,129 +6488,39 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "cancelCompress",
-      "weight": 1.0,
-      "source": "static_app_cancel",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "compress",
-      "weight": 1.0,
-      "source": "static_app_compress",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L484",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_compress",
-      "target": "static_app_pollprogress"
+      "target": "static_app_pollprogress",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L483",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_compress",
-      "target": "static_app_renderprogress"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "req built from this.settings",
-      "weight": 1.0,
-      "source": "static_app_compress",
-      "target": "appjs_settings_state"
+      "target": "static_app_renderprogress",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "getProgress",
-      "weight": 1.0,
-      "source": "static_app_pollprogress",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "static/app.js",
       "source_location": "L517",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "static_app_pollprogress",
-      "target": "static_app_renderprogress"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "_pollProgress",
-      "weight": 1.0,
-      "source": "static_app_pollprogress",
-      "target": "appjs_sleep"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.6,
-      "source_file": "static/index.html",
-      "source_location": "htmx-style polling comment",
-      "weight": 1.0,
-      "source": "indexhtml_htmx",
-      "target": "static_app_pollprogress"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "openFolder",
-      "weight": 1.0,
-      "source": "static_app_openfolder",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.6,
-      "source_file": "static/app.js",
-      "source_location": "versionBadge shows backend version",
-      "weight": 1.0,
-      "source": "static_app_versionbadge",
-      "target": "version_app_version"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "init()",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "static_app_denoos"
+      "target": "static_app_renderprogress",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7523,103 +7713,63 @@
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "worker.ts",
       "source_location": "L145",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "worker_compressone",
-      "target": "worker_vipssaveop"
+      "target": "worker_vipssaveop",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "worker.ts",
       "source_location": "L123",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "worker_compressone",
-      "target": "worker_encodeargs"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "mode: CompressOptions[\"mode\"]",
-      "weight": 1.0,
-      "source": "worker_encodeargs",
-      "target": "worker_compress_options"
+      "target": "worker_encodeargs",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "worker.ts",
       "source_location": "L97",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "worker_compressone",
-      "target": "worker_targetformat"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "format: CompressOptions[\"format\"]",
-      "weight": 1.0,
-      "source": "worker_targetformat",
-      "target": "worker_compress_options"
+      "target": "worker_targetformat",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "worker.ts",
       "source_location": "L103",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "worker_compressone",
-      "target": "worker_outputpathfor"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "ext: CompressFileInput[\"ext\"]",
-      "weight": 1.0,
-      "source": "worker_outputpathfor",
-      "target": "worker_compress_options"
+      "target": "worker_outputpathfor",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "worker.ts",
       "source_location": "L146",
       "weight": 1.0,
-      "context": "call",
       "_origin": "ast",
       "source": "worker_compressone",
-      "target": "worker_runvipschecked"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "static/app.js",
-      "source_location": "bindings.compress drives backend pipeline",
-      "weight": 1.0,
-      "source": "appjs_bindings",
-      "target": "worker_compressone"
+      "target": "worker_runvipschecked",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7634,72 +7784,72 @@
     {
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "bindings bridge to Deno desktop backend",
+      "weight": 1.0,
+      "source": "appjs_bindings",
+      "target": "denojson_desktop_config"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
+      "source_location": "desktop.app block",
+      "weight": 1.0,
+      "source": "denojson_desktop_config",
+      "target": "denojson_app_identity"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
+      "source_location": "tasks invoke deno desktop --backend cef",
+      "weight": 1.0,
+      "source": "denojson_tasks",
+      "target": "denojson_desktop_config"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
       "confidence_score": 0.7,
-      "source_file": "deno.json",
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
+      "source_location": "--include ./static bundles UI shell",
+      "weight": 1.0,
+      "source": "denojson_tasks",
+      "target": "indexhtml_workspace_component"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "C:/projects/compressy/desktop-app/deno.json",
       "source_location": "std/path used by worker.ts",
       "weight": 1.0,
       "source": "denojson_imports",
-      "target": "worker_compressone"
+      "target": "worker_compress_one"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "outputPathFor rename branch",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "C:/projects/compressy/desktop-app/version.ts",
+      "source_location": "both name the app \"Compressy\"",
       "weight": 1.0,
-      "source": "worker_auto_rename",
-      "target": "worker_compressone"
+      "source": "version_app_name",
+      "target": "denojson_app_identity"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "overwrite branch",
+      "relation": "shares_data_with",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.3,
+      "source_file": "C:/projects/compressy/desktop-app/version.ts",
+      "source_location": "APP_VERSION 1.1.0 vs deno.json 1.0.0 differ",
       "weight": 1.0,
-      "source": "worker_backup_folder",
-      "target": "worker_compressone"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "opts: CompressOptions",
-      "weight": 1.0,
-      "source": "worker_compressone",
-      "target": "worker_compress_options"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "returns FileResult",
-      "weight": 1.0,
-      "source": "worker_compressone",
-      "target": "worker_file_result"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "line 55 comment",
-      "weight": 1.0,
-      "source": "worker_header_parser_dims",
-      "target": "worker_compressone"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts",
-      "source_location": "line 52 comment",
-      "weight": 1.0,
-      "source": "worker_vips_pipeline",
-      "target": "worker_compressone"
+      "source": "version_app_version",
+      "target": "denojson_app_identity"
     },
     {
       "relation": "rationale_for",
@@ -7782,6 +7932,696 @@
       "target": "types_zodschemas"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "line 2 comment",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "resetSettings spread",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_default_settings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "init()",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_deno_os"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "renderFiles",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_ext_upper"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "renderFiles/syncSelection",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_fmt_bytes"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "readSettingsFromDom",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_num_or_null"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "state field",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_progress_state"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncQualityDetail",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_quality_detail_text"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "state field",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_results_by_path"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSegUI",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_seg_details"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "state field",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_settings_state"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "line 3",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "appjs_templates"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "alpine:init listener",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_alpine"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "progBar/progTrack ids",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_progress_bar"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "bandRename/bandResize ids",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_settings_bands"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "DOM ids quality/seg",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_settings_grid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "fileList id",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_source_card"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "statusText/versionBadge ids",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_statusbar"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "searchInput/typeFilter/sortBy",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_toolbar"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "Alpine.data(\"workspace\")",
+      "weight": 1.0,
+      "source": "appjs_workspace",
+      "target": "indexhtml_workspace_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 159 script include",
+      "weight": 1.0,
+      "source": "indexhtml_app_script",
+      "target": "appjs_workspace"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "getVersion returns version constants",
+      "weight": 1.0,
+      "source": "appjs_bindings",
+      "target": "version_app_version"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "bindings.compress drives backend pipeline",
+      "weight": 1.0,
+      "source": "appjs_bindings",
+      "target": "worker_compress_one"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "pickFolder",
+      "weight": 1.0,
+      "source": "appjs_browse",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "cancelCompress",
+      "weight": 1.0,
+      "source": "appjs_cancel",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress",
+      "weight": 1.0,
+      "source": "appjs_compress",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "loadSettings/getVersion",
+      "weight": 1.0,
+      "source": "appjs_init",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "openFolder",
+      "weight": 1.0,
+      "source": "appjs_open_folder",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "saveSettings",
+      "weight": 1.0,
+      "source": "appjs_persist_settings",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "getProgress",
+      "weight": 1.0,
+      "source": "appjs_poll_progress",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "scan",
+      "weight": 1.0,
+      "source": "appjs_rescan",
+      "target": "appjs_bindings"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "mirrors backend DEFAULT_SETTINGS",
+      "weight": 1.0,
+      "source": "appjs_default_settings",
+      "target": "worker_compress_options"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "resetSettings",
+      "weight": 1.0,
+      "source": "appjs_reset_settings",
+      "target": "appjs_default_settings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSegUI",
+      "weight": 1.0,
+      "source": "appjs_sync_seg_ui",
+      "target": "appjs_seg_details"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "req built from this.settings",
+      "weight": 1.0,
+      "source": "appjs_compress",
+      "target": "appjs_settings_state"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress() req mirrors CompressOptions",
+      "weight": 1.0,
+      "source": "appjs_settings_state",
+      "target": "worker_compress_options"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "stores FileResult objects",
+      "weight": 1.0,
+      "source": "appjs_results_by_path",
+      "target": "worker_file_result"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "T.fileEmpty/gridCard/fileRow",
+      "weight": 1.0,
+      "source": "appjs_render_files",
+      "target": "appjs_templates"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 156 script include",
+      "weight": 1.0,
+      "source": "indexhtml_handlebars",
+      "target": "appjs_templates"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "line 158 script include",
+      "weight": 1.0,
+      "source": "indexhtml_templates_script",
+      "target": "appjs_templates"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "init()",
+      "weight": 1.0,
+      "source": "appjs_init",
+      "target": "appjs_render_files"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "init()",
+      "weight": 1.0,
+      "source": "appjs_init",
+      "target": "appjs_rescan"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "init()",
+      "weight": 1.0,
+      "source": "appjs_init",
+      "target": "appjs_sync_settings_to_dom"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "init()",
+      "weight": 1.0,
+      "source": "appjs_init",
+      "target": "appjs_version_badge"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "resetSettings",
+      "weight": 1.0,
+      "source": "appjs_reset_settings",
+      "target": "appjs_sync_settings_to_dom"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSettingsToDom",
+      "weight": 1.0,
+      "source": "appjs_sync_settings_to_dom",
+      "target": "appjs_sync_quality_detail"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSettingsToDom",
+      "weight": 1.0,
+      "source": "appjs_sync_settings_to_dom",
+      "target": "appjs_sync_seg_ui"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress()",
+      "weight": 1.0,
+      "source": "appjs_compress",
+      "target": "appjs_read_settings_from_dom"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "persistSettingsDebounced",
+      "weight": 1.0,
+      "source": "appjs_persist_settings",
+      "target": "appjs_read_settings_from_dom"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "readSettingsFromDom",
+      "weight": 1.0,
+      "source": "appjs_read_settings_from_dom",
+      "target": "appjs_num_or_null"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "resetSettings",
+      "weight": 1.0,
+      "source": "appjs_reset_settings",
+      "target": "appjs_persist_settings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "browse()",
+      "weight": 1.0,
+      "source": "appjs_browse",
+      "target": "appjs_reset_settings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "rescan()",
+      "weight": 1.0,
+      "source": "appjs_rescan",
+      "target": "appjs_reset_settings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncQualityDetail",
+      "weight": 1.0,
+      "source": "appjs_sync_quality_detail",
+      "target": "appjs_quality_detail_text"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "browse()",
+      "weight": 1.0,
+      "source": "appjs_browse",
+      "target": "appjs_rescan"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "rescan()",
+      "weight": 1.0,
+      "source": "appjs_rescan",
+      "target": "appjs_render_files"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "renderFiles",
+      "weight": 1.0,
+      "source": "appjs_render_files",
+      "target": "appjs_visible_files"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress()",
+      "weight": 1.0,
+      "source": "appjs_compress",
+      "target": "appjs_render_files"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "renderFiles",
+      "weight": 1.0,
+      "source": "appjs_render_files",
+      "target": "appjs_sync_selection"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "renderFiles",
+      "weight": 1.0,
+      "source": "appjs_render_files",
+      "target": "appjs_update_compressed_summary"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress()",
+      "weight": 1.0,
+      "source": "appjs_compress",
+      "target": "appjs_sync_selection"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "syncSelection",
+      "weight": 1.0,
+      "source": "appjs_sync_selection",
+      "target": "appjs_fmt_bytes"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress()",
+      "weight": 1.0,
+      "source": "appjs_compress",
+      "target": "appjs_poll_progress"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "compress()",
+      "weight": 1.0,
+      "source": "appjs_compress",
+      "target": "appjs_render_progress"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "_pollProgress",
+      "weight": 1.0,
+      "source": "appjs_poll_progress",
+      "target": "appjs_render_progress"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "_pollProgress",
+      "weight": 1.0,
+      "source": "appjs_poll_progress",
+      "target": "appjs_sleep"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
+      "source_location": "htmx-style polling comment",
+      "weight": 1.0,
+      "source": "indexhtml_htmx",
+      "target": "appjs_poll_progress"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "updateCompressedSummary",
+      "weight": 1.0,
+      "source": "appjs_update_compressed_summary",
+      "target": "appjs_fmt_bytes"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js",
+      "source_location": "versionBadge shows backend version",
+      "weight": 1.0,
+      "source": "appjs_version_badge",
+      "target": "version_app_version"
+    },
+    {
       "relation": "shares_data_with",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -7812,30 +8652,150 @@
       "target": "vips_binresolution"
     },
     {
-      "relation": "implements",
+      "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "Alpine.data(\"workspace\")",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "outputPathFor rename branch",
       "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_workspace_component"
+      "source": "worker_auto_rename",
+      "target": "worker_compress_one"
     },
     {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "deno.json",
-      "source_location": "--include ./static bundles UI shell",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "overwrite branch",
       "weight": 1.0,
-      "source": "denojson_tasks",
-      "target": "indexhtml_workspace_component"
+      "source": "worker_backup_folder",
+      "target": "worker_compress_one"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/index.html",
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "opts: CompressOptions",
+      "weight": 1.0,
+      "source": "worker_compress_one",
+      "target": "worker_compress_options"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "compressOne",
+      "weight": 1.0,
+      "source": "worker_compress_one",
+      "target": "worker_encode_args"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "returns FileResult",
+      "weight": 1.0,
+      "source": "worker_compress_one",
+      "target": "worker_file_result"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "compressOne",
+      "weight": 1.0,
+      "source": "worker_compress_one",
+      "target": "worker_output_path_for"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "compressOne",
+      "weight": 1.0,
+      "source": "worker_compress_one",
+      "target": "worker_run_vips_checked"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "compressOne",
+      "weight": 1.0,
+      "source": "worker_compress_one",
+      "target": "worker_target_format"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "compressOne",
+      "weight": 1.0,
+      "source": "worker_compress_one",
+      "target": "worker_vips_save_op"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "line 55 comment",
+      "weight": 1.0,
+      "source": "worker_header_parser_dims",
+      "target": "worker_compress_one"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "line 52 comment",
+      "weight": 1.0,
+      "source": "worker_vips_pipeline",
+      "target": "worker_compress_one"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "mode: CompressOptions[\"mode\"]",
+      "weight": 1.0,
+      "source": "worker_encode_args",
+      "target": "worker_compress_options"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "format: CompressOptions[\"format\"]",
+      "weight": 1.0,
+      "source": "worker_target_format",
+      "target": "worker_compress_options"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts",
+      "source_location": "ext: CompressFileInput[\"ext\"]",
+      "weight": 1.0,
+      "source": "worker_output_path_for",
+      "target": "worker_compress_options"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
       "source_location": "DOM containment",
       "weight": 1.0,
       "source": "indexhtml_workspace_component",
@@ -7845,7 +8805,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/index.html",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
       "source_location": "DOM containment",
       "weight": 1.0,
       "source": "indexhtml_workspace_component",
@@ -7855,7 +8815,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/index.html",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
       "source_location": "DOM containment",
       "weight": 1.0,
       "source": "indexhtml_workspace_component",
@@ -7865,7 +8825,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/index.html",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
       "source_location": "DOM containment",
       "weight": 1.0,
       "source": "indexhtml_folder_settings_panel",
@@ -7875,7 +8835,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/index.html",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
       "source_location": "DOM containment",
       "weight": 1.0,
       "source": "indexhtml_folder_settings_panel",
@@ -7885,37 +8845,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "DOM ids quality/seg",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_settings_grid"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "bandRename/bandResize ids",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_settings_bands"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "fileList id",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_source_card"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/index.html",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
       "source_location": "DOM containment",
       "weight": 1.0,
       "source": "indexhtml_source_card",
@@ -7925,241 +8855,11 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/index.html",
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html",
       "source_location": "DOM containment",
       "weight": 1.0,
       "source": "indexhtml_source_card",
       "target": "indexhtml_toolbar"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "progBar/progTrack ids",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_progress_bar"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "searchInput/typeFilter/sortBy",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_toolbar"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "statusText/versionBadge ids",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_statusbar"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "static/index.html",
-      "source_location": "line 156 script include",
-      "weight": 1.0,
-      "source": "indexhtml_handlebars",
-      "target": "appjs_templates"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "static/index.html",
-      "source_location": "line 158 script include",
-      "weight": 1.0,
-      "source": "indexhtml_templates_script",
-      "target": "appjs_templates"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/index.html",
-      "source_location": "line 159 script include",
-      "weight": 1.0,
-      "source": "indexhtml_app_script",
-      "target": "appjs_workspace"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "alpine:init listener",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "indexhtml_alpine"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "line 2 comment",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "appjs_bindings"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "resetSettings spread",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "appjs_default_settings"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "state field",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "appjs_progress_state"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "state field",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "appjs_results_by_path"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "syncSegUI",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "appjs_seg_details"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "state field",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "appjs_settings_state"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "static/app.js",
-      "source_location": "line 3",
-      "weight": 1.0,
-      "source": "appjs_workspace",
-      "target": "appjs_templates"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.6,
-      "source_file": "static/app.js",
-      "source_location": "bindings bridge to Deno desktop backend",
-      "weight": 1.0,
-      "source": "appjs_bindings",
-      "target": "denojson_desktop_config"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.6,
-      "source_file": "static/app.js",
-      "source_location": "getVersion returns version constants",
-      "weight": 1.0,
-      "source": "appjs_bindings",
-      "target": "version_app_version"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "static/app.js",
-      "source_location": "mirrors backend DEFAULT_SETTINGS",
-      "weight": 1.0,
-      "source": "appjs_default_settings",
-      "target": "worker_compress_options"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "static/app.js",
-      "source_location": "compress() req mirrors CompressOptions",
-      "weight": 1.0,
-      "source": "appjs_settings_state",
-      "target": "worker_compress_options"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "static/app.js",
-      "source_location": "stores FileResult objects",
-      "weight": 1.0,
-      "source": "appjs_results_by_path",
-      "target": "worker_file_result"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "version.ts",
-      "source_location": "both name the app \"Compressy\"",
-      "weight": 1.0,
-      "source": "version_app_name",
-      "target": "denojson_app_identity"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "AMBIGUOUS",
-      "confidence_score": 0.3,
-      "source_file": "version.ts",
-      "source_location": "APP_VERSION 1.1.0 vs deno.json 1.0.0 differ",
-      "weight": 1.0,
-      "source": "version_app_version",
-      "target": "denojson_app_identity"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "deno.json",
-      "source_location": "desktop.app block",
-      "weight": 1.0,
-      "source": "denojson_desktop_config",
-      "target": "denojson_app_identity"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "deno.json",
-      "source_location": "tasks invoke deno desktop --backend cef",
-      "weight": 1.0,
-      "source": "denojson_tasks",
-      "target": "denojson_desktop_config"
     }
   ],
   "hyperedges": [
@@ -8207,6 +8907,35 @@
       "source_file": "C:/projects/compressy/desktop-app/scanner.ts"
     },
     {
+      "id": "settings_sync_flow",
+      "label": "Settings Sync Flow (UI to Backend)",
+      "nodes": [
+        "appjs_settings_state",
+        "appjs_default_settings",
+        "appjs_persist_settings",
+        "worker_compress_options"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "C:/projects/compressy/desktop-app/static/app.js"
+    },
+    {
+      "id": "single_file_compression_pipeline",
+      "label": "Single-File Compression Pipeline",
+      "nodes": [
+        "worker_compress_one",
+        "worker_encode_args",
+        "worker_vips_save_op",
+        "worker_target_format",
+        "worker_output_path_for"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:/projects/compressy/desktop-app/worker.ts"
+    },
+    {
       "id": "app_window_shell",
       "label": "App Window Shell",
       "nodes": [
@@ -8218,37 +8947,8 @@
       "relation": "form",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "static/index.html"
-    },
-    {
-      "id": "single_file_compression_pipeline",
-      "label": "Single-File Compression Pipeline",
-      "nodes": [
-        "worker_compressone",
-        "worker_encodeargs",
-        "worker_vipssaveop",
-        "worker_targetformat",
-        "worker_outputpathfor"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "worker.ts"
-    },
-    {
-      "id": "settings_sync_flow",
-      "label": "Settings Sync Flow (UI to Backend)",
-      "nodes": [
-        "appjs_settings_state",
-        "appjs_default_settings",
-        "static_app_persistsettingsdebounced",
-        "worker_compress_options"
-      ],
-      "relation": "participate_in",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "static/app.js"
+      "source_file": "C:/projects/compressy/desktop-app/static/index.html"
     }
   ],
-  "built_at_commit": "51b6237b5e218d81d5a6546e8834fc35255517c3"
+  "built_at_commit": "3ec1e3d8a4c46e9b4689d4536d906bc05939c3cd"
 }

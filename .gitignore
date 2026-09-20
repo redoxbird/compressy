@@ -27,3 +27,4 @@ cache
 .env
 .playwright-cli
 videos
+graphify-out
