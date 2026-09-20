@@ -1,5 +1,46 @@
 [
   {
+    "version": "1.2.0",
+    "versionTag": "v1.2.0",
+    "date": "20 September 2026",
+    "displayDate": "20 September 2026",
+    "title": "Compressy v1.2.0",
+    "channel": "stable",
+    "kind": "stable",
+    "latest": true,
+    "tags": [
+      "added",
+      "improved",
+      "fixed"
+    ],
+    "notes": {
+      "added": [
+        "Folder groups: subfolder-first grouped file list with collapse and whole-folder selection, in list and grid views",
+        "Breadcrumb path bar: click any segment to navigate, pencil toggle for paste-type entry",
+        "Right-click file context menu: Open, Reveal in Explorer, Compress, Copy path, Delete",
+        "Light / dark / auto theme toggle in the status bar, persisted across restarts",
+        "Delete moves files to backup/ instead of unlinking them, with per-file results",
+        "Sort order now persists across restarts",
+        "Settings panel restructure: quality + format up front, engine/threads/options/resize/rename behind Advanced settings"
+      ],
+      "improved": [
+        "Square 1/1 grid thumbnails with true cover-crop, so portrait images no longer stretch cells",
+        "Overwrite mode always moves originals to backup/, including format conversions and renames",
+        "backup/ folders are excluded from scans, so moved originals never resurface in the list",
+        "Status bar and footer parity: engine line, saved pill with pulse, compress summary states"
+      ],
+      "fixed": [
+        "View toggle highlighted both buttons when list view was selected",
+        "Portrait previews stretched grid cells and broke visual consistency",
+        "Sort order reset to Name A-Z on every launch",
+        "Format conversions skipped the backup step when overwrite was enabled"
+      ]
+    },
+    "summary": "Design v3 refresh: folder groups, breadcrumbs, context menu, themes — plus delete-to-backup and backup-aware overwrite.",
+    "assets": [],
+    "assetsBase": "https://assets.redoxbird.com/compressy/1.2.0"
+  },
+  {
     "version": "1.1.0",
     "versionTag": "v1.1.0",
     "date": "28 August 2026",
@@ -7,7 +48,7 @@
     "title": "Compressy v1.1.0",
     "channel": "stable",
     "kind": "stable",
-    "latest": true,
+    "latest": false,
     "tags": [
       "added"
     ],
