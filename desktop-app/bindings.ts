@@ -10,6 +10,8 @@ import {
 } from "./types.ts";
 import { loadSettings, saveSettings } from "./settings.ts";
 import { scanFolder } from "./scanner.ts";
+import { moveToBackup } from "./worker.ts";
+import { DeleteResult } from "./types.ts";
 import { compressFiles, currentProgress, requestCancel, resetCancel } from "./compressor.ts";
 
 function openInExplorer(path: string): void {
@@ -152,5 +154,22 @@ export function registerBindings(win: DesktopWindow): void {
 
   win.bind("revealPath", (path: unknown) => {
     revealPath(z.string().min(1).parse(path));
+  });
+
+  // Delete moves files into backup/ (same convention as overwrite) instead
+  // of unlinking them. Per-file results — one locked file doesn't abort the
+  // rest; the scanner's backup/ filter keeps moved files out of rescans.
+  win.bind("deleteFiles", async (paths: unknown): Promise<DeleteResult[]> => {
+    const list = z.array(z.string().min(1)).parse(paths);
+    const out: DeleteResult[] = [];
+    for (const p of list) {
+      try {
+        const backupPath = await moveToBackup(p);
+        out.push({ path: p, moved: true, backupPath });
+      } catch (e) {
+        out.push({ path: p, moved: false, error: e instanceof Error ? e.message : String(e) });
+      }
+    }
+    return out;
   });
 }

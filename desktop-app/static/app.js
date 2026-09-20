@@ -594,18 +594,39 @@
         this.renderStats();
       },
 
-      // ── Delete selected (F5: list-only removal; on-disk delete stays out) ──
-      // Semantics: removes rows from the working list (like the design demo).
-      // Files on disk are untouched — destructive delete needs an explicit
-      // confirm flow, which is out of scope for this pass.
-      deleteIndices(paths) {
-        if (!paths.length || this.compressing) return;
-        const gone = new Set(paths);
+      // ── Delete (G5: move to backup/, never unlink) ───────────────────
+      // Delete moves files into backup/ next to them (same convention as
+      // overwrite) via the deleteFiles binding. Only files that actually
+      // moved leave the list — failures stay selected with a status note.
+      async deleteIndices(paths) {
+        if (!paths.length || this.compressing || this._deleting) return;
+        this._deleting = true;
+        let res;
+        try {
+          res = await bindings.deleteFiles(paths);
+        } catch (e) {
+          $("statusText").textContent = "Delete failed: " + (e.message || e);
+          this._deleting = false;
+          return;
+        }
+        const moved = res.filter((r) => r.moved).map((r) => r.path);
+        const failed = res.filter((r) => !r.moved);
+        if (!moved.length) {
+          $("statusText").textContent =
+            `Could not move ${failed.length} file${failed.length > 1 ? "s" : ""} to backup — kept in list` +
+            (failed[0]?.error ? `: ${failed[0].error}` : "");
+          this._deleting = false;
+          return;
+        }
+        const gone = new Set(moved);
         this.files = this.files.filter((f) => !gone.has(f.path));
         this.selected = new Set([...this.selected].filter((p) => !gone.has(p)));
         for (const p of gone) this.resultsByPath.delete(p);
         this.renderFiles();
-        $("statusText").textContent = paths.length + " file" + (paths.length > 1 ? "s" : "") + " removed from list";
+        $("statusText").textContent =
+          `${moved.length} file${moved.length > 1 ? "s" : ""} moved to backup` +
+          (failed.length ? ` · ${failed.length} kept (${failed[0].error || "move failed"})` : "");
+        this._deleting = false;
       },
       deleteSelected() {
         this.deleteIndices([...this.selected]);

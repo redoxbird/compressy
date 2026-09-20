@@ -118,6 +118,16 @@ export const AppSettingsSchema = z.object({
 });
 export type AppSettings = z.infer<typeof AppSettingsSchema>;
 
+// ── Delete (G5: move to backup/) ──────────────────────────────────────────
+
+export const DeleteResultSchema = z.object({
+  path: z.string().min(1),
+  moved: z.boolean(),
+  backupPath: z.string().optional(),
+  error: z.string().optional(),
+});
+export type DeleteResult = z.infer<typeof DeleteResultSchema>;
+
 // ── Window (structural — `Deno.BrowserWindow` is not in the public type lib) ─
 
 export interface DesktopWindow {
@@ -144,4 +154,5 @@ export interface Bindings {
   openFolder(path: string): Promise<void>;
   openFile(path: string): Promise<void>;
   revealPath(path: string): Promise<void>;
+  deleteFiles(paths: string[]): Promise<DeleteResult[]>;
 }

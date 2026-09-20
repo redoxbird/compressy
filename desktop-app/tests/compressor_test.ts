@@ -1,7 +1,7 @@
 import { assertEquals, assertGreater, assertLess } from "jsr:@std/assert";
 import { join } from "std/path";
 import { compressFiles, currentProgress, requestCancel, resetCancel } from "../compressor.ts";
-import { compressOne, targetFormat } from "../worker.ts";
+import { compressOne, moveToBackup, targetFormat } from "../worker.ts";
 import { CompressRequest } from "../types.ts";
 import { imageDims, makeImage } from "./helpers.ts";
 
@@ -224,6 +224,33 @@ Deno.test("compressOne: overwrite moves original into backup folder", async () =
   // original preserved in backup/
   const bak = await Deno.readFile(join(dir, "backup", "ow.jpg"));
   assertEquals(bak.length, orig.length);
+});
+
+Deno.test("moveToBackup: moves file into backup/ with same bytes", async () => {
+  const dir = Deno.makeTempDirSync({ prefix: "comp-" });
+  const data = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8]);
+  await Deno.writeFile(join(dir, "gone.jpg"), data);
+  const dest = await moveToBackup(join(dir, "gone.jpg"));
+  assertEquals(dest, join(dir, "backup", "gone.jpg"));
+  assertEquals(await Deno.readFile(dest), data);
+  let gone = false;
+  try {
+    await Deno.stat(join(dir, "gone.jpg"));
+  } catch {
+    gone = true;
+  }
+  assertEquals(gone, true);
+});
+
+Deno.test("moveToBackup: missing file throws", async () => {
+  const dir = Deno.makeTempDirSync({ prefix: "comp-" });
+  let threw = false;
+  try {
+    await moveToBackup(join(dir, "nope.jpg"));
+  } catch {
+    threw = true;
+  }
+  assertEquals(threw, true);
 });
 
 Deno.test("compressOne: overwrite + convert moves original to backup", async () => {

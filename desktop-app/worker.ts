@@ -50,6 +50,20 @@ export function targetFormat(
   return format;
 }
 
+/**
+ * Move a file into the backup/ folder next to it (created on demand).
+ * Flat, same basename; repeat moves overwrite the older backup.
+ * Returns the backup path. Used by overwrite (G4) and delete (G5).
+ */
+export async function moveToBackup(srcPath: string): Promise<string> {
+  const backupDir = join(dirname(srcPath), "backup");
+  await Deno.mkdir(backupDir, { recursive: true });
+  const dest = join(backupDir, basename(srcPath));
+  await Deno.copyFile(srcPath, dest);
+  await Deno.remove(srcPath);
+  return dest;
+}
+
 function outputPathFor(
   srcPath: string,
   ext: CompressFileInput["ext"],
@@ -169,14 +183,10 @@ export async function compressOne(
   if (after < before) {
     if (opts.overwrite) {
       // Overwrite originals: the original always moves into <folder>/backup/
-      // first (flat, same basename; repeat runs overwrite the older backup),
-      // then the output is written to its destination — in place for
+      // first, then the output is written to its destination — in place for
       // same-format, next to the original for conversions and renames.
       // (Nothing moves when the output isn't smaller — see below.)
-      const backupDir = join(dirname(file.path), "backup");
-      await Deno.mkdir(backupDir, { recursive: true });
-      await Deno.copyFile(file.path, join(backupDir, basename(file.path)));
-      await Deno.remove(file.path);
+      await moveToBackup(file.path);
       await Deno.writeFile(writeTo, finalBytes);
     } else {
       await Deno.writeFile(writeTo, finalBytes);
