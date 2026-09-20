@@ -16,6 +16,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   resizeOn: false,
   renameOn: false,
   renamePrefix: "",
+  sortBy: "name-asc",
   lastFolder: null,
 };
 

@@ -113,25 +113,10 @@ export const AppSettingsSchema = z.object({
   resizeOn: z.boolean(),
   renameOn: z.boolean(),
   renamePrefix: z.string().max(24).default(""),
+  sortBy: z.enum(["name-asc", "name-desc", "size-desc", "size-asc", "mtime-desc", "mtime-asc", "type"]).default("name-asc"),
   lastFolder: z.string().nullable(),
 });
 export type AppSettings = z.infer<typeof AppSettingsSchema>;
-
-// ── Folder browser (design v3 in-app picker) ───────────────────────────────
-
-export const DirEntrySchema = z.object({
-  name: z.string().min(1),
-  path: z.string().min(1),
-});
-export type DirEntry = z.infer<typeof DirEntrySchema>;
-
-export const ListDirResultSchema = z.object({
-  path: z.string(),
-  parent: z.string().nullable(),
-  entries: z.array(DirEntrySchema),
-  error: z.string().optional(),
-});
-export type ListDirResult = z.infer<typeof ListDirResultSchema>;
 
 // ── Window (structural — `Deno.BrowserWindow` is not in the public type lib) ─
 
@@ -157,8 +142,6 @@ export interface Bindings {
   cancelCompress(): Promise<void>;
   exportCsv(folder: string, results: FileResult[]): Promise<{ path: string }>;
   openFolder(path: string): Promise<void>;
-  listDrives(): Promise<string[]>;
-  listDir(path: string): Promise<ListDirResult>;
   openFile(path: string): Promise<void>;
   revealPath(path: string): Promise<void>;
 }

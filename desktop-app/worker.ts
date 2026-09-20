@@ -167,14 +167,17 @@ export async function compressOne(
   const formatLabel = target;
 
   if (after < before) {
-    if (writeTo === file.path) {
-      // Overwrite originals: move the original into <folder>/backup/ (keeping
-      // relative path structure flat — same basename; collisions overwrite
-      // like the old .bak behavior), then write the output in its place.
+    if (opts.overwrite) {
+      // Overwrite originals: the original always moves into <folder>/backup/
+      // first (flat, same basename; repeat runs overwrite the older backup),
+      // then the output is written to its destination — in place for
+      // same-format, next to the original for conversions and renames.
+      // (Nothing moves when the output isn't smaller — see below.)
       const backupDir = join(dirname(file.path), "backup");
       await Deno.mkdir(backupDir, { recursive: true });
       await Deno.copyFile(file.path, join(backupDir, basename(file.path)));
-      await Deno.writeFile(file.path, finalBytes);
+      await Deno.remove(file.path);
+      await Deno.writeFile(writeTo, finalBytes);
     } else {
       await Deno.writeFile(writeTo, finalBytes);
     }

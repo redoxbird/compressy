@@ -42,10 +42,10 @@
         <label class="select-all-label" data-od-id="select-all"><input type="checkbox" id="selectAll" @change="toggleAll"> Select all</label>
         <div class="search"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.2" stroke="currentColor" stroke-width="1.3"/><path d="M10.2 10.2L13 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><input id="searchInput" placeholder="Search files…" aria-label="Search files" data-od-id="search-input" x-model="filterSearch" @input="renderFiles"></div>
         <select class="filter" id="typeFilter" aria-label="Filter by type" data-od-id="type-filter" x-model="filterType" @change="renderFiles"><option value="all">All types</option><option value="jpg">JPG</option><option value="png">PNG</option><option value="webp">WebP</option><option value="avif">AVIF</option></select>
-        <select class="filter" id="sortBy" aria-label="Sort by" data-od-id="sort-by" x-model="sortBy" @change="renderFiles"><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="size-desc">Size ↓</option><option value="size-asc">Size ↑</option><option value="mtime-desc">Newest first</option><option value="mtime-asc">Oldest first</option><option value="type">Type</option></select>
+        <select class="filter" id="sortBy" aria-label="Sort by" data-od-id="sort-by" x-model="sortBy" @change="onSortChange"><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="size-desc">Size ↓</option><option value="size-asc">Size ↑</option><option value="mtime-desc">Newest first</option><option value="mtime-asc">Oldest first</option><option value="type">Type</option></select>
         <div class="view-toggle" data-od-id="view-toggle" role="group" aria-label="View layout">
           <button type="button" class="view-btn" data-view="list" aria-label="List view" aria-pressed="false" title="List view" :class="viewMode === 'list' ? 'is-active' : ''" :aria-pressed="viewMode === 'list' ? 'true' : 'false'" @click="setView('list')"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
-          <button type="button" class="view-btn is-active" data-view="grid" aria-label="Grid view" aria-pressed="true" title="Grid view" :class="viewMode === 'grid' ? 'is-active' : ''" :aria-pressed="viewMode === 'grid' ? 'true' : 'false'" @click="setView('grid')"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="9" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/></svg></button>
+          <button type="button" class="view-btn" data-view="grid" aria-label="Grid view" aria-pressed="true" title="Grid view" :class="viewMode === 'grid' ? 'is-active' : ''" :aria-pressed="viewMode === 'grid' ? 'true' : 'false'" @click="setView('grid')"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="9" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/></svg></button>
         </div>
         <button class="btn btn-sm btn-ghost" id="clearSel" data-od-id="clear-sel-btn" @click="clearSelection">Clear</button>
       </div>
@@ -164,29 +164,6 @@
   <button type="button" role="menuitem" data-act="copy" data-od-id="ctx-copy">Copy path</button>
   <div class="ctx-sep" aria-hidden="true"></div>
   <button type="button" role="menuitem" data-act="delete" data-od-id="ctx-delete" class="danger">Delete</button>
-</div>
-
-<!-- Folder browser — Windows-style picker, opened by Choose Folder -->
-<div class="fb-overlay" id="fbOverlay" hidden>
-  <div class="fb-dialog" role="dialog" aria-modal="true" aria-labelledby="fbTitle" data-od-id="folder-browser">
-    <div class="fb-titlebar">
-      <span id="fbTitle">Select Folder</span>
-      <button type="button" class="fb-close" id="fbClose" aria-label="Close dialog" data-od-id="fb-close"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></button>
-    </div>
-    <div class="fb-toolbar">
-      <div class="fb-crumbs" id="fbCrumbs" aria-label="Address bar"></div>
-    </div>
-    <div class="fb-body">
-      <nav class="fb-nav" id="fbNav" aria-label="Quick locations" data-od-id="fb-nav"></nav>
-      <div class="fb-list" id="fbList" role="listbox" aria-label="Folders" tabindex="0" data-od-id="fb-list"></div>
-    </div>
-    <div class="fb-footer">
-      <div class="fb-actions">
-        <button type="button" class="btn btn-default" id="fbCancel" data-od-id="fb-cancel">Cancel</button>
-        <button type="button" class="btn btn-blue" id="fbSelect" data-od-id="fb-confirm">Select Folder</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <script defer src="/vendor/handlebars.min.js"></script>

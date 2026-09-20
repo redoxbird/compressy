@@ -38,6 +38,7 @@
     resizeOn: false,
     renameOn: false,
     renamePrefix: "",
+    sortBy: "name-asc",
   };
 
   // ── Seg detail maps (ported from design/compressy.html — main container) ──
@@ -92,14 +93,6 @@
       pathEditing: false,
       _pathEditCache: "",
       theme: "light",
-      // folder-browser dialog state (design v3 fb-*; real FS via bindings)
-      fbCwd: "",
-      fbSel: "",
-      fbEntries: [],
-      fbError: "",
-      fbQuick: [],
-      fbDrives: [],
-      fbLastFocus: null,
       // context-menu target path
       ctxPath: null,
 
@@ -110,6 +103,7 @@
           bindings.getVersion(),
         ]);
         this.settings = settings;
+        this.sortBy = settings.sortBy || "name-asc";
         this.folder = settings.lastFolder || "";
         this.version = version;
         this.os = DenoOs();
@@ -160,6 +154,7 @@
         s.resizeOn = $("enableResize").checked;
         s.renameOn = $("enableRename").checked;
         s.renamePrefix = ($("renamePrefix").value || "").trim();
+        s.sortBy = this.sortBy;
         s.lastFolder = this.folder || null;
       },
       persistSettingsDebounced() {
@@ -215,6 +210,10 @@
         this.viewMode = mode;
         this.renderFiles();
       },
+      onSortChange() {
+        this.renderFiles();
+        this.persistSettingsDebounced();
+      },
       syncQualityDetail() {
         const q = $("quality")?.value ?? this.settings?.quality ?? 85;
         const t = qualityDetailText(q);
@@ -256,13 +255,10 @@
 
       // ── Folder / scan ──────────────────────────────────────
       async browse() {
-        // Design v3 in-app folder browser (real FS via listDrives/listDir).
-        // Falls back to the native PowerShell picker when the dialog backend
-        // is unavailable (e.g. bindings missing in plain-browser dev).
-        if (bindings.listDrives && bindings.listDir) {
-          await this.fbOpen();
-          return;
-        }
+        // Native folder picker (hidden PowerShell FolderBrowserDialog on
+        // Windows). The webview <input type="file"> cannot reveal absolute
+        // paths (Chromium strips them), so the path is resolved Deno-side.
+        // (The design's in-app folder browser was demo-only — removed.)
         let picked;
         try {
           picked = await bindings.pickFolder();
@@ -843,160 +839,6 @@
         ta.remove();
       },
 
-      // ── Folder browser dialog (F7: real FS via listDrives/listDir) ──
-      async fbOpen() {
-        this.fbLastFocus = document.activeElement;
-        try {
-          const [drives, quick] = await Promise.all([
-            bindings.listDrives().catch(() => []),
-            bindings.quickPlaces ? bindings.quickPlaces().catch(() => []) : Promise.resolve([]),
-          ]);
-          this.fbDrives = drives;
-          this.fbQuick = quick;
-        } catch {
-          this.fbDrives = [];
-          this.fbQuick = [];
-        }
-        const start = this.folder && this.folder.trim() ? this.folder.trim() : (this.fbQuick[0]?.path || this.fbDrives[0] || "");
-        await this.fbGo(start);
-        const ov = $("fbOverlay");
-        ov.hidden = false;
-        void ov.offsetWidth;
-        ov.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-        $("fbList").focus();
-      },
-      fbClose() {
-        const ov = $("fbOverlay");
-        ov.classList.remove("is-open");
-        ov.hidden = true;
-        document.body.style.overflow = "";
-        this.fbSel = "";
-        if (this.fbLastFocus && this.fbLastFocus.focus) this.fbLastFocus.focus();
-      },
-      async fbGo(dir) {
-        if (!dir) {
-          this.fbCwd = "";
-          this.fbEntries = this.fbDrives.map((d) => ({ name: d, path: d }));
-          this.fbError = "";
-          this.fbSel = "";
-          this.fbRender();
-          return;
-        }
-        this.fbCwd = dir;
-        this.fbSel = "";
-        try {
-          const r = await bindings.listDir(dir);
-          this.fbCwd = r.path;
-          this.fbEntries = r.entries;
-          this.fbError = r.error || "";
-        } catch (e) {
-          this.fbEntries = [];
-          this.fbError = e.message || String(e);
-        }
-        this.fbRender();
-      },
-      fbRender() {
-        // crumbs
-        const crumbs = $("fbCrumbs");
-        crumbs.innerHTML = "";
-        const mk = (label, target) => {
-          const b = document.createElement("button");
-          b.type = "button";
-          b.textContent = label;
-          b.addEventListener("click", () => this.fbGo(target));
-          crumbs.appendChild(b);
-        };
-        mk("This PC", "");
-        if (this.fbCwd) {
-          const parts = this.fbCwd.replace(/[\\/]+$/, "").split(/[\\/]/).filter(Boolean);
-          let acc = "";
-          parts.forEach((p, i) => {
-            const s = document.createElement("span");
-            s.className = "sep";
-            s.textContent = "›";
-            s.setAttribute("aria-hidden", "true");
-            crumbs.appendChild(s);
-            acc = acc ? acc + "\\" + p : p + (/^[A-Za-z]:$/.test(p) ? "\\" : "");
-            const target = parts.slice(0, i + 1).join("\\") + (i === 0 && /^[A-Za-z]:$/.test(parts[0]) ? "\\" : "");
-            mk(p, target);
-          });
-        }
-        // nav
-        const nav = $("fbNav");
-        let html = '<div class="fb-navcap">Quick access</div>';
-        for (const q of this.fbQuick) {
-          html += `<button type="button" class="fb-navitem${this.fbCwd === q.path ? " is-active" : ""}" data-target="${q.path.replace(/"/g, "&quot;")}"><span>${q.label}</span></button>`;
-        }
-        html += '<div class="fb-navcap">This PC</div>';
-        for (const d of this.fbDrives) {
-          const active = this.fbCwd === d || this.fbCwd.startsWith(d.replace(/[\\/]+$/, "") + "\\") || this.fbCwd.startsWith(d.replace(/[\\/]+$/, "") + "/");
-          html += `<button type="button" class="fb-navitem${active ? " is-active" : ""}" data-target="${d.replace(/"/g, "&quot;")}"><span>${d}</span></button>`;
-        }
-        nav.innerHTML = html;
-        nav.querySelectorAll("[data-target]").forEach((b) =>
-          b.addEventListener("click", () => {
-            this.fbGo(b.dataset.target);
-            $("fbList").focus();
-          })
-        );
-        // list
-        const list = $("fbList");
-        list.innerHTML = "";
-        if (!this.fbEntries.length) {
-          list.innerHTML = '<div class="fb-empty">' + (this.fbError || "This folder is empty.") + "</div>";
-        } else {
-          this.fbEntries.forEach((en, idx) => {
-            const row = document.createElement("div");
-            row.className = "fb-row" + (this.fbSel === en.path ? " is-selected" : "");
-            row.setAttribute("role", "option");
-            row.setAttribute("tabindex", "-1");
-            row.setAttribute("aria-selected", this.fbSel === en.path ? "true" : "false");
-            row.innerHTML =
-              '<svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H6l1.2 1.2c.2.2.45.3.7.3H12.5A1.5 1.5 0 0 1 14 7v4.5A1.5 1.5 0 0 1 12.5 13h-9A1.5 1.5 0 0 1 2 11.5V5.5Z" stroke="#c89b3c" stroke-width="1.2" fill="#ffd659" fill-opacity=".45"/><path d="M2 6.5h12" stroke="#c89b3c" stroke-width="1.2"/></svg>' +
-              '<span class="nm"></span>';
-            row.querySelector(".nm").textContent = en.name;
-            row.querySelector(".nm").title = en.path;
-            row.addEventListener("click", () => {
-              this.fbSel = en.path;
-              list.querySelectorAll(".fb-row").forEach((el) => {
-                const on = el.querySelector(".nm").title === en.path;
-                el.classList.toggle("is-selected", on);
-                el.setAttribute("aria-selected", on ? "true" : "false");
-              });
-              row.focus({ preventScroll: true });
-            });
-            row.addEventListener("dblclick", () => this.fbGo(en.path));
-            list.appendChild(row);
-          });
-        }
-      },
-      fbMoveSel(delta) {
-        if (!this.fbEntries.length) return;
-        let i = this.fbEntries.findIndex((e) => e.path === this.fbSel);
-        i = i < 0 ? (delta > 0 ? 0 : this.fbEntries.length - 1) : Math.min(this.fbEntries.length - 1, Math.max(0, i + delta));
-        this.fbSel = this.fbEntries[i].path;
-        this.fbRender();
-        const rows = $("fbList").querySelectorAll(".fb-row");
-        if (rows[i]) rows[i].focus({ preventScroll: true });
-      },
-      async fbConfirm() {
-        // Select accepts the highlighted folder (or the current one when
-        // nothing is highlighted); double-click / Enter on a row enters it.
-        const dir = this.fbSel || this.fbCwd;
-        if (!dir) {
-          this.fbClose();
-          return;
-        }
-        const changed = dir !== this.folder;
-        this.folder = dir;
-        this.fbClose();
-        if (changed) this.resetSettings();
-        this.readSettingsFromDom();
-        bindings.saveSettings(this.settings).catch(console.error);
-        await this.rescan(changed);
-      },
-
       // ── Theme (F8: light / dark / auto, persisted in localStorage) ──
       initTheme() {
         let choice = "light";
@@ -1059,41 +901,6 @@
         // path edit blur commits (Escape reverts via onPathKey)
         const inp = $("pathInput");
         if (inp) inp.addEventListener("blur", () => this.exitPathEdit(false));
-        // folder-browser footer buttons live outside the Alpine root — wire here
-        const fbCloseBtn = $("fbClose");
-        if (fbCloseBtn) fbCloseBtn.addEventListener("click", () => this.fbClose());
-        const fbCancelBtn = $("fbCancel");
-        if (fbCancelBtn) fbCancelBtn.addEventListener("click", () => this.fbClose());
-        const fbSelectBtn = $("fbSelect");
-        if (fbSelectBtn) fbSelectBtn.addEventListener("click", () => this.fbConfirm());
-        // folder-browser keys + overlay dismiss
-        const fbList = $("fbList");
-        const ov = $("fbOverlay");
-        if (fbList) {
-          fbList.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowDown") {
-              e.preventDefault();
-              this.fbMoveSel(1);
-            } else if (e.key === "ArrowUp") {
-              e.preventDefault();
-              this.fbMoveSel(-1);
-            } else if (e.key === "Enter") {
-              e.preventDefault();
-              this.fbConfirm();
-            }
-          });
-        }
-        if (ov) {
-          ov.addEventListener("mousedown", (e) => {
-            if (e.target === ov) this.fbClose();
-          });
-          ov.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-              e.stopPropagation();
-              this.fbClose();
-            }
-          });
-        }
       },
 
       // ── Misc ───────────────────────────────────────────────

@@ -66,6 +66,15 @@ Deno.test("loadSettings: partial file merges over defaults", async () => {
   assertEquals(s.stripMeta, true); // from defaults
 });
 
+Deno.test("loadSettings: sortBy roundtrip + migration default", async () => {
+  const base = tmpBase();
+  await seedSettings(base, JSON.stringify({ quality: 70 }));
+  const s = await loadSettings(base);
+  assertEquals(s.sortBy, "name-asc"); // old files gain the default
+  await saveSettings({ ...s, sortBy: "mtime-desc" }, base);
+  assertEquals((await loadSettings(base)).sortBy, "mtime-desc");
+});
+
 Deno.test("saveSettings: atomic write leaves no .tmp", async () => {
   const base = tmpBase();
   await saveSettings({ ...DEFAULT_SETTINGS, quality: 50 }, base);

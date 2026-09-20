@@ -66,6 +66,33 @@ Deno.test("scanFolder: mtime present for every file", async () => {
   }
 });
 
+Deno.test("scanFolder: backup folders are filtered from the list", async () => {
+  // Hand-built PNGs (no vips needed): signature + IHDR + IEND.
+  const png = (w: number, h: number): Uint8Array => {
+    const b = new Uint8Array(45);
+    b.set([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a], 0);
+    const dv = new DataView(b.buffer);
+    dv.setUint32(8, 13);
+    b.set([0x49, 0x48, 0x44, 0x52], 12); // IHDR
+    dv.setUint32(16, w);
+    dv.setUint32(20, h);
+    b[24] = 8; // bit depth
+    b[25] = 2; // truecolor
+    b.set([0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82], 33); // IEND
+    return b;
+  };
+  const dir = Deno.makeTempDirSync({ prefix: "scan-" });
+  await Deno.mkdir(join(dir, "backup"));
+  await Deno.writeFile(join(dir, "backup", "old.png"), png(10, 10));
+  await Deno.mkdir(join(dir, "sub", "Backup"), { recursive: true });
+  await Deno.writeFile(join(dir, "sub", "Backup", "old2.png"), png(10, 10));
+  await Deno.writeFile(join(dir, "sub", "live.png"), png(10, 10));
+  await Deno.writeFile(join(dir, "keep.png"), png(20, 20));
+  const r = await scanFolder(dir);
+  assertEquals(r.errors, 0);
+  assertEquals(r.files.map((f) => f.name), ["keep.png", "live.png"]);
+});
+
 Deno.test("scanFolder: does not leave mapped lock on files (overwrite works after scan)", async () => {
   const dir = Deno.makeTempDirSync({ prefix: "scan-" });
   makeImage(dir, "lock.webp", "webp");

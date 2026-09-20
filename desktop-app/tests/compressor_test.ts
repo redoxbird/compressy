@@ -226,6 +226,32 @@ Deno.test("compressOne: overwrite moves original into backup folder", async () =
   assertEquals(bak.length, orig.length);
 });
 
+Deno.test("compressOne: overwrite + convert moves original to backup", async () => {
+  const dir = Deno.makeTempDirSync({ prefix: "comp-" });
+  makeImage(dir, "cv.png", "png", 400, 300, "gradient");
+  const orig = await Deno.readFile(join(dir, "cv.png"));
+  const r = await compressOne({ path: join(dir, "cv.png"), name: "cv.png", ext: "png", w: 400, h: 300 }, {
+    quality: 70, mode: "balanced", format: "webp", lossless: false, stripMeta: true,
+    overwrite: true, maxW: null, maxH: null, resizeOn: false, renameOn: false, renamePrefix: "",
+  });
+  assertEquals(r.failed, undefined);
+  assertEquals(r.format, "webp");
+  assertGreater(r.saved, 0);
+  // converted output sits next to the original
+  const out = await Deno.readFile(join(dir, "cv.webp"));
+  assertEquals(out.length, r.after);
+  // original moved to backup/ (not left in place)
+  const bak = await Deno.readFile(join(dir, "backup", "cv.png"));
+  assertEquals(bak.length, orig.length);
+  let gone = false;
+  try {
+    await Deno.stat(join(dir, "cv.png"));
+  } catch {
+    gone = true;
+  }
+  assertEquals(gone, true);
+});
+
 Deno.test("compressOne: resize with only maxH preserves aspect", async () => {
   const dir = Deno.makeTempDirSync({ prefix: "comp-" });
   makeImage(dir, "wide.png", "png", 1200, 900);

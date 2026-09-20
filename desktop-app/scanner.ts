@@ -47,6 +47,9 @@ export async function scanFolder(root: string): Promise<ScanResult> {
     for (const entry of entries) {
       const full = join(dir, entry.name);
       if (entry.isDirectory) {
+        // Skip backup/ folders — overwrite mode moves originals there, so
+        // they must never come back as fresh sources on rescan.
+        if (entry.name.toLowerCase() === "backup") continue;
         pending.push(full);
         continue;
       }
