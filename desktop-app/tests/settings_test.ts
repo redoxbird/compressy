@@ -75,6 +75,15 @@ Deno.test("loadSettings: sortBy roundtrip + migration default", async () => {
   assertEquals((await loadSettings(base)).sortBy, "mtime-desc");
 });
 
+Deno.test("loadSettings: theme roundtrip + migration default", async () => {
+  const base = tmpBase();
+  await seedSettings(base, JSON.stringify({ quality: 70 }));
+  const s = await loadSettings(base);
+  assertEquals(s.theme, "light"); // old files gain the default
+  await saveSettings({ ...s, theme: "dark" }, base);
+  assertEquals((await loadSettings(base)).theme, "dark");
+});
+
 Deno.test("saveSettings: atomic write leaves no .tmp", async () => {
   const base = tmpBase();
   await saveSettings({ ...DEFAULT_SETTINGS, quality: 50 }, base);

@@ -114,6 +114,7 @@ export const AppSettingsSchema = z.object({
   renameOn: z.boolean(),
   renamePrefix: z.string().max(24).default(""),
   sortBy: z.enum(["name-asc", "name-desc", "size-desc", "size-asc", "mtime-desc", "mtime-asc", "type"]).default("name-asc"),
+  theme: z.enum(["light", "dark", "auto"]).default("light"),
   lastFolder: z.string().nullable(),
 });
 export type AppSettings = z.infer<typeof AppSettingsSchema>;

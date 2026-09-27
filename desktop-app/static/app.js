@@ -13,9 +13,6 @@
   function fmtBytes(b) {
     return fmtKB(b / 1024);
   }
-  function extUpper(ext) {
-    return String(ext || "").toUpperCase();
-  }
   function numOrNull(v) {
     const n = parseInt(v, 10);
     return Number.isFinite(n) && n > 0 ? n : null;
@@ -39,6 +36,7 @@
     renameOn: false,
     renamePrefix: "",
     sortBy: "name-asc",
+    theme: "light",
   };
 
   // ── Seg detail maps (ported from design/compressy.html — main container) ──
@@ -95,6 +93,7 @@
       theme: "light",
       // context-menu target path
       ctxPath: null,
+      _animateList: false, // consume-once entrance flag: only folder load/refresh animates (G6)
 
       // ── Init ───────────────────────────────────────────────
       async init() {
@@ -109,7 +108,7 @@
         this.os = DenoOs();
         this.syncSettingsToDom();
         this.versionBadge();
-        this.initTheme();
+        this.initTheme(settings.theme || "light");
         if (this.folder) await this.rescan();
         this.renderCrumbs();
         this.renderFiles(); // empty-state render: selection sync + button states
@@ -155,6 +154,7 @@
         s.renameOn = $("enableRename").checked;
         s.renamePrefix = ($("renamePrefix").value || "").trim();
         s.sortBy = this.sortBy;
+        s.theme = this.theme;
         s.lastFolder = this.folder || null;
       },
       persistSettingsDebounced() {
@@ -293,6 +293,7 @@
           this.collapsedDirs = new Set();
           if (resetDefaults) this.resetSettings();
           this.renderCrumbs();
+          this._animateList = true; // folder load/refresh: play the entrance once (G6)
           this.renderFiles();
           // Persist the folder so HMR reloads restore it (state resets on reload).
           this.readSettingsFromDom();
@@ -465,13 +466,10 @@
           name: f.name,
           folder: dirIdx >= 0 ? rel.slice(0, dirIdx) : "",
           ext: f.ext,
-          extUpper: extUpper(f.ext),
           size: fmtBytes(f.size),
-          w: f.w,
-          h: f.h,
           selected: this.selected.has(f.path),
           thumbUrl: encodeURIComponent(f.path),
-          // design v3 inline compressed state
+          // design compressed state: float tag + struck sizes + output dims
           compressed: comp,
           renamed: comp && !!r.renamed,
           title: comp
@@ -479,14 +477,6 @@
             : f.name,
           before: comp ? fmtBytes(r.before) : "",
           after: comp ? fmtBytes(r.after) : "",
-          pct,
-          saved: comp ? fmtBytes(r.saved) : "",
-          miniWidth: Math.min(100, pct),
-          resized: comp && !!r.resized,
-          origW: comp ? f.w : 0,
-          origH: comp ? f.h : 0,
-          w: comp ? r.w : f.w,  // saving-line "→ w×h" shows output dims
-          h: comp ? r.h : f.h,
           dims: comp ? `${r.w}×${r.h}` : `${f.w}×${f.h}`,
         };
       },
@@ -537,6 +527,10 @@
         const listEl = $("fileList");
         listEl.innerHTML = "";
         listEl.classList.toggle("grid", this.viewMode === "grid");
+        // Entrance animation plays only when flagged (folder load/refresh);
+        // every other re-render (select, filter, sort, compress, delete) stays still.
+        listEl.classList.toggle("no-anim", !this._animateList);
+        this._animateList = false;
         if (!list.length) {
           listEl.innerHTML = T.fileEmpty({
             title: this.files.length ? "No matches" : "No images yet",
@@ -860,12 +854,16 @@
         ta.remove();
       },
 
-      // ── Theme (F8: light / dark / auto, persisted in localStorage) ──
-      initTheme() {
-        let choice = "light";
+      // ── Theme (G8: persisted in backend settings; localStorage is a
+      // fast-path mirror for the pre-paint script + one-time migration) ──
+      initTheme(saved) {
+        // One-time migration: a pre-G8 localStorage choice wins over the
+        // default, so existing dark-mode users keep their theme. Afterwards
+        // settings.json is the source of truth.
+        let choice = saved;
         try {
           const stored = localStorage.getItem("compressy-theme");
-          if (stored === "light" || stored === "dark" || stored === "auto") choice = stored;
+          if (choice === "light" && (stored === "dark" || stored === "auto")) choice = stored;
         } catch { /* ignore */ }
         this.applyTheme(choice);
         try {
@@ -876,6 +874,7 @@
       },
       setTheme(choice) {
         this.applyTheme(choice);
+        this.persistSettingsDebounced();
       },
       applyTheme(choice) {
         this.theme = choice;
@@ -894,16 +893,8 @@
         });
       },
 
-      // ── One-time global wiring (search anim, ctx menu, fb keys, path edit) ──
+      // ── One-time global wiring (ctx menu, path edit) ──
       wireGlobalUI() {
-        const listEl = $("fileList");
-        const search = $("searchInput");
-        if (search) {
-          search.addEventListener("input", () => {
-            listEl.classList.add("no-search-anim");
-            requestAnimationFrame(() => requestAnimationFrame(() => listEl.classList.remove("no-search-anim")));
-          });
-        }
         const menu = $("ctxMenu");
         if (menu) {
           menu.addEventListener("click", (e) => {
@@ -918,7 +909,7 @@
           if (e.key === "Escape" && !menu.hidden) this.closeCtx();
         });
         window.addEventListener("blur", () => this.closeCtx());
-        listEl.addEventListener("scroll", () => this.closeCtx());
+        $("fileList").addEventListener("scroll", () => this.closeCtx());
         // path edit blur commits (Escape reverts via onPathKey)
         const inp = $("pathInput");
         if (inp) inp.addEventListener("blur", () => this.exitPathEdit(false));

@@ -469,7 +469,7 @@ input[type="range"]:focus-visible{outline:none;box-shadow:var(--focus-ring);bord
 /* empty state must span full width when list is in grid mode */
 [data-od-id="source-card"] .list.grid .empty{grid-column:1 / -1;width:100%;display:block;align-self:stretch}
 .list{scrollbar-width:thin;scrollbar-color:var(--border) transparent}
-/* Compressed float tags (design) — kept alongside app compressed-pill */
+/* Compressed float tags (design language for compressed state) */
 .float-tag{position:absolute;z-index:1;background:var(--success);color:#fff;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;padding:2px 6px;border-radius:9999px;box-shadow:0 1px 3px rgba(31,35,40,.3);white-space:nowrap}
 .g-thumb-wrap .float-tag{top:6px;left:6px}
 .float-tag-inline{display:inline-block;vertical-align:1px;margin-left:6px;background:var(--success);color:#fff;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;padding:2px 6px;border-radius:9999px;white-space:nowrap;flex:0 0 auto}
@@ -536,28 +536,17 @@ html[data-theme="dark"] [data-od-id="source-card"] .gcard.selected.is-compressed
 .progress-top span:last-child{font-variant-numeric:tabular-nums;flex:0 0 auto}
 .bar{height:6px;background:var(--surface);border:1px solid var(--border);border-radius:9999px;overflow:hidden}
 .bar > i{display:block;height:100%;width:0;background:var(--success);transition:width var(--motion-base) var(--ease-standard)}
-.mini-bar{height:4px;flex:0 0 72px;background:var(--surface);border:1px solid var(--border);border-radius:9999px;overflow:hidden;display:inline-block;vertical-align:middle}
-.mini-bar > i{display:block;height:100%;background:var(--success)}
-/* compressed state — list rows */
+/* compressed state — list rows (design language: float tag + struck sizes) */
 .row.is-compressed{background:color-mix(in srgb, var(--success) 7%, white)}
 .row.is-compressed:hover{background:color-mix(in srgb, var(--success) 11%, white)}
-.compressed-pill{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--success);background:color-mix(in srgb, var(--success) 10%, white);border:1px solid color-mix(in oklab, var(--success), white 60%);border-radius:9999px;padding:1px 6px;white-space:nowrap;vertical-align:1px}
-.saving-line{font-family:var(--font-mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:3px;line-height:1.4}
-.saving-line strong{color:var(--success);font-weight:700;letter-spacing:-.01em}
-.saving-line .r-renamed{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in oklab, var(--accent), white 70%);background:color-mix(in srgb, var(--accent) 8%, white);border-radius:9999px;padding:1px 6px;vertical-align:middle}
+.r-renamed{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in oklab, var(--accent), white 70%);background:color-mix(in srgb, var(--accent) 8%, white);border-radius:9999px;padding:1px 6px;margin-left:6px;vertical-align:middle;white-space:nowrap}
 .thumb-wrap{position:relative;width:36px;height:36px;flex-shrink:0}
 .thumb-wrap .thumb{width:36px;height:36px}
-.compressed-dot{position:absolute;right:-3px;bottom:-3px;width:14px;height:14px;border-radius:50%;background:var(--success);border:2px solid var(--bg);display:grid;place-items:center;color:white}
-.compressed-dot svg{width:8px;height:8px;display:block}
 /* grid compressed */
 .gcard.is-compressed{border-color:color-mix(in srgb, var(--success) 45%, var(--border));background:color-mix(in srgb, var(--success) 5%, white)}
 .gcard.is-compressed:hover{border-color:var(--success);background:color-mix(in srgb, var(--success) 10%, white)}
-.gcard .g-saving{font-family:var(--font-mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:3px;line-height:1.4}
-.gcard .g-saving strong{color:var(--success);font-weight:700;letter-spacing:-.01em}
-.gcard .g-saving .mini-bar{flex:1 1 56px;min-width:48px}
 .gcard .g-thumb-wrap{position:relative;width:100%;aspect-ratio:1/1}
 .gcard .g-thumb-wrap .gthumb{width:100%;height:100%;aspect-ratio:auto}
-.gcard .g-thumb-wrap .compressed-dot{right:6px;bottom:6px;width:16px;height:16px}
 
 /* .footer-actions generic removed — scoped to source-card only (design) */
 /* ── source-card footer — scoped to marked pod only ── */
@@ -683,7 +672,7 @@ input[type="range"]:focus-visible{outline:none;box-shadow:var(--focus-ring)}
 :root{--ease-emil:cubic-bezier(.32,.72,0,1);--ease-out-expo:cubic-bezier(.16,1,.3,1)}
 .row,.gcard{--stagger:0ms;animation:rowIn 420ms var(--ease-emil) both;animation-delay:var(--stagger)}
 @keyframes rowIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.list.no-search-anim .row,.list.no-search-anim .gcard{animation:none !important}
+.list.no-anim .row,.list.no-anim .gcard{animation:none !important}
 .btn:active,.icon-btn:active,.seg button:active,.view-btn:active{transform:scale(.97)}
 .row:hover{transform:translateY(-1px)}
 .gcard:hover{transform:translateY(-2px)}
