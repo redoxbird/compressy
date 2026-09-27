@@ -8,7 +8,7 @@
   },
   "tasks": {
     "dev": "deno desktop --hmr --backend cef --allow-read --allow-write --allow-run --allow-env --allow-sys --allow-ffi --allow-net main.ts",
-    "build": "deno task clean && deno task build:dir && deno task build:msi",
+    "build": "deno task clean && deno task build:installer",
     "clean": "deno run --allow-write clean.ts",
     "make-icon": "deno run --allow-read --allow-write --allow-env --allow-ffi --allow-run scripts/make-icon.ts",
     "vendor:vips": "deno run --allow-read --allow-write --allow-net scripts/vendor-vips.ts",

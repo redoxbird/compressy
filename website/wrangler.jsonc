@@ -4,7 +4,7 @@
   "main": "worker/index.ts",
   "compatibility_date": "2026-08-01",
   "kv_namespaces": [
-    { "binding": "CACHE", "id": "4ac1e1ab348a4a999d47e16cddf9f620" }
+    { "binding": "CACHE", "id": "6696adadc44443658a35ee955a46f765" }
   ],
   "assets": {
     "directory": "./public",

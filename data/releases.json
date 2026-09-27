@@ -2,16 +2,14 @@
   {
     "version": "1.2.0",
     "versionTag": "v1.2.0",
-    "date": "20 September 2026",
-    "displayDate": "20 September 2026",
+    "date": "27 September 2026",
+    "displayDate": "27 September 2026",
     "title": "Compressy v1.2.0",
     "channel": "stable",
     "kind": "stable",
     "latest": true,
     "tags": [
-      "added",
-      "improved",
-      "fixed"
+      "added"
     ],
     "notes": {
       "added": [
@@ -36,8 +34,21 @@
         "Format conversions skipped the backup step when overwrite was enabled"
       ]
     },
-    "summary": "Design v3 refresh: folder groups, breadcrumbs, context menu, themes — plus delete-to-backup and backup-aware overwrite.",
-    "assets": [],
+    "summary": "Release v1.2.0",
+    "assets": [
+      {
+        "name": "Compressy-setup.exe",
+        "file": "Compressy-setup.exe",
+        "key": "compressy/1.2.0/Compressy-setup.exe",
+        "url": "https://assets.redoxbird.com/compressy/1.2.0/Compressy-setup.exe",
+        "size": 162603743,
+        "sizeLabel": "155.1 MB",
+        "sha256": "e427cf7a0b0ee292f2c1540a79860811b260cd258c137152eca6b1b5e2d3d03b",
+        "shaShort": "e427cf7a0b0e",
+        "type": "installer",
+        "contentType": "application/vnd.microsoft.portable-executable"
+      }
+    ],
     "assetsBase": "https://assets.redoxbird.com/compressy/1.2.0"
   },
   {
