@@ -11,10 +11,12 @@ New-Item -ItemType Directory -Path $assets -Force | Out-Null
 
 Add-Type -AssemblyName System.Drawing
 
-# Required pixel sizes (square padded, transparent background).
+# Required pixel sizes (square, transparent background).
 $targets = @(
     @{ Name = "Square44x44Logo.png"; Size = 44 },
+    @{ Name = "Square71x71Logo.png"; Size = 71 },
     @{ Name = "Square150x150Logo.png"; Size = 150 },
+    @{ Name = "Square300x300Logo.png"; Size = 300 },
     @{ Name = "StoreLogo.png"; Size = 50 }
 )
 

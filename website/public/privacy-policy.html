@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Privacy Policy — Compressy</title>
+  <meta name="description" content="Compressy privacy policy: the Windows app collects nothing — no uploads, no telemetry, no account. Settings and thumbnails stay in %LOCALAPPDATA%/compressy on your PC.">
+</head>
+<body>
+
+  <e-hero pill="Privacy · Offline · No telemetry" title="Privacy policy<br>nothing leaves your PC">
+    <p slot="lead">Compressy is an offline Windows app. It collects no personal data, transmits nothing, and needs no account. This page documents exactly what stays on your machine.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="#collect">What we store →</e-button>
+    </span>
+    <span slot="meta">Effective 2 October 2026 · No data collected · Windows</span>
+    <e-proof value="Zero" label="data collected" success></e-proof>
+    <e-proof value="Offline" label="mode"></e-proof>
+    <e-proof value="Local" label="storage"></e-proof>
+  </e-hero>
+
+  <e-section id="collect" eyebrow="The policy" title="What Compressy stores">
+    <p slot="lead">Everything below lives on your own disk. None of it is transmitted anywhere.</p>
+    <e-content variant="docs" eyebrow="Policy · Effective 2 October 2026">
+      <h2>Local data, in plain language</h2>
+      <p slot="lead">The app keeps settings, thumbnails, backups, and exports on your PC so it can resume where you left off. That is the entire data story.</p>
+      <div slot="toc">
+        <a href="#collect">What is stored</a>
+        <a href="#network">Network use</a>
+        <a href="#rights">Your control</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p>App settings and window size are saved as JSON in your local app-data folder (<code>%LOCALAPPDATA%\compressy\settings.json</code>). Image previews are cached as thumbnails in the same folder so lists render fast on revisit. When you compress with overwrite enabled, originals move to a <code>backup</code> subfolder next to your images — never to a server. CSV exports go wherever you save them.</p>
+      <h3>What is never collected</h3>
+      <p>No names, emails, accounts, usage telemetry, crash reports, advertising identifiers, or image content — from adults or children. There is no sign-up because there is nothing to sign up for.</p>
+    </e-content>
+  </e-section>
+
+  <e-section id="network" warm eyebrow="Network" title="No network calls">
+    <p slot="lead">The app is fully usable with the network off. There is nothing to phone home to.</p>
+    <e-points variant="checks">
+      <li><strong>Loopback only</strong> The app serves its own window over 127.0.0.1 — traffic that never leaves your machine.</li>
+      <li><strong>No update checks</strong> No automatic update pings, no version lookups, no remote config.</li>
+      <li><strong>No third parties</strong> No analytics SDKs, no ad networks, no crash reporters — nothing embedded that could report back.</li>
+    </e-points>
+  </e-section>
+
+  <e-section id="rights" eyebrow="Your control" title="Delete everything">
+    <p slot="lead">Removal is two steps, both on your machine.</p>
+    <e-steps variant="numbered">
+      <e-step title="Uninstall" label="01">Remove Compressy via Settings → Apps, or uninstall the Store package — the install folder goes with it.</e-step>
+      <e-step title="Clear app data" label="02">Delete <code>%LOCALAPPDATA%\compressy</code> to remove settings, window geometry, and cached thumbnails. Your images and backups are untouched.</e-step>
+    </e-steps>
+  </e-section>
+
+  <e-section warm eyebrow="FAQ" title="Privacy — FAQ">
+    <e-faq variant="compact">
+      <details><summary>Do my images ever leave my PC?</summary><p>No. Scanning, thumbnails, compression, backups, and CSV export all happen on your disk. No image bytes are uploaded anywhere.</p></details>
+      <details><summary>Is there an account or telemetry I can opt out of?</summary><p>There is nothing to opt out of — no accounts exist and no telemetry is collected.</p></details>
+      <details><summary>What happens to my data if I uninstall?</summary><p>The app folder is removed by uninstall. Delete <code>%LOCALAPPDATA%\compressy</code> to clear the remaining settings and thumbnail cache.</p></details>
+      <details><summary>Does this policy ever change?</summary><p>If the app ever gains a networked feature, this page will be updated first with a new effective date. The offline core stays as described.</p></details>
+    </e-faq>
+  </e-section>
+
+  <e-cta variant="band" pill="Compressy" meta="Offline · Windows · No account required">
+    <h2>Compress locally.<br>Keep your files private.</h2>
+    <p slot="sub">Download Compressy and compress without uploading a single file.</p>
+    <span slot="actions">
+      <e-button variant="primary" href="/download">Download for Windows</e-button>
+      <e-button variant="ghost" href="/offline-image-compressor/">Read the offline guide →</e-button>
+    </span>
+  </e-cta>
+
+</body>
+</html>
