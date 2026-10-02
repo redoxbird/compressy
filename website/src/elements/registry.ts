@@ -30,8 +30,9 @@ import type { SiteConfig } from "../config";
  *              are invisible to the per-page source hash, so bump the version
  *              to invalidate the 30-day KV cache.
  *         13 — per-variant template files + missing design variants (e-content docs/explainer/kb, e-split editor/alternating, e-mock app)
+ *         14 — downloads parity: hero__actions left-align by default (landing hero re-centers), hero__meta mono+flex, release__sizes mono right, release__foot bar, section--tight
  */
-export const REGISTRY_VERSION = 13;
+export const REGISTRY_VERSION = 14;
 export interface ExpandContext {
   slug: string;
   path: string;

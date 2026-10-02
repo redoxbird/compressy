@@ -249,13 +249,7 @@ small {
     .container {
         padding: 0 var(--container-gutter-phone)
     }
-
-    .section {
-        padding: var(--section-y-phone) 0
-    }
 }
-
-/* ── 3. Elements ─────────────────────────────────────────────────── */
 
 /* atoms: buttons */
 .btn {
@@ -412,16 +406,29 @@ small {
     margin-top: 28px;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 12px;
     flex-wrap: wrap
+}
+.hero .hero__actions {
+    justify-content: center
 }
 
 .hero__meta {
     margin-top: 14px;
-    font-size: 13px;
+    font-family: var(--font-mono);
+    font-size: 12px;
     color: var(--meta);
-    letter-spacing: 0.01em
+    letter-spacing: 0.01em;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+.hero__meta em {
+    font-style: normal;
+    color: var(--fg);
+    font-weight: 600
 }
 
 .hero__proof {
@@ -2338,9 +2345,11 @@ small {
 }
 
 .release__sizes {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
     text-align: right
 }
-
 .release__body {
     display: grid;
     grid-template-columns: 1.2fr .9fr;
@@ -2539,6 +2548,30 @@ small {
     padding: 7px 11px;
     font-size: 13px;
     font-weight: 600
+}
+
+.release__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 12px 22px;
+    background: var(--surface);
+    border-top: 1px solid var(--border-soft);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted)
+}
+
+.release__foot a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px
+}
+
+.release__foot a:hover {
+    color: var(--fg)
 }
 
 .release--compact .release__head {

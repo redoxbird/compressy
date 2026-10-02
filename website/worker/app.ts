@@ -161,6 +161,17 @@ export function createApp(deps: AppDeps = {}) {
     return c.text("Not found", 404);
   }
 
+  // Design preview — static demo page, served raw (never expanded/cached).
+  // File lives at public/preview/index.html; the nav links to /preview/.
+  app.get("/preview/*", async (c) => {
+    const assetRes = await c.env.ASSETS.fetch(new URL(`/preview/index.html`, "https://internal/"));
+    if (!assetRes.ok) return c.text("Preview not found", 404);
+    return new Response(await assetRes.text(), {
+      status: 200,
+      headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
+    });
+  });
+
   // Page catch-all — everything not matched above.
   app.get("*", async (c) => {
     let pathname: string;
@@ -168,6 +179,15 @@ export function createApp(deps: AppDeps = {}) {
       pathname = decodeURIComponent(new URL(c.req.url).pathname);
     } catch {
       return notFoundPage(c);
+    }
+    // /preview (no trailing slash) → static demo page, same as /preview/.
+    if (pathname.replace(/\/+$/g, "").toLowerCase() === "/preview") {
+      const assetRes = await c.env.ASSETS.fetch(new URL("/preview/index.html", "https://internal/"));
+      if (!assetRes.ok) return c.text("Preview not found", 404);
+      return new Response(await assetRes.text(), {
+        status: 200,
+        headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
+      });
     }
     let slug = pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
 
