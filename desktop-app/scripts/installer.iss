@@ -7,10 +7,9 @@
 
 #define MyAppName "Compressy"
 #ifndef MyAppVersion
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.3.0"
 #endif
-#define MyAppPublisher "Deno"
-#define MyAppExeName "Compressy.exe"
+#define MyAppPublisher "Compressy"
 
 [Setup]
 AppId={{B7E3F2A1-4C5D-4E6F-8A9B-0C1D2E3F4A5B}

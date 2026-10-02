@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Compressy MSIX manifest template — tokens stamped by scripts/build-msix.ps1:
+    __VERSION_QUAD__  e.g. 1.3.0.0 (derived from version.ts APP_VERSION semver)
+    __PUBLISHER__     e.g. CN=CompressyTest (local) — MUST equal the Partner
+                      Center Publisher CN exactly for the Store submission build.
+
+  Identity Name is a placeholder until the Store name reservation: replace
+  `Compressy.CompressyApp` with the reserved package identity name for the
+  submission build (the Store re-signs, so the test Publisher CN never ships).
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+  <Identity
+    Name="KhizarHasan.compressy"
+    Publisher="CN=37D8E2FF-AD68-47C8-8D29-8F08356789AD"
+    Version="__VERSION_QUAD__" />
+  <Properties>
+    <DisplayName>Compressy</DisplayName>
+    <PublisherDisplayName>Khizar Hasan</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+  <Capabilities>
+    <!-- Win32 launcher + vips.exe subprocess spawns + PowerShell picker: fullTrust is mandatory. Restricted: needs a justification note at submission. -->
+    <rescap:Capability Name="runFullTrust" />
+    <!-- Batch tool scans/compresses arbitrary user-chosen folders outside the sandbox. Restricted: needs justification; alternative is picker-only without it. -->
+    <rescap:Capability Name="broadFileSystemAccess" />
+  </Capabilities>
+  <Applications>
+    <Application Id="App" Executable="Compressy\Compressy.exe" EntryPoint="windows.fullTrustApplication">
+      <uap:VisualElements
+        DisplayName="Compressy"
+        Description="Batch image compressor for JPG, PNG, WebP and AVIF"
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png" />
+    </Application>
+  </Applications>
+</Package>
