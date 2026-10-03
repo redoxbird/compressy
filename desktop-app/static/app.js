@@ -282,7 +282,7 @@
         const resetDefaults = forceReset === true;
         if (!this.folder.trim()) return;
         this.scanning = true;
-        $("statusText").textContent = "Scanning…";
+        $("statusText").textContent = "Scanning " + this.folder.trim() + "…";
         try {
           const r = await bindings.scan(this.folder.trim());
           this.files = r.files;
