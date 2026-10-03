@@ -4,5 +4,7 @@ node_modules/
 .DS_Store
 public/test-images/*
 !public/test-images/.gitkeep
+!public/test-images/potd-*.jpg
+!public/test-images/potd-*.png
 test-images/*
 !test-images/.gitkeep

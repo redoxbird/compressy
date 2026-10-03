@@ -505,6 +505,7 @@ html[data-theme="dark"] .sz-new{color:#3fb950}
 [data-od-id="source-card"] .row{grid-template-columns:22px 36px 1fr 82px 64px}
 [data-od-id="source-card"] .row-head{grid-template-columns:22px 36px 1fr 82px 64px}
 [data-od-id="source-card"] .thumb{width:36px;height:36px;border-radius:4px;border:1px solid var(--border);background:var(--surface);overflow:hidden;display:grid;place-items:center;flex-shrink:0;position:relative}
+[data-od-id="source-card"] .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 [data-od-id="source-card"] .thumb svg{width:16px;height:16px;color:currentColor;opacity:.95}
 [data-od-id="source-card"] .thumb--jpg{background:color-mix(in srgb, var(--accent) 11%, white);border-color:color-mix(in srgb, var(--accent) 22%, var(--border));color:var(--accent)}
 [data-od-id="source-card"] .thumb--png{background:color-mix(in srgb, var(--done) 11%, white);border-color:color-mix(in srgb, var(--done) 22%, var(--border));color:var(--done)}
@@ -528,7 +529,8 @@ html[data-theme="dark"] .sz-new{color:#3fb950}
 [data-od-id="source-card"] .gcard.selected:hover{background:color-mix(in srgb, var(--accent) 15%, white)}
 [data-od-id="source-card"] .gcard input[type="checkbox"]{position:absolute;top:8px;right:8px;width:14px;height:14px;accent-color:var(--accent);margin:0;z-index:1}
 [data-od-id="source-card"] .gcard input[type="checkbox"]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-[data-od-id="source-card"] .gthumb{width:100%;aspect-ratio:4/3;border-radius:4px;border:1px solid var(--border);display:grid;place-items:center;overflow:hidden}
+[data-od-id="source-card"] .gthumb{width:100%;aspect-ratio:4/3;border-radius:4px;border:1px solid var(--border);display:grid;place-items:center;overflow:hidden;position:relative}
+[data-od-id="source-card"] .gthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 [data-od-id="source-card"] .gthumb svg{width:28px;height:28px;color:currentColor;opacity:.95}
 [data-od-id="source-card"] .gname{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--fg);padding-right:16px}
 [data-od-id="source-card"] .gmeta{font-family:var(--font-mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -927,7 +929,7 @@ html[data-theme="dark"] .fb-empty{color:#9d9d9d}
       <span class="pill pill--bg titlebar-encoding">UTF-8 · CRLF</span>
       <button class="icon-btn" aria-label="Minimize"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8" stroke="currentColor" stroke-width="1.4"/></svg></button>
       <button class="icon-btn" aria-label="Maximize"><svg width="12" height="12" viewBox="0 0 12 12"><rect x="2.5" y="2.5" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.2" rx="1"/></svg></button>
-      <button class="icon-btn" aria-label="Close"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3L3 9" stroke="currentColor" stroke-width="1.4"/></svg></button>
+      <button class="icon-btn" aria-label="Close" title="Back to home" onclick="location.href='/'"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3L3 9" stroke="currentColor" stroke-width="1.4"/></svg></button>
     </div>
   </div>
 
@@ -1098,24 +1100,19 @@ html[data-theme="dark"] .fb-empty{color:#9d9d9d}
     </div>
   </div>
 </div>
-
 <script>
 const FILES = [
-  {name:'hero-portfolio.jpg', type:'jpg', size:3420, w:3840, h:2160, mtime:1733126400, dir:''},
-  {name:'brand-sheet.png', type:'png', size:1890, w:2400, h:1600, mtime:1732953600, dir:'exports'},
-  {name:'team-photo-2024.jpg', type:'jpg', size:5120, w:6000, h:4000, mtime:1733212800, dir:'RAW'},
-  {name:'icon-set@2x.png', type:'png', size:420, w:1024, h:1024, mtime:1732780800, dir:''},
-  {name:'product-hero.webp', type:'webp', size:860, w:2000, h:1300, mtime:1733040000, dir:'exports'},
-  {name:'case-study-cover.jpg', type:'jpg', size:2780, w:3200, h:1800, mtime:1732867200, dir:'drafts'},
-  {name:'texture-grain.png', type:'png', size:3120, w:2800, h:1800, mtime:1732694400, dir:'RAW'},
-  {name:'avatar-daniel.avif', type:'avif', size:310, w:800, h:800, mtime:1733126400, dir:''},
-  {name:'landing-above-fold.jpg', type:'jpg', size:2210, w:2560, h:1440, mtime:1733299200, dir:'drafts'},
-  {name:'chart-export.png', type:'png', size:680, w:1600, h:900, mtime:1732953600, dir:'exports'},
-  {name:'gallery-14.webp', type:'webp', size:940, w:1800, h:1200, mtime:1733040000, dir:'exports/web'},
-  {name:'poster-print.jpg', type:'jpg', size:4650, w:4800, h:3200, mtime:1733212800, dir:'drafts'},
+  {name:'potd-01.png', type:'png', size:189, w:672, h:800, mtime:1789948800, dir:'', src:'img/potd-01.png'},
+  {name:'potd-02.jpg', type:'jpg', size:137, w:800, h:533, mtime:1789862400, dir:'', src:'img/potd-02.jpg'},
+  {name:'potd-03.jpg', type:'jpg', size:205, w:800, h:522, mtime:1789776000, dir:'', src:'img/potd-03.jpg'},
+  {name:'potd-04.jpg', type:'jpg', size:143, w:517, h:800, mtime:1789689600, dir:'', src:'img/potd-04.jpg'},
+  {name:'potd-05.jpg', type:'jpg', size:194, w:649, h:800, mtime:1789603200, dir:'', src:'img/potd-05.jpg'},
+  {name:'potd-06.jpg', type:'jpg', size:112, w:800, h:533, mtime:1789516800, dir:'', src:'img/potd-06.jpg'},
+  {name:'potd-07.jpg', type:'jpg', size:112, w:800, h:600, mtime:1789430400, dir:'', src:'img/potd-07.jpg'},
+  {name:'potd-08.jpg', type:'jpg', size:163, w:800, h:533, mtime:1789344000, dir:'', src:'img/potd-08.jpg'},
 ];
 
-let selected = new Set([0,1,2,5]); // preselected demo
+let selected = new Set([0,1,2,3]);
 let resultsByIdx = new Map(); // idx -> {before, after, saved, pct, w, h, origW, origH, resized, renamed, name}
 let isCompressing = false;
 
@@ -1188,6 +1185,11 @@ function renderFiles(){
     }
   } else {
     const thumbSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="10" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M3 11l3-3 2.5 2.3 2-1.8L13 11" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="11" cy="5.5" r="1.1" fill="currentColor"/></svg>`;
+    // Real-image thumbnails: files with `src` render <img> (cover-crop like the
+    // desktop app); files without fall back to the format-tinted SVG icon.
+    const thumbFor = (f) => f.src
+      ? `<img src="${f.src}" alt="" loading="lazy" decoding="async"><span style="display:none">${thumbSvg}</span>`
+      : thumbSvg;
     /* Folder groups — flat UI, subfolders first (A–Z), root files last */
     const byDir = new Map();
     list.forEach(f=>{ const d = f.dir||''; if(!byDir.has(d)) byDir.set(d,[]); byDir.get(d).push(f); });
@@ -1224,7 +1226,7 @@ function renderFiles(){
         card.title = f.name;
         card.innerHTML=`
           <input type="checkbox" ${selected.has(f.idx)?'checked':''} data-idx="${f.idx}">
-          <span class="g-thumb-wrap"><span class="gthumb thumb--${f.type}" aria-hidden="true">${thumbSvg}</span>${isComp ? '<span class="float-tag">Compressed</span>' : ''}</span>
+          <span class="g-thumb-wrap"><span class="gthumb thumb--${f.type}" aria-hidden="true">${thumbFor(f)}</span>${isComp ? '<span class="float-tag">Compressed</span>' : ''}</span>
           <span class="gname" title="${f.name}">${f.name}</span>
           <span class="gmeta">${isComp ? '<s>' + fmtKB(r.before) + '</s> → <strong class="sz-new">' + fmtKB(r.after) + '</strong> · ' + r.w + '×' + r.h : fmtKB(f.size) + ' · ' + f.w + '×' + f.h}</span>
         `;
@@ -1247,7 +1249,7 @@ function renderFiles(){
         const sizeText = isComp ? '<s>' + fmtKB(r.before) + '</s> → <strong class="sz-new">' + fmtKB(r.after) + '</strong>' : fmtKB(f.size);
         row.innerHTML=`
           <input type="checkbox" ${selected.has(f.idx)?'checked':''} data-idx="${f.idx}">
-          <span class="thumb-wrap"><span class="thumb thumb--${f.type}" aria-hidden="true">${thumbSvg}</span></span>
+          <span class="thumb-wrap"><span class="thumb thumb--${f.type}" aria-hidden="true">${thumbFor(f)}</span></span>
           <span class="file-meta">
             <span class="file-name" title="${f.name}">${f.name}${isComp ? '<span class="float-tag-inline">Compressed</span>' : ''}</span>
           </span>

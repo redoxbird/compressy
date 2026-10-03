@@ -161,16 +161,7 @@ export function createApp(deps: AppDeps = {}) {
     return c.text("Not found", 404);
   }
 
-  // Design preview — static demo page, served raw (never expanded/cached).
-  // File lives at public/preview/index.html; the nav links to /preview/.
-  app.get("/preview/*", async (c) => {
-    const assetRes = await c.env.ASSETS.fetch(new URL(`/preview/index.html`, "https://internal/"));
-    if (!assetRes.ok) return c.text("Preview not found", 404);
-    return new Response(await assetRes.text(), {
-      status: 200,
-      headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
-    });
-  });
+  // Design preview — handled inside the catch-all below (page + images).
 
   // Page catch-all — everything not matched above.
   app.get("*", async (c) => {
@@ -180,13 +171,22 @@ export function createApp(deps: AppDeps = {}) {
     } catch {
       return notFoundPage(c);
     }
-    // /preview (no trailing slash) → static demo page, same as /preview/.
-    if (pathname.replace(/\/+$/g, "").toLowerCase() === "/preview") {
-      const assetRes = await c.env.ASSETS.fetch(new URL("/preview/index.html", "https://internal/"));
+    // /preview tree (page + its images) → static files, same as /preview/.
+    // Served raw with no-store, never expanded/cached, excluded from SLUGS.
+    if (/^\/preview(\/|$)/i.test(pathname)) {
+      const clean = pathname.replace(/\/+$/g, "") || "/";
+      const assetPath = clean.toLowerCase() === "/preview" ? "/preview/index.html" : pathname;
+      const assetRes = await c.env.ASSETS.fetch(new URL(assetPath, "https://internal/"));
       if (!assetRes.ok) return c.text("Preview not found", 404);
-      return new Response(await assetRes.text(), {
+      const lower = assetPath.toLowerCase();
+      const type = lower.endsWith(".png") ? "image/png"
+        : lower.endsWith(".jpg") || lower.endsWith(".jpeg") ? "image/jpeg"
+        : lower.endsWith(".webp") ? "image/webp"
+        : lower.endsWith(".avif") ? "image/avif"
+        : "text/html; charset=utf-8";
+      return new Response(await assetRes.arrayBuffer(), {
         status: 200,
-        headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
+        headers: { "Content-Type": type, "Cache-Control": "no-store" },
       });
     }
     let slug = pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
